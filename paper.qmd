@@ -108,7 +108,7 @@ Both outputs will be saved in your working directory.
 
 # Referencing within your document
 
-To see how referencing works simply see the different examples for figures, tables and sections below. For instance in Section \@ref(sec:tables) you can find different ways of referencing tables. The code of the underlying `paper.qmd` will show you how I referenced Section \@ref(sec:tables) right here namely with '`Section \@ref(sec:tables)`'.
+To see how referencing works simply see the different examples for figures, tables and sections below. For instance in @sec-tables you can find different ways of referencing tables. The code of the underlying `paper.qmd` will show you how I referenced @sec-tables right here namely with '`@sec-tables`' whereas the corresponding section title was assigned the corresponding label '`# Tables {#sec-tables}`'.
 
 
 
@@ -174,7 +174,7 @@ data <- structure(list(Fertility = c(80.2, 83.1, 92.5, 85.8, 76.9), Agriculture 
 
 
 
-# Tables {#sec:tables}
+# Tables {#sec-tables}
 
 Producing good tables and referencing these tables within a R Markdown document has been a hassle but got much better. Examples that you may use are shown below.
 
@@ -182,15 +182,32 @@ Producing good tables and referencing these tables within a R Markdown document 
 
 ## Tables with kable() and kable_styling()
 
-A great function is `kable()` (`knitr` package) in combination with `kableExtra`. @tbl-2 provides an example. To reference the table produced by the chunk you need to add `#| label: tbl-x` at the start of the chunk, i.e., `#| label: tbl-2` and would reference it by adding "`@tbl-2`" in your text.
-
-
- {{
+A great function is `kable()` (`knitr` package) in combination with `kableExtra`. @tbl-2 provides an example. To reference the table produced by the chunk you need to add `#| label: tbl-x` at the start of the chunk, i.e., `#| label: tbl-1` and would reference it by adding "`@tbl-1`" in your text. See below for the full chunk code (the one that actually produces the table is hidden).
 
 
 
-```{r table-2, echo=TRUE}
-#| label: tbl-2
+
+
+```{{r}}
+#| label: tbl-1
+#| tbl-cap: "Summary: Numeric variables"
+
+library(knitr)
+library(kableExtra)
+
+kable(swiss[1:5,], row.names = TRUE, 
+      caption = 'Table with kable() and kablestyling()', 
+      format = "html", booktabs = T) %>%
+        kable_styling(full_width = T, 
+                      latex_options = c("striped", 
+                                        "scale_down",
+                                        "HOLD_position"),
+                      font_size = 11)
+```
+
+
+```{r table-2, echo=FALSE}
+#| label: tbl-1
 #| tbl-cap: "Summary: Numeric variables"
 
 library(knitr)
@@ -218,10 +235,10 @@ The `modelsummary` package provides a variety of tables and plots to summarize s
 
 ### Summarize numeric variables
 
-@tbl-3 shows a summary table for numeric variables. 
+@tbl-2 shows a summary table for numeric variables. 
 
 ```{r table-3, echo=TRUE}
-#| label: tbl-3
+#| label: tbl-2
 #| tbl-cap: "Summary: Numeric variables"
 
 library(modelsummary)
@@ -234,10 +251,10 @@ datasummary_skim(swiss,
 
 ### Summarize categorical variables
 
-@tbl-4 shows a summary table for categorical variables.
+@tbl-3 shows a summary table for categorical variables.
 
 ```{r table-4, echo=TRUE}
-#| label: tbl-4
+#| label: tbl-3
 #| tbl-cap: "Summary: Categorical variables"
 
 # Create categorical variables
@@ -270,10 +287,10 @@ tab_cat
 ## Regression table
 
 
-@tbl-5 shows the output for a regression table. Make sure you name all the models you estimate (even if its 50) and explicitly refer to model names (M1, M2 etc.) in the text.
+@tbl-4 shows the output for a regression table. Make sure you name all the models you estimate (even if its 50) and explicitly refer to model names (M1, M2 etc.) in the text.
 
 ```{r}
-#| label: tbl-5
+#| label: tbl-4
 #| tbl-cap: "Linear regression"
 
 library(modelsummary)

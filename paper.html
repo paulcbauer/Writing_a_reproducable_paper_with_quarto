@@ -240,7 +240,7 @@ div.csl-indent {
 </section>
 <section id="referencing-within-your-document" class="level1">
 <h1>Referencing within your document</h1>
-<p>To see how referencing works simply see the different examples for figures, tables and sections below. For instance in Section @ref(sec:tables) you can find different ways of referencing tables. The code of the underlying <code>paper.qmd</code> will show you how I referenced Section @ref(sec:tables) right here namely with ‘<code>Section \@ref(sec:tables)</code>’.</p>
+<p>To see how referencing works simply see the different examples for figures, tables and sections below. For instance in <a href="#sec-tables">Section&nbsp;8</a> you can find different ways of referencing tables. The code of the underlying <code>paper.qmd</code> will show you how I referenced <a href="#sec-tables">Section&nbsp;8</a> right here namely with ‘<code>@sec-tables</code>’ whereas the corresponding section title was assigned the corresponding label ‘<code># Tables {#sec-tables}</code>’.</p>
 </section>
 <section id="software-versioning" class="level1">
 <h1>Software versioning</h1>
@@ -298,27 +298,31 @@ div.csl-indent {
 </div>
 </section>
 </section>
-<section id="sec:tables" class="level1">
+<section id="sec-tables" class="level1">
 <h1>Tables</h1>
 <p>Producing good tables and referencing these tables within a R Markdown document has been a hassle but got much better. Examples that you may use are shown below.</p>
 <section id="tables-with-kable-and-kable_styling" class="level2">
 <h2 class="anchored" data-anchor-id="tables-with-kable-and-kable_styling">Tables with kable() and kable_styling()</h2>
-<p>A great function is <code>kable()</code> (<code>knitr</code> package) in combination with <code>kableExtra</code>. <a href="#tbl-2">Table&nbsp;1</a> provides an example. To reference the table produced by the chunk you need to add <code>#| label: tbl-x</code> at the start of the chunk, i.e., <code>#| label: tbl-2</code> and would reference it by adding “<code>@tbl-2</code>” in your text.</p>
-<p>{{</p>
+<p>A great function is <code>kable()</code> (<code>knitr</code> package) in combination with <code>kableExtra</code>. <a href="#tbl-2">Table&nbsp;2</a> provides an example. To reference the table produced by the chunk you need to add <code>#| label: tbl-x</code> at the start of the chunk, i.e., <code>#| label: tbl-1</code> and would reference it by adding “<code>@tbl-1</code>” in your text. See below for the full chunk code (the one that actually produces the table is hidden).</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-1</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Summary: Numeric variables"</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(swiss[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,], <span class="at">row.names =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">'Table with kable() and kablestyling()'</span>, </span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">format =</span> <span class="st">"html"</span>, <span class="at">booktabs =</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">kable_styling</span>(<span class="at">full_width =</span> T, </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>                      <span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, </span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"scale_down"</span>,</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"HOLD_position"</span>),</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>                      <span class="at">font_size =</span> <span class="dv">11</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(swiss[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,], <span class="at">row.names =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">'Table with kable() and kablestyling()'</span>, </span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">format =</span> <span class="st">"html"</span>, <span class="at">booktabs =</span> T) <span class="sc">%&gt;%</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">kable_styling</span>(<span class="at">full_width =</span> T, </span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, </span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"scale_down"</span>,</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"HOLD_position"</span>),</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>                      <span class="at">font_size =</span> <span class="dv">11</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="tbl-2" class="anchored">
+<div id="tbl-1" class="anchored">
 
 <table class="table" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">Table&nbsp;1:  Summary: Numeric variables </caption>
@@ -391,7 +395,7 @@ div.csl-indent {
 <p>The <code>modelsummary</code> package provides a variety of tables and plots to summarize statistical models and data in R. Modellsummary plots and tables are highly customizable and they can be saved to almost all formats, e.g., HTML, PDF and Markdown. This makes ist especially easy to embed them in dynamic documents. Please look at the package’s extensive <a href="https://vincentarelbundock.github.io/modelsummary/index.html">documentation</a> where they also show examples for almost any plot or table you might be looking for. In this template we demonstrate an example for modelsummary’s <code>datasummary</code> function. <code>Datasummary</code> creates frequency tables, crosstab tables, correlation tables, balance tables and many <strong>more</strong>.</p>
 <section id="summarize-numeric-variables" class="level3">
 <h3 class="anchored" data-anchor-id="summarize-numeric-variables">Summarize numeric variables</h3>
-<p><a href="#tbl-3">Table&nbsp;2</a> shows a summary table for numeric variables.</p>
+<p><a href="#tbl-2">Table&nbsp;2</a> shows a summary table for numeric variables.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_skim</span>(swiss, </span>
@@ -399,7 +403,7 @@ div.csl-indent {
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">histogram=</span>T, </span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">title =</span> <span class="st">"Summary: Numeric variables"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="tbl-3" class="anchored">
+<div id="tbl-2" class="anchored">
 
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>Table&nbsp;2:  Summary: Numeric variables </caption>
@@ -570,7 +574,7 @@ div.csl-indent {
 </section>
 <section id="summarize-categorical-variables" class="level3">
 <h3 class="anchored" data-anchor-id="summarize-categorical-variables">Summarize categorical variables</h3>
-<p><a href="#tbl-4">Table&nbsp;3</a> shows a summary table for categorical variables.</p>
+<p><a href="#tbl-3">Table&nbsp;3</a> shows a summary table for categorical variables.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create categorical variables</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>swiss<span class="sc">$</span>Education_cat <span class="ot">&lt;-</span> <span class="fu">cut</span>(swiss<span class="sc">$</span>Education, </span>
@@ -598,9 +602,9 @@ div.csl-indent {
 <span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>tab_cat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="tbl-4" class="anchored">
+<div id="tbl-3" class="anchored">
 
-<div class="tabwid"><style>.cl-b7ad7634{}.cl-b7a1c65e{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-b7a1c668{font-family:'Times New Roman';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-b7a65a5c{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 0.3;background-color:transparent;}.cl-b7a680ea{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b7a680f4{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b7a680f5{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-b7ad7634"><caption>Table&nbsp;3:  Summary: Categorical variables </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-b7a680ea"><p class="cl-b7a65a5c"><span class="cl-b7a1c65e"> </span></p></th><th class="cl-b7a680ea"><p class="cl-b7a65a5c"><span class="cl-b7a1c65e">  </span></p></th><th class="cl-b7a680ea"><p class="cl-b7a65a5c"><span class="cl-b7a1c65e">N</span></p></th><th class="cl-b7a680ea"><p class="cl-b7a65a5c"><span class="cl-b7a1c65e">%</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">Education_cat</span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">low</span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">14</span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">29.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668"></span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">middle</span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">22</span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">46.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668"></span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">high</span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">11</span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">23.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">Infant.Mortality_cat</span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">low</span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">12</span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">25.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668"></span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">middle</span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">23</span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">48.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b7a680f5"><p class="cl-b7a65a5c"><span class="cl-b7a1c668"></span></p></td><td class="cl-b7a680f5"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">high</span></p></td><td class="cl-b7a680f5"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">12</span></p></td><td class="cl-b7a680f5"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">25.5</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-2597c78c{}.cl-258b2e6e{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-258b2e78{font-family:'Times New Roman';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-25902fcc{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 0.3;background-color:transparent;}.cl-25904afc{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-25904b06{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-25904b07{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-2597c78c"><caption>Table&nbsp;3:  Summary: Categorical variables </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-25904afc"><p class="cl-25902fcc"><span class="cl-258b2e6e"> </span></p></th><th class="cl-25904afc"><p class="cl-25902fcc"><span class="cl-258b2e6e">  </span></p></th><th class="cl-25904afc"><p class="cl-25902fcc"><span class="cl-258b2e6e">N</span></p></th><th class="cl-25904afc"><p class="cl-25902fcc"><span class="cl-258b2e6e">%</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">Education_cat</span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">low</span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">14</span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">29.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78"></span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">middle</span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">22</span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">46.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78"></span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">high</span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">11</span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">23.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">Infant.Mortality_cat</span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">low</span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">12</span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">25.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78"></span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">middle</span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">23</span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">48.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-25904b07"><p class="cl-25902fcc"><span class="cl-258b2e78"></span></p></td><td class="cl-25904b07"><p class="cl-25902fcc"><span class="cl-258b2e78">high</span></p></td><td class="cl-25904b07"><p class="cl-25902fcc"><span class="cl-258b2e78">12</span></p></td><td class="cl-25904b07"><p class="cl-25902fcc"><span class="cl-258b2e78">25.5</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </div>
@@ -608,17 +612,17 @@ div.csl-indent {
 </section>
 <section id="regression-table" class="level2">
 <h2 class="anchored" data-anchor-id="regression-table">Regression table</h2>
-<p><a href="#tbl-5">Table&nbsp;4</a> shows the output for a regression table. Make sure you name all the models you estimate (even if its 50) and explicitly refer to model names (M1, M2 etc.) in the text.</p>
+<p><a href="#tbl-4">Table&nbsp;4</a> shows the output for a regression table. Make sure you name all the models you estimate (even if its 50) and explicitly refer to model names (M1, M2 etc.) in the text.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="tbl-5" class="anchored">
+<div id="tbl-4" class="anchored">
 
-<div id="pvvgbhidyv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="irvkhydozd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#pvvgbhidyv) .gt_table {
+:where(#irvkhydozd) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -643,7 +647,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#pvvgbhidyv) .gt_heading {
+:where(#irvkhydozd) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -655,12 +659,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#pvvgbhidyv) .gt_caption {
+:where(#irvkhydozd) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#pvvgbhidyv) .gt_title {
+:where(#irvkhydozd) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -672,7 +676,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#pvvgbhidyv) .gt_subtitle {
+:where(#irvkhydozd) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -684,13 +688,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#pvvgbhidyv) .gt_bottom_border {
+:where(#irvkhydozd) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
 }
 
-:where(#pvvgbhidyv) .gt_col_headings {
+:where(#irvkhydozd) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #000000;
@@ -705,7 +709,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#pvvgbhidyv) .gt_col_heading {
+:where(#irvkhydozd) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -725,7 +729,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#pvvgbhidyv) .gt_column_spanner_outer {
+:where(#irvkhydozd) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -737,15 +741,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#pvvgbhidyv) .gt_column_spanner_outer:first-child {
+:where(#irvkhydozd) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#pvvgbhidyv) .gt_column_spanner_outer:last-child {
+:where(#irvkhydozd) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#pvvgbhidyv) .gt_column_spanner {
+:where(#irvkhydozd) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
@@ -757,7 +761,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#pvvgbhidyv) .gt_group_heading {
+:where(#irvkhydozd) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -783,7 +787,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#pvvgbhidyv) .gt_empty_group_heading {
+:where(#irvkhydozd) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -798,15 +802,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#pvvgbhidyv) .gt_from_md > :first-child {
+:where(#irvkhydozd) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#pvvgbhidyv) .gt_from_md > :last-child {
+:where(#irvkhydozd) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#pvvgbhidyv) .gt_row {
+:where(#irvkhydozd) .gt_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -825,7 +829,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#pvvgbhidyv) .gt_stub {
+:where(#irvkhydozd) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -838,7 +842,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#pvvgbhidyv) .gt_stub_row_group {
+:where(#irvkhydozd) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -852,11 +856,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#pvvgbhidyv) .gt_row_group_first td {
+:where(#irvkhydozd) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#pvvgbhidyv) .gt_summary_row {
+:where(#irvkhydozd) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -866,16 +870,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#pvvgbhidyv) .gt_first_summary_row {
+:where(#irvkhydozd) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#pvvgbhidyv) .gt_first_summary_row.thick {
+:where(#irvkhydozd) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#pvvgbhidyv) .gt_last_summary_row {
+:where(#irvkhydozd) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -885,7 +889,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#pvvgbhidyv) .gt_grand_summary_row {
+:where(#irvkhydozd) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -895,7 +899,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#pvvgbhidyv) .gt_first_grand_summary_row {
+:where(#irvkhydozd) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -905,11 +909,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#pvvgbhidyv) .gt_striped {
+:where(#irvkhydozd) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#pvvgbhidyv) .gt_table_body {
+:where(#irvkhydozd) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -918,7 +922,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#pvvgbhidyv) .gt_footnotes {
+:where(#irvkhydozd) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -932,7 +936,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#pvvgbhidyv) .gt_footnote {
+:where(#irvkhydozd) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -941,7 +945,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#pvvgbhidyv) .gt_sourcenotes {
+:where(#irvkhydozd) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -955,7 +959,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#pvvgbhidyv) .gt_sourcenote {
+:where(#irvkhydozd) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -963,64 +967,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#pvvgbhidyv) .gt_left {
+:where(#irvkhydozd) .gt_left {
   text-align: left;
 }
 
-:where(#pvvgbhidyv) .gt_center {
+:where(#irvkhydozd) .gt_center {
   text-align: center;
 }
 
-:where(#pvvgbhidyv) .gt_right {
+:where(#irvkhydozd) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#pvvgbhidyv) .gt_font_normal {
+:where(#irvkhydozd) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#pvvgbhidyv) .gt_font_bold {
+:where(#irvkhydozd) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#pvvgbhidyv) .gt_font_italic {
+:where(#irvkhydozd) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#pvvgbhidyv) .gt_super {
+:where(#irvkhydozd) .gt_super {
   font-size: 65%;
 }
 
-:where(#pvvgbhidyv) .gt_footnote_marks {
+:where(#irvkhydozd) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#pvvgbhidyv) .gt_asterisk {
+:where(#irvkhydozd) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#pvvgbhidyv) .gt_indent_1 {
+:where(#irvkhydozd) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#pvvgbhidyv) .gt_indent_2 {
+:where(#irvkhydozd) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#pvvgbhidyv) .gt_indent_3 {
+:where(#irvkhydozd) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#pvvgbhidyv) .gt_indent_4 {
+:where(#irvkhydozd) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#pvvgbhidyv) .gt_indent_5 {
+:where(#irvkhydozd) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
