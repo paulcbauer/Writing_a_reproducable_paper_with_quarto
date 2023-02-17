@@ -159,7 +159,7 @@ div.csl-indent {
 <div>
   <div class="abstract">
     <div class="abstract-title">Abstract</div>
-    The present paper provides a template to write a reproducible scientific paper with R Markdown and Pagedown.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Below we outline some of the “tricks”/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be <a href="https://drive.google.com/drive/folders/1rWzj-Bu1EKqkSuE1gaFzduBJhzlThpkw?usp=sharing">downloaded here</a>. Importantly, we also provide different CSS and HTML files that can be used to achieve a pdf output with the look of a “working paper”. We are convinced that in the future there will be many improvements and developments with regards to RStudio, R markdown and Pagedown. We intend to update this file when we discover more convenient code. You can follow any updates on the <a href="https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/">github repository</a>.
+    The present paper provides a template to write a reproducible scientific paper with Quarto. It is based on earlier Pagedown/RMarkdown templates that can be downloaded <a href="https://osf.io/k8jhx/">here</a> <span class="citation" data-cites="Bauer2018-dl">(<a href="#ref-Bauer2018-dl" role="doc-biblioref">Bauer 2018</a>)</span> and <a href="https://osf.io/q395s">here</a> <span class="citation" data-cites="Bauer2021-dl">(<a href="#ref-Bauer2021-dl" role="doc-biblioref">Bauer and Landesvatter 2021</a>)</span>. Below we outline some of the “tricks”/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be <a href="https://drive.google.com/drive/folders/1eT_9WaineZRB-nw-cQhNOy16sWhd_t2s?usp=sharing">downloaded here</a>. We are convinced that in the future there will be many improvements and developments with regards to RStudio and Quarto. We intend to update this file when we discover more convenient code. You can follow any updates on the <a href="https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/">github repository</a>.
   </div>
 </div>
 
@@ -220,7 +220,7 @@ div.csl-indent {
 <li>I use paperpile to manage my references and export the <code>.bib</code> file into the folder that contains my <code>.qmd</code> file.</li>
 </ul></li>
 <li><code>data.csv</code> (some raw data).</li>
-<li><code>american-sociological-association.csl</code> (defines the style of your bibliography).<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></li>
+<li><code>american-sociological-association.csl</code> (defines the style of your bibliography).<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
 </ul>
 <ol start="2" type="1">
 <li>the “styling” files:</li>
@@ -233,7 +233,7 @@ div.csl-indent {
 <li><code>wp-pages.css</code></li>
 </ul>
 <p>Take <code>paper.qmd</code> (the underlying R Markdown file of this pdf) and have a look at the YAML (line #18 - #22) to see how to specifiy these files. Basically, what happens here is that within the <a href="https://rdrr.io/cran/pagedown/man/jss_paged.html">jss_paged function</a> we additionally specify that we want to use custom CSS and custom HTML.</p>
-<p><a href="https://drive.google.com/drive/folders/1rWzj-Bu1EKqkSuE1gaFzduBJhzlThpkw?usp=sharing">Download these files</a> and save them into a folder. Close R/Rstudio and directly open <code>paper_pagedown.qmd</code> with RStudio. Doing so assures that the working directory is set to the folder that contains <code>paper.qmd</code> and the other files.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p><a href="https://drive.google.com/drive/folders/1rWzj-Bu1EKqkSuE1gaFzduBJhzlThpkw?usp=sharing">Download these files</a> and save them into a folder. Close R/Rstudio and directly open <code>paper_pagedown.qmd</code> with RStudio. Doing so assures that the working directory is set to the folder that contains <code>paper.qmd</code> and the other files.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <p>Once you run/compile the <code>paper.qmd</code> file in Rstudio it creates a output file called <code>paper_pagedown.html</code>.</p>
 <p>By using pagedown’s <code>chrome_print</code> function in the YAML (line #25) your html based web page will be printed to <code>paper_pagedown.pdf</code> (the one you are reading right now).</p>
 <p>Both outputs will be saved in your working directory.</p>
@@ -600,7 +600,7 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="tbl-4" class="anchored">
 
-<div class="tabwid"><style>.cl-d282c18a{}.cl-d2765cb0{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-d2765cc4{font-family:'Times New Roman';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-d27b5f94{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 0.3;background-color:transparent;}.cl-d27b7b28{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d27b7b29{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d27b7b2a{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-d282c18a"><caption>Table&nbsp;3:  Summary: Categorical variables </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-d27b7b28"><p class="cl-d27b5f94"><span class="cl-d2765cb0"> </span></p></th><th class="cl-d27b7b28"><p class="cl-d27b5f94"><span class="cl-d2765cb0">  </span></p></th><th class="cl-d27b7b28"><p class="cl-d27b5f94"><span class="cl-d2765cb0">N</span></p></th><th class="cl-d27b7b28"><p class="cl-d27b5f94"><span class="cl-d2765cb0">%</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">Education_cat</span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">low</span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">14</span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">29.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4"></span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">middle</span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">22</span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">46.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4"></span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">high</span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">11</span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">23.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">Infant.Mortality_cat</span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">low</span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">12</span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">25.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4"></span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">middle</span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">23</span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">48.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d27b7b2a"><p class="cl-d27b5f94"><span class="cl-d2765cc4"></span></p></td><td class="cl-d27b7b2a"><p class="cl-d27b5f94"><span class="cl-d2765cc4">high</span></p></td><td class="cl-d27b7b2a"><p class="cl-d27b5f94"><span class="cl-d2765cc4">12</span></p></td><td class="cl-d27b7b2a"><p class="cl-d27b5f94"><span class="cl-d2765cc4">25.5</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-b7ad7634{}.cl-b7a1c65e{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-b7a1c668{font-family:'Times New Roman';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-b7a65a5c{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 0.3;background-color:transparent;}.cl-b7a680ea{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b7a680f4{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b7a680f5{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-b7ad7634"><caption>Table&nbsp;3:  Summary: Categorical variables </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-b7a680ea"><p class="cl-b7a65a5c"><span class="cl-b7a1c65e"> </span></p></th><th class="cl-b7a680ea"><p class="cl-b7a65a5c"><span class="cl-b7a1c65e">  </span></p></th><th class="cl-b7a680ea"><p class="cl-b7a65a5c"><span class="cl-b7a1c65e">N</span></p></th><th class="cl-b7a680ea"><p class="cl-b7a65a5c"><span class="cl-b7a1c65e">%</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">Education_cat</span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">low</span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">14</span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">29.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668"></span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">middle</span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">22</span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">46.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668"></span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">high</span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">11</span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">23.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">Infant.Mortality_cat</span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">low</span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">12</span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">25.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668"></span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">middle</span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">23</span></p></td><td class="cl-b7a680f4"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">48.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b7a680f5"><p class="cl-b7a65a5c"><span class="cl-b7a1c668"></span></p></td><td class="cl-b7a680f5"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">high</span></p></td><td class="cl-b7a680f5"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">12</span></p></td><td class="cl-b7a680f5"><p class="cl-b7a65a5c"><span class="cl-b7a1c668">25.5</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </div>
@@ -613,12 +613,12 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="tbl-5" class="anchored">
 
-<div id="dpsldicgdy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="pvvgbhidyv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#dpsldicgdy) .gt_table {
+:where(#pvvgbhidyv) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -643,7 +643,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#dpsldicgdy) .gt_heading {
+:where(#pvvgbhidyv) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -655,12 +655,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#dpsldicgdy) .gt_caption {
+:where(#pvvgbhidyv) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#dpsldicgdy) .gt_title {
+:where(#pvvgbhidyv) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -672,7 +672,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#dpsldicgdy) .gt_subtitle {
+:where(#pvvgbhidyv) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -684,13 +684,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#dpsldicgdy) .gt_bottom_border {
+:where(#pvvgbhidyv) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
 }
 
-:where(#dpsldicgdy) .gt_col_headings {
+:where(#pvvgbhidyv) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #000000;
@@ -705,7 +705,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#dpsldicgdy) .gt_col_heading {
+:where(#pvvgbhidyv) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -725,7 +725,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#dpsldicgdy) .gt_column_spanner_outer {
+:where(#pvvgbhidyv) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -737,15 +737,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#dpsldicgdy) .gt_column_spanner_outer:first-child {
+:where(#pvvgbhidyv) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#dpsldicgdy) .gt_column_spanner_outer:last-child {
+:where(#pvvgbhidyv) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#dpsldicgdy) .gt_column_spanner {
+:where(#pvvgbhidyv) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
@@ -757,7 +757,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#dpsldicgdy) .gt_group_heading {
+:where(#pvvgbhidyv) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -783,7 +783,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#dpsldicgdy) .gt_empty_group_heading {
+:where(#pvvgbhidyv) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -798,15 +798,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#dpsldicgdy) .gt_from_md > :first-child {
+:where(#pvvgbhidyv) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#dpsldicgdy) .gt_from_md > :last-child {
+:where(#pvvgbhidyv) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#dpsldicgdy) .gt_row {
+:where(#pvvgbhidyv) .gt_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -825,7 +825,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#dpsldicgdy) .gt_stub {
+:where(#pvvgbhidyv) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -838,7 +838,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#dpsldicgdy) .gt_stub_row_group {
+:where(#pvvgbhidyv) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -852,11 +852,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#dpsldicgdy) .gt_row_group_first td {
+:where(#pvvgbhidyv) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#dpsldicgdy) .gt_summary_row {
+:where(#pvvgbhidyv) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -866,16 +866,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#dpsldicgdy) .gt_first_summary_row {
+:where(#pvvgbhidyv) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#dpsldicgdy) .gt_first_summary_row.thick {
+:where(#pvvgbhidyv) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#dpsldicgdy) .gt_last_summary_row {
+:where(#pvvgbhidyv) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -885,7 +885,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#dpsldicgdy) .gt_grand_summary_row {
+:where(#pvvgbhidyv) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -895,7 +895,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#dpsldicgdy) .gt_first_grand_summary_row {
+:where(#pvvgbhidyv) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -905,11 +905,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#dpsldicgdy) .gt_striped {
+:where(#pvvgbhidyv) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#dpsldicgdy) .gt_table_body {
+:where(#pvvgbhidyv) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -918,7 +918,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#dpsldicgdy) .gt_footnotes {
+:where(#pvvgbhidyv) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -932,7 +932,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#dpsldicgdy) .gt_footnote {
+:where(#pvvgbhidyv) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -941,7 +941,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#dpsldicgdy) .gt_sourcenotes {
+:where(#pvvgbhidyv) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -955,7 +955,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#dpsldicgdy) .gt_sourcenote {
+:where(#pvvgbhidyv) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -963,64 +963,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#dpsldicgdy) .gt_left {
+:where(#pvvgbhidyv) .gt_left {
   text-align: left;
 }
 
-:where(#dpsldicgdy) .gt_center {
+:where(#pvvgbhidyv) .gt_center {
   text-align: center;
 }
 
-:where(#dpsldicgdy) .gt_right {
+:where(#pvvgbhidyv) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#dpsldicgdy) .gt_font_normal {
+:where(#pvvgbhidyv) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#dpsldicgdy) .gt_font_bold {
+:where(#pvvgbhidyv) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#dpsldicgdy) .gt_font_italic {
+:where(#pvvgbhidyv) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#dpsldicgdy) .gt_super {
+:where(#pvvgbhidyv) .gt_super {
   font-size: 65%;
 }
 
-:where(#dpsldicgdy) .gt_footnote_marks {
+:where(#pvvgbhidyv) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#dpsldicgdy) .gt_asterisk {
+:where(#pvvgbhidyv) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#dpsldicgdy) .gt_indent_1 {
+:where(#pvvgbhidyv) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#dpsldicgdy) .gt_indent_2 {
+:where(#pvvgbhidyv) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#dpsldicgdy) .gt_indent_3 {
+:where(#pvvgbhidyv) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#dpsldicgdy) .gt_indent_4 {
+:where(#pvvgbhidyv) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#dpsldicgdy) .gt_indent_5 {
+:where(#pvvgbhidyv) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1162,7 +1162,7 @@ Researchers often avoid referring to results in-text etc. because you easily for
 </section>
 <section id="compiling-the-document" class="level1">
 <h1>Compiling the document</h1>
-<p>To view your paper, pagedown requires a web server (since it is based on paged.js)<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. By compiling a document, R Studio will display your HTML page through a local web server, i.e., paged.js will work in RStudio Viewer.</p>
+<p>To view your paper, pagedown requires a web server (since it is based on paged.js)<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. By compiling a document, R Studio will display your HTML page through a local web server, i.e., paged.js will work in RStudio Viewer.</p>
 <p>There are several options, depending on your intention:</p>
 <ul>
 <li><p>click on the <code>Knit</code> button in R Studio which by default will provide a HTML document in the RStudio viewer pane (the HTML will be stored in your working directory)</p></li>
@@ -1175,7 +1175,7 @@ Researchers often avoid referring to results in-text etc. because you easily for
 <h1>Good practices for reproducibility</h1>
 <p>Every researcher has his own optimized setup. Currently we would recommend the following:</p>
 <ul>
-<li>Keep all files of your project (that matter for producing the PDF) in one folder without subfolders. You can zip and directly upload that folder to the <a href="https://dataverse.harvard.edu/">Harvard dataverse</a>.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></li>
+<li>Keep all files of your project (that matter for producing the PDF) in one folder without subfolders. You can zip and directly upload that folder to the <a href="https://dataverse.harvard.edu/">Harvard dataverse</a>.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></li>
 <li>Make sure that filenames have a logic to them.
 <ul>
 <li>Main file with text/code: “paper.qmd”, “report.qmd”</li>
@@ -1243,7 +1243,10 @@ Researchers often avoid referring to results in-text etc. because you easily for
 <h1 class="unnumbered">References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-Bauer2018-dl" class="csl-entry" role="doc-biblioentry">
-Bauer, Paul. 2018. <span>“Writing a Reproducible Paper in <span>R</span> Markdown.”</span> <em>Open Science Framework Preprint</em>, December, 1–14.
+Bauer, Paul. 2018. <span>“Writing a Reproducible Paper in <span>R</span> Markdown.”</span> <em>Open Science Framework Preprint</em>, 1–14.
+</div>
+<div id="ref-Bauer2021-dl" class="csl-entry" role="doc-biblioentry">
+Bauer, Paul, and Camille Landesvatter. 2021. <span>“Writing a Reproducible Paper with <span>R</span> Markdown and Pagedown.”</span> <em>Open Science Framework Preprint</em>, 1–15.
 </div>
 <div id="ref-Kirsop2005-ro" class="csl-entry" role="doc-biblioentry">
 Kirsop, Barbara, and Leslie Chan. 2005. <span>“Transforming Access to Research Literature for Developing Countries.”</span> <em>Serials Review</em> 31 (4): 246–55.
@@ -1440,11 +1443,10 @@ loaded via a namespace (and not attached):
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>Based on an earlier R Markdown template that uses Latex and can be downloaded under https://osf.io/q395s <span class="citation" data-cites="Bauer2018-dl">(see <a href="#ref-Bauer2018-dl" role="doc-biblioref">Bauer 2018</a>)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>You can download various citation style files from this webpage: https://github.com/citation-style-language/styles.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>You can always check your working directory in R with <code>getwd()</code>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>open-source library to paginate content in the browser<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>Another good folder setup would be to store all files needed as input files for the R Markdown manuscript in a subfolder called “input” and all output files that are produced apart from paper.html and paper.pdf in a subfolder called “output”.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>You can download various citation style files from this webpage: https://github.com/citation-style-language/styles.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>You can always check your working directory in R with <code>getwd()</code>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>open-source library to paginate content in the browser<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Another good folder setup would be to store all files needed as input files for the R Markdown manuscript in a subfolder called “input” and all output files that are produced apart from paper.html and paper.pdf in a subfolder called “output”.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main>
 <!-- /main column -->
