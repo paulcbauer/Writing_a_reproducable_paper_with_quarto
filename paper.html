@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Paul C. Bauer, Camille Landesvatter">
+
+<title>Writing a reproducible paper with Quarto</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="paper_files/libs/clipboard/clipboard.min.js"></script>
+<script src="paper_files/libs/quarto-html/quarto.js"></script>
+<script src="paper_files/libs/quarto-html/popper.min.js"></script>
+<script src="paper_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="paper_files/libs/quarto-html/anchor.min.js"></script>
+<link href="paper_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="paper_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="paper_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="paper_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="paper_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+<script src="paper_files/libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="paper_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="paper_files/libs/tabwid-1.1.2/tabwid.css" rel="stylesheet">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Writing a reproducible paper with Quarto</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Paul C. Bauer, Camille Landesvatter </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Invalid Date</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="abstract-title">Abstract</div>
+    The present paper provides a template to write a reproducible scientific paper with R Markdown and Pagedown.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Below we outline some of the “tricks”/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be <a href="https://drive.google.com/drive/folders/1rWzj-Bu1EKqkSuE1gaFzduBJhzlThpkw?usp=sharing">downloaded here</a>. Importantly, we also provide different CSS and HTML files that can be used to achieve a pdf output with the look of a “working paper”. We are convinced that in the future there will be many improvements and developments with regards to RStudio, R markdown and Pagedown. We intend to update this file when we discover more convenient code. You can follow any updates on the <a href="https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/">github repository</a>.
+  </div>
+</div>
+
+</header>
+
+<section id="why-reproducible-research-in-r" class="level1">
+<h1>Why reproducible research (in R)?</h1>
+<p>Some arguments…</p>
+<ul>
+<li><p><strong>Access</strong>: Research is normally funded by taxpayers (researchers are also taxpayers). Hence, it should be freely accessible to everyone without any barriers, e.g., without requiring commercial software. Importantly, researchers from developing countries are even more dependent on free access to knowledge <span class="citation" data-cites="Kirsop2005-ro">(<a href="#ref-Kirsop2005-ro" role="doc-biblioref">Kirsop and Chan 2005</a>)</span>.</p></li>
+<li><p><strong>Reproducability</strong>: Even if you have written a study and analyzed the data yourself you will forget what you did after a few months. A fully reproducible setup will help you to trace back your own steps. Obviously, the same is true for other researchers who may want to understand your work and built on it. It may sound like a joke but why not aim for a document that can be used to reproduce your findings in 500 years.</p></li>
+<li><p><strong>Errors</strong>: Manual steps in data analysis (e.g., manually copy/pasting values into a table etc.) may introduce errors. R Markdown allows you to <strong>automatize</strong> such steps and/or avoid them.</p></li>
+<li><p><strong>Revisions</strong>: Revising a paper takes much less time if you have all the code you need in one place, i.e., one <code>.qmd</code> file. For instance, if you decide to exclude a subset of your data you simply need to insert one line of your code at the beginning and everything is rebuilt/re-estimated automatically.</p></li>
+</ul>
+</section>
+<section id="why-quarto" class="level1">
+<h1>Why Quarto?</h1>
+<p>Formatting text as PDF is probably one of the most widespread standards in the scientific community, especially when it comes to submitting papers and similar documents. The traditional way to well-formatted and good-looking PDFs is often through LaTeX or Word. However, if you have spent hours and hours debugging latex code (or getting it to run) you may be on the lookout for something new.</p>
+<p>The fairly new <code>pagedown</code> R package takes a completely new approach. While the main purpose of pagedown is to create high-quality PDFs, the idea is to take advantage of modern web technologies (HTML/JSS/Javascript) with which one can design web pages and eventually print those to PDF.</p>
+<p>While web pages are usually single-page scrollable documents, pagedown uses the JavaScript library <code>Paged.js</code> which allows documents to be paginated with elements like headers, footers and everything a readable scientific paper will need. Additionally, pagedown documents are based on R Markdown. In our view, Pagedown and the underlying technology may replace Latex in the long run. In the near future it should also be possible to produce a PDF with static graph and an equivalent html with interactive graps (see dicsussion <a href="https://github.com/rstudio/pagedown/pull/87">here</a>).</p>
+</section>
+<section id="prerequesites" class="level1">
+<h1>Prerequesites</h1>
+<p>We assume that you are using R on a day-to-day basis and you may have even started to work in R Markdown. If you don’t know what R Markdown is there are many great resources that you should use (e.g.&nbsp;watch this <a href="https://vimeo.com/178485416">short video</a>). An older template [see <span class="citation" data-cites="Bauer2018-dl">Bauer (<a href="#ref-Bauer2018-dl" role="doc-biblioref">2018</a>)</span>; https://osf.io/q395s] on which this newer template is based, may provide a quick entry point to writing a reproducible with R Markdown and Latex.</p>
+<p>Based on R Markdown, Pagedown allows you to create custom and well-formatted (paged) HTML Documents. For a comprehensive overview watch <a href="https://www.rstudio.com/resources/rstudioconf-2019/pagedown-creating-beautiful-pdfs-with-r-markdown-and-css/">this video</a> which is a record of a talk introducing <code>pagedown</code> given by Yihui Xie (who in addition to Romain Lesur developed the <code>pagedown</code> package). If you are not in a video watching mood find the slides <a href="https://slides.yihui.org/2019-rstudio-conf-pagedown.html#1">here</a>.</p>
+<p>Then…</p>
+<ul>
+<li>…install <a href="https://www.r-project.org/">R</a> and <a href="https://www.rstudio.com/">Rstudio</a> (most recent versions) <span class="citation" data-cites="R2017 Rstudio2015">(<a href="#ref-R2017" role="doc-biblioref">R Core Team 2017</a>; <a href="#ref-Rstudio2015" role="doc-biblioref">RStudio Team 2015</a>)</span>.</li>
+<li>…install the “pagedown”-package from github using the code below <span class="citation" data-cites="Xie2021-bi Xie2021-ls">(<a href="#ref-Xie2021-bi" role="doc-biblioref">Xie and Lesur 2021</a>; <a href="#ref-Xie2021-ls" role="doc-biblioref">Xie et al. 2021</a>)</span>.</li>
+</ul>
+<div class="cell">
+
+</div>
+<ul>
+<li>…also install the packages below using the code below <span class="citation" data-cites="bookdown1 bookdown2 knitr1 knitr2 knitr3 kableextra">(<a href="#ref-bookdown1" role="doc-biblioref">Xie 2017</a>, <a href="#ref-bookdown2" role="doc-biblioref">2016</a>, <a href="#ref-knitr1" role="doc-biblioref">2018</a>, <a href="#ref-knitr2" role="doc-biblioref">2015</a>, <a href="#ref-knitr3" role="doc-biblioref">2014</a>; <a href="#ref-kableextra" role="doc-biblioref">Zhu 2017</a>)</span>.</li>
+</ul>
+<div class="cell">
+
+</div>
+<ul>
+<li>…download the 4 input files we created — <code>paper.qmd</code>, <code>references.bib</code>, <code>data.csv</code> and <code>american-sociological-association.csl</code> — from <a href="https://drive.google.com/drive/folders/1rWzj-Bu1EKqkSuE1gaFzduBJhzlThpkw?usp=sharing">this folder</a>. Ignore the other files.</li>
+<li>…also download the 4 styling files we created: <code>wp_paged.html</code>, <code>wp.css</code>, <code>wp-fonts.css</code> and <code>wp-pages.css</code>.</li>
+<li>…store all 8 files from above together in one folder (and use this folder as your working directory later on)</li>
+<li>…learn R and read about the other underlying components namely <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>, <a href="https://rmarkdown.rstudio.com/lesson-1.html">R Markdown</a> and <a href="https://pagedown.rbind.io/">Pagedown</a>.</li>
+<li>…pagedown comes with several Rmd-templates (presentations, poster, thesis, etc.) and via this review we provide another template for a working paper style. If however you want to modify single aspects or create your own template, you will need to at least gain some basic skills in <a href="https://www.w3schools.com/css/">CSS</a> and <a href="https://www.w3schools.com/html/">HTML</a>.</li>
+</ul>
+</section>
+<section id="basics-input-files-output-files-and-the-yaml-header" class="level1">
+<h1>Basics: Input files, output files and the YAML header</h1>
+<p>All the files you need to produce the present PDF file are:</p>
+<ol type="1">
+<li>the input files:</li>
+</ol>
+<ul>
+<li><code>paper.qmd</code> (the underlying R Markdown file).</li>
+<li><code>references.bib</code> (the bibliography).
+<ul>
+<li>I use paperpile to manage my references and export the <code>.bib</code> file into the folder that contains my <code>.qmd</code> file.</li>
+</ul></li>
+<li><code>data.csv</code> (some raw data).</li>
+<li><code>american-sociological-association.csl</code> (defines the style of your bibliography).<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></li>
+</ul>
+<ol start="2" type="1">
+<li>the “styling” files:</li>
+</ol>
+<p>Basically, these are files you will need to specify in the YAML of your rmd-file, so that R and ultimately pagedown recognizes the certain style you want to achieve for your document. With using our templates, you will create a document that has the “look” of a working paper (we based our files on the <a href="https://github.com/rstudio/pagedown#journal-of-statistical-software-article-pagedownjss_paged">jss_paged pagedown format</a>).</p>
+<ul>
+<li><code>wp_paged.html</code> (based on <code>jss_paged.html</code>)</li>
+<li><code>wp.css</code></li>
+<li><code>wp-fonts.css</code></li>
+<li><code>wp-pages.css</code></li>
+</ul>
+<p>Take <code>paper.qmd</code> (the underlying R Markdown file of this pdf) and have a look at the YAML (line #18 - #22) to see how to specifiy these files. Basically, what happens here is that within the <a href="https://rdrr.io/cran/pagedown/man/jss_paged.html">jss_paged function</a> we additionally specify that we want to use custom CSS and custom HTML.</p>
+<p><a href="https://drive.google.com/drive/folders/1rWzj-Bu1EKqkSuE1gaFzduBJhzlThpkw?usp=sharing">Download these files</a> and save them into a folder. Close R/Rstudio and directly open <code>paper_pagedown.qmd</code> with RStudio. Doing so assures that the working directory is set to the folder that contains <code>paper.qmd</code> and the other files.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p>Once you run/compile the <code>paper.qmd</code> file in Rstudio it creates a output file called <code>paper_pagedown.html</code>.</p>
+<p>By using pagedown’s <code>chrome_print</code> function in the YAML (line #25) your html based web page will be printed to <code>paper_pagedown.pdf</code> (the one you are reading right now).</p>
+<p>Both outputs will be saved in your working directory.</p>
+</section>
+<section id="referencing-within-your-document" class="level1">
+<h1>Referencing within your document</h1>
+<p>To see how referencing works simply see the different examples for figures, tables and sections below. For instance in Section @ref(sec:tables) you can find different ways of referencing tables. The code of the underlying <code>paper.qmd</code> will show you how I referenced Section @ref(sec:tables) right here namely with ‘<code>Section \@ref(sec:tables)</code>’.</p>
+</section>
+<section id="software-versioning" class="level1">
+<h1>Software versioning</h1>
+<p>Software changes and gets updated, especially with an active developer community like that of R. Luckily you can always access <a href="https://cran.r-project.org/bin/windows/base/old/">old versions of R</a> and old version of R packages in <a href="https://cran.r-project.org/src/contrib/Archive/">the archive</a>. In the archive you need to choose a particular package, e.g dplyr and search for the right version, e.g., <code>dplyr_0.2.tar.gz</code>. Then insert the path in the following function: <code>install.packages("https://....../dplyr_0.2.tar.gz", repos=NULL, type="source")</code>. Ideally, however, results will be simply reproducible in the most current R and package versions.</p>
+<p>I would recommend to use the command below and simply add it to the appendix as I did here in Appendix @ref(sec:rsessioninfo). This will make sure you always inform the reader about the package versions your relied on in your paper. For more advanced tools see <a href="https://rstudio.github.io/packrat/">packrat</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">paste</span>(<span class="st">"#"</span>, <span class="fu">capture.output</span>(<span class="fu">sessionInfo</span>()), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, <span class="at">collapse =</span><span class="st">""</span>)) </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># or use message() instead of cat()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data" class="level1">
+<h1>Data</h1>
+<section id="import" class="level2">
+<h2 class="anchored" data-anchor-id="import">Import</h2>
+<p>Generally, code is evaluated by inserting regular code chunks.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+</div>
+</div>
+<p>Below we import an exemplary dataset (you can find <code>data.csv</code> in the folder with the other files).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data.csv"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Fertility Agriculture Examination Education Catholic Infant.Mortality
+1      80.2        17.0          15        12     9.96             22.2
+2      83.1        45.1           6         9    84.84             22.2
+3      92.5        39.7           5         5    93.40             20.2
+4      85.8        36.5          12         7    33.77             20.3
+5      76.9        43.5          17        15     5.16             20.6
+6      76.1        35.3           9         7    90.57             26.6</code></pre>
+</div>
+</div>
+</section>
+<section id="putting-your-entire-data-into-the-.qmd-file" class="level2">
+<h2 class="anchored" data-anchor-id="putting-your-entire-data-into-the-.qmd-file">Putting your entire data into the .qmd file</h2>
+<p>Applying the function <code>dput()</code> to an object gives you the code needed to reproduce that object. So you could paste that code into your <code>.qmd</code> file if you don’t want to have extra data files. This makes sense were data files are small.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>structure(list(Fertility = c(80.2, 83.1, 92.5, 85.8, 76.9), Agriculture = c(17, 
+45.1, 39.7, 36.5, 43.5), Examination = c(15L, 6L, 5L, 12L, 17L
+), Education = c(12L, 9L, 5L, 7L, 15L), Catholic = c(9.96, 84.84, 
+93.4, 33.77, 5.16), Infant.Mortality = c(22.2, 22.2, 20.2, 20.3, 
+20.6)), row.names = c(NA, 5L), class = "data.frame")</code></pre>
+</div>
+</div>
+<p>You can then insert the dput output in an rchunk in your <code>.qmd</code> as below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">structure</span>(<span class="fu">list</span>(<span class="at">Fertility =</span> <span class="fu">c</span>(<span class="fl">80.2</span>, <span class="fl">83.1</span>, <span class="fl">92.5</span>, <span class="fl">85.8</span>, <span class="fl">76.9</span>), <span class="at">Agriculture =</span> <span class="fu">c</span>(<span class="dv">17</span>, </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fl">45.1</span>, <span class="fl">39.7</span>, <span class="fl">36.5</span>, <span class="fl">43.5</span>), <span class="at">Examination =</span> <span class="fu">c</span>(15L, 6L, 5L, 12L, 17L</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>), <span class="at">Education =</span> <span class="fu">c</span>(12L, 9L, 5L, 7L, 15L), <span class="at">Catholic =</span> <span class="fu">c</span>(<span class="fl">9.96</span>, <span class="fl">84.84</span>, </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fl">93.4</span>, <span class="fl">33.77</span>, <span class="fl">5.16</span>), <span class="at">Infant.Mortality =</span> <span class="fu">c</span>(<span class="fl">22.2</span>, <span class="fl">22.2</span>, <span class="fl">20.2</span>, <span class="fl">20.3</span>, </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fl">20.6</span>)), <span class="at">class =</span> <span class="st">"data.frame"</span>, <span class="at">row.names =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="sc">-</span>5L))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="sec:tables" class="level1">
+<h1>Tables</h1>
+<p>Producing good tables and referencing these tables within a R Markdown document has been a hassle but got much better. Examples that you may use are shown below.</p>
+<section id="tables-with-kable-and-kable_styling" class="level2">
+<h2 class="anchored" data-anchor-id="tables-with-kable-and-kable_styling">Tables with kable() and kable_styling()</h2>
+<p>A great function is <code>kable()</code> (<code>knitr</code> package) in combination with <code>kableExtra</code>. <a href="#tbl-2">Table&nbsp;1</a> provides an example. To reference the table produced by the chunk you need to add <code>#| label: tbl-x</code> at the start of the chunk, i.e., <code>#| label: tbl-2</code> and would reference it by adding “<code>@tbl-2</code>” in your text.</p>
+<p>{{</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(swiss[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,], <span class="at">row.names =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">'Table with kable() and kablestyling()'</span>, </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">format =</span> <span class="st">"html"</span>, <span class="at">booktabs =</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">kable_styling</span>(<span class="at">full_width =</span> T, </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"scale_down"</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"HOLD_position"</span>),</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>                      <span class="at">font_size =</span> <span class="dv">11</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="tbl-2" class="anchored">
+
+<table class="table" style="font-size: 11px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">Table&nbsp;1:  Summary: Numeric variables </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> Fertility </th>
+   <th style="text-align:right;"> Agriculture </th>
+   <th style="text-align:right;"> Examination </th>
+   <th style="text-align:right;"> Education </th>
+   <th style="text-align:right;"> Catholic </th>
+   <th style="text-align:right;"> Infant.Mortality </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Courtelary </td>
+   <td style="text-align:right;"> 80.2 </td>
+   <td style="text-align:right;"> 17.0 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 9.96 </td>
+   <td style="text-align:right;"> 22.2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Delemont </td>
+   <td style="text-align:right;"> 83.1 </td>
+   <td style="text-align:right;"> 45.1 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 84.84 </td>
+   <td style="text-align:right;"> 22.2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Franches-Mnt </td>
+   <td style="text-align:right;"> 92.5 </td>
+   <td style="text-align:right;"> 39.7 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 93.40 </td>
+   <td style="text-align:right;"> 20.2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Moutier </td>
+   <td style="text-align:right;"> 85.8 </td>
+   <td style="text-align:right;"> 36.5 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 33.77 </td>
+   <td style="text-align:right;"> 20.3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Neuveville </td>
+   <td style="text-align:right;"> 76.9 </td>
+   <td style="text-align:right;"> 43.5 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 5.16 </td>
+   <td style="text-align:right;"> 20.6 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="tables-with-modelsummary" class="level2">
+<h2 class="anchored" data-anchor-id="tables-with-modelsummary">Tables with modelsummary</h2>
+<p>The <code>modelsummary</code> package provides a variety of tables and plots to summarize statistical models and data in R. Modellsummary plots and tables are highly customizable and they can be saved to almost all formats, e.g., HTML, PDF and Markdown. This makes ist especially easy to embed them in dynamic documents. Please look at the package’s extensive <a href="https://vincentarelbundock.github.io/modelsummary/index.html">documentation</a> where they also show examples for almost any plot or table you might be looking for. In this template we demonstrate an example for modelsummary’s <code>datasummary</code> function. <code>Datasummary</code> creates frequency tables, crosstab tables, correlation tables, balance tables and many <strong>more</strong>.</p>
+<section id="summarize-numeric-variables" class="level3">
+<h3 class="anchored" data-anchor-id="summarize-numeric-variables">Summarize numeric variables</h3>
+<p><a href="#tbl-3">Table&nbsp;2</a> shows a summary table for numeric variables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_skim</span>(swiss, </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">type=</span><span class="st">"numeric"</span>, </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">histogram=</span>T, </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">title =</span> <span class="st">"Summary: Numeric variables"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="tbl-3" class="anchored">
+
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Table&nbsp;2:  Summary: Numeric variables </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> Unique (#) </th>
+   <th style="text-align:right;"> Missing (%) </th>
+   <th style="text-align:right;"> Mean </th>
+   <th style="text-align:right;"> SD </th>
+   <th style="text-align:right;"> Min </th>
+   <th style="text-align:right;"> Median </th>
+   <th style="text-align:right;"> Max </th>
+   <th style="text-align:right;">    </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Fertility </td>
+   <td style="text-align:right;"> 46 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 70.1 </td>
+   <td style="text-align:right;"> 12.5 </td>
+   <td style="text-align:right;"> 35.0 </td>
+   <td style="text-align:right;"> 70.4 </td>
+   <td style="text-align:right;"> 92.5 </td>
+   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewbox="0 0 48.00 12.00"><defs><style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
+</g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="-2.09" y="11.10" width="7.73" height="0.56" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.64" y="10.54" width="7.73" height="1.13" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="13.37" y="8.85" width="7.73" height="2.81" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="21.10" y="3.22" width="7.73" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.83" y="3.78" width="7.73" height="7.88" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="36.56" y="7.72" width="7.73" height="3.94" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="44.29" y="9.97" width="7.73" height="1.69" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
+</td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Agriculture </td>
+   <td style="text-align:right;"> 47 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 50.7 </td>
+   <td style="text-align:right;"> 22.7 </td>
+   <td style="text-align:right;"> 1.2 </td>
+   <td style="text-align:right;"> 54.1 </td>
+   <td style="text-align:right;"> 89.7 </td>
+   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewbox="0 0 48.00 12.00"><defs><style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
+</g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.18" y="9.97" width="5.02" height="1.69" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="6.20" y="6.60" width="5.02" height="5.07" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="11.22" y="9.97" width="5.02" height="1.69" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="16.24" y="6.60" width="5.02" height="5.07" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="21.26" y="7.44" width="5.02" height="4.22" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="26.28" y="6.60" width="5.02" height="5.07" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="31.31" y="3.22" width="5.02" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="36.33" y="6.60" width="5.02" height="5.07" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="41.35" y="8.28" width="5.02" height="3.38" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
+</td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Examination </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 16.5 </td>
+   <td style="text-align:right;"> 8.0 </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 16.0 </td>
+   <td style="text-align:right;"> 37.0 </td>
+   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewbox="0 0 48.00 12.00"><defs><style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
+</g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="-2.14" y="9.06" width="6.54" height="2.60" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="4.39" y="7.76" width="6.54" height="3.90" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="10.93" y="3.22" width="6.54" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="17.46" y="5.17" width="6.54" height="6.50" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="24.00" y="6.47" width="6.54" height="5.20" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="30.54" y="9.71" width="6.54" height="1.95" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="37.07" y="10.36" width="6.54" height="1.30" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="43.61" y="11.01" width="6.54" height="0.65" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
+</td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Education </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 11.0 </td>
+   <td style="text-align:right;"> 9.6 </td>
+   <td style="text-align:right;"> 1.0 </td>
+   <td style="text-align:right;"> 8.0 </td>
+   <td style="text-align:right;"> 53.0 </td>
+   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewbox="0 0 48.00 12.00"><defs><style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
+</g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="0.92" y="3.22" width="8.55" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="9.47" y="8.28" width="8.55" height="3.38" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="18.02" y="10.82" width="8.55" height="0.84" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="26.56" y="11.38" width="8.55" height="0.28" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="35.11" y="11.66" width="8.55" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="43.66" y="11.38" width="8.55" height="0.28" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
+</td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Catholic </td>
+   <td style="text-align:right;"> 46 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 41.1 </td>
+   <td style="text-align:right;"> 41.7 </td>
+   <td style="text-align:right;"> 2.1 </td>
+   <td style="text-align:right;"> 15.1 </td>
+   <td style="text-align:right;"> 100.0 </td>
+   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewbox="0 0 48.00 12.00"><defs><style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
+</g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="0.80" y="3.22" width="4.54" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.34" y="9.13" width="4.54" height="2.53" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="9.89" y="11.24" width="4.54" height="0.42" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="14.43" y="11.24" width="4.54" height="0.42" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="18.97" y="11.24" width="4.54" height="0.42" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="23.51" y="10.82" width="4.54" height="0.84" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.05" y="11.66" width="4.54" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="32.60" y="11.66" width="4.54" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="37.14" y="11.24" width="4.54" height="0.42" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="41.68" y="5.33" width="4.54" height="6.33" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
+</td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Infant.Mortality </td>
+   <td style="text-align:right;"> 37 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 19.9 </td>
+   <td style="text-align:right;"> 2.9 </td>
+   <td style="text-align:right;"> 10.8 </td>
+   <td style="text-align:right;"> 20.0 </td>
+   <td style="text-align:right;"> 26.6 </td>
+   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewbox="0 0 48.00 12.00"><defs><style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
+</g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="-0.47" y="11.01" width="5.63" height="0.65" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.15" y="11.66" width="5.63" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="10.78" y="10.36" width="5.63" height="1.30" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="16.41" y="6.47" width="5.63" height="5.20" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="22.03" y="3.22" width="5.63" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="27.66" y="4.52" width="5.63" height="7.15" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="33.28" y="6.47" width="5.63" height="5.20" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="38.91" y="9.71" width="5.63" height="1.95" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="44.53" y="11.01" width="5.63" height="0.65" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
+</td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="summarize-categorical-variables" class="level3">
+<h3 class="anchored" data-anchor-id="summarize-categorical-variables">Summarize categorical variables</h3>
+<p><a href="#tbl-4">Table&nbsp;3</a> shows a summary table for categorical variables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create categorical variables</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>swiss<span class="sc">$</span>Education_cat <span class="ot">&lt;-</span> <span class="fu">cut</span>(swiss<span class="sc">$</span>Education, </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">breaks=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="cn">Inf</span>), </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"low"</span>,<span class="st">"middle"</span>,<span class="st">"high"</span>))</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>swiss<span class="sc">$</span>Infant.Mortality_cat <span class="ot">&lt;-</span> <span class="fu">cut</span>(swiss<span class="sc">$</span>Infant.Mortality, </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">breaks=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="fl">18.15</span>, <span class="fl">21.70</span>, <span class="cn">Inf</span>), </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"low"</span>,<span class="st">"middle"</span>,<span class="st">"high"</span>))</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>tab_cat <span class="ot">&lt;-</span> <span class="fu">datasummary_skim</span>(swiss, </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>                            <span class="at">type=</span><span class="st">"categorical"</span>, </span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>                            <span class="at">output =</span> <span class="st">'flextable'</span>)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co"># additionally we want to change the font, fontsize and spacing</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"gdtools"</span>)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>tab_cat <span class="ot">&lt;-</span> tab_cat <span class="sc">%&gt;%</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">font</span>(<span class="at">fontname=</span><span class="st">"Times New Roman"</span>, <span class="at">part=</span><span class="st">"header"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">font</span>(<span class="at">fontname=</span><span class="st">"Times New Roman"</span>, <span class="at">j=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fontsize</span>(<span class="at">size=</span><span class="dv">12</span>, <span class="at">part=</span><span class="st">"header"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fontsize</span>(<span class="at">size=</span><span class="dv">10</span>, <span class="at">j=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">line_spacing</span>(<span class="at">space =</span> <span class="fl">0.3</span>, <span class="at">part =</span> <span class="st">"all"</span>)</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>tab_cat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="tbl-4" class="anchored">
+
+<div class="tabwid"><style>.cl-d282c18a{}.cl-d2765cb0{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-d2765cc4{font-family:'Times New Roman';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-d27b5f94{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 0.3;background-color:transparent;}.cl-d27b7b28{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d27b7b29{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d27b7b2a{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-d282c18a"><caption>Table&nbsp;3:  Summary: Categorical variables </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-d27b7b28"><p class="cl-d27b5f94"><span class="cl-d2765cb0"> </span></p></th><th class="cl-d27b7b28"><p class="cl-d27b5f94"><span class="cl-d2765cb0">  </span></p></th><th class="cl-d27b7b28"><p class="cl-d27b5f94"><span class="cl-d2765cb0">N</span></p></th><th class="cl-d27b7b28"><p class="cl-d27b5f94"><span class="cl-d2765cb0">%</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">Education_cat</span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">low</span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">14</span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">29.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4"></span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">middle</span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">22</span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">46.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4"></span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">high</span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">11</span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">23.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">Infant.Mortality_cat</span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">low</span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">12</span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">25.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4"></span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">middle</span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">23</span></p></td><td class="cl-d27b7b29"><p class="cl-d27b5f94"><span class="cl-d2765cc4">48.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d27b7b2a"><p class="cl-d27b5f94"><span class="cl-d2765cc4"></span></p></td><td class="cl-d27b7b2a"><p class="cl-d27b5f94"><span class="cl-d2765cc4">high</span></p></td><td class="cl-d27b7b2a"><p class="cl-d27b5f94"><span class="cl-d2765cc4">12</span></p></td><td class="cl-d27b7b2a"><p class="cl-d27b5f94"><span class="cl-d2765cc4">25.5</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="regression-table" class="level2">
+<h2 class="anchored" data-anchor-id="regression-table">Regression table</h2>
+<p><a href="#tbl-5">Table&nbsp;4</a> shows the output for a regression table. Make sure you name all the models you estimate (even if its 50) and explicitly refer to model names (M1, M2 etc.) in the text.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-5" class="anchored">
+
+<div id="dpsldicgdy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+:where(#dpsldicgdy) .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 10px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #FFFFFF;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+:where(#dpsldicgdy) .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#dpsldicgdy) .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+:where(#dpsldicgdy) .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+:where(#dpsldicgdy) .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+:where(#dpsldicgdy) .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+}
+
+:where(#dpsldicgdy) .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#dpsldicgdy) .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+:where(#dpsldicgdy) .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+:where(#dpsldicgdy) .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+:where(#dpsldicgdy) .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+:where(#dpsldicgdy) .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+:where(#dpsldicgdy) .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+:where(#dpsldicgdy) .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #FFFFFF;
+  vertical-align: middle;
+}
+
+:where(#dpsldicgdy) .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+:where(#dpsldicgdy) .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+:where(#dpsldicgdy) .gt_row {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+:where(#dpsldicgdy) .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#dpsldicgdy) .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+:where(#dpsldicgdy) .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+:where(#dpsldicgdy) .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#dpsldicgdy) .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+:where(#dpsldicgdy) .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+:where(#dpsldicgdy) .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#dpsldicgdy) .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#dpsldicgdy) .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+:where(#dpsldicgdy) .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+:where(#dpsldicgdy) .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+}
+
+:where(#dpsldicgdy) .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#dpsldicgdy) .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#dpsldicgdy) .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#dpsldicgdy) .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#dpsldicgdy) .gt_left {
+  text-align: left;
+}
+
+:where(#dpsldicgdy) .gt_center {
+  text-align: center;
+}
+
+:where(#dpsldicgdy) .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+:where(#dpsldicgdy) .gt_font_normal {
+  font-weight: normal;
+}
+
+:where(#dpsldicgdy) .gt_font_bold {
+  font-weight: bold;
+}
+
+:where(#dpsldicgdy) .gt_font_italic {
+  font-style: italic;
+}
+
+:where(#dpsldicgdy) .gt_super {
+  font-size: 65%;
+}
+
+:where(#dpsldicgdy) .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+:where(#dpsldicgdy) .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+:where(#dpsldicgdy) .gt_indent_1 {
+  text-indent: 5px;
+}
+
+:where(#dpsldicgdy) .gt_indent_2 {
+  text-indent: 10px;
+}
+
+:where(#dpsldicgdy) .gt_indent_3 {
+  text-indent: 15px;
+}
+
+:where(#dpsldicgdy) .gt_indent_4 {
+  text-indent: 20px;
+}
+
+:where(#dpsldicgdy) .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table"><caption>Table&nbsp;4:  Linear regression </caption>
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="2" colspan="1" scope="col" id=" "> </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3" scope="colgroup" id="Dependent variable: Fertility">
+        <span class="gt_column_spanner">Dependent variable: Fertility</span>
+      </th>
+    </tr>
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="M1">M1</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="M2">M2</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="M3">M3</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="" class="gt_row gt_left">(Intercept)</td>
+<td headers="M1" class="gt_row gt_center">84.080</td>
+<td headers="M2" class="gt_row gt_center">74.234</td>
+<td headers="M3" class="gt_row gt_center">51.101</td></tr>
+    <tr><td headers="" class="gt_row gt_left"></td>
+<td headers="M1" class="gt_row gt_center">(5.782)</td>
+<td headers="M2" class="gt_row gt_center">(2.352)</td>
+<td headers="M3" class="gt_row gt_center">(10.995)</td></tr>
+    <tr><td headers="" class="gt_row gt_left">Education</td>
+<td headers="M1" class="gt_row gt_center">-0.963</td>
+<td headers="M2" class="gt_row gt_center">-0.788</td>
+<td headers="M3" class="gt_row gt_center">-0.857</td></tr>
+    <tr><td headers="" class="gt_row gt_left"></td>
+<td headers="M1" class="gt_row gt_center">(0.189)</td>
+<td headers="M2" class="gt_row gt_center">(0.129)</td>
+<td headers="M3" class="gt_row gt_center">(0.173)</td></tr>
+    <tr><td headers="" class="gt_row gt_left">Agriculture</td>
+<td headers="M1" class="gt_row gt_center">-0.066</td>
+<td headers="M2" class="gt_row gt_center"></td>
+<td headers="M3" class="gt_row gt_center">-0.026</td></tr>
+    <tr><td headers="" class="gt_row gt_left"></td>
+<td headers="M1" class="gt_row gt_center">(0.080)</td>
+<td headers="M2" class="gt_row gt_center"></td>
+<td headers="M3" class="gt_row gt_center">(0.073)</td></tr>
+    <tr><td headers="" class="gt_row gt_left">Catholic</td>
+<td headers="M1" class="gt_row gt_center"></td>
+<td headers="M2" class="gt_row gt_center">0.111</td>
+<td headers="M3" class="gt_row gt_center"></td></tr>
+    <tr><td headers="" class="gt_row gt_left"></td>
+<td headers="M1" class="gt_row gt_center"></td>
+<td headers="M2" class="gt_row gt_center">(0.030)</td>
+<td headers="M3" class="gt_row gt_center"></td></tr>
+    <tr><td headers="" class="gt_row gt_left">Infant.Mortality</td>
+<td headers="M1" class="gt_row gt_center"></td>
+<td headers="M2" class="gt_row gt_center"></td>
+<td headers="M3" class="gt_row gt_center">1.493</td></tr>
+    <tr><td headers="" class="gt_row gt_left" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000;"></td>
+<td headers="M1" class="gt_row gt_center" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000;"></td>
+<td headers="M2" class="gt_row gt_center" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000;"></td>
+<td headers="M3" class="gt_row gt_center" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000;">(0.439)</td></tr>
+    <tr><td headers="" class="gt_row gt_left">Num.Obs.</td>
+<td headers="M1" class="gt_row gt_center">47</td>
+<td headers="M2" class="gt_row gt_center">47</td>
+<td headers="M3" class="gt_row gt_center">47</td></tr>
+    <tr><td headers="" class="gt_row gt_left">R2</td>
+<td headers="M1" class="gt_row gt_center">0.449</td>
+<td headers="M2" class="gt_row gt_center">0.575</td>
+<td headers="M3" class="gt_row gt_center">0.566</td></tr>
+    <tr><td headers="" class="gt_row gt_left">R2 Adj.</td>
+<td headers="M1" class="gt_row gt_center">0.424</td>
+<td headers="M2" class="gt_row gt_center">0.555</td>
+<td headers="M3" class="gt_row gt_center">0.536</td></tr>
+    <tr><td headers="" class="gt_row gt_left">AIC</td>
+<td headers="M1" class="gt_row gt_center">349.7</td>
+<td headers="M2" class="gt_row gt_center">337.6</td>
+<td headers="M3" class="gt_row gt_center">340.5</td></tr>
+    <tr><td headers="" class="gt_row gt_left">BIC</td>
+<td headers="M1" class="gt_row gt_center">357.1</td>
+<td headers="M2" class="gt_row gt_center">345.0</td>
+<td headers="M3" class="gt_row gt_center">349.7</td></tr>
+    <tr><td headers="" class="gt_row gt_left">Log.Lik.</td>
+<td headers="M1" class="gt_row gt_center">-170.846</td>
+<td headers="M2" class="gt_row gt_center">-164.782</td>
+<td headers="M3" class="gt_row gt_center">-165.243</td></tr>
+    <tr><td headers="" class="gt_row gt_left">RMSE</td>
+<td headers="M1" class="gt_row gt_center">9.17</td>
+<td headers="M2" class="gt_row gt_center">8.06</td>
+<td headers="M3" class="gt_row gt_center">8.14</td></tr>
+  </tbody>
+  <tfoot class="gt_sourcenotes">
+    <tr>
+      <td class="gt_sourcenote" colspan="4">Notes: some notes...</td>
+    </tr>
+  </tfoot>
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="inline-code-results" class="level1">
+<h1>Inline code &amp; results</h1>
+<p>Reproduction reaches new heights when you work with inline code. For instance, you can automatize the display of certain coefficients within the text. An example is to include estimates, e.g., the coefficient of <code>dist</code> of the model we ran above. <code class="r"><code>`r round(coef(M1)[2], 2)`</code></code> will insert the coefficient as follows: -0.96. Or <code class="r"><code>`r 3 + 7`</code></code> will insert a 10 in the text.<br>
+Inline code/results that depend on earlier objects in your document will automatically be updated once you change those objects. For instance, imagine a reviewer asks you to omit certain observations from your sample. You can simply do so in the beginning of your code and push play subsequently.. at time you might have to set <code>cache = FALSE</code> at the beginning so that all the code chunks are rerun.<br>
+Researchers often avoid referring to results in-text etc. because you easily forget to change them when revising a manuscript. At the same it can make an article much more informative and easier to read, e.g., if you discuss a coefficient in the text you can directly show it in the section in which you discuss it. Inline code allows you to do just that. R Markdown allows you to that do so in a reproducible and automatized manner.</p>
+</section>
+<section id="graphs" class="level1">
+<h1>Graphs</h1>
+<section id="r-base-graphs" class="level2">
+<h2 class="anchored" data-anchor-id="r-base-graphs">R base graphs</h2>
+<p>Inserting figures can be slightly more complicated. Ideally, we would produce and insert them directly in the <code>.qmd</code> file. It’s relatively simple to insert R base graphs as you can see in <span class="citation" data-cites="fig1">(<a href="#ref-fig1" role="doc-biblioref"><strong>fig1?</strong></a>)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="paper_files/figure-html/fig1-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Scatterplot of Speed and Distance</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>But it turns out that it doesn’t always work so well.</p>
+</section>
+<section id="ggplot2-graphs" class="level2">
+<h2 class="anchored" data-anchor-id="ggplot2-graphs">ggplot2 graphs</h2>
+<p>Same is true for ggplot2 as you can see in <span class="citation" data-cites="fig2">(<a href="#ref-fig2" role="doc-biblioref"><strong>fig2?</strong></a>)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="paper_files/figure-html/fig2-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Miles per gallon according to the weight</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="compiling-the-document" class="level1">
+<h1>Compiling the document</h1>
+<p>To view your paper, pagedown requires a web server (since it is based on paged.js)<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. By compiling a document, R Studio will display your HTML page through a local web server, i.e., paged.js will work in RStudio Viewer.</p>
+<p>There are several options, depending on your intention:</p>
+<ul>
+<li><p>click on the <code>Knit</code> button in R Studio which by default will provide a HTML document in the RStudio viewer pane (the HTML will be stored in your working directory)</p></li>
+<li><p>use pagedown’s <code>chrome_print</code> function in the YAML (uncomment line #24 of this <code>Rmd</code> file) if additionally you want your HTML based web page to be printed to be PDF (the PDF will be stored in your working directory)</p></li>
+<li><p>to “live”-preview your pages do not click on the <code>Knit</code> button but use the <strong>xaringan</strong> <span class="citation" data-cites="xaringan">(<a href="#ref-xaringan" role="doc-biblioref">Xie 2021</a>)</span> RStudio add-in <em>Infinite Moon Reader</em>. You can simply call the function <code>xaringan::inf_mr()</code> (within your console). This will launch a local web server via the <strong>servr</strong> package (Xie 2021a) and display your pages in the RStudio viewer. Each time you save your document (<em>Ctrl+S</em>) xaringan updates your pages in the viewer.</p></li>
+<li><p>If you use the option <code>self_contained: false</code> (see line #21 of this <code>Rmd</code> file) (change to true for a self-contained document, but it’ll be a litte slower for Pandoc to render), don’t click on the <code>Knit</code> button in RStudio. Use instead the <strong>xaringan</strong> <span class="citation" data-cites="xaringan">(<a href="#ref-xaringan" role="doc-biblioref">Xie 2021</a>)</span> RStudio add-in <em>Infinite Moon Reader</em>.</p></li>
+</ul>
+</section>
+<section id="good-practices-for-reproducibility" class="level1">
+<h1>Good practices for reproducibility</h1>
+<p>Every researcher has his own optimized setup. Currently we would recommend the following:</p>
+<ul>
+<li>Keep all files of your project (that matter for producing the PDF) in one folder without subfolders. You can zip and directly upload that folder to the <a href="https://dataverse.harvard.edu/">Harvard dataverse</a>.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></li>
+<li>Make sure that filenames have a logic to them.
+<ul>
+<li>Main file with text/code: “paper.qmd”, “report.qmd”</li>
+<li>Data files: “data_xxxxxx.*”</li>
+<li>Image files: “fig_xxxxxx.*”</li>
+<li>Tables files: “table_xxxx.*”</li>
+<li>etc.</li>
+<li>Ideally, your filenames will correspond to the names in the paper. For instance, Figure 1 in the paper may have a corresponding file called <code>fig_1_xxxxx.pdf</code>.</li>
+</ul></li>
+<li>Use the document outline in R studio (Ctrl + Shift + O) when you work with R Markdown.</li>
+<li>Name rchunks according to what they do or produce:
+<ul>
+<li>“<code>fig-...</code>” for chunks producing figures</li>
+<li>“<code>table-...</code>” for chunks producing tables</li>
+<li>“<code>model-...</code>” for chunks producing model estimates</li>
+<li>“<code>import-...</code>” for chunks importing data</li>
+<li>“<code>recoding-...</code>” for chunks in which data is recoded</li>
+</ul></li>
+<li>Use “really” informative variable names:
+<ul>
+<li>Q: What do you think does the variable <em>trstep</em> measure? It actually measures trust in the European parliament.
+<ul>
+<li>How could we call this variable instead? Yes, <code>trust.european.parliament</code> which is longer but will probably be understood by another researcher in 50 years.</li>
+</ul></li>
+<li>If your setup is truly reproducible you will probably re-use the variable names that you generate as variable names in the tables you produce. Hence, there is an incentive to use good names.</li>
+</ul></li>
+<li>Use unique identifiers in the final R Markdown document paper.qmd that you upload:
+<ul>
+<li>Think of someone who wants to produce Figure 1/Model 1/Table 1 in your paper but doesn’t find it in your code…
+<ul>
+<li>Name the chunks “fig-1”, “fig-2” as the are named in the published paper.</li>
+<li>Name the chunks that produce tables “table-1”, “table-2” etc. as they are named in the published paper.</li>
+<li>Name your statistical models in your R code “M1”, “M2” as they are named in the published paper.</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="additional-tricks-for-publishing" class="level1">
+<h1>Additional tricks for publishing</h1>
+<ul>
+<li>Make your script anonymous
+<ul>
+<li>Simply put a <code>&lt;!-- ... --&gt;</code> around any identifying information, e.g., author names, title footnote etc.</li>
+</ul></li>
+<li>Counting words
+<ul>
+<li>Use adobe acrobat (commerical software) to convert your file to a word file. Then open in word and delete all the parts that shouldn’t go into the word count. The word count is displayed in the lower right.</li>
+<li>Use an one of the online services to count your words (search for “pdf word count”)</li>
+</ul></li>
+<li>Appendix: You can change the numbering format for the appendix in the rmd file
+<ul>
+<li>What is still not possible in this document is to automatically have separate reference sections for paper and appendix.</li>
+</ul></li>
+<li>Journals may require you to use their tex style: Sometimes you can simply use their template in your rmarkdown file. See <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/LDUMNY">here</a> for a PLOS one example.</li>
+</ul>
+</section>
+<section id="citation-styles" class="level1">
+<h1>Citation styles</h1>
+<p>If your study needs to follow a particular citation style, you can set the corresponding style in the header of your <code>.qmd</code> document. To do so you have to download the corresponding <code>.csl</code> file.</p>
+<p>In the present document we use the style of the American Sociological Association and set it in the preamble with <code>csl: american-sociological-association.csl</code>. However, you also need to download the respective <code>.csl</code> file from the following github page: https://github.com/citation-style-language/styles and copy it into your working directory for it to work.</p>
+<p>The github directory contains a wide variety of citation style files depending on what discipline you work in.</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="references" class="level1 unnumbered">
+<h1 class="unnumbered">References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-Bauer2018-dl" class="csl-entry" role="doc-biblioentry">
+Bauer, Paul. 2018. <span>“Writing a Reproducible Paper in <span>R</span> Markdown.”</span> <em>Open Science Framework Preprint</em>, December, 1–14.
+</div>
+<div id="ref-Kirsop2005-ro" class="csl-entry" role="doc-biblioentry">
+Kirsop, Barbara, and Leslie Chan. 2005. <span>“Transforming Access to Research Literature for Developing Countries.”</span> <em>Serials Review</em> 31 (4): 246–55.
+</div>
+<div id="ref-R2017" class="csl-entry" role="doc-biblioentry">
+R Core Team. 2017. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-Rstudio2015" class="csl-entry" role="doc-biblioentry">
+RStudio Team. 2015. <em>RStudio: Integrated Development Environment for r</em>. Boston, MA: RStudio, Inc. <a href="http://www.rstudio.com/">http://www.rstudio.com/</a>.
+</div>
+<div id="ref-knitr3" class="csl-entry" role="doc-biblioentry">
+Xie, Yihui. 2014. <span>“Knitr: A Comprehensive Tool for Reproducible Research in <span>R</span>.”</span> In <em>Implementing Reproducible Computational Research</em>, edited by Victoria Stodden, Friedrich Leisch, and Roger D. Peng. Chapman; Hall/CRC. <a href="http://www.crcpress.com/product/isbn/9781466561595">http://www.crcpress.com/product/isbn/9781466561595</a>.
+</div>
+<div id="ref-knitr2" class="csl-entry" role="doc-biblioentry">
+———. 2015. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://yihui.name/knitr/">https://yihui.name/knitr/</a>.
+</div>
+<div id="ref-bookdown2" class="csl-entry" role="doc-biblioentry">
+———. 2016. <em>Bookdown: Authoring Books and Technical Documents with <span>R</span> Markdown</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://github.com/rstudio/bookdown">https://github.com/rstudio/bookdown</a>.
+</div>
+<div id="ref-bookdown1" class="csl-entry" role="doc-biblioentry">
+———. 2017. <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>. <a href="https://github.com/rstudio/bookdown">https://github.com/rstudio/bookdown</a>.
+</div>
+<div id="ref-knitr1" class="csl-entry" role="doc-biblioentry">
+———. 2018. <em>Knitr: A General-Purpose Package for Dynamic Report Generation in r</em>. <a href="https://yihui.name/knitr/">https://yihui.name/knitr/</a>.
+</div>
+<div id="ref-xaringan" class="csl-entry" role="doc-biblioentry">
+———. 2021. <em>Xaringan: Presentation Ninja</em>. <a href="https://CRAN.R-project.org/package=xaringan">https://CRAN.R-project.org/package=xaringan</a>.
+</div>
+<div id="ref-Xie2021-bi" class="csl-entry" role="doc-biblioentry">
+Xie, Yihui, and Romain Lesur. 2021. <span>“Pagedown: Create Paged <span>HTML</span> Documents for Printing from <span>R</span> Markdown.”</span> <a href="https://rstudio.github.io/pagedown/" class="uri">https://rstudio.github.io/pagedown/</a>.
+</div>
+<div id="ref-Xie2021-ls" class="csl-entry" role="doc-biblioentry">
+Xie, Yihui, Romain Lesur, Brent Thorne, and Xianying Tan. 2021. <em>Pagedown: Paginate the HTML Output of r Markdown with CSS for Print</em>. <a href="https://CRAN.R-project.org/package=pagedown">https://CRAN.R-project.org/package=pagedown</a>.
+</div>
+<div id="ref-kableextra" class="csl-entry" role="doc-biblioentry">
+Zhu, Hao. 2017. <em>kableExtra: Construct Complex Table with ’Kable’ and Pipe Syntax</em>. <a href="https://CRAN.R-project.org/package=kableExtra">https://CRAN.R-project.org/package=kableExtra</a>.
+</div>
+</div>
+<!--  to generate a citation entry for BibTeX, you can pass the returned object of citation() to toBibtex(), e.g. toBibtex(citation("xaringan")). Then  copy the output to a .bib file and add a unique citation key -->
+<!-- https://bookdown.org/yihui/rmarkdown-cookbook/write-bib.html -->
+<div style="page-break-after: always;"></div>
+</section>
+<section id="online-appendix" class="level1 unnumbered">
+<h1 class="unnumbered">Online appendix</h1>
+<section id="sec:rsessioninfo" class="level2">
+<h2 class="anchored" data-anchor-id="sec:rsessioninfo">Attach R session info in appendix</h2>
+<p>Since R and R packages are constantly evolving you might want to add the R session info that contains information on the R version as well as the packages that are loaded.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.2.2 (2022-10-31 ucrt)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 17763)
+
+Matrix products: default
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] ggplot2_3.4.1      gt_0.8.0           dplyr_1.1.0        gdtools_0.3.0     
+[5] flextable_0.8.5    modelsummary_1.3.0 kableExtra_1.3.4   knitr_1.42        
+
+loaded via a namespace (and not attached):
+ [1] httr_1.4.4         sass_0.4.5         jsonlite_1.8.4     viridisLite_0.4.1 
+ [5] datawizard_0.6.5   shiny_1.7.4        askpass_1.1        highr_0.10        
+ [9] tables_0.9.10      yaml_2.3.7         bayestestR_0.13.0  pillar_1.8.1      
+[13] backports_1.4.1    glue_1.6.2         uuid_1.1-0         digest_0.6.31     
+[17] promises_1.2.0.1   checkmate_2.1.0    rvest_1.0.3        colorspace_2.1-0  
+[21] htmltools_0.5.4    httpuv_1.6.9       gfonts_0.2.0       pkgconfig_2.0.3   
+[25] httpcode_0.3.0     xtable_1.8-4       scales_1.2.1       webshot_0.5.4     
+[29] svglite_2.1.1      later_1.3.0        officer_0.5.2      tibble_3.1.8      
+[33] openssl_2.0.5      farver_2.1.1       generics_0.1.3     ellipsis_0.3.2    
+[37] cachem_1.0.6       withr_2.5.0        cli_3.6.0          magrittr_2.0.3    
+[41] crayon_1.5.2       mime_0.12          memoise_2.0.1      evaluate_0.20     
+[45] fansi_1.0.4        xml2_1.3.3         tools_4.2.2        data.table_1.14.6 
+[49] lifecycle_1.0.3    stringr_1.5.0      munsell_0.5.0      zip_2.2.2         
+[53] compiler_4.2.2     systemfonts_1.0.4  rlang_1.0.6        grid_4.2.2        
+[57] parameters_0.20.2  rstudioapi_0.14    htmlwidgets_1.6.1  base64enc_0.1-3   
+[61] labeling_0.4.2     rmarkdown_2.20     gtable_0.3.1       curl_5.0.0        
+[65] R6_2.5.1           performance_0.10.2 fastmap_1.1.0      utf8_1.2.3        
+[69] insight_0.19.0     stringi_1.7.12     crul_1.3           Rcpp_1.0.10       
+[73] vctrs_0.5.2        tidyselect_1.2.0   xfun_0.37         </code></pre>
+</div>
+</div>
+</section>
+<section id="all-the-code-in-the-paper" class="level2">
+<h2 class="anchored" data-anchor-id="all-the-code-in-the-paper">All the code in the paper</h2>
+<p>To simply attach all the code you used in the PDF file in the appendix see the R chunk in the underlying <code>.qmd</code> file:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">cache =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Use chache = TRUE if you want to speed up compilation</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># A function to allow for showing some of the inline code</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>rinline <span class="ot">&lt;-</span> <span class="cf">function</span>(code){</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  html <span class="ot">&lt;-</span> <span class="st">'&lt;code  class="r"&gt;``` `r CODE` ```&lt;/code&gt;'</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sub</span>(<span class="st">"CODE"</span>, code, html)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'rstudio/pagedown'</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"rmarkdown"</span>, <span class="st">"knitr"</span>, <span class="st">"kableExtra"</span>,</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"stargazer"</span>, <span class="st">"modelsummary"</span>, <span class="st">"knitr"</span>, <span class="st">"gt"</span>))</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">paste</span>(<span class="st">"#"</span>, <span class="fu">capture.output</span>(<span class="fu">sessionInfo</span>()), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, <span class="at">collapse =</span><span class="st">""</span>)) </span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># or use message() instead of cat()</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>x</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data.csv"</span>)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="fu">dput</span>(data[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,]) <span class="co"># here we only take a subset</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">structure</span>(<span class="fu">list</span>(<span class="at">Fertility =</span> <span class="fu">c</span>(<span class="fl">80.2</span>, <span class="fl">83.1</span>, <span class="fl">92.5</span>, <span class="fl">85.8</span>, <span class="fl">76.9</span>), <span class="at">Agriculture =</span> <span class="fu">c</span>(<span class="dv">17</span>, </span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="fl">45.1</span>, <span class="fl">39.7</span>, <span class="fl">36.5</span>, <span class="fl">43.5</span>), <span class="at">Examination =</span> <span class="fu">c</span>(15L, 6L, 5L, 12L, 17L</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>), <span class="at">Education =</span> <span class="fu">c</span>(12L, 9L, 5L, 7L, 15L), <span class="at">Catholic =</span> <span class="fu">c</span>(<span class="fl">9.96</span>, <span class="fl">84.84</span>, </span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="fl">93.4</span>, <span class="fl">33.77</span>, <span class="fl">5.16</span>), <span class="at">Infant.Mortality =</span> <span class="fu">c</span>(<span class="fl">22.2</span>, <span class="fl">22.2</span>, <span class="fl">20.2</span>, <span class="fl">20.3</span>, </span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="fl">20.6</span>)), <span class="at">class =</span> <span class="st">"data.frame"</span>, <span class="at">row.names =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="sc">-</span>5L))</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(swiss[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,], <span class="at">row.names =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">'Table with kable() and kablestyling()'</span>, </span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>      <span class="at">format =</span> <span class="st">"html"</span>, <span class="at">booktabs =</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>        <span class="fu">kable_styling</span>(<span class="at">full_width =</span> T, </span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>                      <span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, </span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"scale_down"</span>,</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"HOLD_position"</span>),</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>                      <span class="at">font_size =</span> <span class="dv">11</span>)</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_skim</span>(swiss, </span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>                 <span class="at">type=</span><span class="st">"numeric"</span>, </span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>                 <span class="at">histogram=</span>T, </span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>                 <span class="at">title =</span> <span class="st">"Summary: Numeric variables"</span>)</span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Create categorical variables</span></span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>swiss<span class="sc">$</span>Education_cat <span class="ot">&lt;-</span> <span class="fu">cut</span>(swiss<span class="sc">$</span>Education, </span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>                   <span class="at">breaks=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="cn">Inf</span>), </span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"low"</span>,<span class="st">"middle"</span>,<span class="st">"high"</span>))</span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>swiss<span class="sc">$</span>Infant.Mortality_cat <span class="ot">&lt;-</span> <span class="fu">cut</span>(swiss<span class="sc">$</span>Infant.Mortality, </span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>                   <span class="at">breaks=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="fl">18.15</span>, <span class="fl">21.70</span>, <span class="cn">Inf</span>), </span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"low"</span>,<span class="st">"middle"</span>,<span class="st">"high"</span>))</span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a>tab_cat <span class="ot">&lt;-</span> <span class="fu">datasummary_skim</span>(swiss, </span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a>                            <span class="at">type=</span><span class="st">"categorical"</span>, </span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a>                            <span class="at">output =</span> <span class="st">'flextable'</span>)</span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a><span class="co"># additionally we want to change the font, fontsize and spacing</span></span>
+<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"gdtools"</span>)</span>
+<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a>tab_cat <span class="ot">&lt;-</span> tab_cat <span class="sc">%&gt;%</span></span>
+<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">font</span>(<span class="at">fontname=</span><span class="st">"Times New Roman"</span>, <span class="at">part=</span><span class="st">"header"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">font</span>(<span class="at">fontname=</span><span class="st">"Times New Roman"</span>, <span class="at">j=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fontsize</span>(<span class="at">size=</span><span class="dv">12</span>, <span class="at">part=</span><span class="st">"header"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fontsize</span>(<span class="at">size=</span><span class="dv">10</span>, <span class="at">j=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">line_spacing</span>(<span class="at">space =</span> <span class="fl">0.3</span>, <span class="at">part =</span> <span class="st">"all"</span>)</span>
+<span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a>tab_cat</span>
+<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb11-67"><a href="#cb11-67" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> Education <span class="sc">+</span> Agriculture, <span class="at">data =</span> swiss)</span>
+<span id="cb11-68"><a href="#cb11-68" aria-hidden="true" tabindex="-1"></a>M2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> Education <span class="sc">+</span> Catholic, <span class="at">data =</span> swiss)</span>
+<span id="cb11-69"><a href="#cb11-69" aria-hidden="true" tabindex="-1"></a>M3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> Education <span class="sc">+</span> Infant.Mortality <span class="sc">+</span> Agriculture, <span class="at">data =</span> swiss)</span>
+<span id="cb11-70"><a href="#cb11-70" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"M1"</span> <span class="ot">=</span> M1, <span class="st">"M2"</span> <span class="ot">=</span>  M2, <span class="st">"M3"</span> <span class="ot">=</span> M3)</span>
+<span id="cb11-71"><a href="#cb11-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-72"><a href="#cb11-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-73"><a href="#cb11-73" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb11-74"><a href="#cb11-74" aria-hidden="true" tabindex="-1"></a><span class="co"># additionally we want to change the font, font size and spacing</span></span>
+<span id="cb11-75"><a href="#cb11-75" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(models,</span>
+<span id="cb11-76"><a href="#cb11-76" aria-hidden="true" tabindex="-1"></a>             <span class="at">output =</span> <span class="st">'gt'</span>,</span>
+<span id="cb11-77"><a href="#cb11-77" aria-hidden="true" tabindex="-1"></a>             <span class="at">notes =</span> <span class="st">"Notes: some notes..."</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-78"><a href="#cb11-78" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_spanner</span>(<span class="at">label =</span> <span class="st">'Dependent variable: Fertility'</span>, <span class="at">columns =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-79"><a href="#cb11-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_options</span>(</span>
+<span id="cb11-80"><a href="#cb11-80" aria-hidden="true" tabindex="-1"></a>    <span class="at">table.font.size =</span> <span class="dv">10</span>,</span>
+<span id="cb11-81"><a href="#cb11-81" aria-hidden="true" tabindex="-1"></a>    <span class="at">data_row.padding =</span> <span class="fu">px</span>(<span class="dv">1</span>),</span>
+<span id="cb11-82"><a href="#cb11-82" aria-hidden="true" tabindex="-1"></a>    <span class="at">table.border.top.color =</span> <span class="st">"white"</span>,</span>
+<span id="cb11-83"><a href="#cb11-83" aria-hidden="true" tabindex="-1"></a>    <span class="at">heading.border.bottom.color =</span> <span class="st">"black"</span>,</span>
+<span id="cb11-84"><a href="#cb11-84" aria-hidden="true" tabindex="-1"></a>    <span class="at">row_group.border.top.color =</span> <span class="st">"black"</span>,</span>
+<span id="cb11-85"><a href="#cb11-85" aria-hidden="true" tabindex="-1"></a>    <span class="at">row_group.border.bottom.color =</span> <span class="st">"white"</span>,</span>
+<span id="cb11-86"><a href="#cb11-86" aria-hidden="true" tabindex="-1"></a>    <span class="at">table.border.bottom.color =</span> <span class="st">"white"</span>,</span>
+<span id="cb11-87"><a href="#cb11-87" aria-hidden="true" tabindex="-1"></a>    <span class="at">column_labels.border.top.color =</span> <span class="st">"black"</span>,</span>
+<span id="cb11-88"><a href="#cb11-88" aria-hidden="true" tabindex="-1"></a>    <span class="at">column_labels.border.bottom.color =</span> <span class="st">"black"</span>,</span>
+<span id="cb11-89"><a href="#cb11-89" aria-hidden="true" tabindex="-1"></a>    <span class="at">table_body.border.bottom.color =</span> <span class="st">"black"</span>,</span>
+<span id="cb11-90"><a href="#cb11-90" aria-hidden="true" tabindex="-1"></a>    <span class="at">table_body.hlines.color =</span> <span class="st">"white"</span></span>
+<span id="cb11-91"><a href="#cb11-91" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb11-92"><a href="#cb11-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-93"><a href="#cb11-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-94"><a href="#cb11-94" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(swiss<span class="sc">$</span>Catholic, swiss<span class="sc">$</span>Fertility)</span>
+<span id="cb11-95"><a href="#cb11-95" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb11-96"><a href="#cb11-96" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(swiss, <span class="fu">aes</span>(<span class="at">x=</span>Catholic, <span class="at">y=</span>Fertility, <span class="at">shape=</span>Education_cat)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb11-97"><a href="#cb11-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Agriculture"</span>, <span class="at">y =</span> <span class="st">"Fertility"</span>, </span>
+<span id="cb11-98"><a href="#cb11-98" aria-hidden="true" tabindex="-1"></a>       <span class="at">shape=</span><span class="st">"Education"</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>()</span>
+<span id="cb11-99"><a href="#cb11-99" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">sessionInfo</span>(), <span class="at">local =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Based on an earlier R Markdown template that uses Latex and can be downloaded under https://osf.io/q395s <span class="citation" data-cites="Bauer2018-dl">(see <a href="#ref-Bauer2018-dl" role="doc-biblioref">Bauer 2018</a>)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>You can download various citation style files from this webpage: https://github.com/citation-style-language/styles.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>You can always check your working directory in R with <code>getwd()</code>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>open-source library to paginate content in the browser<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Another good folder setup would be to store all files needed as input files for the R Markdown manuscript in a subfolder called “input” and all output files that are produced apart from paper.html and paper.pdf in a subfolder called “output”.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
