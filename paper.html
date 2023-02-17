@@ -6,7 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Paul C. Bauer, Camille Landesvatter">
+<meta name="author" content="Paul C. Bauer">
+<meta name="author" content="Camille Landesvatter">
 
 <title>Writing a reproducible paper with Quarto</title>
 <style>
@@ -136,20 +137,35 @@ div.csl-indent {
 </div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Authors</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    Paul C. Bauer <a href="https://orcid.org/0000-0002-8382-9724" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Mannheim Centre for European Social Research
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    Camille Landesvatter <a href="https://orcid.org/0000-0003-0156-5364" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Mannheim Centre for European Social Research
+          </p>
+      </div>
+    </div>
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Paul C. Bauer, Camille Landesvatter </p>
-          </div>
-  </div>
-    
+      
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Invalid Date</p>
+      <p class="date">First version:February 16, 2023<br>This version: February 17, 2023</p>
     </div>
   </div>
   
@@ -604,7 +620,7 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="tbl-3" class="anchored">
 
-<div class="tabwid"><style>.cl-2597c78c{}.cl-258b2e6e{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-258b2e78{font-family:'Times New Roman';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-25902fcc{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 0.3;background-color:transparent;}.cl-25904afc{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-25904b06{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-25904b07{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-2597c78c"><caption>Table&nbsp;3:  Summary: Categorical variables </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-25904afc"><p class="cl-25902fcc"><span class="cl-258b2e6e"> </span></p></th><th class="cl-25904afc"><p class="cl-25902fcc"><span class="cl-258b2e6e">  </span></p></th><th class="cl-25904afc"><p class="cl-25902fcc"><span class="cl-258b2e6e">N</span></p></th><th class="cl-25904afc"><p class="cl-25902fcc"><span class="cl-258b2e6e">%</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">Education_cat</span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">low</span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">14</span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">29.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78"></span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">middle</span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">22</span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">46.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78"></span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">high</span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">11</span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">23.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">Infant.Mortality_cat</span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">low</span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">12</span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">25.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78"></span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">middle</span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">23</span></p></td><td class="cl-25904b06"><p class="cl-25902fcc"><span class="cl-258b2e78">48.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-25904b07"><p class="cl-25902fcc"><span class="cl-258b2e78"></span></p></td><td class="cl-25904b07"><p class="cl-25902fcc"><span class="cl-258b2e78">high</span></p></td><td class="cl-25904b07"><p class="cl-25902fcc"><span class="cl-258b2e78">12</span></p></td><td class="cl-25904b07"><p class="cl-25902fcc"><span class="cl-258b2e78">25.5</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-a881b4fe{}.cl-a87378d0{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a87378e4{font-family:'Times New Roman';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a879279e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 0.3;background-color:transparent;}.cl-a87944a4{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a87944ae{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a87944b8{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-a881b4fe"><caption>Table&nbsp;3:  Summary: Categorical variables </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-a87944a4"><p class="cl-a879279e"><span class="cl-a87378d0"> </span></p></th><th class="cl-a87944a4"><p class="cl-a879279e"><span class="cl-a87378d0">  </span></p></th><th class="cl-a87944a4"><p class="cl-a879279e"><span class="cl-a87378d0">N</span></p></th><th class="cl-a87944a4"><p class="cl-a879279e"><span class="cl-a87378d0">%</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-a87944ae"><p class="cl-a879279e"><span class="cl-a87378e4">Education_cat</span></p></td><td class="cl-a87944ae"><p class="cl-a879279e"><span class="cl-a87378e4">low</span></p></td><td class="cl-a87944ae"><p class="cl-a879279e"><span class="cl-a87378e4">14</span></p></td><td class="cl-a87944ae"><p class="cl-a879279e"><span class="cl-a87378e4">29.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a87944ae"><p class="cl-a879279e"><span class="cl-a87378e4"></span></p></td><td class="cl-a87944ae"><p class="cl-a879279e"><span class="cl-a87378e4">middle</span></p></td><td class="cl-a87944ae"><p class="cl-a879279e"><span class="cl-a87378e4">22</span></p></td><td class="cl-a87944ae"><p class="cl-a879279e"><span class="cl-a87378e4">46.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a87944ae"><p class="cl-a879279e"><span class="cl-a87378e4"></span></p></td><td class="cl-a87944ae"><p class="cl-a879279e"><span class="cl-a87378e4">high</span></p></td><td class="cl-a87944ae"><p class="cl-a879279e"><span class="cl-a87378e4">11</span></p></td><td class="cl-a87944ae"><p class="cl-a879279e"><span class="cl-a87378e4">23.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a87944ae"><p class="cl-a879279e"><span class="cl-a87378e4">Infant.Mortality_cat</span></p></td><td class="cl-a87944ae"><p class="cl-a879279e"><span class="cl-a87378e4">low</span></p></td><td class="cl-a87944ae"><p class="cl-a879279e"><span class="cl-a87378e4">12</span></p></td><td class="cl-a87944ae"><p class="cl-a879279e"><span class="cl-a87378e4">25.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a87944ae"><p class="cl-a879279e"><span class="cl-a87378e4"></span></p></td><td class="cl-a87944ae"><p class="cl-a879279e"><span class="cl-a87378e4">middle</span></p></td><td class="cl-a87944ae"><p class="cl-a879279e"><span class="cl-a87378e4">23</span></p></td><td class="cl-a87944ae"><p class="cl-a879279e"><span class="cl-a87378e4">48.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a87944b8"><p class="cl-a879279e"><span class="cl-a87378e4"></span></p></td><td class="cl-a87944b8"><p class="cl-a879279e"><span class="cl-a87378e4">high</span></p></td><td class="cl-a87944b8"><p class="cl-a879279e"><span class="cl-a87378e4">12</span></p></td><td class="cl-a87944b8"><p class="cl-a879279e"><span class="cl-a87378e4">25.5</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </div>
@@ -617,12 +633,12 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="tbl-4" class="anchored">
 
-<div id="irvkhydozd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="cpjofvwyah" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#irvkhydozd) .gt_table {
+:where(#cpjofvwyah) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -647,7 +663,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#irvkhydozd) .gt_heading {
+:where(#cpjofvwyah) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -659,12 +675,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#irvkhydozd) .gt_caption {
+:where(#cpjofvwyah) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#irvkhydozd) .gt_title {
+:where(#cpjofvwyah) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -676,7 +692,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#irvkhydozd) .gt_subtitle {
+:where(#cpjofvwyah) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -688,13 +704,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#irvkhydozd) .gt_bottom_border {
+:where(#cpjofvwyah) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
 }
 
-:where(#irvkhydozd) .gt_col_headings {
+:where(#cpjofvwyah) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #000000;
@@ -709,7 +725,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#irvkhydozd) .gt_col_heading {
+:where(#cpjofvwyah) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -729,7 +745,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#irvkhydozd) .gt_column_spanner_outer {
+:where(#cpjofvwyah) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -741,15 +757,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#irvkhydozd) .gt_column_spanner_outer:first-child {
+:where(#cpjofvwyah) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#irvkhydozd) .gt_column_spanner_outer:last-child {
+:where(#cpjofvwyah) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#irvkhydozd) .gt_column_spanner {
+:where(#cpjofvwyah) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
@@ -761,7 +777,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#irvkhydozd) .gt_group_heading {
+:where(#cpjofvwyah) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -787,7 +803,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#irvkhydozd) .gt_empty_group_heading {
+:where(#cpjofvwyah) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -802,15 +818,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#irvkhydozd) .gt_from_md > :first-child {
+:where(#cpjofvwyah) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#irvkhydozd) .gt_from_md > :last-child {
+:where(#cpjofvwyah) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#irvkhydozd) .gt_row {
+:where(#cpjofvwyah) .gt_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -829,7 +845,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#irvkhydozd) .gt_stub {
+:where(#cpjofvwyah) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -842,7 +858,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#irvkhydozd) .gt_stub_row_group {
+:where(#cpjofvwyah) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -856,11 +872,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#irvkhydozd) .gt_row_group_first td {
+:where(#cpjofvwyah) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#irvkhydozd) .gt_summary_row {
+:where(#cpjofvwyah) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -870,16 +886,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#irvkhydozd) .gt_first_summary_row {
+:where(#cpjofvwyah) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#irvkhydozd) .gt_first_summary_row.thick {
+:where(#cpjofvwyah) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#irvkhydozd) .gt_last_summary_row {
+:where(#cpjofvwyah) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -889,7 +905,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#irvkhydozd) .gt_grand_summary_row {
+:where(#cpjofvwyah) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -899,7 +915,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#irvkhydozd) .gt_first_grand_summary_row {
+:where(#cpjofvwyah) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -909,11 +925,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#irvkhydozd) .gt_striped {
+:where(#cpjofvwyah) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#irvkhydozd) .gt_table_body {
+:where(#cpjofvwyah) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -922,7 +938,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#irvkhydozd) .gt_footnotes {
+:where(#cpjofvwyah) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -936,7 +952,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#irvkhydozd) .gt_footnote {
+:where(#cpjofvwyah) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -945,7 +961,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#irvkhydozd) .gt_sourcenotes {
+:where(#cpjofvwyah) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -959,7 +975,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#irvkhydozd) .gt_sourcenote {
+:where(#cpjofvwyah) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -967,64 +983,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#irvkhydozd) .gt_left {
+:where(#cpjofvwyah) .gt_left {
   text-align: left;
 }
 
-:where(#irvkhydozd) .gt_center {
+:where(#cpjofvwyah) .gt_center {
   text-align: center;
 }
 
-:where(#irvkhydozd) .gt_right {
+:where(#cpjofvwyah) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#irvkhydozd) .gt_font_normal {
+:where(#cpjofvwyah) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#irvkhydozd) .gt_font_bold {
+:where(#cpjofvwyah) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#irvkhydozd) .gt_font_italic {
+:where(#cpjofvwyah) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#irvkhydozd) .gt_super {
+:where(#cpjofvwyah) .gt_super {
   font-size: 65%;
 }
 
-:where(#irvkhydozd) .gt_footnote_marks {
+:where(#cpjofvwyah) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#irvkhydozd) .gt_asterisk {
+:where(#cpjofvwyah) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#irvkhydozd) .gt_indent_1 {
+:where(#cpjofvwyah) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#irvkhydozd) .gt_indent_2 {
+:where(#cpjofvwyah) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#irvkhydozd) .gt_indent_3 {
+:where(#cpjofvwyah) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#irvkhydozd) .gt_indent_4 {
+:where(#cpjofvwyah) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#irvkhydozd) .gt_indent_5 {
+:where(#cpjofvwyah) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
