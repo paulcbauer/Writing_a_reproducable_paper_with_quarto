@@ -1,0 +1,27 @@
+{
+    "id": "0A83AA1F",
+    "path": "~/Documents/GitHub/Writing_a_reproducable_paper_with_quarto/paper.qmd",
+    "project_path": "paper.qmd",
+    "type": "quarto_markdown",
+    "hash": "2319419010",
+    "contents": "",
+    "dirty": false,
+    "created": 1677751125194.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "126,12",
+        "scrollLine": "125",
+        "quartoPreviewFormat": "html"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1677754447,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1677754447922,
+    "read_only": false,
+    "read_only_alternatives": []
+}
