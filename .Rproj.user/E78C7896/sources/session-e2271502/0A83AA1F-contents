@@ -58,29 +58,32 @@ The fairly new `pagedown` R package takes a completely new approach. While the m
 While web pages are usually single-page scrollable documents, pagedown uses the JavaScript library `Paged.js` which allows documents to be paginated with elements like headers, footers and everything a readable scientific paper will need. Additionally, pagedown documents are based on R Markdown. In our view, Pagedown and the underlying technology may replace Latex in the long run. In the near future it should also be possible to produce a PDF with static graph and an equivalent html with interactive graps (see dicsussion [here](https://github.com/rstudio/pagedown/pull/87)).
 
 
-# Prerequesites
+# Prerequisites
 
-We assume that you are using R on a day-to-day basis and you may have even started to work in R Markdown. If you don't know what R Markdown is there are many great resources that you should use (e.g. watch this [short video](https://vimeo.com/178485416)). An older template [see @Bauer2018-dl; https://osf.io/q395s] on which this newer template is based, may provide a quick entry point to writing a reproducible with R Markdown and Latex.
+Quarto is a multi-language, next-generation version of R Markdown from RStudio. Multi-language means you can use R, Python, Julia and other languages to create quarto documents. In this template we’ll focus on showing you how to use **RStudio with Quarto**.
 
-Based on R Markdown, Pagedown allows you to create custom and well-formatted (paged) HTML Documents. For a comprehensive overview watch [this video](https://www.rstudio.com/resources/rstudioconf-2019/pagedown-creating-beautiful-pdfs-with-r-markdown-and-css/) which is a record of a talk introducing `pagedown` given by Yihui Xie (who in addition to Romain Lesur developed the `pagedown` package). If you are not in a video watching mood find the slides [here](https://slides.yihui.org/2019-rstudio-conf-pagedown.html#1).
+For name prerequisites, we assume that you are familiar with using R and R Markdown. If you don't know what R Markdown is there are many great resources that you should use (e.g. watch this [short video](https://vimeo.com/178485416)). An older template of ours [see @Bauer2018-dl; https://osf.io/q395s] may provide a quick entry point to writing a reproducible with R Markdown and Latex.
+
+Like R Markdown, Quarto uses Knitr to execute R code (hence you should also be able to render existing Rmd files without modification), and can render documents of a dozens of formats (e.g., PDF, HTML).
+For a comprehensive overview watch [this video](https://www.youtube.com/watch?v=yvi5uXQMvu4&t=708s&ab_channel=PositPBC) which is a record of a talk introducing `quarto` given by Tom Mock from RStudio.
 
 Then...
 
-* ...install [R](https://www.r-project.org/) and [Rstudio](https://www.rstudio.com/) (most recent versions) [@R2017; @Rstudio2015].
-* ...install the "pagedown"-package from github using the code below [@Xie2021-bi; @Xie2021-ls].
+* ...install [R](https://www.r-project.org/) and [Rstudio](https://posit.co/download/rstudio-desktop/) (important: most recent versions, e.g. RStudio v2022.07) [@R2017; @Rstudio2015].
+* ...install the "rmarkdown"-package from CRAN using the code below [@markdown2017].
 ```{r eval=FALSE, include=TRUE}
-remotes::install_github('rstudio/pagedown')
+install.packages("rmarkdown")
 ```
 * ...also install the packages below using the code below [@bookdown1; @bookdown2; @knitr1; @knitr2; @knitr3; @kableextra].
 ```{r eval=FALSE, include=TRUE}
-install.packages(c("rmarkdown", "knitr", "kableExtra",
+install.packages(c("knitr", "kableExtra",
                    "stargazer", "modelsummary", "knitr", "gt"))
 ```
 * ...download the 4 input files we created --- `paper.qmd`, `references.bib`, `data.csv` and `american-sociological-association.csl` --- from [this folder](https://drive.google.com/drive/folders/1rWzj-Bu1EKqkSuE1gaFzduBJhzlThpkw?usp=sharing). Ignore the other files.
 * ...also download the 4 styling files we created: `wp_paged.html`, `wp.css`, `wp-fonts.css` and `wp-pages.css`.
 * ...store all 8 files from above together in one folder (and use this folder as your working directory later on)
-* ...learn R and read about the other underlying components namely [Markdown](https://en.wikipedia.org/wiki/Markdown), [R Markdown](https://rmarkdown.rstudio.com/lesson-1.html) and [Pagedown](https://pagedown.rbind.io/).
-* ...pagedown comes with several Rmd-templates (presentations, poster, thesis, etc.) and via this review we provide another template for a working paper style. If however you want to modify single aspects or create your own template, you will need to at least gain some basic skills in [CSS](https://www.w3schools.com/css/) and [HTML](https://www.w3schools.com/html/).
+* ...learn R and read about the other underlying components namely [Markdown](https://en.wikipedia.org/wiki/Markdown), [R Markdown](https://rmarkdown.rstudio.com/lesson-1.html) and [Quarto](https://quarto.org/).
+
 
 
 
@@ -116,25 +119,34 @@ Basically, what happens here is that within the [jss_paged function](https://rdr
 
 Quarto allows you to produce documents in various formats (e.g., HTML, PDF, MS Word). By default, once you run/render the `paper.qmd` file in Rstudio it creates an output file in HTML called `paper.html`. However in the YAML you can specify any alternative format (or formats) alongside different options.
 
-<!-- In order to create PDFs you will need to install a recent distribution of LaTeX. We recommend the use of TinyTeX (which is based on TexLive), which you can install with the following command: -->
+Remember (cf. Section Prerequesites) that in order to compile PDFs you will need to install a recent distribution of LaTeX (e.g., TinyTex)
 
 If you want your document to be rendered in multiple output formats (e.g., HTML and PDF like we did here), you need to specify both outputs in your YAML header. Subsequently, you have two options on how to proceed for rendering: 
 
 * first, use the Render Button in R Studio. If you click it without using the drop down menu, by default it will create HTML since it is the first format listed in our YAML. If you use the drop down menu of the "Render"-button, you can specify the desired output (e.g., HTML or PDF) but only if you specified it in your YAML.
 
-* second, use the `quarto` package to render to all formats at the same time with the `quarto_render()` function:
+* second, if you are not using RStudio and/or you prefer to render from the R console, use the `quarto` package to render to all formats at the same time with the `quarto_render()` function:
 
 ```{r eval=F, echo=T}
 quarto::quarto_render()
 ```
 
+Beforehand don't forget to install the `quarto` package:
+
+```{r eval=F, echo=T}
+install.packages("quarto")
+```
+
+
 Here you can also again specify the name of the resulting document as well as the desired output format(s):
 
 ```{r eval=F, echo=T}
 quarto::quarto_render(
-  "authoring.qmd", 
+  "paper.qmd", 
   output_format = c("pdf", "html", "docx")
 )
+
+#quarto::quarto_render("paper.qmd") # defaults to html
 ```
 
 Your output(s) will be saved in your working directory.

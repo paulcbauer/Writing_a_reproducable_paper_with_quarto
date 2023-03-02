@@ -1,0 +1,26 @@
+"0","quarto::quarto_render("
+"0","  ""authoring.qmd"", "
+"0","  output_format = c(""pdf"", ""html"", ""docx"")"
+"0",")"
+"1","[31m[91mERROR: No valid input files passed to render[31m
+[39m"
+"1","[1m[33mError[39m[22m in `processx::run(quarto_bin, args, echo = TRUE)`:
+"
+"1","[33m![39m System command 'quarto' failed
+"
+"1","---
+"
+"1","Exit status: 1
+"
+"1","stdout & stderr: <printed>
+"
+"1","---
+"
+"1","Backtrace:
+"
+"1","[90m1. [39mquarto::quarto_render(""authoring.qmd"", output_format = c(""pdf""…
+"
+"1","[90m2. [39mprocessx::[1mrun[22m[38;5;195m([39mquarto_bin, args, echo = [38;5;211mTRUE[38;5;195m)[39m
+"
+"1","[90m3. [39mprocessx:::throw(new_process_error(res, call = sys.call(), echo = echo, …
+"
