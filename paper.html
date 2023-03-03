@@ -194,14 +194,14 @@ div.csl-indent {
 </section>
 <section id="why-quarto" class="level1">
 <h1>Why Quarto?</h1>
-<p>Quarto is an open-source, scientific and technical publishing system build on <code>pandoc</code>. Their creators from RStudio also call it <a href="https://quarto.org/docs/computations/r.html">„the next generation of R Markdown“</a>.<br>
+<p><a href="https://quarto.org/">Quarto</a> is an open-source, scientific and technical publishing system build on <code>pandoc</code>. Their creators from RStudio also call it <a href="https://quarto.org/docs/computations/r.html">„the next generation of R Markdown“</a>.<br>
 Like RMarkdown, Quarto uses <code>Knitr</code> to execute <code>R</code> code, and is therefore able to render most existing <code>.rmd</code> files without having to make any adjustments. As in <code>rmd</code> and other more recent developments like R’s <code>pagedown</code>-package, one of the main goals of Quarto is to weave together narrative text and code and produce nicely formatted output documents.<br>
 Differences to RMarkdown are not only but especially due to two facts: first, Quarto is multi-lingual (R, Python, Julia, Observable JS, etc.) and second in addition to RMarkdown’s workflow where the final conversion layer uses <code>pandoc</code> to create documents, Quarto uses pandoc with Lua filters (which include latex in pandoc metadata). This contributes to cross-language standardization of outputs. Put differently, it allows working regardless of language, since it allows shared syntax and shared format across languages and input formats.</p>
 </section>
 <section id="prerequisites" class="level1">
 <h1>Prerequisites</h1>
 <p>Quarto is a multi-language, next-generation version of R Markdown from RStudio. Multi-language means you can use R, Python, Julia and other languages to create quarto documents. In this template we’ll focus on showing you how to use <strong>RStudio with Quarto</strong>.</p>
-<p>To name prerequisites, we assume that you are familiar with using R and R Markdown. If you don’t know what R Markdown is there are many great resources that you can use (e.g.&nbsp;watch this <a href="https://vimeo.com/178485416">short video</a>). An older template of ours [see <span class="citation" data-cites="Bauer2018-dl">Bauer (<a href="#ref-Bauer2018-dl" role="doc-biblioref">2018</a>)</span>; https://osf.io/q395s] may provide a quick entry point to writing a reproducible manuscript with R Markdown and Latex. To further deepen your understanding of the different components underlying this template, go on and learn about R, <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>, <a href="https://rmarkdown.rstudio.com/lesson-1.html">R Markdown</a> and <a href="https://quarto.org/">Quarto</a>.</p>
+<p>To name prerequisites, we assume that you are familiar with using R and R Markdown. If you don’t know what R Markdown is there are many great resources that you can use (e.g.&nbsp;watch this <a href="https://vimeo.com/178485416">short video</a>). An older template of ours [see <span class="citation" data-cites="Bauer2018-dl">Bauer (<a href="#ref-Bauer2018-dl" role="doc-biblioref">2018</a>)</span>; https://osf.io/q395s] may provide a quick entry point to writing a reproducible manuscript with R Markdown and Latex. To further deepen your understanding of the different components underlying this template, go on and learn about R, <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>, <a href="https://rmarkdown.rstudio.com/lesson-1.html">R Markdown</a> and <a href="https://quarto.org/">Quarto</a>. For Quarto also consider reading their <a href="https://quarto.org/docs/faq/rmarkdown.html">FAQ</a>.</p>
 <p>Like R Markdown, Quarto uses <code>Knitr</code> to execute R code (hence you should also be able to render existing Rmd files without modification), and can render documents of a dozens of formats (e.g., PDF, HTML). For a comprehensive overview watch <a href="https://www.youtube.com/watch?v=yvi5uXQMvu4&amp;t=708s&amp;ab_channel=PositPBC">this video</a> which is a record of a talk introducing <code>quarto</code> given by Tom Mock from RStudio.</p>
 <p>Then…</p>
 <ul>
@@ -637,8 +637,8 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 <div class="cell-output-display">
 <div id="tbl-3" class="anchored">
 
-<div class="tabwid"><style>.cl-eb50c938{}.cl-eb4d7da0{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-eb4d7daa{font-family:'Times New Roman';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-eb4d8976{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 0.3;background-color:transparent;}.cl-eb4da3ac{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb4da3b6{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb4da3b7{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class="cl-eb50c938"><caption>Table&nbsp;3:  Summary: Categorical variables </caption>
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-eb4da3b7"><p class="cl-eb4d8976"><span class="cl-eb4d7da0"> </span></p></td><td class="cl-eb4da3b7"><p class="cl-eb4d8976"><span class="cl-eb4d7da0">  </span></p></td><td class="cl-eb4da3b7"><p class="cl-eb4d8976"><span class="cl-eb4d7da0">N</span></p></td><td class="cl-eb4da3b7"><p class="cl-eb4d8976"><span class="cl-eb4d7da0">%</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-eb4da3ac"><p class="cl-eb4d8976"><span class="cl-eb4d7daa">Education_cat</span></p></td><td class="cl-eb4da3ac"><p class="cl-eb4d8976"><span class="cl-eb4d7daa">low</span></p></td><td class="cl-eb4da3ac"><p class="cl-eb4d8976"><span class="cl-eb4d7daa">14</span></p></td><td class="cl-eb4da3ac"><p class="cl-eb4d8976"><span class="cl-eb4d7daa">29.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb4da3ac"><p class="cl-eb4d8976"><span class="cl-eb4d7daa"></span></p></td><td class="cl-eb4da3ac"><p class="cl-eb4d8976"><span class="cl-eb4d7daa">middle</span></p></td><td class="cl-eb4da3ac"><p class="cl-eb4d8976"><span class="cl-eb4d7daa">22</span></p></td><td class="cl-eb4da3ac"><p class="cl-eb4d8976"><span class="cl-eb4d7daa">46.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb4da3ac"><p class="cl-eb4d8976"><span class="cl-eb4d7daa"></span></p></td><td class="cl-eb4da3ac"><p class="cl-eb4d8976"><span class="cl-eb4d7daa">high</span></p></td><td class="cl-eb4da3ac"><p class="cl-eb4d8976"><span class="cl-eb4d7daa">11</span></p></td><td class="cl-eb4da3ac"><p class="cl-eb4d8976"><span class="cl-eb4d7daa">23.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb4da3ac"><p class="cl-eb4d8976"><span class="cl-eb4d7daa">Infant.Mortality_cat</span></p></td><td class="cl-eb4da3ac"><p class="cl-eb4d8976"><span class="cl-eb4d7daa">low</span></p></td><td class="cl-eb4da3ac"><p class="cl-eb4d8976"><span class="cl-eb4d7daa">12</span></p></td><td class="cl-eb4da3ac"><p class="cl-eb4d8976"><span class="cl-eb4d7daa">25.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb4da3ac"><p class="cl-eb4d8976"><span class="cl-eb4d7daa"></span></p></td><td class="cl-eb4da3ac"><p class="cl-eb4d8976"><span class="cl-eb4d7daa">middle</span></p></td><td class="cl-eb4da3ac"><p class="cl-eb4d8976"><span class="cl-eb4d7daa">23</span></p></td><td class="cl-eb4da3ac"><p class="cl-eb4d8976"><span class="cl-eb4d7daa">48.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb4da3b6"><p class="cl-eb4d8976"><span class="cl-eb4d7daa"></span></p></td><td class="cl-eb4da3b6"><p class="cl-eb4d8976"><span class="cl-eb4d7daa">high</span></p></td><td class="cl-eb4da3b6"><p class="cl-eb4d8976"><span class="cl-eb4d7daa">12</span></p></td><td class="cl-eb4da3b6"><p class="cl-eb4d8976"><span class="cl-eb4d7daa">25.5</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-537060cc{}.cl-536d1f20{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-536d1f2a{font-family:'Times New Roman';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-536d2ace{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 0.3;background-color:transparent;}.cl-536d4644{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-536d4645{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-536d4646{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class="cl-537060cc"><caption>Table&nbsp;3:  Summary: Categorical variables </caption>
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-536d4646"><p class="cl-536d2ace"><span class="cl-536d1f20"> </span></p></td><td class="cl-536d4646"><p class="cl-536d2ace"><span class="cl-536d1f20">  </span></p></td><td class="cl-536d4646"><p class="cl-536d2ace"><span class="cl-536d1f20">N</span></p></td><td class="cl-536d4646"><p class="cl-536d2ace"><span class="cl-536d1f20">%</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">Education_cat</span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">low</span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">14</span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">29.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a"></span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">middle</span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">22</span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">46.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a"></span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">high</span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">11</span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">23.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">Infant.Mortality_cat</span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">low</span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">12</span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">25.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a"></span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">middle</span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">23</span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">48.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-536d4645"><p class="cl-536d2ace"><span class="cl-536d1f2a"></span></p></td><td class="cl-536d4645"><p class="cl-536d2ace"><span class="cl-536d1f2a">high</span></p></td><td class="cl-536d4645"><p class="cl-536d2ace"><span class="cl-536d1f2a">12</span></p></td><td class="cl-536d4645"><p class="cl-536d2ace"><span class="cl-536d1f2a">25.5</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </div>
@@ -651,12 +651,12 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 <div class="cell-output-display">
 <div id="tbl-4" class="anchored">
 
-<div id="vwwgwxcqmq" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="hlutwsobnz" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#vwwgwxcqmq) .gt_table {
+:where(#hlutwsobnz) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -681,7 +681,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-left-color: #D3D3D3;
 }
 
-:where(#vwwgwxcqmq) .gt_heading {
+:where(#hlutwsobnz) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -693,7 +693,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-right-color: #D3D3D3;
 }
 
-:where(#vwwgwxcqmq) .gt_title {
+:where(#hlutwsobnz) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -705,7 +705,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-bottom-width: 0;
 }
 
-:where(#vwwgwxcqmq) .gt_subtitle {
+:where(#hlutwsobnz) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -717,13 +717,13 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-top-width: 0;
 }
 
-:where(#vwwgwxcqmq) .gt_bottom_border {
+:where(#hlutwsobnz) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
 }
 
-:where(#vwwgwxcqmq) .gt_col_headings {
+:where(#hlutwsobnz) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #000000;
@@ -738,7 +738,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-right-color: #D3D3D3;
 }
 
-:where(#vwwgwxcqmq) .gt_col_heading {
+:where(#hlutwsobnz) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -758,7 +758,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   overflow-x: hidden;
 }
 
-:where(#vwwgwxcqmq) .gt_column_spanner_outer {
+:where(#hlutwsobnz) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -770,15 +770,15 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 4px;
 }
 
-:where(#vwwgwxcqmq) .gt_column_spanner_outer:first-child {
+:where(#hlutwsobnz) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#vwwgwxcqmq) .gt_column_spanner_outer:last-child {
+:where(#hlutwsobnz) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#vwwgwxcqmq) .gt_column_spanner {
+:where(#hlutwsobnz) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
@@ -790,7 +790,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   width: 100%;
 }
 
-:where(#vwwgwxcqmq) .gt_group_heading {
+:where(#hlutwsobnz) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -815,7 +815,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   vertical-align: middle;
 }
 
-:where(#vwwgwxcqmq) .gt_empty_group_heading {
+:where(#hlutwsobnz) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -830,15 +830,15 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   vertical-align: middle;
 }
 
-:where(#vwwgwxcqmq) .gt_from_md > :first-child {
+:where(#hlutwsobnz) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#vwwgwxcqmq) .gt_from_md > :last-child {
+:where(#hlutwsobnz) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#vwwgwxcqmq) .gt_row {
+:where(#hlutwsobnz) .gt_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -857,7 +857,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   overflow-x: hidden;
 }
 
-:where(#vwwgwxcqmq) .gt_stub {
+:where(#hlutwsobnz) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -870,7 +870,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 5px;
 }
 
-:where(#vwwgwxcqmq) .gt_stub_row_group {
+:where(#hlutwsobnz) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -884,11 +884,11 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   vertical-align: top;
 }
 
-:where(#vwwgwxcqmq) .gt_row_group_first td {
+:where(#hlutwsobnz) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#vwwgwxcqmq) .gt_summary_row {
+:where(#hlutwsobnz) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -898,16 +898,16 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 5px;
 }
 
-:where(#vwwgwxcqmq) .gt_first_summary_row {
+:where(#hlutwsobnz) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#vwwgwxcqmq) .gt_first_summary_row.thick {
+:where(#hlutwsobnz) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#vwwgwxcqmq) .gt_last_summary_row {
+:where(#hlutwsobnz) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -917,7 +917,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-bottom-color: #D3D3D3;
 }
 
-:where(#vwwgwxcqmq) .gt_grand_summary_row {
+:where(#hlutwsobnz) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -927,7 +927,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 5px;
 }
 
-:where(#vwwgwxcqmq) .gt_first_grand_summary_row {
+:where(#hlutwsobnz) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -937,11 +937,11 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-top-color: #D3D3D3;
 }
 
-:where(#vwwgwxcqmq) .gt_striped {
+:where(#hlutwsobnz) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#vwwgwxcqmq) .gt_table_body {
+:where(#hlutwsobnz) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -950,7 +950,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-bottom-color: #000000;
 }
 
-:where(#vwwgwxcqmq) .gt_footnotes {
+:where(#hlutwsobnz) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -964,7 +964,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-right-color: #D3D3D3;
 }
 
-:where(#vwwgwxcqmq) .gt_footnote {
+:where(#hlutwsobnz) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -973,7 +973,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 5px;
 }
 
-:where(#vwwgwxcqmq) .gt_sourcenotes {
+:where(#hlutwsobnz) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -987,7 +987,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-right-color: #D3D3D3;
 }
 
-:where(#vwwgwxcqmq) .gt_sourcenote {
+:where(#hlutwsobnz) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -995,36 +995,36 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 5px;
 }
 
-:where(#vwwgwxcqmq) .gt_left {
+:where(#hlutwsobnz) .gt_left {
   text-align: left;
 }
 
-:where(#vwwgwxcqmq) .gt_center {
+:where(#hlutwsobnz) .gt_center {
   text-align: center;
 }
 
-:where(#vwwgwxcqmq) .gt_right {
+:where(#hlutwsobnz) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#vwwgwxcqmq) .gt_font_normal {
+:where(#hlutwsobnz) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#vwwgwxcqmq) .gt_font_bold {
+:where(#hlutwsobnz) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#vwwgwxcqmq) .gt_font_italic {
+:where(#hlutwsobnz) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#vwwgwxcqmq) .gt_super {
+:where(#hlutwsobnz) .gt_super {
   font-size: 65%;
 }
 
-:where(#vwwgwxcqmq) .gt_two_val_uncert {
+:where(#hlutwsobnz) .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -1033,31 +1033,31 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   margin-left: 0.1em;
 }
 
-:where(#vwwgwxcqmq) .gt_footnote_marks {
+:where(#hlutwsobnz) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#vwwgwxcqmq) .gt_asterisk {
+:where(#hlutwsobnz) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#vwwgwxcqmq) .gt_slash_mark {
+:where(#hlutwsobnz) .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-:where(#vwwgwxcqmq) .gt_fraction_numerator {
+:where(#hlutwsobnz) .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-:where(#vwwgwxcqmq) .gt_fraction_denominator {
+:where(#hlutwsobnz) .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;

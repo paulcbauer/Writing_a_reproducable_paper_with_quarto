@@ -51,7 +51,7 @@ Some arguments...
 
 # Why Quarto?
 
-Quarto is an open-source, scientific and technical publishing system build on `pandoc`. Their creators from RStudio also call it [„the next generation of R Markdown“](https://quarto.org/docs/computations/r.html).   
+[Quarto](https://quarto.org/) is an open-source, scientific and technical publishing system build on `pandoc`. Their creators from RStudio also call it [„the next generation of R Markdown“](https://quarto.org/docs/computations/r.html).   
 Like RMarkdown, Quarto uses `Knitr` to execute `R` code, and is therefore able to render most existing `.rmd` files without having to make any adjustments. As in `rmd` and other more recent developments like R's `pagedown`-package, one of the main goals of Quarto is to weave together narrative text and code and produce nicely formatted output documents.   
 Differences to RMarkdown are not only but especially due to two facts: first, Quarto is multi-lingual (R, Python, Julia, Observable JS, etc.) and second in addition to RMarkdown's workflow where the final conversion layer uses `pandoc` to create documents, Quarto uses pandoc with Lua filters (which include latex in pandoc metadata). This contributes to cross-language standardization of outputs. Put differently, it allows working regardless of language, since it allows shared syntax and shared format across languages and input formats.
 
@@ -60,7 +60,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 
 Quarto is a multi-language, next-generation version of R Markdown from RStudio. Multi-language means you can use R, Python, Julia and other languages to create quarto documents. In this template we’ll focus on showing you how to use **RStudio with Quarto**.
 
-To name prerequisites, we assume that you are familiar with using R and R Markdown. If you don't know what R Markdown is there are many great resources that you can use (e.g. watch this [short video](https://vimeo.com/178485416)). An older template of ours [see @Bauer2018-dl; https://osf.io/q395s] may provide a quick entry point to writing a reproducible manuscript with R Markdown and Latex. To further deepen your understanding of the different components underlying this template, go on and learn about R, [Markdown](https://en.wikipedia.org/wiki/Markdown), [R Markdown](https://rmarkdown.rstudio.com/lesson-1.html) and [Quarto](https://quarto.org/).
+To name prerequisites, we assume that you are familiar with using R and R Markdown. If you don't know what R Markdown is there are many great resources that you can use (e.g. watch this [short video](https://vimeo.com/178485416)). An older template of ours [see @Bauer2018-dl; https://osf.io/q395s] may provide a quick entry point to writing a reproducible manuscript with R Markdown and Latex. To further deepen your understanding of the different components underlying this template, go on and learn about R, [Markdown](https://en.wikipedia.org/wiki/Markdown), [R Markdown](https://rmarkdown.rstudio.com/lesson-1.html) and [Quarto](https://quarto.org/). For Quarto also consider reading their [FAQ](https://quarto.org/docs/faq/rmarkdown.html).
 
 Like R Markdown, Quarto uses `Knitr` to execute R code (hence you should also be able to render existing Rmd files without modification), and can render documents of a dozens of formats (e.g., PDF, HTML).
 For a comprehensive overview watch [this video](https://www.youtube.com/watch?v=yvi5uXQMvu4&t=708s&ab_channel=PositPBC) which is a record of a talk introducing `quarto` given by Tom Mock from RStudio.
