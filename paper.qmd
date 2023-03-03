@@ -16,7 +16,7 @@ format:
   pdf: default
 date: 'last-modified'
 date-format: "[First version:February  16, 2023<br>This version:] MMMM D, YYYY"
-abstract: 'This paper provides a template to write a reproducible scientific paper with RStudio and Quarto. It falls into a series on other templates, namely on RMarkdown and pagedown that can be downloaded [here](https://osf.io/k8jhx/) [@Bauer2018-dl] and [here](https://osf.io/q395s) [@Bauer2021-dl]. Below we outline some of the "tricks"/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be [downloaded here](https://drive.google.com/drive/folders/1eT_9WaineZRB-nw-cQhNOy16sWhd_t2s?usp=sharing). We are convinced that in the future there will be many improvements and developments with regards to RStudio and Quarto. We intend to update this file when we discover more convenient code. You can follow any updates on the [github repository](https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/).'
+abstract: 'This paper provides a template to write a reproducible scientific paper with RStudio and Quarto. It falls into a series on other templates, namely on RMarkdown and pagedown that can be downloaded [here](https://osf.io/k8jhx/) [@Bauer2018-dl] and [here](https://osf.io/q395s) [@Bauer2021-dl]. Below we outline some of the "tricks"/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be [downloaded here](https://drive.google.com/drive/u/0/folders/1eT_9WaineZRB-nw-cQhNOy16sWhd_t2s). We are convinced that in the future there will be many improvements and developments with regards to RStudio and Quarto. We intend to update this file when we discover more convenient code. You can follow any updates on the [github repository](https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/).'
 bibliography: references.bib
 tbl-cap-location: top
 number-sections: true
@@ -83,7 +83,7 @@ tinytex::install_tinytex()
 install.packages(c("knitr", "kableExtra",
                    "stargazer", "modelsummary", "knitr", "gt"))
 ```
-* ...download the 3 input files we created --- `paper.qmd`, `references.bib` and `data.csv` --- from [this folder](https://drive.google.com/drive/folders/1rWzj-Bu1EKqkSuE1gaFzduBJhzlThpkw?usp=sharing). Ignore the other files.
+* ...download the 3 input files we created --- `paper.qmd`, `references.bib` and `data.csv` --- from [this folder](https://drive.google.com/drive/u/0/folders/1eT_9WaineZRB-nw-cQhNOy16sWhd_t2s). Ignore the other files.
 * ...finally store all files from above together in one folder (and use this folder as your working directory later on).
 
 
@@ -101,7 +101,7 @@ All the input files you need to produce the present PDF file are:
     + We use paperpile to manage references and export the `.bib` file into the folder that contains the `.qmd` file.
 * `data.csv` (some raw data).
 
-[Download these files](https://drive.google.com/drive/folders/1rWzj-Bu1EKqkSuE1gaFzduBJhzlThpkw?usp=sharing) and save them into a folder. Close R/Rstudio and directly open `paper.qmd` with RStudio. Doing so assures that the working directory is set to the folder that contains `paper.qmd` and the other files.^[You can always check your working directory in R with `getwd()`.]
+[Download these files](https://drive.google.com/drive/u/0/folders/1eT_9WaineZRB-nw-cQhNOy16sWhd_t2s) and save them into a folder. Close R/Rstudio and directly open `paper.qmd` with RStudio. Doing so assures that the working directory is set to the folder that contains `paper.qmd` and the other files.^[You can always check your working directory in R with `getwd()`.]
 
 # Basics: Output files and the YAML header
 
