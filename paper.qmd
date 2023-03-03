@@ -19,6 +19,7 @@ date-format: "[First version:February  16, 2023<br>This version:] MMMM D, YYYY"
 abstract: 'This paper provides a template to write a reproducible scientific paper with RStudio and Quarto. It falls into a series on other templates, namely on RMarkdown and pagedown that can be downloaded [here](https://osf.io/k8jhx/) [@Bauer2018-dl] and [here](https://osf.io/q395s) [@Bauer2021-dl]. Below we outline some of the "tricks"/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be [downloaded here](https://drive.google.com/drive/folders/1eT_9WaineZRB-nw-cQhNOy16sWhd_t2s?usp=sharing). We are convinced that in the future there will be many improvements and developments with regards to RStudio and Quarto. We intend to update this file when we discover more convenient code. You can follow any updates on the [github repository](https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/).'
 bibliography: references.bib
 tbl-cap-location: top
+number-sections: true
 execute: 
   echo: false
   warning: false
@@ -74,7 +75,7 @@ install.packages("rmarkdown")
 ```
 * ...install [tinytex](https://yihui.name/tinytex/), a lightweight version of Tex Live [@markdown2017; @tinytex] in order to compile PDFs.
 ```{r eval=FALSE, echo=TRUE}
-install.packages(c('tinytex', 'rmarkdown'))
+install.packages('tinytex')
 tinytex::install_tinytex()
 ```
 * ...also install the packages below using the code below [@bookdown1; @bookdown2; @knitr1; @knitr2; @knitr3; @kableextra].
@@ -126,7 +127,6 @@ Beforehand don't forget to install the `quarto` package:
 install.packages("quarto")
 ```
 
-
 Here you can also again specify the name of the resulting document as well as the desired output format(s):
 
 ```{r eval=F, echo=T}
@@ -134,8 +134,6 @@ quarto::quarto_render(
   "paper.qmd", 
   output_format = c("pdf", "html")
 )
-
-#quarto::quarto_render("paper.qmd") # defaults to html
 ```
 
 Your output(s) will be saved in your working directory.
@@ -145,8 +143,7 @@ Your output(s) will be saved in your working directory.
 
 # Referencing within your document
 
-To see how referencing works simply see the different examples for figures, tables and sections below. For instance in @sec-tables you can find different ways of referencing tables. The code of the underlying `paper.qmd` will show you how I referenced @sec-tables right here namely with '`@sec-tables`' whereas the corresponding section title was assigned the corresponding label '`# Tables {#sec-tables}`'.
-
+To see how referencing works simply see the different examples for figures, tables and sections below. For instance in @sec-tables you can find different ways of referencing tables. The code of the underlying `paper.qmd` will show you how we referenced @sec-tables right here namely with '`@sec-tables`' whereas the corresponding section title was assigned the corresponding label '`# Tables {#sec-tables}`'. Pay attention that when using section cross-references, you need to enable the number-sections option in your YAML (line \#22 of this `Rmd` file).
 
 
 # Software versioning
@@ -213,8 +210,7 @@ data <- structure(list(Fertility = c(80.2, 83.1, 92.5, 85.8, 76.9), Agriculture 
 
 # Tables {#sec-tables}
 
-When producing a scientific Quarto document, you most likely cannot skip creating good tables and cross-referencing these tables throughout your document. Examples that you may use are shown below.
-
+When producing a Quarto document for scientific purposes, you most likely can't get around creating tables and cross-referencing these tables throughout your document. Examples that you could use are shown below. Importantly, we focus on tables that are customized for PDF output. Formatting text as PDF is probably one of the most widespread standards in the scientific community, especially when it comes to submitting papers and similar documents. However, where applicable we also mention libraries and code for html output.
 
 
 ## Tables with kable() and kable_styling()
@@ -231,7 +227,7 @@ library(kableExtra)
 
 kable(swiss[1:5,], row.names = TRUE, 
       caption = 'Table with kable() and kablestyling()',
-      booktabs = T, format = "html") %>%
+      booktabs = T, format="simple") %>%
         kable_styling(full_width = T, 
                       latex_options = c("striped", 
                                         "scale_down",
@@ -241,7 +237,7 @@ kable(swiss[1:5,], row.names = TRUE,
 ```
 
 
-```{r table-1, eval=F}
+```{r}
 #| label: tbl-1
 #| tbl-cap: "Summary: Numeric variables"
 
@@ -250,7 +246,7 @@ library(kableExtra)
 
 kable(swiss[1:5,], row.names = TRUE, 
       caption = 'Table with kable() and kablestyling()', 
-      booktabs = T, format = "html") %>% 
+      booktabs = T, format="simple") %>% 
         kable_styling(full_width = T, 
                       latex_options = c("striped", 
                                         "scale_down",
@@ -260,19 +256,39 @@ kable(swiss[1:5,], row.names = TRUE,
 
 ```
 
+For HTML output simply change the format argument to "html".
+
+## Tables with stargazer(): Summary Statistics
+
+T@tbl-4 shows summary stats of your data using `stargazer()` [@hlavac2013stargazer] which offers extreme flexibility regarding table output (see `?stargazer`). Note how we added "results: 'asis'" to the chunk options. This is important in order to properly display the table.
 
 
+```{r}
+#| label: tbl-4
+#| tbl-cap: "Summary table with stargazer"
+#| results: "asis"
 
+library(stargazer)
+stargazer(swiss, 
+          title = "Summary table with stargazer",
+          label="tab1", 
+          table.placement = "H", 
+          #type="html",
+          header=FALSE)
+```
+
+
+If you want to create HTML output, definitely check out the modelsummary package. The `modelsummary` package provides a variety of tables and plots to summarize statistical models and data in R. Modellsummary plots and tables are highly customizable and they can be saved to almost all formats, e.g., HTML, PDF and Markdown. This makes it especially easy to embed them in dynamic documents. Please look at the package's extensive
 
 ## Tables with modelsummary
 
-The `modelsummary` package provides a variety of tables and plots to summarize statistical models and data in R. Modellsummary plots and tables are highly customizable and they can be saved to almost all formats, e.g., HTML, PDF and Markdown. This makes ist especially easy to embed them in dynamic documents. Please look at the package's extensive [documentation](https://vincentarelbundock.github.io/modelsummary/index.html) where they also show examples for almost any plot or table you might be looking for. In this template we demonstrate an example for modelsummary's `datasummary` function. `Datasummary` creates frequency tables, crosstab tables, correlation tables, balance tables and many **more**.
+The `modelsummary` package provides a variety of tables and plots to summarize statistical models and data in R. Modellsummary plots and tables are highly customizable and they can be saved to almost all formats, e.g., HTML, PDF and Markdown. This makes it especially easy to embed them in dynamic documents. Please look at the package's extensive [documentation](https://vincentarelbundock.github.io/modelsummary/index.html) where they also show examples for almost any plot or table you might be looking for. In this template we demonstrate an example for modelsummary's `datasummary` function. `Datasummary` creates frequency tables, crosstab tables, correlation tables, balance tables and many **more**.
 
-### Summarize numeric variables
+### Summarize numeric variables with modelsummary
 
 @tbl-2 shows a summary table for numeric variables. 
 
-```{r table-3, echo=TRUE, eval=F}
+```{r echo=TRUE, eval=F}
 #| label: tbl-2
 #| tbl-cap: "Summary: Numeric variables"
 
@@ -284,11 +300,11 @@ datasummary_skim(swiss,
 ```
 
 
-### Summarize categorical variables
+### Summarize categorical variables with modelsummary
 
 @tbl-3 shows a summary table for categorical variables.
 
-```{r table-4, echo=TRUE, eval=F}
+```{r echo=TRUE, eval=F}
 #| label: tbl-3
 #| tbl-cap: "Summary: Categorical variables"
 
@@ -319,13 +335,39 @@ tab_cat <- tab_cat %>%
 tab_cat
 ```
 
-## Regression table
+
+## Regression Table with stargazer
+
+@tbl-6 shows the output for a regression table. Make sure you name all your models and explicitly refer to model names (M1, M2 etc.) in the text.
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE, results="asis"}
+#| label: tbl-6
+#| tbl-cap: "Linear regression"
+
+library(stargazer)
+M1 <- lm(Fertility ~ Education + Agriculture, data = swiss)
+M2 <- lm(Fertility ~ Education + Catholic, data = swiss)
+M3 <- lm(Fertility ~ Education + Infant.Mortality + Agriculture, data = swiss)
+stargazer(M1, M2, M3,
+          title = "Regression table with stargazer",
+          label="tab2", 
+          table.placement = "H", 
+          column.labels = c("M1", "M2", "M3"),
+          model.numbers = FALSE,
+          header=FALSE)
+```
+
+For HTML output again consider using the modelsummary library:
 
 
-@tbl-4 shows the output for a regression table. Make sure you name all the models you estimate (even if its 50) and explicitly refer to model names (M1, M2 etc.) in the text.
+
+## Regression table with modelsummary
+
+
+@tbl-5 shows the output for a regression table. Make sure you name all the models you estimate (even if its 50) and explicitly refer to model names (M1, M2 etc.) in the text.
 
 ```{r eval=F}
-#| label: tbl-4
+#| label: tbl-5
 #| tbl-cap: "Linear regression"
 
 library(modelsummary)
@@ -360,11 +402,9 @@ modelsummary(models,
 
 
 
-
-
 # Inline code & results
 
-Reproduction reaches new heights when you work with inline code. For instance, you can automatize the display of certain coefficients within the text. An example is to include estimates, e.g., the coefficient of `dist` of the model we ran above. `#r# rinline("round(coef(model1)[2], 2)")` will insert the coefficient as follows: `#r# round(coef(model1)[2], 2)`. Or `#r# rinline("3 + 7")` will insert a `r 3 + 7` in the text.      
+Reproduction reaches new heights when you work with inline code. For instance, you can automatize the display of certain coefficients within the text. An example is to include estimates, e.g., the coefficient of `dist` of the model we ran above. `r rinline("round(coef(M1)[2], 2)")` will insert the coefficient as follows: `r round(coef(M1)[2], 2)`. Or `r rinline("3 + 7")` will insert a `r 3 + 7` in the text.      
 Inline code/results that depend on earlier objects in your document will automatically be updated once you change those objects. For instance, imagine a reviewer asks you to omit certain observations from your sample. You can simply do so in the beginning of your code and push play subsequently.. at time you might have to set `cache = FALSE` at the beginning so that all the code chunks are rerun.    
 Researchers often avoid referring to results in-text etc. because you easily forget to change them when revising a manuscript. At the same it can make an article much more informative and easier to read, e.g., if you discuss a coefficient in the text you can directly show it in the section in which you discuss it. Inline code allows you to do just that. R Markdown allows you to that do so in a reproducible and automatized manner.
 
