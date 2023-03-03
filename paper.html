@@ -118,11 +118,6 @@ div.csl-indent {
 <link href="paper_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="paper_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
-<script src="paper_files/libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="paper_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link href="paper_files/libs/tabwid-1.0.0/tabwid.css" rel="stylesheet">
-<link href="paper_files/libs/tabwid-1.0.0/scrool.css" rel="stylesheet">
-
 
 </head>
 
@@ -264,7 +259,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"paper.qmd"</span>, </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">output_format =</span> <span class="fu">c</span>(<span class="st">"pdf"</span>, <span class="st">"html"</span>, <span class="st">"docx"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">output_format =</span> <span class="fu">c</span>(<span class="st">"pdf"</span>, <span class="st">"html"</span>)</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#quarto::quarto_render("paper.qmd") # defaults to html</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -333,10 +328,10 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 </section>
 <section id="sec-tables" class="level1">
 <h1>Tables</h1>
-<p>Producing good tables and referencing these tables within a R Markdown document has been a hassle but got much better. Examples that you may use are shown below.</p>
+<p>When producing a scientific Quarto document, you most likely cannot skip creating good tables and cross-referencing these tables throughout your document. Examples that you may use are shown below.</p>
 <section id="tables-with-kable-and-kable_styling" class="level2">
 <h2 class="anchored" data-anchor-id="tables-with-kable-and-kable_styling">Tables with kable() and kable_styling()</h2>
-<p>A great function is <code>kable()</code> (<code>knitr</code> package) in combination with <code>kableExtra</code>. <a href="#tbl-2">Table&nbsp;2</a> provides an example. To reference the table produced by the chunk you need to add <code>#| label: tbl-x</code> at the start of the chunk, i.e., <code>#| label: tbl-1</code> and would reference it by adding “<code>@tbl-1</code>” in your text. See below for the full chunk code (the one that actually produces the table is hidden).</p>
+<p>A great function is <code>kable()</code> (<code>knitr</code> package) in combination with <code>kableExtra</code>. <strong>?@tbl-1</strong> provides an example. To reference the table produced by the chunk you need to add <code>#| label: tbl-x</code> at the start of the chunk, i.e., <code>#| label: tbl-1</code> and would reference it by adding “<code>@tbl-1</code>” in your text. See below for the full chunk code (the one that actually produces the table is hidden).</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-1</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Summary: Numeric variables"</span></span>
@@ -345,82 +340,17 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(swiss[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,], <span class="at">row.names =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">'Table with kable() and kablestyling()'</span>, </span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">format =</span> <span class="st">"html"</span>, <span class="at">booktabs =</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">'Table with kable() and kablestyling()'</span>,</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">booktabs =</span> T, <span class="at">format =</span> <span class="st">"html"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">kable_styling</span>(<span class="at">full_width =</span> T, </span>
 <span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>                      <span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, </span>
 <span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"scale_down"</span>,</span>
 <span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"HOLD_position"</span>),</span>
 <span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>                      <span class="at">font_size =</span> <span class="dv">11</span>)</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell">
-<div class="cell-output-display">
-<div id="tbl-1" class="anchored">
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>                      </span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-1" class="cell tbl-parent quarto-layout-panel anchored" data-tbl-cap="Summary: Numeric variables">
 
-<table class="table" style="font-size: 11px; margin-left: auto; margin-right: auto;">
-<caption style="font-size: initial !important;">Table&nbsp;1:  Summary: Numeric variables </caption>
- <thead>
-  <tr>
-   <th style="text-align:left;">   </th>
-   <th style="text-align:right;"> Fertility </th>
-   <th style="text-align:right;"> Agriculture </th>
-   <th style="text-align:right;"> Examination </th>
-   <th style="text-align:right;"> Education </th>
-   <th style="text-align:right;"> Catholic </th>
-   <th style="text-align:right;"> Infant.Mortality </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Courtelary </td>
-   <td style="text-align:right;"> 80.2 </td>
-   <td style="text-align:right;"> 17.0 </td>
-   <td style="text-align:right;"> 15 </td>
-   <td style="text-align:right;"> 12 </td>
-   <td style="text-align:right;"> 9.96 </td>
-   <td style="text-align:right;"> 22.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Delemont </td>
-   <td style="text-align:right;"> 83.1 </td>
-   <td style="text-align:right;"> 45.1 </td>
-   <td style="text-align:right;"> 6 </td>
-   <td style="text-align:right;"> 9 </td>
-   <td style="text-align:right;"> 84.84 </td>
-   <td style="text-align:right;"> 22.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Franches-Mnt </td>
-   <td style="text-align:right;"> 92.5 </td>
-   <td style="text-align:right;"> 39.7 </td>
-   <td style="text-align:right;"> 5 </td>
-   <td style="text-align:right;"> 5 </td>
-   <td style="text-align:right;"> 93.40 </td>
-   <td style="text-align:right;"> 20.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Moutier </td>
-   <td style="text-align:right;"> 85.8 </td>
-   <td style="text-align:right;"> 36.5 </td>
-   <td style="text-align:right;"> 12 </td>
-   <td style="text-align:right;"> 7 </td>
-   <td style="text-align:right;"> 33.77 </td>
-   <td style="text-align:right;"> 20.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Neuveville </td>
-   <td style="text-align:right;"> 76.9 </td>
-   <td style="text-align:right;"> 43.5 </td>
-   <td style="text-align:right;"> 17 </td>
-   <td style="text-align:right;"> 15 </td>
-   <td style="text-align:right;"> 5.16 </td>
-   <td style="text-align:right;"> 20.6 </td>
-  </tr>
-</tbody>
-</table>
-
-</div>
-</div>
 </div>
 </section>
 <section id="tables-with-modelsummary" class="level2">
@@ -428,187 +358,24 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 <p>The <code>modelsummary</code> package provides a variety of tables and plots to summarize statistical models and data in R. Modellsummary plots and tables are highly customizable and they can be saved to almost all formats, e.g., HTML, PDF and Markdown. This makes ist especially easy to embed them in dynamic documents. Please look at the package’s extensive <a href="https://vincentarelbundock.github.io/modelsummary/index.html">documentation</a> where they also show examples for almost any plot or table you might be looking for. In this template we demonstrate an example for modelsummary’s <code>datasummary</code> function. <code>Datasummary</code> creates frequency tables, crosstab tables, correlation tables, balance tables and many <strong>more</strong>.</p>
 <section id="summarize-numeric-variables" class="level3">
 <h3 class="anchored" data-anchor-id="summarize-numeric-variables">Summarize numeric variables</h3>
-<p><a href="#tbl-2">Table&nbsp;2</a> shows a summary table for numeric variables.</p>
-<div class="cell">
+<p><strong>?@tbl-2</strong> shows a summary table for numeric variables.</p>
+<div>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_skim</span>(swiss, </span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">type=</span><span class="st">"numeric"</span>, </span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">histogram=</span>T, </span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">title =</span> <span class="st">"Summary: Numeric variables"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div id="tbl-2" class="anchored">
-
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>Table&nbsp;2:  Summary: Numeric variables </caption>
- <thead>
-  <tr>
-   <th style="text-align:left;">   </th>
-   <th style="text-align:right;"> Unique (#) </th>
-   <th style="text-align:right;"> Missing (%) </th>
-   <th style="text-align:right;"> Mean </th>
-   <th style="text-align:right;"> SD </th>
-   <th style="text-align:right;"> Min </th>
-   <th style="text-align:right;"> Median </th>
-   <th style="text-align:right;"> Max </th>
-   <th style="text-align:right;">    </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Fertility </td>
-   <td style="text-align:right;"> 46 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 70.1 </td>
-   <td style="text-align:right;"> 12.5 </td>
-   <td style="text-align:right;"> 35.0 </td>
-   <td style="text-align:right;"> 70.4 </td>
-   <td style="text-align:right;"> 92.5 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewbox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-    .svglite text {
-      white-space: pre;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="-2.09" y="11.10" width="7.73" height="0.56" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.64" y="10.54" width="7.73" height="1.13" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="13.37" y="8.85" width="7.73" height="2.81" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="21.10" y="3.22" width="7.73" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.83" y="3.78" width="7.73" height="7.88" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="36.56" y="7.72" width="7.73" height="3.94" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="44.29" y="9.97" width="7.73" height="1.69" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Agriculture </td>
-   <td style="text-align:right;"> 47 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 50.7 </td>
-   <td style="text-align:right;"> 22.7 </td>
-   <td style="text-align:right;"> 1.2 </td>
-   <td style="text-align:right;"> 54.1 </td>
-   <td style="text-align:right;"> 89.7 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewbox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-    .svglite text {
-      white-space: pre;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.18" y="9.97" width="5.02" height="1.69" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="6.20" y="6.60" width="5.02" height="5.07" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="11.22" y="9.97" width="5.02" height="1.69" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="16.24" y="6.60" width="5.02" height="5.07" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="21.26" y="7.44" width="5.02" height="4.22" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="26.28" y="6.60" width="5.02" height="5.07" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="31.31" y="3.22" width="5.02" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="36.33" y="6.60" width="5.02" height="5.07" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="41.35" y="8.28" width="5.02" height="3.38" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Examination </td>
-   <td style="text-align:right;"> 22 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 16.5 </td>
-   <td style="text-align:right;"> 8.0 </td>
-   <td style="text-align:right;"> 3.0 </td>
-   <td style="text-align:right;"> 16.0 </td>
-   <td style="text-align:right;"> 37.0 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewbox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-    .svglite text {
-      white-space: pre;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="-2.14" y="9.06" width="6.54" height="2.60" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="4.39" y="7.76" width="6.54" height="3.90" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="10.93" y="3.22" width="6.54" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="17.46" y="5.17" width="6.54" height="6.50" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="24.00" y="6.47" width="6.54" height="5.20" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="30.54" y="9.71" width="6.54" height="1.95" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="37.07" y="10.36" width="6.54" height="1.30" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="43.61" y="11.01" width="6.54" height="0.65" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Education </td>
-   <td style="text-align:right;"> 19 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 11.0 </td>
-   <td style="text-align:right;"> 9.6 </td>
-   <td style="text-align:right;"> 1.0 </td>
-   <td style="text-align:right;"> 8.0 </td>
-   <td style="text-align:right;"> 53.0 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewbox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-    .svglite text {
-      white-space: pre;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="0.92" y="3.22" width="8.55" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="9.47" y="8.28" width="8.55" height="3.38" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="18.02" y="10.82" width="8.55" height="0.84" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="26.56" y="11.38" width="8.55" height="0.28" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="35.11" y="11.66" width="8.55" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="43.66" y="11.38" width="8.55" height="0.28" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Catholic </td>
-   <td style="text-align:right;"> 46 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 41.1 </td>
-   <td style="text-align:right;"> 41.7 </td>
-   <td style="text-align:right;"> 2.1 </td>
-   <td style="text-align:right;"> 15.1 </td>
-   <td style="text-align:right;"> 100.0 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewbox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-    .svglite text {
-      white-space: pre;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="0.80" y="3.22" width="4.54" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.34" y="9.13" width="4.54" height="2.53" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="9.89" y="11.24" width="4.54" height="0.42" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="14.43" y="11.24" width="4.54" height="0.42" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="18.97" y="11.24" width="4.54" height="0.42" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="23.51" y="10.82" width="4.54" height="0.84" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.05" y="11.66" width="4.54" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="32.60" y="11.66" width="4.54" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="37.14" y="11.24" width="4.54" height="0.42" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="41.68" y="5.33" width="4.54" height="6.33" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Infant.Mortality </td>
-   <td style="text-align:right;"> 37 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 19.9 </td>
-   <td style="text-align:right;"> 2.9 </td>
-   <td style="text-align:right;"> 10.8 </td>
-   <td style="text-align:right;"> 20.0 </td>
-   <td style="text-align:right;"> 26.6 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewbox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-    .svglite text {
-      white-space: pre;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="-0.47" y="11.01" width="5.63" height="0.65" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.15" y="11.66" width="5.63" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="10.78" y="10.36" width="5.63" height="1.30" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="16.41" y="6.47" width="5.63" height="5.20" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="22.03" y="3.22" width="5.63" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="27.66" y="4.52" width="5.63" height="7.15" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="33.28" y="6.47" width="5.63" height="5.20" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="38.91" y="9.71" width="5.63" height="1.95" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="44.53" y="11.01" width="5.63" height="0.65" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-</tbody>
-</table>
-
+<div id="tbl-2" class="cell tbl-parent quarto-layout-panel anchored" data-tbl-cap="Summary: Numeric variables">
+<div class="panel-caption table-caption">
+<p><strong>?(caption)</strong></p>
 </div>
 </div>
 </div>
 </section>
 <section id="summarize-categorical-variables" class="level3">
 <h3 class="anchored" data-anchor-id="summarize-categorical-variables">Summarize categorical variables</h3>
-<p><a href="#tbl-3">Table&nbsp;3</a> shows a summary table for categorical variables.</p>
-<div class="cell">
+<p><strong>?@tbl-3</strong> shows a summary table for categorical variables.</p>
+<div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create categorical variables</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>swiss<span class="sc">$</span>Education_cat <span class="ot">&lt;-</span> <span class="fu">cut</span>(swiss<span class="sc">$</span>Education, </span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">breaks=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="cn">Inf</span>), </span>
@@ -634,11 +401,9 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 <span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">line_spacing</span>(<span class="at">space =</span> <span class="fl">0.3</span>, <span class="at">part =</span> <span class="st">"all"</span>)</span>
 <span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>tab_cat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div id="tbl-3" class="anchored">
-
-<div class="tabwid"><style>.cl-537060cc{}.cl-536d1f20{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-536d1f2a{font-family:'Times New Roman';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-536d2ace{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 0.3;background-color:transparent;}.cl-536d4644{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-536d4645{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-536d4646{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class="cl-537060cc"><caption>Table&nbsp;3:  Summary: Categorical variables </caption>
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-536d4646"><p class="cl-536d2ace"><span class="cl-536d1f20"> </span></p></td><td class="cl-536d4646"><p class="cl-536d2ace"><span class="cl-536d1f20">  </span></p></td><td class="cl-536d4646"><p class="cl-536d2ace"><span class="cl-536d1f20">N</span></p></td><td class="cl-536d4646"><p class="cl-536d2ace"><span class="cl-536d1f20">%</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">Education_cat</span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">low</span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">14</span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">29.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a"></span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">middle</span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">22</span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">46.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a"></span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">high</span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">11</span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">23.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">Infant.Mortality_cat</span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">low</span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">12</span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">25.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a"></span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">middle</span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">23</span></p></td><td class="cl-536d4644"><p class="cl-536d2ace"><span class="cl-536d1f2a">48.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-536d4645"><p class="cl-536d2ace"><span class="cl-536d1f2a"></span></p></td><td class="cl-536d4645"><p class="cl-536d2ace"><span class="cl-536d1f2a">high</span></p></td><td class="cl-536d4645"><p class="cl-536d2ace"><span class="cl-536d1f2a">12</span></p></td><td class="cl-536d4645"><p class="cl-536d2ace"><span class="cl-536d1f2a">25.5</span></p></td></tr></tbody></table></div>
+<div id="tbl-3" class="cell tbl-parent quarto-layout-panel anchored" data-tbl-cap="Summary: Categorical variables">
+<div class="panel-caption table-caption">
+<p><strong>?(caption)</strong></p>
 </div>
 </div>
 </div>
@@ -646,522 +411,14 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 </section>
 <section id="regression-table" class="level2">
 <h2 class="anchored" data-anchor-id="regression-table">Regression table</h2>
-<p><a href="#tbl-4">Table&nbsp;4</a> shows the output for a regression table. Make sure you name all the models you estimate (even if its 50) and explicitly refer to model names (M1, M2 etc.) in the text.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="tbl-4" class="anchored">
+<p><strong>?@tbl-4</strong> shows the output for a regression table. Make sure you name all the models you estimate (even if its 50) and explicitly refer to model names (M1, M2 etc.) in the text.</p>
+<div id="tbl-4" class="cell tbl-parent quarto-layout-panel anchored" data-tbl-cap="Linear regression">
 
-<div id="hlutwsobnz" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
-}
-
-:where(#hlutwsobnz) .gt_table {
-  display: table;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 10px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #FFFFFF;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-:where(#hlutwsobnz) .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#hlutwsobnz) .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-:where(#hlutwsobnz) .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-:where(#hlutwsobnz) .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #000000;
-}
-
-:where(#hlutwsobnz) .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #000000;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #000000;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#hlutwsobnz) .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-:where(#hlutwsobnz) .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-:where(#hlutwsobnz) .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-:where(#hlutwsobnz) .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-:where(#hlutwsobnz) .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #000000;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-:where(#hlutwsobnz) .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #000000;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-:where(#hlutwsobnz) .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #000000;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #FFFFFF;
-  vertical-align: middle;
-}
-
-:where(#hlutwsobnz) .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-:where(#hlutwsobnz) .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-:where(#hlutwsobnz) .gt_row {
-  padding-top: 1px;
-  padding-bottom: 1px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-:where(#hlutwsobnz) .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#hlutwsobnz) .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-:where(#hlutwsobnz) .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-:where(#hlutwsobnz) .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#hlutwsobnz) .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-:where(#hlutwsobnz) .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-:where(#hlutwsobnz) .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-:where(#hlutwsobnz) .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#hlutwsobnz) .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-:where(#hlutwsobnz) .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-:where(#hlutwsobnz) .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #000000;
-}
-
-:where(#hlutwsobnz) .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#hlutwsobnz) .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#hlutwsobnz) .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#hlutwsobnz) .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#hlutwsobnz) .gt_left {
-  text-align: left;
-}
-
-:where(#hlutwsobnz) .gt_center {
-  text-align: center;
-}
-
-:where(#hlutwsobnz) .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-:where(#hlutwsobnz) .gt_font_normal {
-  font-weight: normal;
-}
-
-:where(#hlutwsobnz) .gt_font_bold {
-  font-weight: bold;
-}
-
-:where(#hlutwsobnz) .gt_font_italic {
-  font-style: italic;
-}
-
-:where(#hlutwsobnz) .gt_super {
-  font-size: 65%;
-}
-
-:where(#hlutwsobnz) .gt_two_val_uncert {
-  display: inline-block;
-  line-height: 1em;
-  text-align: right;
-  font-size: 60%;
-  vertical-align: -0.25em;
-  margin-left: 0.1em;
-}
-
-:where(#hlutwsobnz) .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
-  font-size: 75%;
-  vertical-align: 0.4em;
-}
-
-:where(#hlutwsobnz) .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-:where(#hlutwsobnz) .gt_slash_mark {
-  font-size: 0.7em;
-  line-height: 0.7em;
-  vertical-align: 0.15em;
-}
-
-:where(#hlutwsobnz) .gt_fraction_numerator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: 0.45em;
-}
-
-:where(#hlutwsobnz) .gt_fraction_denominator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: -0.05em;
-}
-</style>
-<table class="gt_table"><caption>Table&nbsp;4:  Linear regression </caption>
-  
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="2" colspan="1"> </th>
-      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3">
-        <span class="gt_column_spanner">Dependent variable: Fertility</span>
-      </th>
-    </tr>
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">M1</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">M2</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">M3</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td class="gt_row gt_left">(Intercept)</td>
-<td class="gt_row gt_center">84.080</td>
-<td class="gt_row gt_center">74.234</td>
-<td class="gt_row gt_center">51.101</td></tr>
-    <tr><td class="gt_row gt_left"></td>
-<td class="gt_row gt_center">(5.782)</td>
-<td class="gt_row gt_center">(2.352)</td>
-<td class="gt_row gt_center">(10.995)</td></tr>
-    <tr><td class="gt_row gt_left">Education</td>
-<td class="gt_row gt_center">-0.963</td>
-<td class="gt_row gt_center">-0.788</td>
-<td class="gt_row gt_center">-0.857</td></tr>
-    <tr><td class="gt_row gt_left"></td>
-<td class="gt_row gt_center">(0.189)</td>
-<td class="gt_row gt_center">(0.129)</td>
-<td class="gt_row gt_center">(0.173)</td></tr>
-    <tr><td class="gt_row gt_left">Agriculture</td>
-<td class="gt_row gt_center">-0.066</td>
-<td class="gt_row gt_center"></td>
-<td class="gt_row gt_center">-0.026</td></tr>
-    <tr><td class="gt_row gt_left"></td>
-<td class="gt_row gt_center">(0.080)</td>
-<td class="gt_row gt_center"></td>
-<td class="gt_row gt_center">(0.073)</td></tr>
-    <tr><td class="gt_row gt_left">Catholic</td>
-<td class="gt_row gt_center"></td>
-<td class="gt_row gt_center">0.111</td>
-<td class="gt_row gt_center"></td></tr>
-    <tr><td class="gt_row gt_left"></td>
-<td class="gt_row gt_center"></td>
-<td class="gt_row gt_center">(0.030)</td>
-<td class="gt_row gt_center"></td></tr>
-    <tr><td class="gt_row gt_left">Infant.Mortality</td>
-<td class="gt_row gt_center"></td>
-<td class="gt_row gt_center"></td>
-<td class="gt_row gt_center">1.493</td></tr>
-    <tr><td class="gt_row gt_left" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000;"></td>
-<td class="gt_row gt_center" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000;"></td>
-<td class="gt_row gt_center" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000;"></td>
-<td class="gt_row gt_center" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000;">(0.439)</td></tr>
-    <tr><td class="gt_row gt_left">Num.Obs.</td>
-<td class="gt_row gt_center">47</td>
-<td class="gt_row gt_center">47</td>
-<td class="gt_row gt_center">47</td></tr>
-    <tr><td class="gt_row gt_left">R2</td>
-<td class="gt_row gt_center">0.449</td>
-<td class="gt_row gt_center">0.575</td>
-<td class="gt_row gt_center">0.566</td></tr>
-    <tr><td class="gt_row gt_left">R2 Adj.</td>
-<td class="gt_row gt_center">0.424</td>
-<td class="gt_row gt_center">0.555</td>
-<td class="gt_row gt_center">0.536</td></tr>
-    <tr><td class="gt_row gt_left">AIC</td>
-<td class="gt_row gt_center">349.7</td>
-<td class="gt_row gt_center">337.6</td>
-<td class="gt_row gt_center">340.5</td></tr>
-    <tr><td class="gt_row gt_left">BIC</td>
-<td class="gt_row gt_center">357.1</td>
-<td class="gt_row gt_center">345.0</td>
-<td class="gt_row gt_center">349.7</td></tr>
-    <tr><td class="gt_row gt_left">RMSE</td>
-<td class="gt_row gt_center">9.17</td>
-<td class="gt_row gt_center">8.06</td>
-<td class="gt_row gt_center">8.14</td></tr>
-  </tbody>
-  <tfoot class="gt_sourcenotes">
-    <tr>
-      <td class="gt_sourcenote" colspan="4">Notes: some notes...</td>
-    </tr>
-  </tfoot>
-  
-</table>
-</div>
-</div>
-</div>
 </div>
 </section>
 </section>
 <section id="inline-code-results" class="level1">
 <h1>Inline code &amp; results</h1>
-<p>Reproduction reaches new heights when you work with inline code. For instance, you can automatize the display of certain coefficients within the text. An example is to include estimates, e.g., the coefficient of <code>dist</code> of the model we ran above. <code class="r"><code>`r round(coef(M1)[2], 2)`</code></code> will insert the coefficient as follows: -0.96. Or <code class="r"><code>`r 3 + 7`</code></code> will insert a 10 in the text.<br>
-Inline code/results that depend on earlier objects in your document will automatically be updated once you change those objects. For instance, imagine a reviewer asks you to omit certain observations from your sample. You can simply do so in the beginning of your code and push play subsequently.. at time you might have to set <code>cache = FALSE</code> at the beginning so that all the code chunks are rerun.<br>
-Researchers often avoid referring to results in-text etc. because you easily forget to change them when revising a manuscript. At the same it can make an article much more informative and easier to read, e.g., if you discuss a coefficient in the text you can directly show it in the section in which you discuss it. Inline code allows you to do just that. R Markdown allows you to that do so in a reproducible and automatized manner.</p>
 </section>
 <section id="graphs" class="level1">
 <h1>Graphs</h1>
@@ -1169,14 +426,7 @@ Researchers often avoid referring to results in-text etc. because you easily for
 <h2 class="anchored" data-anchor-id="r-base-graphs">R base graphs</h2>
 <p>Inserting figures can be slightly more complicated. Ideally, we would produce and insert them directly in the <code>.qmd</code> file. It’s relatively simple to insert R base graphs as you can see in <span class="citation" data-cites="fig1">(<a href="#ref-fig1" role="doc-biblioref"><strong>fig1?</strong></a>)</span>.</p>
 <div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="paper_files/figure-html/fig1-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Scatterplot of Speed and Distance</figcaption><p></p>
-</figure>
-</div>
-</div>
+
 </div>
 <p>But it turns out that it doesn’t always work so well.</p>
 </section>
@@ -1184,14 +434,7 @@ Researchers often avoid referring to results in-text etc. because you easily for
 <h2 class="anchored" data-anchor-id="ggplot2-graphs">ggplot2 graphs</h2>
 <p>Same is true for ggplot2 as you can see in <span class="citation" data-cites="fig2">(<a href="#ref-fig2" role="doc-biblioref"><strong>fig2?</strong></a>)</span>.</p>
 <div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="paper_files/figure-html/fig2-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Miles per gallon according to the weight</figcaption><p></p>
-</figure>
-</div>
-</div>
+
 </div>
 </section>
 </section>
@@ -1342,31 +585,12 @@ LAPACK: /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/lib/libRlap
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
-other attached packages:
-[1] ggplot2_3.3.6       gt_0.6.0            dplyr_1.0.9        
-[4] gdtools_0.2.4       flextable_0.7.2     modelsummary_0.11.1
-[7] kableExtra_1.3.4    knitr_1.39         
-
 loaded via a namespace (and not attached):
- [1] httr_1.4.3         sass_0.4.1         jsonlite_1.8.0     viridisLite_0.4.0 
- [5] datawizard_0.4.1   assertthat_0.2.1   highr_0.9          tables_0.9.6      
- [9] yaml_2.3.5         bayestestR_0.12.1  globals_0.16.1     pillar_1.7.0      
-[13] backports_1.4.1    glue_1.6.2         uuid_1.1-0         digest_0.6.29     
-[17] checkmate_2.1.0    rvest_1.0.2        colorspace_2.0-3   htmltools_0.5.2   
-[21] pkgconfig_2.0.3    listenv_0.8.0      purrr_0.3.4        xtable_1.8-4      
-[25] mvtnorm_1.1-3      scales_1.2.0       webshot_0.5.3      svglite_2.1.0     
-[29] officer_0.4.3      emmeans_1.7.4-1    tibble_3.1.7       generics_0.1.2    
-[33] farver_2.1.0       ellipsis_0.3.2     withr_2.5.0        cli_3.3.0         
-[37] magrittr_2.0.3     crayon_1.5.1       effectsize_0.7.0   estimability_1.3  
-[41] evaluate_0.15      future_1.28.0      fansi_1.0.3        parallelly_1.32.1 
-[45] xml2_1.3.3         tools_4.2.2        data.table_1.14.2  lifecycle_1.0.1   
-[49] stringr_1.4.0      munsell_0.5.0      zip_2.2.0          compiler_4.2.2    
-[53] systemfonts_1.0.4  rlang_1.0.6        grid_4.2.2         parameters_0.18.1 
-[57] rstudioapi_0.13    htmlwidgets_1.5.4  base64enc_0.1-3    labeling_0.4.2    
-[61] rmarkdown_2.16     gtable_0.3.0       codetools_0.2-18   DBI_1.1.2         
-[65] R6_2.5.1           performance_0.9.0  fastmap_1.1.0      future.apply_1.9.1
-[69] utf8_1.2.2         insight_0.17.1     stringi_1.7.6      parallel_4.2.2    
-[73] Rcpp_1.0.8.3       vctrs_0.4.1        tidyselect_1.1.2   xfun_0.31         </code></pre>
+ [1] digest_0.6.29     jsonlite_1.8.0    magrittr_2.0.3    evaluate_0.15    
+ [5] rlang_1.0.6       stringi_1.7.6     cli_3.3.0         rstudioapi_0.13  
+ [9] rmarkdown_2.20    tools_4.2.2       stringr_1.4.0     htmlwidgets_1.5.4
+[13] xfun_0.37         yaml_2.3.5        fastmap_1.1.0     compiler_4.2.2   
+[17] htmltools_0.5.2   knitr_1.39       </code></pre>
 </div>
 </div>
 </section>
@@ -1375,7 +599,7 @@ loaded via a namespace (and not attached):
 <p>To simply attach all the code you used in the PDF file in the appendix see the R chunk in the underlying <code>.qmd</code> file:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">cache =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Use chache = TRUE if you want to speed up compilation</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Use cache = TRUE if you want to speed up compilation</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># A function to allow for showing some of the inline code</span></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>rinline <span class="ot">&lt;-</span> <span class="cf">function</span>(code){</span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  html <span class="ot">&lt;-</span> <span class="st">'&lt;code  class="r"&gt;``` `r CODE` ```&lt;/code&gt;'</span></span>
@@ -1390,7 +614,7 @@ loaded via a namespace (and not attached):
 <span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"quarto"</span>)</span>
 <span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(</span>
 <span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">"paper.qmd"</span>, </span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">output_format =</span> <span class="fu">c</span>(<span class="st">"pdf"</span>, <span class="st">"html"</span>, <span class="st">"docx"</span>)</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">output_format =</span> <span class="fu">c</span>(<span class="st">"pdf"</span>, <span class="st">"html"</span>)</span>
 <span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a><span class="co">#quarto::quarto_render("paper.qmd") # defaults to html</span></span>
@@ -1411,7 +635,7 @@ loaded via a namespace (and not attached):
 <span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(swiss[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,], <span class="at">row.names =</span> <span class="cn">TRUE</span>, </span>
 <span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">'Table with kable() and kablestyling()'</span>, </span>
-<span id="cb17-38"><a href="#cb17-38" aria-hidden="true" tabindex="-1"></a>      <span class="at">format =</span> <span class="st">"html"</span>, <span class="at">booktabs =</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb17-38"><a href="#cb17-38" aria-hidden="true" tabindex="-1"></a>      <span class="at">booktabs =</span> T, <span class="at">format =</span> <span class="st">"html"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb17-39"><a href="#cb17-39" aria-hidden="true" tabindex="-1"></a>        <span class="fu">kable_styling</span>(<span class="at">full_width =</span> T, </span>
 <span id="cb17-40"><a href="#cb17-40" aria-hidden="true" tabindex="-1"></a>                      <span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, </span>
 <span id="cb17-41"><a href="#cb17-41" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"scale_down"</span>,</span>

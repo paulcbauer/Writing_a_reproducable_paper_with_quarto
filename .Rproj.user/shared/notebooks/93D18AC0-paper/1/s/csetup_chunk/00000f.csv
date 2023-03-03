@@ -1,5 +1,5 @@
 "0","knitr::opts_chunk$set(cache = FALSE)"
-"0","# Use chache = TRUE if you want to speed up compilation"
+"0","# Use cache = TRUE if you want to speed up compilation"
 "0","# A function to allow for showing some of the inline code"
 "0","rinline <- function(code){"
 "0","  html <- '<code  class=""r"">``` `r CODE` ```</code>'"

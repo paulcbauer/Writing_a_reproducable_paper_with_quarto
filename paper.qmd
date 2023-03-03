@@ -28,7 +28,7 @@ execute:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache = FALSE)
-# Use chache = TRUE if you want to speed up compilation
+# Use cache = TRUE if you want to speed up compilation
 # A function to allow for showing some of the inline code
 rinline <- function(code){
   html <- '<code  class="r">``` `r CODE` ```</code>'
@@ -132,7 +132,7 @@ Here you can also again specify the name of the resulting document as well as th
 ```{r eval=F, echo=T}
 quarto::quarto_render(
   "paper.qmd", 
-  output_format = c("pdf", "html", "docx")
+  output_format = c("pdf", "html")
 )
 
 #quarto::quarto_render("paper.qmd") # defaults to html
@@ -213,16 +213,13 @@ data <- structure(list(Fertility = c(80.2, 83.1, 92.5, 85.8, 76.9), Agriculture 
 
 # Tables {#sec-tables}
 
-Producing good tables and referencing these tables within a R Markdown document has been a hassle but got much better. Examples that you may use are shown below.
+When producing a scientific Quarto document, you most likely cannot skip creating good tables and cross-referencing these tables throughout your document. Examples that you may use are shown below.
 
 
 
 ## Tables with kable() and kable_styling()
 
-A great function is `kable()` (`knitr` package) in combination with `kableExtra`. @tbl-2 provides an example. To reference the table produced by the chunk you need to add `#| label: tbl-x` at the start of the chunk, i.e., `#| label: tbl-1` and would reference it by adding "`@tbl-1`" in your text. See below for the full chunk code (the one that actually produces the table is hidden).
-
-
-
+A great function is `kable()` (`knitr` package) in combination with `kableExtra`. @tbl-1 provides an example. To reference the table produced by the chunk you need to add `#| label: tbl-x` at the start of the chunk, i.e., `#| label: tbl-1` and would reference it by adding "`@tbl-1`" in your text. See below for the full chunk code (the one that actually produces the table is hidden).
 
 
 ```{{r}}
@@ -233,17 +230,18 @@ library(knitr)
 library(kableExtra)
 
 kable(swiss[1:5,], row.names = TRUE, 
-      caption = 'Table with kable() and kablestyling()', 
-      format = "html", booktabs = T) %>%
+      caption = 'Table with kable() and kablestyling()',
+      booktabs = T, format = "html") %>%
         kable_styling(full_width = T, 
                       latex_options = c("striped", 
                                         "scale_down",
                                         "HOLD_position"),
                       font_size = 11)
+                      
 ```
 
 
-```{r table-2, echo=FALSE}
+```{r table-1, eval=F}
 #| label: tbl-1
 #| tbl-cap: "Summary: Numeric variables"
 
@@ -252,7 +250,7 @@ library(kableExtra)
 
 kable(swiss[1:5,], row.names = TRUE, 
       caption = 'Table with kable() and kablestyling()', 
-      format = "html", booktabs = T) %>%
+      booktabs = T, format = "html") %>% 
         kable_styling(full_width = T, 
                       latex_options = c("striped", 
                                         "scale_down",
@@ -274,7 +272,7 @@ The `modelsummary` package provides a variety of tables and plots to summarize s
 
 @tbl-2 shows a summary table for numeric variables. 
 
-```{r table-3, echo=TRUE}
+```{r table-3, echo=TRUE, eval=F}
 #| label: tbl-2
 #| tbl-cap: "Summary: Numeric variables"
 
@@ -290,7 +288,7 @@ datasummary_skim(swiss,
 
 @tbl-3 shows a summary table for categorical variables.
 
-```{r table-4, echo=TRUE}
+```{r table-4, echo=TRUE, eval=F}
 #| label: tbl-3
 #| tbl-cap: "Summary: Categorical variables"
 
@@ -326,7 +324,7 @@ tab_cat
 
 @tbl-4 shows the output for a regression table. Make sure you name all the models you estimate (even if its 50) and explicitly refer to model names (M1, M2 etc.) in the text.
 
-```{r}
+```{r eval=F}
 #| label: tbl-4
 #| tbl-cap: "Linear regression"
 
@@ -366,10 +364,9 @@ modelsummary(models,
 
 # Inline code & results
 
-Reproduction reaches new heights when you work with inline code. For instance, you can automatize the display of certain coefficients within the text. An example is to include estimates, e.g., the coefficient of `dist` of the model we ran above. `r rinline("round(coef(M1)[2], 2)")` will insert the coefficient as follows: `r round(coef(M1)[2], 2)`. Or `r rinline("3 + 7")` will insert a `r 3 + 7` in the text.      
+Reproduction reaches new heights when you work with inline code. For instance, you can automatize the display of certain coefficients within the text. An example is to include estimates, e.g., the coefficient of `dist` of the model we ran above. `#r# rinline("round(coef(model1)[2], 2)")` will insert the coefficient as follows: `#r# round(coef(model1)[2], 2)`. Or `#r# rinline("3 + 7")` will insert a `r 3 + 7` in the text.      
 Inline code/results that depend on earlier objects in your document will automatically be updated once you change those objects. For instance, imagine a reviewer asks you to omit certain observations from your sample. You can simply do so in the beginning of your code and push play subsequently.. at time you might have to set `cache = FALSE` at the beginning so that all the code chunks are rerun.    
 Researchers often avoid referring to results in-text etc. because you easily forget to change them when revising a manuscript. At the same it can make an article much more informative and easier to read, e.g., if you discuss a coefficient in the text you can directly show it in the section in which you discuss it. Inline code allows you to do just that. R Markdown allows you to that do so in a reproducible and automatized manner.
-
 
 
 
@@ -384,7 +381,7 @@ Researchers often avoid referring to results in-text etc. because you easily for
 ## R base graphs
 Inserting figures can be slightly more complicated. Ideally, we would produce and insert them directly in the `.qmd` file. It's relatively simple to insert R base graphs as you can see in @fig1.
 
-```{r}
+```{r eval=F}
 #| label: fig1
 #| fig-cap: "Scatterplot of Speed and Distance"
 
@@ -396,7 +393,7 @@ But it turns out that it doesn't always work so well.
 ## ggplot2 graphs
 Same is true for ggplot2 as you can see in @fig2.
 
-```{r}
+```{r eval=F}
 #| label: fig2
 #| fig-cap: "Miles per gallon according to the weight"
 
