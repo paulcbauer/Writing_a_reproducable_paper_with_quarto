@@ -62,27 +62,31 @@ While web pages are usually single-page scrollable documents, pagedown uses the 
 
 Quarto is a multi-language, next-generation version of R Markdown from RStudio. Multi-language means you can use R, Python, Julia and other languages to create quarto documents. In this template we’ll focus on showing you how to use **RStudio with Quarto**.
 
-For name prerequisites, we assume that you are familiar with using R and R Markdown. If you don't know what R Markdown is there are many great resources that you should use (e.g. watch this [short video](https://vimeo.com/178485416)). An older template of ours [see @Bauer2018-dl; https://osf.io/q395s] may provide a quick entry point to writing a reproducible with R Markdown and Latex.
+To name prerequisites, we assume that you are familiar with using R and R Markdown. If you don't know what R Markdown is there are many great resources that you can use (e.g. watch this [short video](https://vimeo.com/178485416)). An older template of ours [see @Bauer2018-dl; https://osf.io/q395s] may provide a quick entry point to writing a reproducible manuscript with R Markdown and Latex. To further deepen your understanding of the different components underlying this template, go on and learn about R, [Markdown](https://en.wikipedia.org/wiki/Markdown), [R Markdown](https://rmarkdown.rstudio.com/lesson-1.html) and [Quarto](https://quarto.org/).
 
-Like R Markdown, Quarto uses Knitr to execute R code (hence you should also be able to render existing Rmd files without modification), and can render documents of a dozens of formats (e.g., PDF, HTML).
+Like R Markdown, Quarto uses `Knitr` to execute R code (hence you should also be able to render existing Rmd files without modification), and can render documents of a dozens of formats (e.g., PDF, HTML).
 For a comprehensive overview watch [this video](https://www.youtube.com/watch?v=yvi5uXQMvu4&t=708s&ab_channel=PositPBC) which is a record of a talk introducing `quarto` given by Tom Mock from RStudio.
 
 Then...
 
 * ...install [R](https://www.r-project.org/) and [Rstudio](https://posit.co/download/rstudio-desktop/) (important: most recent versions, e.g. RStudio v2022.07) [@R2017; @Rstudio2015].
 * ...install the "rmarkdown"-package from CRAN using the code below [@markdown2017].
-```{r eval=FALSE, include=TRUE}
+```{r eval=FALSE, echo=TRUE}
 install.packages("rmarkdown")
 ```
-* ...also install the packages below using the code below [@bookdown1; @bookdown2; @knitr1; @knitr2; @knitr3; @kableextra].
+* ...install [tinytex](https://yihui.name/tinytex/), a lightweight version of Tex Live [@markdown2017; @tinytex] in order to compile PDFs.
 ```{r eval=FALSE, include=TRUE}
+install.packages(c('tinytex', 'rmarkdown'))
+tinytex::install_tinytex()
+```
+* ...also install the packages below using the code below [@bookdown1; @bookdown2; @knitr1; @knitr2; @knitr3; @kableextra].
+```{r eval=FALSE, echo=TRUE}
 install.packages(c("knitr", "kableExtra",
                    "stargazer", "modelsummary", "knitr", "gt"))
 ```
-* ...download the 4 input files we created --- `paper.qmd`, `references.bib`, `data.csv` and `american-sociological-association.csl` --- from [this folder](https://drive.google.com/drive/folders/1rWzj-Bu1EKqkSuE1gaFzduBJhzlThpkw?usp=sharing). Ignore the other files.
-* ...also download the 4 styling files we created: `wp_paged.html`, `wp.css`, `wp-fonts.css` and `wp-pages.css`.
-* ...store all 8 files from above together in one folder (and use this folder as your working directory later on)
-* ...learn R and read about the other underlying components namely [Markdown](https://en.wikipedia.org/wiki/Markdown), [R Markdown](https://rmarkdown.rstudio.com/lesson-1.html) and [Quarto](https://quarto.org/).
+* ...download the 3 input files we created --- `paper.qmd`, `references.bib` and `data.csv` --- from [this folder](https://drive.google.com/drive/folders/1rWzj-Bu1EKqkSuE1gaFzduBJhzlThpkw?usp=sharing). Ignore the other files.
+* ...finally store all files from above together in one folder (and use this folder as your working directory later on)
+
 
 
 
@@ -93,27 +97,12 @@ install.packages(c("knitr", "kableExtra",
 
 All the input files you need to produce the present PDF file are:
 
-1. the input files:
-
 * `paper.qmd` (the underlying R Markdown file).
 * `references.bib` (the bibliography).
-    + I use paperpile to manage my references and export the `.bib` file into the folder that contains my `.qmd` file.
+    + We use paperpile to manage references and export the `.bib` file into the folder that contains the `.qmd` file.
 * `data.csv` (some raw data).
-* `american-sociological-association.csl` (defines the style of your bibliography).^[You can download various citation style files from this webpage: https://github.com/citation-style-language/styles.] 
 
-2. and the "styling" files:
-
-Basically, these are files you will need to specify in the YAML of your rmd-file, so that R and ultimately pagedown recognizes the certain style you want to achieve for your document. With using our templates, you will create a document that has the "look" of a working paper (we based our files on the [jss_paged pagedown format](https://github.com/rstudio/pagedown#journal-of-statistical-software-article-pagedownjss_paged)). 
-
-* `wp_paged.html` (based on `jss_paged.html`)
-* `wp.css`
-* `wp-fonts.css`
-* `wp-pages.css`
-
-Take `paper.qmd` (the underlying R Markdown file of this pdf) and have a look at the YAML (line \#18 - \#22) to see how to specifiy these files.
-Basically, what happens here is that within the [jss_paged function](https://rdrr.io/cran/pagedown/man/jss_paged.html) we additionally specify that we want to use custom CSS and custom HTML.
-
-[Download these files](https://drive.google.com/drive/folders/1rWzj-Bu1EKqkSuE1gaFzduBJhzlThpkw?usp=sharing) and save them into a folder. Close R/Rstudio and directly open `paper_pagedown.qmd` with RStudio. Doing so assures that the working directory is set to the folder that contains `paper.qmd` and the other files.^[You can always check your working directory in R with `getwd()`.]
+[Download these files](https://drive.google.com/drive/folders/1rWzj-Bu1EKqkSuE1gaFzduBJhzlThpkw?usp=sharing) and save them into a folder. Close R/Rstudio and directly open `paper.qmd` with RStudio. Doing so assures that the working directory is set to the folder that contains `paper.qmd` and the other files.^[You can always check your working directory in R with `getwd()`.]
 
 # Basics: Output files and the YAML header
 
@@ -150,6 +139,11 @@ quarto::quarto_render(
 ```
 
 Your output(s) will be saved in your working directory.
+
+
+## Some more notes on the output format (your YAML header)
+
+Take `paper.qmd` (the underlying R Markdown file of this pdf) and have a look at the YAML (line \#14 - \#16) to see how to specify different outputs.
 
 
 # Referencing within your document
