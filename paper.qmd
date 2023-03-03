@@ -16,7 +16,7 @@ format:
   pdf: default
 date: 'last-modified'
 date-format: "[First version:February  16, 2023<br>This version:] MMMM D, YYYY"
-abstract: 'The present paper provides a template to write a reproducible scientific paper with Quarto. It is based on earlier Pagedown/RMarkdown templates that can be downloaded [here](https://osf.io/k8jhx/) [@Bauer2018-dl] and [here](https://osf.io/q395s) [@Bauer2021-dl]. Below we outline some of the "tricks"/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be [downloaded here](https://drive.google.com/drive/folders/1eT_9WaineZRB-nw-cQhNOy16sWhd_t2s?usp=sharing). We are convinced that in the future there will be many improvements and developments with regards to RStudio and Quarto. We intend to update this file when we discover more convenient code. You can follow any updates on the [github repository](https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/).'
+abstract: 'This paper provides a template to write a reproducible scientific paper with RStudio and Quarto. It falls into a series on other templates, namely on RMarkdown and pagedown that can be downloaded [here](https://osf.io/k8jhx/) [@Bauer2018-dl] and [here](https://osf.io/q395s) [@Bauer2021-dl]. Below we outline some of the "tricks"/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be [downloaded here](https://drive.google.com/drive/folders/1eT_9WaineZRB-nw-cQhNOy16sWhd_t2s?usp=sharing). We are convinced that in the future there will be many improvements and developments with regards to RStudio and Quarto. We intend to update this file when we discover more convenient code. You can follow any updates on the [github repository](https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/).'
 bibliography: references.bib
 tbl-cap-location: top
 execute: 
@@ -51,11 +51,9 @@ Some arguments...
 
 # Why Quarto?
 
-Formatting text as PDF is probably one of the most widespread standards in the scientific community, especially when it comes to submitting papers and similar documents. The traditional way to well-formatted and good-looking PDFs is often through LaTeX or Word. However, if you have spent hours and hours debugging latex code (or getting it to run) you may be on the lookout for something new.
-
-The fairly new `pagedown` R package takes a completely new approach. While the main purpose of pagedown is to create high-quality PDFs, the idea is to take advantage of modern web technologies (HTML/JSS/Javascript) with which one can design web pages and eventually print those to PDF.
-
-While web pages are usually single-page scrollable documents, pagedown uses the JavaScript library `Paged.js` which allows documents to be paginated with elements like headers, footers and everything a readable scientific paper will need. Additionally, pagedown documents are based on R Markdown. In our view, Pagedown and the underlying technology may replace Latex in the long run. In the near future it should also be possible to produce a PDF with static graph and an equivalent html with interactive graps (see dicsussion [here](https://github.com/rstudio/pagedown/pull/87)).
+Quarto is an open-source, scientific and technical publishing system build on `pandoc`. Their creators from RStudio also call it [„the next generation of R Markdown“](https://quarto.org/docs/computations/r.html).   
+Like RMarkdown, Quarto uses `Knitr` to execute `R` code, and is therefore able to render most existing `.rmd` files without having to make any adjustments. As in `rmd` and other more recent developments like R's `pagedown`-package, one of the main goals of Quarto is to weave together narrative text and code and produce nicely formatted output documents.   
+Differences to RMarkdown are not only but especially due to two facts: first, Quarto is multi-lingual (R, Python, Julia, Observable JS, etc.) and second in addition to RMarkdown's workflow where the final conversion layer uses `pandoc` to create documents, Quarto uses pandoc with Lua filters (which include latex in pandoc metadata). This contributes to cross-language standardization of outputs. Put differently, it allows working regardless of language, since it allows shared syntax and shared format across languages and input formats.
 
 
 # Prerequisites
@@ -75,7 +73,7 @@ Then...
 install.packages("rmarkdown")
 ```
 * ...install [tinytex](https://yihui.name/tinytex/), a lightweight version of Tex Live [@markdown2017; @tinytex] in order to compile PDFs.
-```{r eval=FALSE, include=TRUE}
+```{r eval=FALSE, echo=TRUE}
 install.packages(c('tinytex', 'rmarkdown'))
 tinytex::install_tinytex()
 ```
@@ -85,7 +83,7 @@ install.packages(c("knitr", "kableExtra",
                    "stargazer", "modelsummary", "knitr", "gt"))
 ```
 * ...download the 3 input files we created --- `paper.qmd`, `references.bib` and `data.csv` --- from [this folder](https://drive.google.com/drive/folders/1rWzj-Bu1EKqkSuE1gaFzduBJhzlThpkw?usp=sharing). Ignore the other files.
-* ...finally store all files from above together in one folder (and use this folder as your working directory later on)
+* ...finally store all files from above together in one folder (and use this folder as your working directory later on).
 
 
 
@@ -108,9 +106,11 @@ All the input files you need to produce the present PDF file are:
 
 Quarto allows you to produce documents in various formats (e.g., HTML, PDF, MS Word). By default, once you run/render the `paper.qmd` file in Rstudio it creates an output file in HTML called `paper.html`. However in the YAML you can specify any alternative format (or formats) alongside different options.
 
-Remember (cf. Section Prerequesites) that in order to compile PDFs you will need to install a recent distribution of LaTeX (e.g., TinyTex)
+Remember (cf. Section Prerequesites) that in order to compile PDFs you will need to install a recent distribution of LaTeX (e.g., TinyTex).
 
-If you want your document to be rendered in multiple output formats (e.g., HTML and PDF like we did here), you need to specify both outputs in your YAML header. Subsequently, you have two options on how to proceed for rendering: 
+If you want your document to be rendered in multiple output formats (e.g., HTML and PDF like we did here), you need to specify both outputs in your YAML header. Take `paper.qmd` (the underlying quarto file of this pdf) and have a look at the YAML (line \#14 - \#16) to see how to specify different outputs.
+
+Subsequently, you have two options on how to proceed for rendering: 
 
 * first, use the Render Button in R Studio. If you click it without using the drop down menu, by default it will create HTML since it is the first format listed in our YAML. If you use the drop down menu of the "Render"-button, you can specify the desired output (e.g., HTML or PDF) but only if you specified it in your YAML.
 
@@ -141,9 +141,6 @@ quarto::quarto_render(
 Your output(s) will be saved in your working directory.
 
 
-## Some more notes on the output format (your YAML header)
-
-Take `paper.qmd` (the underlying R Markdown file of this pdf) and have a look at the YAML (line \#14 - \#16) to see how to specify different outputs.
 
 
 # Referencing within your document
