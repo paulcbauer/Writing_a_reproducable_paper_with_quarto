@@ -147,14 +147,12 @@ I would recommend to use the command below and simply add it to the appendix as 
 
 ```{{r}}
 #|label: fig-versioning
-
 cat(paste("#", capture.output(sessionInfo()), "\n", collapse ="")) 
   # or use message() instead of cat()
 ```
 
 ```{r eval=F}
 #|label: fig-versioning
-
 cat(paste("#", capture.output(sessionInfo()), "\n", collapse ="")) 
   # or use message() instead of cat()
 ```
@@ -250,7 +248,6 @@ A great function is `kable()` from the `knitr` package in combination with `kabl
 ```{{r}}
 #| label: tbl-1
 #| tbl-cap: "Summary: Numeric variables"
-
 library(knitr)
 library(kableExtra)
 
@@ -262,14 +259,12 @@ knitr::kable(swiss[1:5,], row.names = TRUE,
                                         "scale_down",
                                         "HOLD_position"),
                       font_size = 11)
-                      
 ```
 
 
 ```{r}
 #| label: tbl-1
 #| tbl-cap: "Summary: Numeric variables"
-
 library(knitr)
 library(kableExtra)
 
@@ -281,8 +276,6 @@ knitr::kable(swiss[1:5,], row.names = TRUE,
                                         "scale_down",
                                         "HOLD_position"),
                       font_size = 11)
-
-
 ```
 
 ## Tables with stargazer()
@@ -293,7 +286,6 @@ knitr::kable(swiss[1:5,], row.names = TRUE,
 #| label: tbl-2
 #| tbl-cap: "Summary table with stargazer"
 #| results: "asis"
-
 library(stargazer)
 stargazer(swiss, 
           title = "Summary table with stargazer",
@@ -306,7 +298,6 @@ stargazer(swiss,
 #| label: tbl-2
 #| tbl-cap: "Summary table with stargazer"
 #| results: "asis"
-
 library(stargazer)
 stargazer(swiss, 
           title = "Summary table with stargazer",
@@ -332,7 +323,6 @@ If you want to create well-formatted HTML output, consider learning about the `m
 ```{{r}}
 #| label: tbl-4
 #| tbl-cap: "Summary: Numeric variables"
-
 library(modelsummary)
 datasummary_skim(swiss, 
                  type="numeric", 
@@ -343,11 +333,11 @@ datasummary_skim(swiss,
 ```{r eval=F}
 #| label: tbl-4
 #| tbl-cap: "Summary: Numeric variables"
-
 library(modelsummary)
 datasummary_skim(swiss, 
                  type="numeric", 
                  histogram=T, 
+                 output="default",
                  title = "Summary: Numeric variables")
 ```
 
@@ -359,7 +349,6 @@ datasummary_skim(swiss,
 ```{{r}}
 #| label: tbl-5
 #| tbl-cap: "Summary: Categorical variables"
-
 # Create categorical variables
 swiss$Education_cat <- cut(swiss$Education, 
                    breaks=c(-Inf, 6, 12, Inf), 
@@ -388,10 +377,10 @@ tab_cat
 ```
 
 
-```{r eval=F}
+```{r}
 #| label: tbl-5
 #| tbl-cap: "Summary: Categorical variables"
-
+#| results: "asis"
 # Create categorical variables
 swiss$Education_cat <- cut(swiss$Education, 
                    breaks=c(-Inf, 6, 12, Inf), 
@@ -401,6 +390,7 @@ swiss$Infant.Mortality_cat <- cut(swiss$Infant.Mortality,
                    labels=c("low","middle","high"))
 
 library(flextable)
+library(modelsummary)
 tab_cat <- datasummary_skim(swiss, 
                             type="categorical", 
                             output = 'flextable')
@@ -427,7 +417,6 @@ tab_cat
 ```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE, results="asis"}
 #| label: tbl-6
 #| tbl-cap: "Linear regression"
-
 library(stargazer)
 M1 <- lm(Fertility ~ Education + Agriculture, data = swiss)
 M2 <- lm(Fertility ~ Education + Catholic, data = swiss)
@@ -449,7 +438,6 @@ stargazer(M1, M2, M3,
 ```{r eval=F}
 #| label: tbl-7
 #| tbl-cap: "Linear regression"
-
 library(modelsummary)
 M1 <- lm(Fertility ~ Education + Agriculture, data = swiss)
 M2 <- lm(Fertility ~ Education + Catholic, data = swiss)
@@ -476,8 +464,6 @@ modelsummary(models,
     table_body.border.bottom.color = "black",
     table_body.hlines.color = "white"
   )
-
-
 ```
 
 
@@ -499,28 +485,45 @@ Researchers often avoid referring to results in-text etc. because you easily for
 # Graphs
 
 ## R base graphs
-Inserting figures can be slightly more complicated. Ideally, we would produce and insert them directly in the `.qmd` file. It's relatively simple to insert R base graphs as you can see in @fig1.
+Inserting figures can be slightly more complicated. Ideally, we would produce and insert them directly in the `.qmd` file. It's relatively simple to insert R base graphs as you can see in @fig-1.
 
-```{r eval=F}
-#| label: fig1
+```{{r}}
+#| label: fig-1
 #| fig-cap: "Scatterplot of Speed and Distance"
-
 plot(swiss$Catholic, swiss$Fertility)
 ``` 
 
-But it turns out that it doesn't always work so well. 
+```{r}
+#| label: fig-1
+#| fig-cap: "Scatterplot of Speed and Distance"
+plot(swiss$Catholic, swiss$Fertility)
+``` 
 
 ## ggplot2 graphs
-Same is true for ggplot2 as you can see in @fig2.
 
-```{r eval=F}
-#| label: fig2
+Below in @fig-2 we also show a ggplot2 example.
+
+```{{r}}
+#| label: fig-2
 #| fig-cap: "Miles per gallon according to the weight"
-
 library(ggplot2)
-ggplot(swiss, aes(x=Catholic, y=Fertility, shape=Education_cat)) + geom_point() +
-  labs(x="Agriculture", y = "Fertility", 
-       shape="Education") + theme_classic()
+plot <- ggplot(swiss, aes(x=Catholic, y=Fertility, shape=Education_cat)) +
+  geom_point() +
+  labs(x="Agriculture", y = "Fertility", shape="Education") +
+  theme_classic()
+plot
+``` 
+
+
+```{r}
+#| label: fig-2
+#| fig-cap: "Miles per gallon according to the weight"
+library(ggplot2)
+plot <- ggplot(swiss, aes(x=Catholic, y=Fertility, shape=Education_cat)) +
+  geom_point() +
+  labs(x="Agriculture", y = "Fertility", shape="Education") +
+  theme_classic()
+plot
 ``` 
 
 
