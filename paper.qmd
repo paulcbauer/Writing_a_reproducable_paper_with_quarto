@@ -18,6 +18,7 @@ date: 'last-modified'
 date-format: "[First version:February  16, 2023<br>This version:] MMMM D, YYYY"
 abstract: 'This paper provides a template to write a reproducible scientific paper with RStudio and Quarto. It falls into a series on other templates, namely on RMarkdown and pagedown that can be downloaded [here](https://osf.io/k8jhx/) [@Bauer2018-dl] and [here](https://osf.io/q395s) [@Bauer2021-dl]. Below we outline some of the "tricks"/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be [downloaded here](https://drive.google.com/drive/u/0/folders/1eT_9WaineZRB-nw-cQhNOy16sWhd_t2s). We are convinced that in the future there will be many improvements and developments with regards to RStudio and Quarto. We intend to update this file when we discover more convenient code. You can follow any updates on the [github repository](https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/).'
 bibliography: references.bib
+csl: american-sociological-association.csl
 tbl-cap-location: top
 number-sections: true
 execute: 
@@ -30,6 +31,7 @@ execute:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache = FALSE)
 # Use cache = TRUE if you want to speed up compilation
+
 # A function to allow for showing some of the inline code
 rinline <- function(code){
   html <- '<code  class="r">``` `r CODE` ```</code>'
@@ -57,7 +59,7 @@ Like RMarkdown, Quarto uses `Knitr` to execute `R` code, and is therefore able t
 Differences to RMarkdown are not only but especially due to two facts: first, Quarto is multi-lingual (R, Python, Julia, Observable JS, etc.) and second in addition to RMarkdown's workflow where the final conversion layer uses `pandoc` to create documents, Quarto uses pandoc with Lua filters (which include latex in pandoc metadata). This contributes to cross-language standardization of outputs. Put differently, it allows working regardless of language, since it allows shared syntax and shared format across languages and input formats.
 
 
-# Prerequisites
+# Prerequisites {#sec-prerequisites}
 
 Quarto is a multi-language, next-generation version of R Markdown from RStudio. Multi-language means you can use R, Python, Julia and other languages to create quarto documents. In this template we’ll focus on showing you how to use **RStudio with Quarto**.
 
@@ -70,16 +72,34 @@ Then...
 
 * ...install [R](https://www.r-project.org/) and [Rstudio](https://posit.co/download/rstudio-desktop/) (important: most recent versions, e.g. RStudio v2022.07) [@R2017; @Rstudio2015].
 * ...install the "rmarkdown"-package from CRAN using the code below [@markdown2017].
-```{r eval=FALSE, echo=TRUE}
+
+```{{r}}
+install.packages("rmarkdown")
+```
+
+```{r eval=F}
 install.packages("rmarkdown")
 ```
 * ...install [tinytex](https://yihui.name/tinytex/), a lightweight version of Tex Live [@markdown2017; @tinytex] in order to compile PDFs.
-```{r eval=FALSE, echo=TRUE}
+
+```{{r}}
 install.packages('tinytex')
 tinytex::install_tinytex()
 ```
+
+```{r eval=F}
+install.packages('tinytex')
+tinytex::install_tinytex()
+```
+
 * ...also install the packages below using the code below [@bookdown1; @bookdown2; @knitr1; @knitr2; @knitr3; @kableextra].
-```{r eval=FALSE, echo=TRUE}
+
+```{{r}}
+install.packages(c("knitr", "kable", "kableExtra",
+                   "stargazer", "modelsummary", "gt"))
+```
+
+```{r eval=F}
 install.packages(c("knitr", "kableExtra",
                    "stargazer", "modelsummary", "knitr", "gt"))
 ```
@@ -103,56 +123,38 @@ All the input files you need to produce the present PDF file are:
 
 [Download these files](https://drive.google.com/drive/u/0/folders/1eT_9WaineZRB-nw-cQhNOy16sWhd_t2s) and save them into a folder. Close R/Rstudio and directly open `paper.qmd` with RStudio. Doing so assures that the working directory is set to the folder that contains `paper.qmd` and the other files.^[You can always check your working directory in R with `getwd()`.]
 
-# Basics: Output files and the YAML header
+# Basics: Output files and the YAML header {#sec-basics-2}
 
-Quarto allows you to produce documents in various formats (e.g., HTML, PDF, MS Word). By default, once you run/render the `paper.qmd` file in Rstudio it creates an output file in HTML called `paper.html`. However in the YAML you can specify any alternative format (or formats) alongside different options.
+Quarto allows you to produce documents in various formats (e.g., HTML, PDF, MS Word). By default, once you render the `paper.qmd` file in Rstudio it creates an output file in HTML called `paper.html`. However in the YAML you can specify any alternative format (or formats) alongside different options.
 
-Remember (cf. Section Prerequesites) that in order to compile PDFs you will need to install a recent distribution of LaTeX (e.g., TinyTex).
+Remember (see @sec-prerequisites) that in order to compile PDFs you will need to install a recent distribution of LaTeX (e.g., TinyTex).
 
 If you want your document to be rendered in multiple output formats (e.g., HTML and PDF like we did here), you need to specify both outputs in your YAML header. Take `paper.qmd` (the underlying quarto file of this pdf) and have a look at the YAML (line \#14 - \#16) to see how to specify different outputs.
 
-Subsequently, you have two options on how to proceed for rendering: 
-
-* first, use the Render Button in R Studio. If you click it without using the drop down menu, by default it will create HTML since it is the first format listed in our YAML. If you use the drop down menu of the "Render"-button, you can specify the desired output (e.g., HTML or PDF) but only if you specified it in your YAML.
-
-* second, if you are not using RStudio and/or you prefer to render from the R console, use the `quarto` package to render to all formats at the same time with the `quarto_render()` function:
-
-```{r eval=F, echo=T}
-quarto::quarto_render()
-```
-
-Beforehand don't forget to install the `quarto` package:
-
-```{r eval=F, echo=T}
-install.packages("quarto")
-```
-
-Here you can also again specify the name of the resulting document as well as the desired output format(s):
-
-```{r eval=F, echo=T}
-quarto::quarto_render(
-  "paper.qmd", 
-  output_format = c("pdf", "html")
-)
-```
-
-Your output(s) will be saved in your working directory.
-
-
+For instructions on how to render your final output document, please read @sec-compiling.
 
 
 # Referencing within your document
 
-To see how referencing works simply see the different examples for figures, tables and sections below. For instance in @sec-tables you can find different ways of referencing tables. The code of the underlying `paper.qmd` will show you how we referenced @sec-tables right here namely with '`@sec-tables`' whereas the corresponding section title was assigned the corresponding label '`# Tables {#sec-tables}`'. Pay attention that when using section cross-references, you need to enable the number-sections option in your YAML (line \#22 of this `Rmd` file).
+To see how referencing works simply see the different examples for figures, tables and sections below. For instance in @sec-tables you can find different ways of referencing tables. `paper.qmd` (the underlying quarto file of this PDF) will show you how we referenced @sec-tables right here namely with '`@sec-tables`' whereas the corresponding section title was assigned the corresponding label '`# Tables {#sec-tables}`'. Pay attention that when using section cross-references, you need to enable the number-sections option in your YAML (line \#22 of this `qmd` file).
 
 
 # Software versioning
 
 Software changes and gets updated, especially with an active developer community like that of R. Luckily you can always access [old versions of R](https://cran.r-project.org/bin/windows/base/old/) and old version of R packages in [the archive](https://cran.r-project.org/src/contrib/Archive/). In the archive you need to choose a particular package, e.g dplyr and search for the right version, e.g., `dplyr_0.2.tar.gz`. Then insert the path in the following function: `install.packages("https://....../dplyr_0.2.tar.gz", repos=NULL, type="source")`. Ideally, however, results will be simply reproducible in the most current R and package versions.
 
-I would recommend to use the command below and simply add it to the appendix as I did here in Appendix \@ref(sec:rsessioninfo). This will make sure you always inform the reader about the package versions your relied on in your paper. For more advanced tools see [packrat](https://rstudio.github.io/packrat/).
+I would recommend to use the command below and simply add it to the appendix as we did here in Appendix @sec-rsessioninfo. This will make sure you always inform the reader about the package versions your relied on in your paper. For more advanced tools see [packrat](https://rstudio.github.io/packrat/).
 
-```{r fig-versioning, echo=TRUE, eval=FALSE}
+```{{r}}
+#|label: fig-versioning
+
+cat(paste("#", capture.output(sessionInfo()), "\n", collapse ="")) 
+  # or use message() instead of cat()
+```
+
+```{r eval=F}
+#|label: fig-versioning
+
 cat(paste("#", capture.output(sessionInfo()), "\n", collapse ="")) 
   # or use message() instead of cat()
 ```
@@ -167,20 +169,37 @@ cat(paste("#", capture.output(sessionInfo()), "\n", collapse =""))
 
 Generally, code is evaluated by inserting regular code chunks. 
 
+```{{r}}
+x <- 1:10
+x
+```
+
 ```{r}
 x <- 1:10
 x
 ```
 
-Below we import an exemplary dataset (you can find `data.csv` in the folder with the other files).
+Below we import an exemplary dataset (you can find `data.csv` in the [folder](https://drive.google.com/drive/u/0/folders/1eT_9WaineZRB-nw-cQhNOy16sWhd_t2s) with the other files).
 
-```{r, echo=T, results="raw"}
+```{{r}}
+|echo=T
+|results="raw"
 data <- read.csv("data.csv")
 head(data)
 ```
 
+```{r}
+data <- read.csv("data.csv")
+head(data)
+```
+
+
 ## Putting your entire data into the .qmd file
 Applying the function `dput()` to an object gives you the code needed to reproduce that object. So you could paste that code into your `.qmd` file if you don't want to have extra data files. This makes sense were data files are small.
+
+```{{r}}
+dput(data[1:5,]) # here we only take a subset
+```
 
 ```{r}
 dput(data[1:5,]) # here we only take a subset
@@ -188,7 +207,17 @@ dput(data[1:5,]) # here we only take a subset
 
 You can then insert the dput output in an rchunk in your `.qmd` as below.
 
-```{r eval=FALSE, include=TRUE, echo=TRUE}
+
+```{{r}}
+data <- structure(list(Fertility = c(80.2, 83.1, 92.5, 85.8, 76.9), Agriculture = c(17, 
+45.1, 39.7, 36.5, 43.5), Examination = c(15L, 6L, 5L, 12L, 17L
+), Education = c(12L, 9L, 5L, 7L, 15L), Catholic = c(9.96, 84.84, 
+93.4, 33.77, 5.16), Infant.Mortality = c(22.2, 22.2, 20.2, 20.3, 
+20.6)), class = "data.frame", row.names = c(NA, -5L))
+```
+
+
+```{r}
 data <- structure(list(Fertility = c(80.2, 83.1, 92.5, 85.8, 76.9), Agriculture = c(17, 
 45.1, 39.7, 36.5, 43.5), Examination = c(15L, 6L, 5L, 12L, 17L
 ), Education = c(12L, 9L, 5L, 7L, 15L), Catholic = c(9.96, 84.84, 
@@ -210,12 +239,12 @@ data <- structure(list(Fertility = c(80.2, 83.1, 92.5, 85.8, 76.9), Agriculture 
 
 # Tables {#sec-tables}
 
-When producing a Quarto document for scientific purposes, you most likely can't get around creating tables and cross-referencing these tables throughout your document. Examples that you could use are shown below. Importantly, we focus on tables that are customized for PDF output. Formatting text as PDF is probably one of the most widespread standards in the scientific community, especially when it comes to submitting papers and similar documents. However, where applicable we also mention libraries and code for html output.
+If you are creating a Quarto document for scientific purposes, you probably cannot avoid creating tables and cross-referencing those tables in your document. Below we show examples that use different R libraries. Importantly, we focus on tables that are customized for PDF output. Formatting text as PDF is probably one of the most widespread standards in the scientific community, especially when it comes to submitting papers and similar documents. However, where applicable we also mention libraries and code for HTML output.
 
 
 ## Tables with kable() and kable_styling()
 
-A great function is `kable()` (`knitr` package) in combination with `kableExtra`. @tbl-1 provides an example. To reference the table produced by the chunk you need to add `#| label: tbl-x` at the start of the chunk, i.e., `#| label: tbl-1` and would reference it by adding "`@tbl-1`" in your text. See below for the full chunk code (the one that actually produces the table is hidden).
+A great function is `kable()` from the `knitr` package in combination with `kableExtra`. @tbl-1 provides such an example. To reference the table produced by the chunk you need to add `#| label: tbl-x` at the start of the chunk, i.e., `#| label: tbl-1` so that you can reference it by adding "`@tbl-1`" in your text. See below for the full chunk code.
 
 
 ```{{r}}
@@ -225,10 +254,10 @@ A great function is `kable()` (`knitr` package) in combination with `kableExtra`
 library(knitr)
 library(kableExtra)
 
-kable(swiss[1:5,], row.names = TRUE, 
+knitr::kable(swiss[1:5,], row.names = TRUE, 
       caption = 'Table with kable() and kablestyling()',
       booktabs = T, format="simple") %>%
-        kable_styling(full_width = T, 
+        kableExtra::kable_styling(full_width = T, 
                       latex_options = c("striped", 
                                         "scale_down",
                                         "HOLD_position"),
@@ -244,10 +273,10 @@ kable(swiss[1:5,], row.names = TRUE,
 library(knitr)
 library(kableExtra)
 
-kable(swiss[1:5,], row.names = TRUE, 
+knitr::kable(swiss[1:5,], row.names = TRUE, 
       caption = 'Table with kable() and kablestyling()', 
       booktabs = T, format="simple") %>% 
-        kable_styling(full_width = T, 
+        kableExtra::kable_styling(full_width = T, 
                       latex_options = c("striped", 
                                         "scale_down",
                                         "HOLD_position"),
@@ -256,40 +285,63 @@ kable(swiss[1:5,], row.names = TRUE,
 
 ```
 
-For HTML output simply change the format argument to "html".
+## Tables with stargazer()
 
-## Tables with stargazer(): Summary Statistics
+@tbl-2 was generated using the `stargazer()` R package [@hlavac2013stargazer] and shows summary statistics of our data.
 
-T@tbl-4 shows summary stats of your data using `stargazer()` [@hlavac2013stargazer] which offers extreme flexibility regarding table output (see `?stargazer`). Note how we added "results: 'asis'" to the chunk options. This is important in order to properly display the table.
-
-
-```{r}
-#| label: tbl-4
+```{{r}}
+#| label: tbl-2
 #| tbl-cap: "Summary table with stargazer"
 #| results: "asis"
 
 library(stargazer)
 stargazer(swiss, 
           title = "Summary table with stargazer",
-          label="tab1", 
           table.placement = "H", 
-          #type="html",
+          type="latex",
           header=FALSE)
 ```
 
+```{r}
+#| label: tbl-2
+#| tbl-cap: "Summary table with stargazer"
+#| results: "asis"
 
-If you want to create HTML output, definitely check out the modelsummary package. The `modelsummary` package provides a variety of tables and plots to summarize statistical models and data in R. Modellsummary plots and tables are highly customizable and they can be saved to almost all formats, e.g., HTML, PDF and Markdown. This makes it especially easy to embed them in dynamic documents. Please look at the package's extensive
+library(stargazer)
+stargazer(swiss, 
+          title = "Summary table with stargazer",
+          label="tbl-2", 
+          table.placement = "H", 
+          type="latex",
+          header=FALSE)
+```
+
+In the above example we set the `type` argument to `latex` (default) which enables us to compile the table for PDF. This way, if you're reading the HTML output of this document, you won't be able to see the table (or it's cross-reference). This means, that dependent on your desired output format you need tp change the type argument. For example, use `type="html"` for HTML outfput formats.
+
+Lastly, note, how we specified `results: "asis"` into the code chunk options. This is important so that latex is properly printed to the PDF.
+
 
 ## Tables with modelsummary
 
-The `modelsummary` package provides a variety of tables and plots to summarize statistical models and data in R. Modellsummary plots and tables are highly customizable and they can be saved to almost all formats, e.g., HTML, PDF and Markdown. This makes it especially easy to embed them in dynamic documents. Please look at the package's extensive [documentation](https://vincentarelbundock.github.io/modelsummary/index.html) where they also show examples for almost any plot or table you might be looking for. In this template we demonstrate an example for modelsummary's `datasummary` function. `Datasummary` creates frequency tables, crosstab tables, correlation tables, balance tables and many **more**.
+If you want to create well-formatted HTML output, consider learning about the `modelsummary` R package. `modelsummary` provides a variety of tables and plots to summarize statistical models and data in R. `modelsummary` plots and tables are highly customizable and they can be saved to almost all formats, e.g., HTML, PDF and Markdown. This makes it especially easy to embed them in dynamic documents. Please look at the package's extensive [documentation](https://vincentarelbundock.github.io/modelsummary/index.html) where they also show examples for almost any plot or table you might be looking for. In this template we demonstrate an example for modelsummary's `datasummary` function. `Datasummary` creates frequency tables, crosstab tables, correlation tables, balance tables and many **more**.
 
 ### Summarize numeric variables with modelsummary
 
-@tbl-2 shows a summary table for numeric variables. 
+@tbl-4 shows a summary table for numeric variables. 
 
-```{r echo=TRUE, eval=F}
-#| label: tbl-2
+```{{r}}
+#| label: tbl-4
+#| tbl-cap: "Summary: Numeric variables"
+
+library(modelsummary)
+datasummary_skim(swiss, 
+                 type="numeric", 
+                 histogram=T, 
+                 title = "Summary: Numeric variables")
+```
+
+```{r eval=F}
+#| label: tbl-4
 #| tbl-cap: "Summary: Numeric variables"
 
 library(modelsummary)
@@ -302,10 +354,42 @@ datasummary_skim(swiss,
 
 ### Summarize categorical variables with modelsummary
 
-@tbl-3 shows a summary table for categorical variables.
+@tbl-5 shows a summary table for categorical variables.
 
-```{r echo=TRUE, eval=F}
-#| label: tbl-3
+```{{r}}
+#| label: tbl-5
+#| tbl-cap: "Summary: Categorical variables"
+
+# Create categorical variables
+swiss$Education_cat <- cut(swiss$Education, 
+                   breaks=c(-Inf, 6, 12, Inf), 
+                   labels=c("low","middle","high"))
+swiss$Infant.Mortality_cat <- cut(swiss$Infant.Mortality, 
+                   breaks=c(-Inf, 18.15, 21.70, Inf), 
+                   labels=c("low","middle","high"))
+
+library(flextable)
+tab_cat <- datasummary_skim(swiss, 
+                            type="categorical", 
+                            output = 'flextable')
+
+# additionally we want to change the font, fontsize and spacing
+library("gdtools")
+
+library(dplyr)
+tab_cat <- tab_cat %>%
+  font(fontname="Times New Roman", part="header") %>%
+  font(fontname="Times New Roman", j=1:4) %>% 
+  fontsize(size=12, part="header") %>%
+  fontsize(size=10, j=1:4) %>% 
+  line_spacing(space = 0.3, part = "all")
+
+tab_cat
+```
+
+
+```{r eval=F}
+#| label: tbl-5
 #| tbl-cap: "Summary: Categorical variables"
 
 # Create categorical variables
@@ -357,17 +441,13 @@ stargazer(M1, M2, M3,
           header=FALSE)
 ```
 
-For HTML output again consider using the modelsummary library:
-
-
 
 ## Regression table with modelsummary
 
-
-@tbl-5 shows the output for a regression table. Make sure you name all the models you estimate (even if its 50) and explicitly refer to model names (M1, M2 etc.) in the text.
+@tbl-7 shows the output for a regression table. Make sure you name all the models you estimate (even if its 50) and explicitly refer to model names (M1, M2 etc.) in the text.
 
 ```{r eval=F}
-#| label: tbl-5
+#| label: tbl-7
 #| tbl-cap: "Linear regression"
 
 library(modelsummary)
@@ -445,17 +525,51 @@ ggplot(swiss, aes(x=Catholic, y=Fertility, shape=Education_cat)) + geom_point() 
 
 
 
-# Compiling the document
+# Compiling the document {#sec-compiling}
 
-To view your paper, pagedown requires a web server (since it is based on paged.js)^[open-source library to paginate content in the browser]. By compiling a document, R Studio will display your HTML page through a local web server, i.e., paged.js will work in RStudio Viewer.
+Eventually you have two options on how to render/compile/knit your document: 
 
-There are several options, depending on your intention:
+* first, use the Render Button in R Studio. If you click it without using the drop down menu, by default it will create HTML since it is the first format listed in our YAML. Always remember to specify your desired output formats in your YAML (as described in @sec-basics-2) If you use the drop down menu of the "Render"-button, you can specify the desired output (e.g., HTML or PDF) but only if you specified it in your YAML.
 
-- click on the `Knit` button in R Studio which by default will provide a HTML document in the RStudio viewer pane (the HTML will be stored in your working directory)
-- use pagedown's `chrome_print` function in the YAML (uncomment line \#24 of this `Rmd` file) if additionally you want your HTML based web page to be printed to be PDF (the PDF will be stored in your working directory)
-- to "live"-preview your pages do not click on the `Knit` button but use the **xaringan** [@xaringan] RStudio add-in _Infinite Moon Reader_. You can simply call the function `xaringan::inf_mr()` (within your console). This will launch a local web server via the **servr** package (Xie 2021a) and display your pages in the RStudio viewer. Each time you save your document (_Ctrl+S_) xaringan updates your pages in the viewer.
+* second, if you are not using RStudio and/or you prefer to render from the R console, use the `quarto` package to render to all formats at the same time with the `quarto_render()` function:
 
-- If you use the option `self_contained: false` (see line \#21 of this `Rmd` file) (change to true for a self-contained document, but it'll be a litte slower for Pandoc to render), don't click on the `Knit` button in RStudio. Use instead the **xaringan** [@xaringan] RStudio add-in _Infinite Moon Reader_.
+```{{r}}
+quarto::quarto_render()
+```
+
+```{r eval=F}
+quarto::quarto_render()
+```
+
+Beforehand don't forget to install the `quarto` package [@quarto]:
+
+```{{r}}
+install.packages("quarto")
+```
+
+```{r eval=F}
+install.packages("quarto")
+```
+
+Here you can also again specify the name of the resulting document as well as the desired output format(s):
+
+```{{r}}
+quarto::quarto_render(
+  "paper.qmd", 
+  output_format = c("pdf", "html")
+)
+```
+
+```{r eval=F}
+quarto::quarto_render(
+  "paper.qmd", 
+  output_format = c("pdf", "html")
+)
+```
+
+Your output(s) will be saved in your working directory.
+
+
 
 
 
@@ -506,6 +620,8 @@ In the present document we use the style of the American Sociological Associatio
 
 The github directory contains a wide variety of citation style files depending on what discipline you work in.
 
+Also read [quarto's official documentation](https://quarto.org/docs/authoring/footnotes-and-citations.html) about Citations and Footnotes.
+
 \newpage
 
 # References {-}
@@ -522,7 +638,7 @@ The github directory contains a wide variety of citation style files depending o
 
 # Online appendix {-}
 
-## Attach R session info in appendix {#sec:rsessioninfo}
+## Attach R session info in appendix {#sec-rsessioninfo}
 
 Since R and R packages are constantly evolving you might want to add the R session info that contains information on the R version as well as the packages that are loaded. 
 
