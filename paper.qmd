@@ -35,6 +35,8 @@ execute:
 knitr::opts_chunk$set(cache = FALSE)
 # Use cache = TRUE if you want to speed up compilation
 
+knitr::opts_knit$set(output.format = "html")  # Set to "html" for HTML output
+
 # A function to allow for showing some of the inline code
 rinline <- function(code){
   html <- '<code  class="r">``` `r CODE` ```</code>'
@@ -281,23 +283,13 @@ knitr::kable(swiss[1:5,], row.names = TRUE,
                       font_size = 11)
 ```
 
-## Tables with stargazer()
+<!-- the stargazer section is only shown when the output format is PDF and not HTML -->
 
-@tbl-2 was generated using the `stargazer()` R package [@hlavac2013stargazer] and shows summary statistics of our data.
+`r if (knitr::is_latex_output()) "## Tables with stargazer()" else ""`
 
-```{{r}}
-#| label: tbl-2
-#| tbl-cap: "Summary table with stargazer"
-#| results: "asis"
-library(stargazer)
-stargazer(swiss, 
-          title = "Summary table with stargazer",
-          table.placement = "H", 
-          type="latex",
-          header=FALSE)
-```
+`r if (knitr::is_latex_output()) "@tbl-2 was generated using the stargazer() R package [@hlavac2013stargazer] and shows summary statistics of our data." else ""`
 
-```{r}
+```{r, eval = knitr::is_latex_output()}
 #| label: tbl-2
 #| tbl-cap: "Summary table with stargazer"
 #| results: "asis"
@@ -310,9 +302,8 @@ stargazer(swiss,
           header=FALSE)
 ```
 
-In the above example we set the `type` argument to `latex` (default) which enables us to compile the table for PDF. This way, if you're reading the HTML output of this document, you won't be able to see the table (or it's cross-reference). This means, that dependent on your desired output format you need tp change the type argument. For example, use `type="html"` for HTML outfput formats.
 
-Lastly, note, how we specified `results: "asis"` into the code chunk options. This is important so that latex is properly printed to the PDF.
+`r if (knitr::is_latex_output()) "In the above example we set the 'type' argument to 'latex' (default) which enables us to compile the table for PDF. This way, if you're reading the HTML output of this document, you won't be able to see the table (or it's cross-reference). This means, that dependent on your desired output format you need to change the type argument. For example, use 'type=html' for HTML output formats.<br> Lastly, note, how we specified 'results: asis' into the code chunk options. This is important so that latex is properly printed to the PDF." else ""`
 
 
 ## Tables with modelsummary
