@@ -28,6 +28,7 @@ execute:
   echo: false
   warning: false
   message: false
+  cache: false
 editor:
   mode: source
 ---
