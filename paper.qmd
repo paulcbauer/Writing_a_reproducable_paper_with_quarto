@@ -58,6 +58,7 @@ Some arguments...
 
 -   **Revisions**: Revising a paper takes much less time if you have all the code you need in one place, i.e., one `.qmd` file. For instance, if you decide to exclude a subset of your data you simply need to insert one line of your code at the beginning and everything is rebuilt/re-estimated automatically.
 
+
 # Why Quarto?
 
 [Quarto](https://quarto.org/) is an open-source, scientific and technical publishing system build on `pandoc`. Their creators from RStudio also call it [„the next generation of R Markdown"](https://quarto.org/docs/computations/r.html).\
@@ -703,3 +704,4 @@ To simply attach all the code you used in the PDF file in the appendix see the R
 
 ```{r, ref.label=knitr::all_labels(),echo=TRUE,eval=FALSE}
 ```
+
