@@ -288,7 +288,7 @@ library(modelsummary)
 datasummary_skim(swiss, 
                  type="numeric", 
                  histogram=T,
-                 output="flextable", # adjust to html for HTML output
+                 output="flextable",
                  title = "Summary: Numeric variables")
 ```
 
@@ -296,14 +296,11 @@ datasummary_skim(swiss,
 #| label: tbl-4
 #| tbl-cap: "Summary: Numeric variables"
 
-if(knitr::is_latex_output()){outputformat <- "flextable"}
-if(knitr::is_html_output()){outputformat <- "html"}
-
 library(modelsummary)
 datasummary_skim(swiss, 
                  type="numeric", 
                  histogram=T, 
-                 output= outputformat,
+                 output= "flextable",
                  title = "Summary: Numeric variables")
 ```
 
@@ -326,7 +323,7 @@ swiss$Infant.Mortality_cat <- cut(swiss$Infant.Mortality,
 library(flextable)
 tab_cat <- datasummary_skim(swiss, 
                             type="categorical", 
-                            output = 'flextable')  # adjust to html for HTML output
+                            output = 'flextable') 
 
 # additionally we want to change the font, fontsize and spacing
 library("gdtools")
@@ -367,7 +364,7 @@ tab_cat <- tab_cat %>%
   font(fontname="Times New Roman", part="header") %>%
   font(fontname="Times New Roman", j=1:4) %>%
   fontsize(size=12, part="header") %>%
-  fontsize(size=10, j=1:4) %>%
+  fontsize(size=12, j=1:4) %>%
   line_spacing(space = 0.3, part = "all")
 
 tab_cat
@@ -408,6 +405,9 @@ modelsummary(models,
     table_body.border.bottom.color = "black",
     table_body.hlines.color = "white"
   )
+
+# Produce right output depending on format (html vs. latex)
+if(knitr::is_html_output()){table7}else{table7 %>% gt::as_latex() %>% as.character() %>% gsub("\\(Intercept\\)", "Intercept", .) %>% cat()}
 ```
 
 ```{r}
@@ -435,8 +435,6 @@ table7 <- modelsummary(models,
 
 
 if(knitr::is_html_output()){table7}else{table7 %>% gt::as_latex() %>% as.character() %>% gsub("\\(Intercept\\)", "Intercept", .) %>% cat()}
-
-
 ```
 
 # Inline code & results

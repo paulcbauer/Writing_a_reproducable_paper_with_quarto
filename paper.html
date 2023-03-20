@@ -117,9 +117,6 @@ div.csl-indent {
 <script src="paper_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="paper_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="paper_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-
-<script src="paper_files/libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="paper_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <link href="paper_files/libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
 <script src="paper_files/libs/tabwid-1.1.3/tabwid.js"></script>
 
@@ -440,176 +437,14 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_skim</span>(swiss, </span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">type=</span><span class="st">"numeric"</span>, </span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">histogram=</span>T,</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">output=</span><span class="st">"flextable"</span>, <span class="co"># adjust to html for HTML output</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">output=</span><span class="st">"flextable"</span>,</span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">title =</span> <span class="st">"Summary: Numeric variables"</span>)</span>
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output-display">
 <div id="tbl-4" class="anchored">
 
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>Table&nbsp;2:  Summary: Numeric variables </caption>
- <thead>
-  <tr>
-   <th style="text-align:left;">   </th>
-   <th style="text-align:right;"> Unique (#) </th>
-   <th style="text-align:right;"> Missing (%) </th>
-   <th style="text-align:right;"> Mean </th>
-   <th style="text-align:right;"> SD </th>
-   <th style="text-align:right;"> Min </th>
-   <th style="text-align:right;"> Median </th>
-   <th style="text-align:right;"> Max </th>
-   <th style="text-align:right;">    </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Fertility </td>
-   <td style="text-align:right;"> 46 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 70.1 </td>
-   <td style="text-align:right;"> 12.5 </td>
-   <td style="text-align:right;"> 35.0 </td>
-   <td style="text-align:right;"> 70.4 </td>
-   <td style="text-align:right;"> 92.5 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewbox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-    .svglite text {
-      white-space: pre;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="-2.09" y="11.10" width="7.73" height="0.56" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.64" y="10.54" width="7.73" height="1.13" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="13.37" y="8.85" width="7.73" height="2.81" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="21.10" y="3.22" width="7.73" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.83" y="3.78" width="7.73" height="7.88" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="36.56" y="7.72" width="7.73" height="3.94" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="44.29" y="9.97" width="7.73" height="1.69" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Agriculture </td>
-   <td style="text-align:right;"> 47 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 50.7 </td>
-   <td style="text-align:right;"> 22.7 </td>
-   <td style="text-align:right;"> 1.2 </td>
-   <td style="text-align:right;"> 54.1 </td>
-   <td style="text-align:right;"> 89.7 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewbox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-    .svglite text {
-      white-space: pre;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.18" y="9.97" width="5.02" height="1.69" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="6.20" y="6.60" width="5.02" height="5.07" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="11.22" y="9.97" width="5.02" height="1.69" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="16.24" y="6.60" width="5.02" height="5.07" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="21.26" y="7.44" width="5.02" height="4.22" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="26.28" y="6.60" width="5.02" height="5.07" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="31.31" y="3.22" width="5.02" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="36.33" y="6.60" width="5.02" height="5.07" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="41.35" y="8.28" width="5.02" height="3.38" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Examination </td>
-   <td style="text-align:right;"> 22 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 16.5 </td>
-   <td style="text-align:right;"> 8.0 </td>
-   <td style="text-align:right;"> 3.0 </td>
-   <td style="text-align:right;"> 16.0 </td>
-   <td style="text-align:right;"> 37.0 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewbox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-    .svglite text {
-      white-space: pre;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="-2.14" y="9.06" width="6.54" height="2.60" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="4.39" y="7.76" width="6.54" height="3.90" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="10.93" y="3.22" width="6.54" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="17.46" y="5.17" width="6.54" height="6.50" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="24.00" y="6.47" width="6.54" height="5.20" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="30.54" y="9.71" width="6.54" height="1.95" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="37.07" y="10.36" width="6.54" height="1.30" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="43.61" y="11.01" width="6.54" height="0.65" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Education </td>
-   <td style="text-align:right;"> 19 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 11.0 </td>
-   <td style="text-align:right;"> 9.6 </td>
-   <td style="text-align:right;"> 1.0 </td>
-   <td style="text-align:right;"> 8.0 </td>
-   <td style="text-align:right;"> 53.0 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewbox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-    .svglite text {
-      white-space: pre;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="0.92" y="3.22" width="8.55" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="9.47" y="8.28" width="8.55" height="3.38" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="18.02" y="10.82" width="8.55" height="0.84" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="26.56" y="11.38" width="8.55" height="0.28" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="35.11" y="11.66" width="8.55" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="43.66" y="11.38" width="8.55" height="0.28" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Catholic </td>
-   <td style="text-align:right;"> 46 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 41.1 </td>
-   <td style="text-align:right;"> 41.7 </td>
-   <td style="text-align:right;"> 2.1 </td>
-   <td style="text-align:right;"> 15.1 </td>
-   <td style="text-align:right;"> 100.0 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewbox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-    .svglite text {
-      white-space: pre;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="0.80" y="3.22" width="4.54" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.34" y="9.13" width="4.54" height="2.53" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="9.89" y="11.24" width="4.54" height="0.42" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="14.43" y="11.24" width="4.54" height="0.42" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="18.97" y="11.24" width="4.54" height="0.42" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="23.51" y="10.82" width="4.54" height="0.84" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.05" y="11.66" width="4.54" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="32.60" y="11.66" width="4.54" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="37.14" y="11.24" width="4.54" height="0.42" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="41.68" y="5.33" width="4.54" height="6.33" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Infant.Mortality </td>
-   <td style="text-align:right;"> 37 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 19.9 </td>
-   <td style="text-align:right;"> 2.9 </td>
-   <td style="text-align:right;"> 10.8 </td>
-   <td style="text-align:right;"> 20.0 </td>
-   <td style="text-align:right;"> 26.6 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewbox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-    .svglite text {
-      white-space: pre;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="-0.47" y="11.01" width="5.63" height="0.65" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.15" y="11.66" width="5.63" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="10.78" y="10.36" width="5.63" height="1.30" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="16.41" y="6.47" width="5.63" height="5.20" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="22.03" y="3.22" width="5.63" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="27.66" y="4.52" width="5.63" height="7.15" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="33.28" y="6.47" width="5.63" height="5.20" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="38.91" y="9.71" width="5.63" height="1.95" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="44.53" y="11.01" width="5.63" height="0.65" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-</tbody>
-</table>
-
+<div class="tabwid"><style>.cl-3b90c890{}.cl-3b85cc1a{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-3b8a5906{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-3b8a718e{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3b8a7198{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3b8a71a2{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-3b90c890"><caption style="margin:0pt;text-align:center;border-bottom: 0.00pt solid transparent;border-top: 0.00pt solid transparent;border-left: 0.00pt solid transparent;border-right: 0.00pt solid transparent;padding-top:3pt;padding-bottom:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;">Table&nbsp;2:  Summary: Numeric variables </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-3b8a718e"><p class="cl-3b8a5906"><span class="cl-3b85cc1a"> </span></p></th><th class="cl-3b8a718e"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">Unique (#)</span></p></th><th class="cl-3b8a718e"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">Missing (%)</span></p></th><th class="cl-3b8a718e"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">Mean</span></p></th><th class="cl-3b8a718e"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">SD</span></p></th><th class="cl-3b8a718e"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">Min</span></p></th><th class="cl-3b8a718e"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">Median</span></p></th><th class="cl-3b8a718e"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">Max</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">Fertility</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">46</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">0</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">70.1</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">12.5</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">35.0</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">70.4</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">92.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">Agriculture</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">47</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">0</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">50.7</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">22.7</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">1.2</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">54.1</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">89.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">Examination</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">22</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">0</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">16.5</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">8.0</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">3.0</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">16.0</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">37.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">Education</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">19</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">0</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">11.0</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">9.6</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">1.0</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">8.0</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">53.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">Catholic</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">46</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">0</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">41.1</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">41.7</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">2.1</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">15.1</span></p></td><td class="cl-3b8a7198"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">100.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3b8a71a2"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">Infant.Mortality</span></p></td><td class="cl-3b8a71a2"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">37</span></p></td><td class="cl-3b8a71a2"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">0</span></p></td><td class="cl-3b8a71a2"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">19.9</span></p></td><td class="cl-3b8a71a2"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">2.9</span></p></td><td class="cl-3b8a71a2"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">10.8</span></p></td><td class="cl-3b8a71a2"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">20.0</span></p></td><td class="cl-3b8a71a2"><p class="cl-3b8a5906"><span class="cl-3b85cc1a">26.6</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </div>
@@ -631,7 +466,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 <span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span>
 <span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>tab_cat <span class="ot">&lt;-</span> <span class="fu">datasummary_skim</span>(swiss, </span>
 <span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>                            <span class="at">type=</span><span class="st">"categorical"</span>, </span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>                            <span class="at">output =</span> <span class="st">'flextable'</span>)  <span class="co"># adjust to html for HTML output</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>                            <span class="at">output =</span> <span class="st">'flextable'</span>) </span>
 <span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co"># additionally we want to change the font, fontsize and spacing</span></span>
 <span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"gdtools"</span>)</span>
@@ -650,7 +485,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 <div class="cell-output-display">
 <div id="tbl-5" class="anchored">
 
-<div class="tabwid"><style>.cl-130b7df8{}.cl-12ffc062{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-12ffc076{font-family:'Times New Roman';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-1304f082{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 0.3;background-color:transparent;}.cl-1305066c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1305066d{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-13050676{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-130b7df8"><caption>Table&nbsp;3:  Summary: Categorical variables </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-1305066c"><p class="cl-1304f082"><span class="cl-12ffc062"> </span></p></th><th class="cl-1305066c"><p class="cl-1304f082"><span class="cl-12ffc062">  </span></p></th><th class="cl-1305066c"><p class="cl-1304f082"><span class="cl-12ffc062">N</span></p></th><th class="cl-1305066c"><p class="cl-1304f082"><span class="cl-12ffc062">%</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-1305066d"><p class="cl-1304f082"><span class="cl-12ffc076">Education_cat</span></p></td><td class="cl-1305066d"><p class="cl-1304f082"><span class="cl-12ffc076">low</span></p></td><td class="cl-1305066d"><p class="cl-1304f082"><span class="cl-12ffc076">14</span></p></td><td class="cl-1305066d"><p class="cl-1304f082"><span class="cl-12ffc076">29.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1305066d"><p class="cl-1304f082"><span class="cl-12ffc076"></span></p></td><td class="cl-1305066d"><p class="cl-1304f082"><span class="cl-12ffc076">middle</span></p></td><td class="cl-1305066d"><p class="cl-1304f082"><span class="cl-12ffc076">22</span></p></td><td class="cl-1305066d"><p class="cl-1304f082"><span class="cl-12ffc076">46.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1305066d"><p class="cl-1304f082"><span class="cl-12ffc076"></span></p></td><td class="cl-1305066d"><p class="cl-1304f082"><span class="cl-12ffc076">high</span></p></td><td class="cl-1305066d"><p class="cl-1304f082"><span class="cl-12ffc076">11</span></p></td><td class="cl-1305066d"><p class="cl-1304f082"><span class="cl-12ffc076">23.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1305066d"><p class="cl-1304f082"><span class="cl-12ffc076">Infant.Mortality_cat</span></p></td><td class="cl-1305066d"><p class="cl-1304f082"><span class="cl-12ffc076">low</span></p></td><td class="cl-1305066d"><p class="cl-1304f082"><span class="cl-12ffc076">12</span></p></td><td class="cl-1305066d"><p class="cl-1304f082"><span class="cl-12ffc076">25.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1305066d"><p class="cl-1304f082"><span class="cl-12ffc076"></span></p></td><td class="cl-1305066d"><p class="cl-1304f082"><span class="cl-12ffc076">middle</span></p></td><td class="cl-1305066d"><p class="cl-1304f082"><span class="cl-12ffc076">23</span></p></td><td class="cl-1305066d"><p class="cl-1304f082"><span class="cl-12ffc076">48.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-13050676"><p class="cl-1304f082"><span class="cl-12ffc076"></span></p></td><td class="cl-13050676"><p class="cl-1304f082"><span class="cl-12ffc076">high</span></p></td><td class="cl-13050676"><p class="cl-1304f082"><span class="cl-12ffc076">12</span></p></td><td class="cl-13050676"><p class="cl-1304f082"><span class="cl-12ffc076">25.5</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-3be3e9ee{}.cl-3bd8861c{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-3bdcb476{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 0.3;background-color:transparent;}.cl-3bdccede{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3bdccedf{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3bdccee8{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-3be3e9ee"><caption>Table&nbsp;3:  Summary: Categorical variables </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-3bdccede"><p class="cl-3bdcb476"><span class="cl-3bd8861c"> </span></p></th><th class="cl-3bdccede"><p class="cl-3bdcb476"><span class="cl-3bd8861c">  </span></p></th><th class="cl-3bdccede"><p class="cl-3bdcb476"><span class="cl-3bd8861c">N</span></p></th><th class="cl-3bdccede"><p class="cl-3bdcb476"><span class="cl-3bd8861c">%</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-3bdccedf"><p class="cl-3bdcb476"><span class="cl-3bd8861c">Education_cat</span></p></td><td class="cl-3bdccedf"><p class="cl-3bdcb476"><span class="cl-3bd8861c">low</span></p></td><td class="cl-3bdccedf"><p class="cl-3bdcb476"><span class="cl-3bd8861c">14</span></p></td><td class="cl-3bdccedf"><p class="cl-3bdcb476"><span class="cl-3bd8861c">29.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3bdccedf"><p class="cl-3bdcb476"><span class="cl-3bd8861c"></span></p></td><td class="cl-3bdccedf"><p class="cl-3bdcb476"><span class="cl-3bd8861c">middle</span></p></td><td class="cl-3bdccedf"><p class="cl-3bdcb476"><span class="cl-3bd8861c">22</span></p></td><td class="cl-3bdccedf"><p class="cl-3bdcb476"><span class="cl-3bd8861c">46.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3bdccedf"><p class="cl-3bdcb476"><span class="cl-3bd8861c"></span></p></td><td class="cl-3bdccedf"><p class="cl-3bdcb476"><span class="cl-3bd8861c">high</span></p></td><td class="cl-3bdccedf"><p class="cl-3bdcb476"><span class="cl-3bd8861c">11</span></p></td><td class="cl-3bdccedf"><p class="cl-3bdcb476"><span class="cl-3bd8861c">23.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3bdccedf"><p class="cl-3bdcb476"><span class="cl-3bd8861c">Infant.Mortality_cat</span></p></td><td class="cl-3bdccedf"><p class="cl-3bdcb476"><span class="cl-3bd8861c">low</span></p></td><td class="cl-3bdccedf"><p class="cl-3bdcb476"><span class="cl-3bd8861c">12</span></p></td><td class="cl-3bdccedf"><p class="cl-3bdcb476"><span class="cl-3bd8861c">25.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3bdccedf"><p class="cl-3bdcb476"><span class="cl-3bd8861c"></span></p></td><td class="cl-3bdccedf"><p class="cl-3bdcb476"><span class="cl-3bd8861c">middle</span></p></td><td class="cl-3bdccedf"><p class="cl-3bdcb476"><span class="cl-3bd8861c">23</span></p></td><td class="cl-3bdccedf"><p class="cl-3bdcb476"><span class="cl-3bd8861c">48.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3bdccee8"><p class="cl-3bdcb476"><span class="cl-3bd8861c"></span></p></td><td class="cl-3bdccee8"><p class="cl-3bdcb476"><span class="cl-3bd8861c">high</span></p></td><td class="cl-3bdccee8"><p class="cl-3bdcb476"><span class="cl-3bd8861c">12</span></p></td><td class="cl-3bdccee8"><p class="cl-3bdcb476"><span class="cl-3bd8861c">25.5</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </div>
@@ -693,12 +528,12 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 <div class="cell-output-display">
 <div id="tbl-7" class="anchored">
 
-<div id="ysfsffozrg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ondisdszed" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#ysfsffozrg) .gt_table {
+:where(#ondisdszed) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -723,7 +558,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-left-color: #D3D3D3;
 }
 
-:where(#ysfsffozrg) .gt_heading {
+:where(#ondisdszed) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -735,12 +570,12 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-right-color: #D3D3D3;
 }
 
-:where(#ysfsffozrg) .gt_caption {
+:where(#ondisdszed) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#ysfsffozrg) .gt_title {
+:where(#ondisdszed) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -752,7 +587,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-bottom-width: 0;
 }
 
-:where(#ysfsffozrg) .gt_subtitle {
+:where(#ondisdszed) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -764,13 +599,13 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-top-width: 0;
 }
 
-:where(#ysfsffozrg) .gt_bottom_border {
+:where(#ondisdszed) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#ysfsffozrg) .gt_col_headings {
+:where(#ondisdszed) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -785,7 +620,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-right-color: #D3D3D3;
 }
 
-:where(#ysfsffozrg) .gt_col_heading {
+:where(#ondisdszed) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -805,7 +640,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   overflow-x: hidden;
 }
 
-:where(#ysfsffozrg) .gt_column_spanner_outer {
+:where(#ondisdszed) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -817,15 +652,15 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 4px;
 }
 
-:where(#ysfsffozrg) .gt_column_spanner_outer:first-child {
+:where(#ondisdszed) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#ysfsffozrg) .gt_column_spanner_outer:last-child {
+:where(#ondisdszed) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#ysfsffozrg) .gt_column_spanner {
+:where(#ondisdszed) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -837,7 +672,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   width: 100%;
 }
 
-:where(#ysfsffozrg) .gt_group_heading {
+:where(#ondisdszed) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -863,7 +698,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   text-align: left;
 }
 
-:where(#ysfsffozrg) .gt_empty_group_heading {
+:where(#ondisdszed) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -878,15 +713,15 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   vertical-align: middle;
 }
 
-:where(#ysfsffozrg) .gt_from_md > :first-child {
+:where(#ondisdszed) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#ysfsffozrg) .gt_from_md > :last-child {
+:where(#ondisdszed) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#ysfsffozrg) .gt_row {
+:where(#ondisdszed) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -905,7 +740,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   overflow-x: hidden;
 }
 
-:where(#ysfsffozrg) .gt_stub {
+:where(#ondisdszed) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -918,7 +753,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 5px;
 }
 
-:where(#ysfsffozrg) .gt_stub_row_group {
+:where(#ondisdszed) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -932,11 +767,11 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   vertical-align: top;
 }
 
-:where(#ysfsffozrg) .gt_row_group_first td {
+:where(#ondisdszed) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#ysfsffozrg) .gt_summary_row {
+:where(#ondisdszed) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -946,16 +781,16 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 5px;
 }
 
-:where(#ysfsffozrg) .gt_first_summary_row {
+:where(#ondisdszed) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#ysfsffozrg) .gt_first_summary_row.thick {
+:where(#ondisdszed) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#ysfsffozrg) .gt_last_summary_row {
+:where(#ondisdszed) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -965,7 +800,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-bottom-color: #D3D3D3;
 }
 
-:where(#ysfsffozrg) .gt_grand_summary_row {
+:where(#ondisdszed) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -975,7 +810,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 5px;
 }
 
-:where(#ysfsffozrg) .gt_first_grand_summary_row {
+:where(#ondisdszed) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -985,11 +820,11 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-top-color: #D3D3D3;
 }
 
-:where(#ysfsffozrg) .gt_striped {
+:where(#ondisdszed) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#ysfsffozrg) .gt_table_body {
+:where(#ondisdszed) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -998,7 +833,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-bottom-color: #D3D3D3;
 }
 
-:where(#ysfsffozrg) .gt_footnotes {
+:where(#ondisdszed) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1012,7 +847,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-right-color: #D3D3D3;
 }
 
-:where(#ysfsffozrg) .gt_footnote {
+:where(#ondisdszed) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1021,7 +856,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 5px;
 }
 
-:where(#ysfsffozrg) .gt_sourcenotes {
+:where(#ondisdszed) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1035,7 +870,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-right-color: #D3D3D3;
 }
 
-:where(#ysfsffozrg) .gt_sourcenote {
+:where(#ondisdszed) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1043,64 +878,64 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 5px;
 }
 
-:where(#ysfsffozrg) .gt_left {
+:where(#ondisdszed) .gt_left {
   text-align: left;
 }
 
-:where(#ysfsffozrg) .gt_center {
+:where(#ondisdszed) .gt_center {
   text-align: center;
 }
 
-:where(#ysfsffozrg) .gt_right {
+:where(#ondisdszed) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#ysfsffozrg) .gt_font_normal {
+:where(#ondisdszed) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#ysfsffozrg) .gt_font_bold {
+:where(#ondisdszed) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#ysfsffozrg) .gt_font_italic {
+:where(#ondisdszed) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#ysfsffozrg) .gt_super {
+:where(#ondisdszed) .gt_super {
   font-size: 65%;
 }
 
-:where(#ysfsffozrg) .gt_footnote_marks {
+:where(#ondisdszed) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#ysfsffozrg) .gt_asterisk {
+:where(#ondisdszed) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#ysfsffozrg) .gt_indent_1 {
+:where(#ondisdszed) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#ysfsffozrg) .gt_indent_2 {
+:where(#ondisdszed) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#ysfsffozrg) .gt_indent_3 {
+:where(#ondisdszed) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#ysfsffozrg) .gt_indent_4 {
+:where(#ondisdszed) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#ysfsffozrg) .gt_indent_5 {
+:where(#ondisdszed) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1510,76 +1345,73 @@ loaded via a namespace (and not attached):
 <span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"scale_down"</span>,</span>
 <span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"HOLD_position"</span>),</span>
 <span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a>                      <span class="at">font_size =</span> <span class="dv">11</span>)</span>
-<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(knitr<span class="sc">::</span><span class="fu">is_latex_output</span>()){outputformat <span class="ot">&lt;-</span> <span class="st">"flextable"</span>}</span>
-<span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(knitr<span class="sc">::</span><span class="fu">is_html_output</span>()){outputformat <span class="ot">&lt;-</span> <span class="st">"html"</span>}</span>
-<span id="cb22-42"><a href="#cb22-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-43"><a href="#cb22-43" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
-<span id="cb22-44"><a href="#cb22-44" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_skim</span>(swiss, </span>
-<span id="cb22-45"><a href="#cb22-45" aria-hidden="true" tabindex="-1"></a>                 <span class="at">type=</span><span class="st">"numeric"</span>, </span>
-<span id="cb22-46"><a href="#cb22-46" aria-hidden="true" tabindex="-1"></a>                 <span class="at">histogram=</span>T, </span>
-<span id="cb22-47"><a href="#cb22-47" aria-hidden="true" tabindex="-1"></a>                 <span class="at">output=</span> outputformat,</span>
-<span id="cb22-48"><a href="#cb22-48" aria-hidden="true" tabindex="-1"></a>                 <span class="at">title =</span> <span class="st">"Summary: Numeric variables"</span>)</span>
-<span id="cb22-49"><a href="#cb22-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Create categorical variables</span></span>
-<span id="cb22-50"><a href="#cb22-50" aria-hidden="true" tabindex="-1"></a>swiss<span class="sc">$</span>Education_cat <span class="ot">&lt;-</span> <span class="fu">cut</span>(swiss<span class="sc">$</span>Education, </span>
-<span id="cb22-51"><a href="#cb22-51" aria-hidden="true" tabindex="-1"></a>                   <span class="at">breaks=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="cn">Inf</span>), </span>
+<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_skim</span>(swiss, </span>
+<span id="cb22-42"><a href="#cb22-42" aria-hidden="true" tabindex="-1"></a>                 <span class="at">type=</span><span class="st">"numeric"</span>, </span>
+<span id="cb22-43"><a href="#cb22-43" aria-hidden="true" tabindex="-1"></a>                 <span class="at">histogram=</span>T, </span>
+<span id="cb22-44"><a href="#cb22-44" aria-hidden="true" tabindex="-1"></a>                 <span class="at">output=</span> <span class="st">"flextable"</span>,</span>
+<span id="cb22-45"><a href="#cb22-45" aria-hidden="true" tabindex="-1"></a>                 <span class="at">title =</span> <span class="st">"Summary: Numeric variables"</span>)</span>
+<span id="cb22-46"><a href="#cb22-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Create categorical variables</span></span>
+<span id="cb22-47"><a href="#cb22-47" aria-hidden="true" tabindex="-1"></a>swiss<span class="sc">$</span>Education_cat <span class="ot">&lt;-</span> <span class="fu">cut</span>(swiss<span class="sc">$</span>Education, </span>
+<span id="cb22-48"><a href="#cb22-48" aria-hidden="true" tabindex="-1"></a>                   <span class="at">breaks=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="cn">Inf</span>), </span>
+<span id="cb22-49"><a href="#cb22-49" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"low"</span>,<span class="st">"middle"</span>,<span class="st">"high"</span>))</span>
+<span id="cb22-50"><a href="#cb22-50" aria-hidden="true" tabindex="-1"></a>swiss<span class="sc">$</span>Infant.Mortality_cat <span class="ot">&lt;-</span> <span class="fu">cut</span>(swiss<span class="sc">$</span>Infant.Mortality, </span>
+<span id="cb22-51"><a href="#cb22-51" aria-hidden="true" tabindex="-1"></a>                   <span class="at">breaks=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="fl">18.15</span>, <span class="fl">21.70</span>, <span class="cn">Inf</span>), </span>
 <span id="cb22-52"><a href="#cb22-52" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"low"</span>,<span class="st">"middle"</span>,<span class="st">"high"</span>))</span>
-<span id="cb22-53"><a href="#cb22-53" aria-hidden="true" tabindex="-1"></a>swiss<span class="sc">$</span>Infant.Mortality_cat <span class="ot">&lt;-</span> <span class="fu">cut</span>(swiss<span class="sc">$</span>Infant.Mortality, </span>
-<span id="cb22-54"><a href="#cb22-54" aria-hidden="true" tabindex="-1"></a>                   <span class="at">breaks=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="fl">18.15</span>, <span class="fl">21.70</span>, <span class="cn">Inf</span>), </span>
-<span id="cb22-55"><a href="#cb22-55" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"low"</span>,<span class="st">"middle"</span>,<span class="st">"high"</span>))</span>
-<span id="cb22-56"><a href="#cb22-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-57"><a href="#cb22-57" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span>
-<span id="cb22-58"><a href="#cb22-58" aria-hidden="true" tabindex="-1"></a>tab_cat <span class="ot">&lt;-</span> <span class="fu">datasummary_skim</span>(swiss, </span>
-<span id="cb22-59"><a href="#cb22-59" aria-hidden="true" tabindex="-1"></a>                            <span class="at">type=</span><span class="st">"categorical"</span>, </span>
-<span id="cb22-60"><a href="#cb22-60" aria-hidden="true" tabindex="-1"></a>                            <span class="at">output =</span> <span class="st">'flextable'</span>)</span>
+<span id="cb22-53"><a href="#cb22-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-54"><a href="#cb22-54" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span>
+<span id="cb22-55"><a href="#cb22-55" aria-hidden="true" tabindex="-1"></a>tab_cat <span class="ot">&lt;-</span> <span class="fu">datasummary_skim</span>(swiss, </span>
+<span id="cb22-56"><a href="#cb22-56" aria-hidden="true" tabindex="-1"></a>                            <span class="at">type=</span><span class="st">"categorical"</span>, </span>
+<span id="cb22-57"><a href="#cb22-57" aria-hidden="true" tabindex="-1"></a>                            <span class="at">output =</span> <span class="st">'flextable'</span>)</span>
+<span id="cb22-58"><a href="#cb22-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-59"><a href="#cb22-59" aria-hidden="true" tabindex="-1"></a><span class="co">#additionally we want to change the font, fontsize and spacing</span></span>
+<span id="cb22-60"><a href="#cb22-60" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"gdtools"</span>)</span>
 <span id="cb22-61"><a href="#cb22-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-62"><a href="#cb22-62" aria-hidden="true" tabindex="-1"></a><span class="co">#additionally we want to change the font, fontsize and spacing</span></span>
-<span id="cb22-63"><a href="#cb22-63" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"gdtools"</span>)</span>
-<span id="cb22-64"><a href="#cb22-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-65"><a href="#cb22-65" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb22-66"><a href="#cb22-66" aria-hidden="true" tabindex="-1"></a>tab_cat <span class="ot">&lt;-</span> tab_cat <span class="sc">%&gt;%</span></span>
-<span id="cb22-67"><a href="#cb22-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">font</span>(<span class="at">fontname=</span><span class="st">"Times New Roman"</span>, <span class="at">part=</span><span class="st">"header"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb22-68"><a href="#cb22-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">font</span>(<span class="at">fontname=</span><span class="st">"Times New Roman"</span>, <span class="at">j=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb22-69"><a href="#cb22-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fontsize</span>(<span class="at">size=</span><span class="dv">12</span>, <span class="at">part=</span><span class="st">"header"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb22-70"><a href="#cb22-70" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fontsize</span>(<span class="at">size=</span><span class="dv">10</span>, <span class="at">j=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb22-71"><a href="#cb22-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">line_spacing</span>(<span class="at">space =</span> <span class="fl">0.3</span>, <span class="at">part =</span> <span class="st">"all"</span>)</span>
-<span id="cb22-72"><a href="#cb22-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-73"><a href="#cb22-73" aria-hidden="true" tabindex="-1"></a>tab_cat</span>
-<span id="cb22-74"><a href="#cb22-74" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
-<span id="cb22-75"><a href="#cb22-75" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> Education <span class="sc">+</span> Agriculture, <span class="at">data =</span> swiss)</span>
-<span id="cb22-76"><a href="#cb22-76" aria-hidden="true" tabindex="-1"></a>M2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> Education <span class="sc">+</span> Catholic, <span class="at">data =</span> swiss)</span>
-<span id="cb22-77"><a href="#cb22-77" aria-hidden="true" tabindex="-1"></a>M3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> Education <span class="sc">+</span> Infant.Mortality <span class="sc">+</span> Agriculture, <span class="at">data =</span> swiss)</span>
-<span id="cb22-78"><a href="#cb22-78" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"M1"</span> <span class="ot">=</span> M1, <span class="st">"M2"</span> <span class="ot">=</span>  M2, <span class="st">"M3"</span> <span class="ot">=</span> M3)</span>
-<span id="cb22-79"><a href="#cb22-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-80"><a href="#cb22-80" aria-hidden="true" tabindex="-1"></a><span class="co"># Hier Weiter</span></span>
-<span id="cb22-81"><a href="#cb22-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-82"><a href="#cb22-82" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb22-83"><a href="#cb22-83" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
-<span id="cb22-84"><a href="#cb22-84" aria-hidden="true" tabindex="-1"></a><span class="co"># additionally we want to change the font, font size and spacing</span></span>
-<span id="cb22-85"><a href="#cb22-85" aria-hidden="true" tabindex="-1"></a>table7 <span class="ot">&lt;-</span> <span class="fu">modelsummary</span>(models,</span>
-<span id="cb22-86"><a href="#cb22-86" aria-hidden="true" tabindex="-1"></a>             <span class="at">output =</span> <span class="st">'gt'</span>,</span>
-<span id="cb22-87"><a href="#cb22-87" aria-hidden="true" tabindex="-1"></a>             <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb22-88"><a href="#cb22-88" aria-hidden="true" tabindex="-1"></a>             <span class="at">notes =</span> <span class="st">"Notes: put some notes here..."</span>,</span>
-<span id="cb22-89"><a href="#cb22-89" aria-hidden="true" tabindex="-1"></a>             <span class="at">threeparttable =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb22-90"><a href="#cb22-90" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_spanner</span>(<span class="at">label =</span> <span class="st">'Dependent variable: Fertility'</span>, <span class="at">columns =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>)</span>
+<span id="cb22-62"><a href="#cb22-62" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb22-63"><a href="#cb22-63" aria-hidden="true" tabindex="-1"></a>tab_cat <span class="ot">&lt;-</span> tab_cat <span class="sc">%&gt;%</span></span>
+<span id="cb22-64"><a href="#cb22-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">font</span>(<span class="at">fontname=</span><span class="st">"Times New Roman"</span>, <span class="at">part=</span><span class="st">"header"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb22-65"><a href="#cb22-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">font</span>(<span class="at">fontname=</span><span class="st">"Times New Roman"</span>, <span class="at">j=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb22-66"><a href="#cb22-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fontsize</span>(<span class="at">size=</span><span class="dv">12</span>, <span class="at">part=</span><span class="st">"header"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb22-67"><a href="#cb22-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fontsize</span>(<span class="at">size=</span><span class="dv">12</span>, <span class="at">j=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb22-68"><a href="#cb22-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">line_spacing</span>(<span class="at">space =</span> <span class="fl">0.3</span>, <span class="at">part =</span> <span class="st">"all"</span>)</span>
+<span id="cb22-69"><a href="#cb22-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-70"><a href="#cb22-70" aria-hidden="true" tabindex="-1"></a>tab_cat</span>
+<span id="cb22-71"><a href="#cb22-71" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb22-72"><a href="#cb22-72" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> Education <span class="sc">+</span> Agriculture, <span class="at">data =</span> swiss)</span>
+<span id="cb22-73"><a href="#cb22-73" aria-hidden="true" tabindex="-1"></a>M2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> Education <span class="sc">+</span> Catholic, <span class="at">data =</span> swiss)</span>
+<span id="cb22-74"><a href="#cb22-74" aria-hidden="true" tabindex="-1"></a>M3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> Education <span class="sc">+</span> Infant.Mortality <span class="sc">+</span> Agriculture, <span class="at">data =</span> swiss)</span>
+<span id="cb22-75"><a href="#cb22-75" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"M1"</span> <span class="ot">=</span> M1, <span class="st">"M2"</span> <span class="ot">=</span>  M2, <span class="st">"M3"</span> <span class="ot">=</span> M3)</span>
+<span id="cb22-76"><a href="#cb22-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-77"><a href="#cb22-77" aria-hidden="true" tabindex="-1"></a><span class="co"># Hier Weiter</span></span>
+<span id="cb22-78"><a href="#cb22-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-79"><a href="#cb22-79" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb22-80"><a href="#cb22-80" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
+<span id="cb22-81"><a href="#cb22-81" aria-hidden="true" tabindex="-1"></a><span class="co"># additionally we want to change the font, font size and spacing</span></span>
+<span id="cb22-82"><a href="#cb22-82" aria-hidden="true" tabindex="-1"></a>table7 <span class="ot">&lt;-</span> <span class="fu">modelsummary</span>(models,</span>
+<span id="cb22-83"><a href="#cb22-83" aria-hidden="true" tabindex="-1"></a>             <span class="at">output =</span> <span class="st">'gt'</span>,</span>
+<span id="cb22-84"><a href="#cb22-84" aria-hidden="true" tabindex="-1"></a>             <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb22-85"><a href="#cb22-85" aria-hidden="true" tabindex="-1"></a>             <span class="at">notes =</span> <span class="st">"Notes: put some notes here..."</span>,</span>
+<span id="cb22-86"><a href="#cb22-86" aria-hidden="true" tabindex="-1"></a>             <span class="at">threeparttable =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb22-87"><a href="#cb22-87" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_spanner</span>(<span class="at">label =</span> <span class="st">'Dependent variable: Fertility'</span>, <span class="at">columns =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>)</span>
+<span id="cb22-88"><a href="#cb22-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-89"><a href="#cb22-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-90"><a href="#cb22-90" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(knitr<span class="sc">::</span><span class="fu">is_html_output</span>()){table7}<span class="cf">else</span>{table7 <span class="sc">%&gt;%</span> gt<span class="sc">::</span><span class="fu">as_latex</span>() <span class="sc">%&gt;%</span> <span class="fu">as.character</span>() <span class="sc">%&gt;%</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">(Intercept</span><span class="sc">\\</span><span class="st">)"</span>, <span class="st">"Intercept"</span>, .) <span class="sc">%&gt;%</span> <span class="fu">cat</span>()}</span>
 <span id="cb22-91"><a href="#cb22-91" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-92"><a href="#cb22-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-93"><a href="#cb22-93" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(knitr<span class="sc">::</span><span class="fu">is_html_output</span>()){table7}<span class="cf">else</span>{table7 <span class="sc">%&gt;%</span> gt<span class="sc">::</span><span class="fu">as_latex</span>() <span class="sc">%&gt;%</span> <span class="fu">as.character</span>() <span class="sc">%&gt;%</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">(Intercept</span><span class="sc">\\</span><span class="st">)"</span>, <span class="st">"Intercept"</span>, .) <span class="sc">%&gt;%</span> <span class="fu">cat</span>()}</span>
-<span id="cb22-94"><a href="#cb22-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-95"><a href="#cb22-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-96"><a href="#cb22-96" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(swiss<span class="sc">$</span>Catholic, swiss<span class="sc">$</span>Fertility)</span>
-<span id="cb22-97"><a href="#cb22-97" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb22-98"><a href="#cb22-98" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(swiss, <span class="fu">aes</span>(<span class="at">x=</span>Catholic, <span class="at">y=</span>Fertility, <span class="at">shape=</span>Education_cat)) <span class="sc">+</span></span>
-<span id="cb22-99"><a href="#cb22-99" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb22-100"><a href="#cb22-100" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Agriculture"</span>, <span class="at">y =</span> <span class="st">"Fertility"</span>, <span class="at">shape=</span><span class="st">"Education"</span>) <span class="sc">+</span></span>
-<span id="cb22-101"><a href="#cb22-101" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb22-102"><a href="#cb22-102" aria-hidden="true" tabindex="-1"></a>plot</span>
-<span id="cb22-103"><a href="#cb22-103" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>()</span>
-<span id="cb22-104"><a href="#cb22-104" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"quarto"</span>)</span>
-<span id="cb22-105"><a href="#cb22-105" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(</span>
-<span id="cb22-106"><a href="#cb22-106" aria-hidden="true" tabindex="-1"></a>  <span class="st">"paper.qmd"</span>, </span>
-<span id="cb22-107"><a href="#cb22-107" aria-hidden="true" tabindex="-1"></a>  <span class="at">output_format =</span> <span class="fu">c</span>(<span class="st">"pdf"</span>, <span class="st">"html"</span>)</span>
-<span id="cb22-108"><a href="#cb22-108" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb22-109"><a href="#cb22-109" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">sessionInfo</span>(), <span class="at">local =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-93"><a href="#cb22-93" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(swiss<span class="sc">$</span>Catholic, swiss<span class="sc">$</span>Fertility)</span>
+<span id="cb22-94"><a href="#cb22-94" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb22-95"><a href="#cb22-95" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(swiss, <span class="fu">aes</span>(<span class="at">x=</span>Catholic, <span class="at">y=</span>Fertility, <span class="at">shape=</span>Education_cat)) <span class="sc">+</span></span>
+<span id="cb22-96"><a href="#cb22-96" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb22-97"><a href="#cb22-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Agriculture"</span>, <span class="at">y =</span> <span class="st">"Fertility"</span>, <span class="at">shape=</span><span class="st">"Education"</span>) <span class="sc">+</span></span>
+<span id="cb22-98"><a href="#cb22-98" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb22-99"><a href="#cb22-99" aria-hidden="true" tabindex="-1"></a>plot</span>
+<span id="cb22-100"><a href="#cb22-100" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>()</span>
+<span id="cb22-101"><a href="#cb22-101" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"quarto"</span>)</span>
+<span id="cb22-102"><a href="#cb22-102" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(</span>
+<span id="cb22-103"><a href="#cb22-103" aria-hidden="true" tabindex="-1"></a>  <span class="st">"paper.qmd"</span>, </span>
+<span id="cb22-104"><a href="#cb22-104" aria-hidden="true" tabindex="-1"></a>  <span class="at">output_format =</span> <span class="fu">c</span>(<span class="st">"pdf"</span>, <span class="st">"html"</span>)</span>
+<span id="cb22-105"><a href="#cb22-105" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-106"><a href="#cb22-106" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">sessionInfo</span>(), <span class="at">local =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
