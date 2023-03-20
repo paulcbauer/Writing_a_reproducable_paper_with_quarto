@@ -17,6 +17,17 @@ format:
     number-sections: true
     colorlinks: true
     keeptex: true
+    include-in-header: 
+      text: |
+        \usepackage{booktabs}
+        \usepackage{siunitx}
+        \newcolumntype{d}{S[
+            input-open-uncertainty=,
+            input-close-uncertainty=,
+            parse-numbers = false,
+            table-align-text-pre=false,
+            table-align-text-post=false
+         ]}
 date: 'last-modified'
 date-format: '[First version: February  16, 2023 <br>This version:] MMMM D, YYYY'
 abstract: 'This paper provides a template to write a reproducible scientific paper with RStudio and Quarto. It falls into a series on other templates, namely on RMarkdown and pagedown that can be downloaded [here](https://osf.io/k8jhx/) [@Bauer2018-dl] and [here](https://osf.io/q395s) [@Bauer2021-dl]. Below we outline some of the "tricks"/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be [downloaded here](https://drive.google.com/drive/u/0/folders/1eT_9WaineZRB-nw-cQhNOy16sWhd_t2s). We are convinced that in the future there will be many improvements and developments with regards to RStudio and Quarto. We intend to update this file when we discover more convenient code. You can follow any updates on the [github repository](https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/).'
@@ -102,12 +113,12 @@ tinytex::install_tinytex()
 
 ``` {{r}}
 install.packages(c("knitr", "kableExtra",
-                   "stargazer", "modelsummary", "gt"))
+                   "stargazer", "modelsummary", "gt", "gtsummary"))
 ```
 
 ```{r eval=F}
 install.packages(c("knitr", "kableExtra",
-                   "stargazer", "modelsummary", "knitr", "gt"))
+                   "stargazer", "modelsummary", "knitr", "gt", "gtsummary"))
 ```
 
 -   ...download the 3 input files we created --- `paper.qmd`, `references.bib` and `data.csv` --- from [this folder](https://drive.google.com/drive/u/0/folders/1eT_9WaineZRB-nw-cQhNOy16sWhd_t2s). Ignore the other files.
@@ -260,46 +271,7 @@ knitr::kable(swiss[1:5,], row.names = TRUE,
 
 <!-- the stargazer section is only shown when the output format is PDF and not HTML -->
 
-## Tables with stargazer()
 
-`r if (knitr::is_latex_output()) "@tbl-2-pdf was generated using the stargazer() R package [@hlavac2013stargazer] and shows summary statistics of our data." else ""`
-
-`r if (knitr::is_html_output()) "@tbl-2-html was generated using the stargazer() R package [@hlavac2013stargazer] and shows summary statistics of our data." else ""`
-
-``` {{r}}
-#| label: tbl-2
-#| tbl-cap: "Summary table with stargazer"
-#| results: "asis"
-library(stargazer)
-stargazer(swiss, 
-          table.placement = "H", 
-          type="latex", # adjust to html for HTML output
-          header=FALSE)
-```
-
-```{r, eval = knitr::is_latex_output()}
-#| label: tbl-2-pdf
-#| tbl-cap: "Summary table with stargazer"
-#| results: "asis"
-library(stargazer)
-stargazer(swiss, 
-          table.placement = "H", 
-          type="latex",
-          header=FALSE)
-```
-
-```{r eval = knitr::is_html_output()}
-#| label: tbl-2-html
-#| tbl-cap: "Summary table with stargazer"
-#| results: "asis"
-library(stargazer)
-stargazer(swiss,
-          table.placement = "H", 
-          type="html",
-          header=FALSE)
-```
-
-In the above example, note that the `type` argument defaults to `latex` and you have to insert `html` if you desire HTML output. Lastly, note, how we specified 'results: asis' into the code chunk options. This is important so that latex is properly printed to the PDF.
 
 ## Tables with modelsummary
 
@@ -307,9 +279,7 @@ If you want to create well-formatted HTML output, consider learning about the `m
 
 ### Summarize numeric variables with modelsummary
 
-`r if (knitr::is_latex_output()) "@tbl-4-pdf shows a summary table for numeric variables." else ""`
-
-`r if (knitr::is_html_output()) "@tbl-4-html shows a summary table for numeric variables." else ""`
+@tbl-4 shows a summary table for numeric variables.
 
 ``` {{r}}
 #| label: tbl-4
@@ -322,27 +292,21 @@ datasummary_skim(swiss,
                  title = "Summary: Numeric variables")
 ```
 
-```{r eval = knitr::is_latex_output()}
-#| label: tbl-4-pdf
+```{r}
+#| label: tbl-4
 #| tbl-cap: "Summary: Numeric variables"
+
+if(knitr::is_latex_output()){outputformat <- "flextable"}
+if(knitr::is_html_output()){outputformat <- "html"}
+
 library(modelsummary)
 datasummary_skim(swiss, 
                  type="numeric", 
                  histogram=T, 
-                 output="flextable",
+                 output= outputformat,
                  title = "Summary: Numeric variables")
 ```
 
-```{r eval = knitr::is_html_output()}
-#| label: tbl-4-html
-#| tbl-cap: "Summary: Numeric variables"
-library(modelsummary)
-datasummary_skim(swiss, 
-                 type="numeric", 
-                 histogram=T, 
-                 output="html",
-                 title = "Summary: Numeric variables")
-```
 
 ### Summarize categorical variables with modelsummary
 
@@ -409,63 +373,10 @@ tab_cat <- tab_cat %>%
 tab_cat
 ```
 
-## Regression Table with stargazer
 
-`r if (knitr::is_latex_output()) "@tbl-6-pdf shows a summary table for numeric variables." else ""`
+### Regression table with modelsummary
 
-`r if (knitr::is_html_output()) "@tbl-6-html shows a summary table for numeric variables." else ""`
-
-``` {{r}}
-#| label: tbl-6
-#| tbl-cap: "Linear regression with stargazer"
-#| results: "asis"
-library(stargazer)
-M1 <- lm(Fertility ~ Education + Agriculture, data = swiss)
-M2 <- lm(Fertility ~ Education + Catholic, data = swiss)
-M3 <- lm(Fertility ~ Education + Infant.Mortality + Agriculture, data = swiss)
-stargazer(M1, M2, M3,
-          type="latex", # adjust to html for HTML output
-          table.placement = "H", 
-          column.labels = c("M1", "M2", "M3"),
-          model.numbers = FALSE,
-          header=FALSE)
-```
-
-```{r eval = knitr::is_latex_output()}
-#| label: tbl-6-pdf
-#| tbl-cap: "Linear regression with stargazer"
-#| results: "asis"
-library(stargazer)
-M1 <- lm(Fertility ~ Education + Agriculture, data = swiss)
-M2 <- lm(Fertility ~ Education + Catholic, data = swiss)
-M3 <- lm(Fertility ~ Education + Infant.Mortality + Agriculture, data = swiss)
-stargazer(M1, M2, M3,
-          type="latex", # adjust to html for HTML output
-          table.placement = "H", 
-          column.labels = c("M1", "M2", "M3"),
-          model.numbers = FALSE,
-          header=FALSE)
-```
-
-```{r eval = knitr::is_html_output()}
-#| label: tbl-6-html
-#| tbl-cap: "Linear regression with stargazer"
-#| results: "asis"
-library(stargazer)
-M1 <- lm(Fertility ~ Education + Agriculture, data = swiss)
-M2 <- lm(Fertility ~ Education + Catholic, data = swiss)
-M3 <- lm(Fertility ~ Education + Infant.Mortality + Agriculture, data = swiss)
-stargazer(M1, M2, M3,
-          type="html",
-          table.placement = "H", 
-          column.labels = c("M1", "M2", "M3"),
-          model.numbers = FALSE,
-          header=FALSE)
-```
-
-`r if (knitr::is_html_output()) "## Regression table with modelsummary" else ""`
-
-`r if (knitr::is_html_output()) "@tbl-7 (HTML only) shows the output for a regression table. Make sure you name all the models you estimate (even if its 50) and explicitly refer to model names (M1, M2 etc.) in the text." else ""`
+@tbl-7 shows the output for a regression table. Make sure you name all the models you estimate with unique identifiers (even if its 50 models) and explicitly refer to model names (M1, M2 etc.) in the text.
 
 ``` {{r}}
 #| label: tbl-7
@@ -478,6 +389,7 @@ models <- list("M1" = M1, "M2" =  M2, "M3" = M3)
 
 
 library(gt)
+library(gtsummary)
 # additionally we want to change the font, font size and spacing
 modelsummary(models,
              output = 'gt',
@@ -498,35 +410,33 @@ modelsummary(models,
   )
 ```
 
-```{r eval = knitr::is_html_output()}
+```{r}
 #| label: tbl-7
 #| tbl-cap: "Linear regression with modelsummary"
+#| results: "asis"
+
 library(modelsummary)
 M1 <- lm(Fertility ~ Education + Agriculture, data = swiss)
 M2 <- lm(Fertility ~ Education + Catholic, data = swiss)
 M3 <- lm(Fertility ~ Education + Infant.Mortality + Agriculture, data = swiss)
 models <- list("M1" = M1, "M2" =  M2, "M3" = M3)
 
+# Hier Weiter
 
 library(gt)
+library(gtsummary)
 # additionally we want to change the font, font size and spacing
-modelsummary(models,
+table7 <- modelsummary(models,
              output = 'gt',
-             notes = "Notes: some notes...") %>%
-    tab_spanner(label = 'Dependent variable: Fertility', columns = 2:4) %>%
-  tab_options(
-    table.font.size = 10,
-    data_row.padding = px(1),
-    table.border.top.color = "white",
-    heading.border.bottom.color = "black",
-    row_group.border.top.color = "black",
-    row_group.border.bottom.color = "white",
-    table.border.bottom.color = "white",
-    column_labels.border.top.color = "black",
-    column_labels.border.bottom.color = "black",
-    table_body.border.bottom.color = "black",
-    table_body.hlines.color = "white"
-  )
+             stars = TRUE,
+             notes = "Notes: put some notes here...",
+             threeparttable = TRUE) %>%
+    tab_spanner(label = 'Dependent variable: Fertility', columns = 2:4)
+
+
+if(knitr::is_html_output()){table7}else{table7 %>% gt::as_latex() %>% as.character() %>% gsub("\\(Intercept\\)", "Intercept", .) %>% cat()}
+
+
 ```
 
 # Inline code & results
