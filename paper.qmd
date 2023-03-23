@@ -109,16 +109,15 @@ install.packages('tinytex')
 tinytex::install_tinytex()
 ```
 
--   ...also install the packages below using the code below [@knitr1; @knitr2; @knitr3; @kableextra; @hlavac2013stargazer; @modelsummary; @gt].
+-   ...also install the packages below using the code below [@knitr1; @knitr2; @knitr3; @kableextra; @modelsummary; @gt].
 
 ``` {{r}}
-install.packages(c("knitr", "kableExtra",
-                   "stargazer", "modelsummary", "gt", "gtsummary"))
+install.packages(c("knitr", "kableExtra", "modelsummary", "gt", "gtsummary"))
 ```
 
 ```{r eval=F}
 install.packages(c("knitr", "kableExtra",
-                   "stargazer", "modelsummary", "knitr", "gt", "gtsummary"))
+                   "modelsummary", "knitr", "gt", "gtsummary"))
 ```
 
 -   ...download the 3 input files we created --- `paper.qmd`, `references.bib` and `data.csv` --- from [this folder](https://drive.google.com/drive/u/0/folders/1eT_9WaineZRB-nw-cQhNOy16sWhd_t2s). Ignore the other files.
@@ -268,9 +267,6 @@ knitr::kable(swiss[1:5,], row.names = TRUE,
                                         "HOLD_position"),
                       font_size = 11)
 ```
-
-<!-- the stargazer section is only shown when the output format is PDF and not HTML -->
-
 
 
 ## Tables with modelsummary
