@@ -80,7 +80,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 
 Quarto is a multi-language, next-generation version of R Markdown from RStudio. Multi-language means you can use R, Python, Julia and other languages to create quarto documents. In this template we'll focus on showing you how to use **RStudio with Quarto**.
 
-To name prerequisites, we assume that you are familiar with using R and R Markdown. If you don't know what R Markdown is there are many great resources that you can use (e.g. watch this [short video](https://vimeo.com/178485416)). An older template of ours [see @Bauer2018-dl; https://osf.io/q395s] may provide a quick entry point to writing a reproducible manuscript with R Markdown and Latex. To further deepen your understanding of the different components underlying this template, go on and learn about R, [Markdown](https://en.wikipedia.org/wiki/Markdown), [R Markdown](https://rmarkdown.rstudio.com/lesson-1.html) and [Quarto](https://quarto.org/). For Quarto also consider reading their [FAQ](https://quarto.org/docs/faq/rmarkdown.html).
+To name prerequisites, we assume that you are familiar with using R and R Markdown. If you don't know what R Markdown is there are many great resources that you can use (e.g. watch this [short video](https://vimeo.com/178485416)). An older template of ours [see @Bauer2018-dl; https://osf.io/q395s] may provide a quick entry point to writing a reproducible manuscript with R Markdown and Latex. To further deepen your understanding of the different components underlying this template, go on and learn about R, [Markdown](https://en.wikipedia.org/wiki/Markdown), [R Markdown](https://rmarkdown.rstudio.com/lesson-1.html) and [Quarto](https://quarto.org/). For more information on Quarto also consider reading their [FAQ](https://quarto.org/docs/faq/rmarkdown.html).
 
 Like R Markdown, Quarto uses `Knitr` to execute R code (hence you should also be able to render existing Rmd files without modification), and can render documents of a dozens of formats (e.g., PDF, HTML). For a comprehensive overview watch [this video](https://www.youtube.com/watch?v=yvi5uXQMvu4&t=708s&ab_channel=PositPBC) which is a record of a talk introducing `quarto` given by Tom Mock from RStudio.
 
@@ -275,38 +275,44 @@ If you want to create well-formatted HTML output, consider learning about the `m
 
 ### Summarize numeric variables with modelsummary
 
-@tbl-4 shows a summary table for numeric variables.
+@tbl-2 shows a summary table for numeric variables.
 
 ``` {{r}}
-#| label: tbl-4
+#| label: tbl-2
 #| tbl-cap: "Summary: Numeric variables"
 library(modelsummary)
 datasummary_skim(swiss, 
                  type="numeric", 
-                 histogram=T,
-                 output="flextable",
-                 title = "Summary: Numeric variables")
+                 histogram=F,
+                 output="flextable") %>% 
+  # column widths
+  flextable::autofit()
 ```
 
 ```{r}
-#| label: tbl-4
+#| label: tbl-2
 #| tbl-cap: "Summary: Numeric variables"
 
 library(modelsummary)
 datasummary_skim(swiss, 
                  type="numeric", 
-                 histogram=T, 
-                 output= "flextable",
-                 title = "Summary: Numeric variables")
-```
+                 histogram=F, 
+                 output= "flextable") %>% 
+  # column widths
+  flextable::width(1, width = 1) %>% 
+  flextable::width(2:8, width = 0.5)
 
+  
+
+
+```
 
 ### Summarize categorical variables with modelsummary
 
-@tbl-5 shows a summary table for categorical variables.
+@tbl-3 shows a summary table for categorical variables. Notice how for this table we also changed the font to be "Times New Roman".
 
 ``` {{r}}
-#| label: tbl-5
+#| label: tbl-3
 #| tbl-cap: "Summary: Categorical variables"
 # Create categorical variables
 swiss$Education_cat <- cut(swiss$Education, 
@@ -330,13 +336,15 @@ tab_cat <- tab_cat %>%
   font(fontname="Times New Roman", j=1:4) %>% 
   fontsize(size=12, part="header") %>%
   fontsize(size=10, j=1:4) %>% 
-  line_spacing(space = 0.3, part = "all")
+  line_spacing(space = 0.3, part = "all") %>% 
+  # column widths
+  flextable::autofit()
 
 tab_cat
 ```
 
 ```{r}
-#| label: tbl-5
+#| label: tbl-3
 #| tbl-cap: "Summary: Categorical variables"
 
 # Create categorical variables
@@ -361,7 +369,10 @@ tab_cat <- tab_cat %>%
   font(fontname="Times New Roman", j=1:4) %>%
   fontsize(size=12, part="header") %>%
   fontsize(size=12, j=1:4) %>%
-  line_spacing(space = 0.3, part = "all")
+  line_spacing(space = 0.3, part = "all") %>% 
+  # column widths
+  flextable::autofit()
+  
 
 tab_cat
 ```
@@ -369,10 +380,10 @@ tab_cat
 
 ### Regression table with modelsummary
 
-@tbl-7 shows the output for a regression table. Make sure you name all the models you estimate with unique identifiers (even if its 50 models) and explicitly refer to model names (M1, M2 etc.) in the text.
+@tbl-4 shows the output for a regression table. Make sure you name all the models you estimate with unique identifiers (even if its 50 models) and explicitly refer to model names (M1, M2 etc.) in the text.
 
 ``` {{r}}
-#| label: tbl-7
+#| label: tbl-4
 #| tbl-cap: "Linear regression with modelsummary"
 library(modelsummary)
 M1 <- lm(Fertility ~ Education + Agriculture, data = swiss)
@@ -403,34 +414,30 @@ modelsummary(models,
   )
 
 # Produce right output depending on format (html vs. latex)
-if(knitr::is_html_output()){table7}else{table7 %>% gt::as_latex() %>% as.character() %>% gsub("\\(Intercept\\)", "Intercept", .) %>% cat()}
+if(knitr::is_html_output()){table4}else{table4 %>% gt::as_latex() %>% as.character() %>% gsub("\\(Intercept\\)", "Intercept", .) %>% cat()}
 ```
 
 ```{r}
-#| label: tbl-7
+#| label: tbl-4
 #| tbl-cap: "Linear regression with modelsummary"
 #| results: "asis"
-
 library(modelsummary)
 M1 <- lm(Fertility ~ Education + Agriculture, data = swiss)
 M2 <- lm(Fertility ~ Education + Catholic, data = swiss)
 M3 <- lm(Fertility ~ Education + Infant.Mortality + Agriculture, data = swiss)
 models <- list("M1" = M1, "M2" =  M2, "M3" = M3)
 
-# Hier Weiter
-
 library(gt)
 library(gtsummary)
 # additionally we want to change the font, font size and spacing
-table7 <- modelsummary(models,
+table4 <- modelsummary(models,
              output = 'gt',
              stars = TRUE,
              notes = "Notes: put some notes here...",
              threeparttable = TRUE) %>%
     tab_spanner(label = 'Dependent variable: Fertility', columns = 2:4)
 
-
-if(knitr::is_html_output()){table7}else{table7 %>% gt::as_latex() %>% as.character() %>% gsub("\\(Intercept\\)", "Intercept", .) %>% cat()}
+if(knitr::is_html_output()){table4}else{table4 %>% gt::as_latex() %>% as.character() %>% gsub("\\(Intercept\\)", "Intercept", .) %>% cat()}
 ```
 
 # Inline code & results

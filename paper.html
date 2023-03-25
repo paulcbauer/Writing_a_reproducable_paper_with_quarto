@@ -163,7 +163,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">First version: February 16, 2023 <br>This version: March 23, 2023</p>
+      <p class="date">First version: February 16, 2023 <br>This version: March 25, 2023</p>
     </div>
   </div>
   
@@ -198,7 +198,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 <section id="sec-prerequisites" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Prerequisites</h1>
 <p>Quarto is a multi-language, next-generation version of R Markdown from RStudio. Multi-language means you can use R, Python, Julia and other languages to create quarto documents. In this template we’ll focus on showing you how to use <strong>RStudio with Quarto</strong>.</p>
-<p>To name prerequisites, we assume that you are familiar with using R and R Markdown. If you don’t know what R Markdown is there are many great resources that you can use (e.g.&nbsp;watch this <a href="https://vimeo.com/178485416">short video</a>). An older template of ours [see <span class="citation" data-cites="Bauer2018-dl">Bauer (<a href="#ref-Bauer2018-dl" role="doc-biblioref">2018</a>)</span>; https://osf.io/q395s] may provide a quick entry point to writing a reproducible manuscript with R Markdown and Latex. To further deepen your understanding of the different components underlying this template, go on and learn about R, <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>, <a href="https://rmarkdown.rstudio.com/lesson-1.html">R Markdown</a> and <a href="https://quarto.org/">Quarto</a>. For Quarto also consider reading their <a href="https://quarto.org/docs/faq/rmarkdown.html">FAQ</a>.</p>
+<p>To name prerequisites, we assume that you are familiar with using R and R Markdown. If you don’t know what R Markdown is there are many great resources that you can use (e.g.&nbsp;watch this <a href="https://vimeo.com/178485416">short video</a>). An older template of ours [see <span class="citation" data-cites="Bauer2018-dl">Bauer (<a href="#ref-Bauer2018-dl" role="doc-biblioref">2018</a>)</span>; https://osf.io/q395s] may provide a quick entry point to writing a reproducible manuscript with R Markdown and Latex. To further deepen your understanding of the different components underlying this template, go on and learn about R, <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>, <a href="https://rmarkdown.rstudio.com/lesson-1.html">R Markdown</a> and <a href="https://quarto.org/">Quarto</a>. For more information on Quarto also consider reading their <a href="https://quarto.org/docs/faq/rmarkdown.html">FAQ</a>.</p>
 <p>Like R Markdown, Quarto uses <code>Knitr</code> to execute R code (hence you should also be able to render existing Rmd files without modification), and can render documents of a dozens of formats (e.g., PDF, HTML). For a comprehensive overview watch <a href="https://www.youtube.com/watch?v=yvi5uXQMvu4&amp;t=708s&amp;ab_channel=PositPBC">this video</a> which is a record of a talk introducing <code>quarto</code> given by Tom Mock from RStudio.</p>
 <p>Then…</p>
 <ul>
@@ -427,51 +427,33 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 <p>If you want to create well-formatted HTML output, consider learning about the <code>modelsummary</code> R package. <code>modelsummary</code> provides a variety of tables and plots to summarize statistical models and data in R. <code>modelsummary</code> plots and tables are highly customizable and they can be saved to almost all formats, e.g., HTML, PDF and Markdown. This makes it especially easy to embed them in dynamic documents. Please look at the package’s extensive <a href="https://vincentarelbundock.github.io/modelsummary/index.html">documentation</a> where they also show examples for almost any plot or table you might be looking for. In this template we demonstrate an example for modelsummary’s <code>datasummary</code> function. <code>Datasummary</code> creates frequency tables, crosstab tables, correlation tables, balance tables and many <strong>more</strong>.</p>
 <section id="summarize-numeric-variables-with-modelsummary" class="level3" data-number="9.2.1">
 <h3 data-number="9.2.1" class="anchored" data-anchor-id="summarize-numeric-variables-with-modelsummary"><span class="header-section-number">9.2.1</span> Summarize numeric variables with modelsummary</h3>
-<p><strong>?@tbl-4</strong> shows a summary table for numeric variables.</p>
+<p><a href="#tbl-2">Table&nbsp;2</a> shows a summary table for numeric variables.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-4</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-2</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Summary: Numeric variables"</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_skim</span>(swiss, </span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">type=</span><span class="st">"numeric"</span>, </span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">histogram=</span>T,</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">output=</span><span class="st">"flextable"</span>,</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">title =</span> <span class="st">"Summary: Numeric variables"</span>)</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="tbl-4" class="cell tbl-parent quarto-layout-panel anchored">
-<div class="panel-caption table-caption">
-<p>Summary: Numeric variables</p>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">histogram=</span>F,</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">output=</span><span class="st">"flextable"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># column widths</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">autofit</span>()</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-2" class="anchored">
 
-<div class="tabwid"><style>.cl-afb766aa{}.cl-afb4524e{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-afb45c4e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-afb47a1c{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-afb47a1d{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-afb47a1e{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-
-</div></div><table class="cl-afb766aa">
-<caption class="Table Caption">
-
-
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<p>Summary: Numeric variables</p>
-</div>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-</div></div></caption>
-
-
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-afb47a1e"><p class="cl-afb45c4e"><span class="cl-afb4524e"> </span></p></td><td class="cl-afb47a1e"><p class="cl-afb45c4e"><span class="cl-afb4524e">Unique (#)</span></p></td><td class="cl-afb47a1e"><p class="cl-afb45c4e"><span class="cl-afb4524e">Missing (%)</span></p></td><td class="cl-afb47a1e"><p class="cl-afb45c4e"><span class="cl-afb4524e">Mean</span></p></td><td class="cl-afb47a1e"><p class="cl-afb45c4e"><span class="cl-afb4524e">SD</span></p></td><td class="cl-afb47a1e"><p class="cl-afb45c4e"><span class="cl-afb4524e">Min</span></p></td><td class="cl-afb47a1e"><p class="cl-afb45c4e"><span class="cl-afb4524e">Median</span></p></td><td class="cl-afb47a1e"><p class="cl-afb45c4e"><span class="cl-afb4524e">Max</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">Fertility</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">46</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">0</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">70.1</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">12.5</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">35.0</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">70.4</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">92.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">Agriculture</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">47</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">0</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">50.7</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">22.7</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">1.2</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">54.1</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">89.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">Examination</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">22</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">0</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">16.5</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">8.0</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">3.0</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">16.0</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">37.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">Education</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">19</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">0</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">11.0</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">9.6</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">1.0</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">8.0</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">53.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">Catholic</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">46</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">0</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">41.1</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">41.7</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">2.1</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">15.1</span></p></td><td class="cl-afb47a1c"><p class="cl-afb45c4e"><span class="cl-afb4524e">100.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-afb47a1d"><p class="cl-afb45c4e"><span class="cl-afb4524e">Infant.Mortality</span></p></td><td class="cl-afb47a1d"><p class="cl-afb45c4e"><span class="cl-afb4524e">37</span></p></td><td class="cl-afb47a1d"><p class="cl-afb45c4e"><span class="cl-afb4524e">0</span></p></td><td class="cl-afb47a1d"><p class="cl-afb45c4e"><span class="cl-afb4524e">19.9</span></p></td><td class="cl-afb47a1d"><p class="cl-afb45c4e"><span class="cl-afb4524e">2.9</span></p></td><td class="cl-afb47a1d"><p class="cl-afb45c4e"><span class="cl-afb4524e">10.8</span></p></td><td class="cl-afb47a1d"><p class="cl-afb45c4e"><span class="cl-afb4524e">20.0</span></p></td><td class="cl-afb47a1d"><p class="cl-afb45c4e"><span class="cl-afb4524e">26.6</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-081dce96{}.cl-081aac8e{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-081ab724{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-081ad696{width:36pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-081ad697{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-081ad6a0{width:36pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-081ad6a1{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-081ad6a2{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-081ad6aa{width:36pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class="cl-081dce96"><caption>Table&nbsp;2:  Summary: Numeric variables </caption>
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-081ad6a2"><p class="cl-081ab724"><span class="cl-081aac8e"> </span></p></td><td class="cl-081ad6aa"><p class="cl-081ab724"><span class="cl-081aac8e">Unique (#)</span></p></td><td class="cl-081ad6aa"><p class="cl-081ab724"><span class="cl-081aac8e">Missing (%)</span></p></td><td class="cl-081ad6aa"><p class="cl-081ab724"><span class="cl-081aac8e">Mean</span></p></td><td class="cl-081ad6aa"><p class="cl-081ab724"><span class="cl-081aac8e">SD</span></p></td><td class="cl-081ad6aa"><p class="cl-081ab724"><span class="cl-081aac8e">Min</span></p></td><td class="cl-081ad6aa"><p class="cl-081ab724"><span class="cl-081aac8e">Median</span></p></td><td class="cl-081ad6aa"><p class="cl-081ab724"><span class="cl-081aac8e">Max</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-081ad697"><p class="cl-081ab724"><span class="cl-081aac8e">Fertility</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">46</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">0</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">70.1</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">12.5</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">35.0</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">70.4</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">92.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-081ad697"><p class="cl-081ab724"><span class="cl-081aac8e">Agriculture</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">47</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">0</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">50.7</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">22.7</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">1.2</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">54.1</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">89.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-081ad697"><p class="cl-081ab724"><span class="cl-081aac8e">Examination</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">22</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">0</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">16.5</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">8.0</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">3.0</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">16.0</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">37.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-081ad697"><p class="cl-081ab724"><span class="cl-081aac8e">Education</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">19</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">0</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">11.0</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">9.6</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">1.0</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">8.0</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">53.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-081ad697"><p class="cl-081ab724"><span class="cl-081aac8e">Catholic</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">46</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">0</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">41.1</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">41.7</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">2.1</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">15.1</span></p></td><td class="cl-081ad696"><p class="cl-081ab724"><span class="cl-081aac8e">100.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-081ad6a1"><p class="cl-081ab724"><span class="cl-081aac8e">Infant.Mortality</span></p></td><td class="cl-081ad6a0"><p class="cl-081ab724"><span class="cl-081aac8e">37</span></p></td><td class="cl-081ad6a0"><p class="cl-081ab724"><span class="cl-081aac8e">0</span></p></td><td class="cl-081ad6a0"><p class="cl-081ab724"><span class="cl-081aac8e">19.9</span></p></td><td class="cl-081ad6a0"><p class="cl-081ab724"><span class="cl-081aac8e">2.9</span></p></td><td class="cl-081ad6a0"><p class="cl-081ab724"><span class="cl-081aac8e">10.8</span></p></td><td class="cl-081ad6a0"><p class="cl-081ab724"><span class="cl-081aac8e">20.0</span></p></td><td class="cl-081ad6a0"><p class="cl-081ab724"><span class="cl-081aac8e">26.6</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </div>
 </section>
 <section id="summarize-categorical-variables-with-modelsummary" class="level3" data-number="9.2.2">
 <h3 data-number="9.2.2" class="anchored" data-anchor-id="summarize-categorical-variables-with-modelsummary"><span class="header-section-number">9.2.2</span> Summarize categorical variables with modelsummary</h3>
-<p><a href="#tbl-5">Table&nbsp;2</a> shows a summary table for categorical variables.</p>
+<p><a href="#tbl-3">Table&nbsp;3</a> shows a summary table for categorical variables. Notice how for this table we also changed the font to be “Times New Roman”.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-5</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-3</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Summary: Categorical variables"</span></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create categorical variables</span></span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>swiss<span class="sc">$</span>Education_cat <span class="ot">&lt;-</span> <span class="fu">cut</span>(swiss<span class="sc">$</span>Education, </span>
@@ -495,25 +477,27 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 <span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">font</span>(<span class="at">fontname=</span><span class="st">"Times New Roman"</span>, <span class="at">j=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fontsize</span>(<span class="at">size=</span><span class="dv">12</span>, <span class="at">part=</span><span class="st">"header"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fontsize</span>(<span class="at">size=</span><span class="dv">10</span>, <span class="at">j=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">line_spacing</span>(<span class="at">space =</span> <span class="fl">0.3</span>, <span class="at">part =</span> <span class="st">"all"</span>)</span>
-<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>tab_cat</span>
-<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">line_spacing</span>(<span class="at">space =</span> <span class="fl">0.3</span>, <span class="at">part =</span> <span class="st">"all"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># column widths</span></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">autofit</span>()</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>tab_cat</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="tbl-5" class="anchored">
+<div id="tbl-3" class="anchored">
 
-<div class="tabwid"><style>.cl-afe4b25e{}.cl-afe264e0{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-afe26b16{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 0.3;background-color:transparent;}.cl-afe27f34{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-afe27f35{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-afe27f36{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class="cl-afe4b25e"><caption>Table&nbsp;2:  Summary: Categorical variables </caption>
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-afe27f36"><p class="cl-afe26b16"><span class="cl-afe264e0"> </span></p></td><td class="cl-afe27f36"><p class="cl-afe26b16"><span class="cl-afe264e0">  </span></p></td><td class="cl-afe27f36"><p class="cl-afe26b16"><span class="cl-afe264e0">N</span></p></td><td class="cl-afe27f36"><p class="cl-afe26b16"><span class="cl-afe264e0">%</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-afe27f34"><p class="cl-afe26b16"><span class="cl-afe264e0">Education_cat</span></p></td><td class="cl-afe27f34"><p class="cl-afe26b16"><span class="cl-afe264e0">low</span></p></td><td class="cl-afe27f34"><p class="cl-afe26b16"><span class="cl-afe264e0">14</span></p></td><td class="cl-afe27f34"><p class="cl-afe26b16"><span class="cl-afe264e0">29.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-afe27f34"><p class="cl-afe26b16"><span class="cl-afe264e0"></span></p></td><td class="cl-afe27f34"><p class="cl-afe26b16"><span class="cl-afe264e0">middle</span></p></td><td class="cl-afe27f34"><p class="cl-afe26b16"><span class="cl-afe264e0">22</span></p></td><td class="cl-afe27f34"><p class="cl-afe26b16"><span class="cl-afe264e0">46.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-afe27f34"><p class="cl-afe26b16"><span class="cl-afe264e0"></span></p></td><td class="cl-afe27f34"><p class="cl-afe26b16"><span class="cl-afe264e0">high</span></p></td><td class="cl-afe27f34"><p class="cl-afe26b16"><span class="cl-afe264e0">11</span></p></td><td class="cl-afe27f34"><p class="cl-afe26b16"><span class="cl-afe264e0">23.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-afe27f34"><p class="cl-afe26b16"><span class="cl-afe264e0">Infant.Mortality_cat</span></p></td><td class="cl-afe27f34"><p class="cl-afe26b16"><span class="cl-afe264e0">low</span></p></td><td class="cl-afe27f34"><p class="cl-afe26b16"><span class="cl-afe264e0">12</span></p></td><td class="cl-afe27f34"><p class="cl-afe26b16"><span class="cl-afe264e0">25.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-afe27f34"><p class="cl-afe26b16"><span class="cl-afe264e0"></span></p></td><td class="cl-afe27f34"><p class="cl-afe26b16"><span class="cl-afe264e0">middle</span></p></td><td class="cl-afe27f34"><p class="cl-afe26b16"><span class="cl-afe264e0">23</span></p></td><td class="cl-afe27f34"><p class="cl-afe26b16"><span class="cl-afe264e0">48.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-afe27f35"><p class="cl-afe26b16"><span class="cl-afe264e0"></span></p></td><td class="cl-afe27f35"><p class="cl-afe26b16"><span class="cl-afe264e0">high</span></p></td><td class="cl-afe27f35"><p class="cl-afe26b16"><span class="cl-afe264e0">12</span></p></td><td class="cl-afe27f35"><p class="cl-afe26b16"><span class="cl-afe264e0">25.5</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-084ec0c8{}.cl-084c348e{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-084c3b1e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 0.3;background-color:transparent;}.cl-084c50c2{width:53.9pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-084c50cc{width:117.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-084c50cd{width:32.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-084c50ce{width:41.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-084c50cf{width:41.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-084c50d6{width:53.9pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-084c50d7{width:117.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-084c50d8{width:32.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-084c50e0{width:41.5pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-084c50e1{width:53.9pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-084c50e2{width:117.5pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-084c50e3{width:32.5pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-084c50f4{width:117.5pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-084c50f5{width:32.5pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-084c50f6{width:41.5pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-084c50fe{width:53.9pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class="cl-084ec0c8"><caption>Table&nbsp;3:  Summary: Categorical variables </caption>
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-084c50f4"><p class="cl-084c3b1e"><span class="cl-084c348e"> </span></p></td><td class="cl-084c50fe"><p class="cl-084c3b1e"><span class="cl-084c348e">  </span></p></td><td class="cl-084c50f5"><p class="cl-084c3b1e"><span class="cl-084c348e">N</span></p></td><td class="cl-084c50f6"><p class="cl-084c3b1e"><span class="cl-084c348e">%</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-084c50cc"><p class="cl-084c3b1e"><span class="cl-084c348e">Education_cat</span></p></td><td class="cl-084c50c2"><p class="cl-084c3b1e"><span class="cl-084c348e">low</span></p></td><td class="cl-084c50cd"><p class="cl-084c3b1e"><span class="cl-084c348e">14</span></p></td><td class="cl-084c50ce"><p class="cl-084c3b1e"><span class="cl-084c348e">29.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-084c50d7"><p class="cl-084c3b1e"><span class="cl-084c348e"></span></p></td><td class="cl-084c50d6"><p class="cl-084c3b1e"><span class="cl-084c348e">middle</span></p></td><td class="cl-084c50d8"><p class="cl-084c3b1e"><span class="cl-084c348e">22</span></p></td><td class="cl-084c50cf"><p class="cl-084c3b1e"><span class="cl-084c348e">46.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-084c50cc"><p class="cl-084c3b1e"><span class="cl-084c348e"></span></p></td><td class="cl-084c50c2"><p class="cl-084c3b1e"><span class="cl-084c348e">high</span></p></td><td class="cl-084c50cd"><p class="cl-084c3b1e"><span class="cl-084c348e">11</span></p></td><td class="cl-084c50ce"><p class="cl-084c3b1e"><span class="cl-084c348e">23.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-084c50cc"><p class="cl-084c3b1e"><span class="cl-084c348e">Infant.Mortality_cat</span></p></td><td class="cl-084c50c2"><p class="cl-084c3b1e"><span class="cl-084c348e">low</span></p></td><td class="cl-084c50cd"><p class="cl-084c3b1e"><span class="cl-084c348e">12</span></p></td><td class="cl-084c50ce"><p class="cl-084c3b1e"><span class="cl-084c348e">25.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-084c50d7"><p class="cl-084c3b1e"><span class="cl-084c348e"></span></p></td><td class="cl-084c50d6"><p class="cl-084c3b1e"><span class="cl-084c348e">middle</span></p></td><td class="cl-084c50d8"><p class="cl-084c3b1e"><span class="cl-084c348e">23</span></p></td><td class="cl-084c50cf"><p class="cl-084c3b1e"><span class="cl-084c348e">48.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-084c50e2"><p class="cl-084c3b1e"><span class="cl-084c348e"></span></p></td><td class="cl-084c50e1"><p class="cl-084c3b1e"><span class="cl-084c348e">high</span></p></td><td class="cl-084c50e3"><p class="cl-084c3b1e"><span class="cl-084c348e">12</span></p></td><td class="cl-084c50e0"><p class="cl-084c3b1e"><span class="cl-084c348e">25.5</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </div>
 </section>
 <section id="regression-table-with-modelsummary" class="level3" data-number="9.2.3">
 <h3 data-number="9.2.3" class="anchored" data-anchor-id="regression-table-with-modelsummary"><span class="header-section-number">9.2.3</span> Regression table with modelsummary</h3>
-<p><a href="#tbl-7">Table&nbsp;3</a> shows the output for a regression table. Make sure you name all the models you estimate with unique identifiers (even if its 50 models) and explicitly refer to model names (M1, M2 etc.) in the text.</p>
+<p><a href="#tbl-4">Table&nbsp;4</a> shows the output for a regression table. Make sure you name all the models you estimate with unique identifiers (even if its 50 models) and explicitly refer to model names (M1, M2 etc.) in the text.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-7</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-4</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Linear regression with modelsummary"</span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> Education <span class="sc">+</span> Agriculture, <span class="at">data =</span> swiss)</span>
@@ -544,18 +528,18 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 <span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Produce right output depending on format (html vs. latex)</span></span>
-<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(knitr<span class="sc">::</span><span class="fu">is_html_output</span>()){table7}<span class="cf">else</span>{table7 <span class="sc">%&gt;%</span> gt<span class="sc">::</span><span class="fu">as_latex</span>() <span class="sc">%&gt;%</span> <span class="fu">as.character</span>() <span class="sc">%&gt;%</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">(Intercept</span><span class="sc">\\</span><span class="st">)"</span>, <span class="st">"Intercept"</span>, .) <span class="sc">%&gt;%</span> <span class="fu">cat</span>()}</span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(knitr<span class="sc">::</span><span class="fu">is_html_output</span>()){table4}<span class="cf">else</span>{table4 <span class="sc">%&gt;%</span> gt<span class="sc">::</span><span class="fu">as_latex</span>() <span class="sc">%&gt;%</span> <span class="fu">as.character</span>() <span class="sc">%&gt;%</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">(Intercept</span><span class="sc">\\</span><span class="st">)"</span>, <span class="st">"Intercept"</span>, .) <span class="sc">%&gt;%</span> <span class="fu">cat</span>()}</span>
 <span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="tbl-7" class="anchored">
+<div id="tbl-4" class="anchored">
 
-<div id="pomsbtokpp" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="solekdlrfn" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#pomsbtokpp) .gt_table {
+:where(#solekdlrfn) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -580,7 +564,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-left-color: #D3D3D3;
 }
 
-:where(#pomsbtokpp) .gt_heading {
+:where(#solekdlrfn) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -592,7 +576,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-right-color: #D3D3D3;
 }
 
-:where(#pomsbtokpp) .gt_title {
+:where(#solekdlrfn) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -604,7 +588,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-bottom-width: 0;
 }
 
-:where(#pomsbtokpp) .gt_subtitle {
+:where(#solekdlrfn) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -616,13 +600,13 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-top-width: 0;
 }
 
-:where(#pomsbtokpp) .gt_bottom_border {
+:where(#solekdlrfn) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#pomsbtokpp) .gt_col_headings {
+:where(#solekdlrfn) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -637,7 +621,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-right-color: #D3D3D3;
 }
 
-:where(#pomsbtokpp) .gt_col_heading {
+:where(#solekdlrfn) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -657,7 +641,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   overflow-x: hidden;
 }
 
-:where(#pomsbtokpp) .gt_column_spanner_outer {
+:where(#solekdlrfn) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -669,15 +653,15 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 4px;
 }
 
-:where(#pomsbtokpp) .gt_column_spanner_outer:first-child {
+:where(#solekdlrfn) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#pomsbtokpp) .gt_column_spanner_outer:last-child {
+:where(#solekdlrfn) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#pomsbtokpp) .gt_column_spanner {
+:where(#solekdlrfn) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -689,7 +673,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   width: 100%;
 }
 
-:where(#pomsbtokpp) .gt_group_heading {
+:where(#solekdlrfn) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -714,7 +698,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   vertical-align: middle;
 }
 
-:where(#pomsbtokpp) .gt_empty_group_heading {
+:where(#solekdlrfn) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -729,15 +713,15 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   vertical-align: middle;
 }
 
-:where(#pomsbtokpp) .gt_from_md > :first-child {
+:where(#solekdlrfn) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#pomsbtokpp) .gt_from_md > :last-child {
+:where(#solekdlrfn) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#pomsbtokpp) .gt_row {
+:where(#solekdlrfn) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -756,7 +740,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   overflow-x: hidden;
 }
 
-:where(#pomsbtokpp) .gt_stub {
+:where(#solekdlrfn) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -769,7 +753,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 5px;
 }
 
-:where(#pomsbtokpp) .gt_stub_row_group {
+:where(#solekdlrfn) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -783,11 +767,11 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   vertical-align: top;
 }
 
-:where(#pomsbtokpp) .gt_row_group_first td {
+:where(#solekdlrfn) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#pomsbtokpp) .gt_summary_row {
+:where(#solekdlrfn) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -797,16 +781,16 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 5px;
 }
 
-:where(#pomsbtokpp) .gt_first_summary_row {
+:where(#solekdlrfn) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#pomsbtokpp) .gt_first_summary_row.thick {
+:where(#solekdlrfn) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#pomsbtokpp) .gt_last_summary_row {
+:where(#solekdlrfn) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -816,7 +800,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-bottom-color: #D3D3D3;
 }
 
-:where(#pomsbtokpp) .gt_grand_summary_row {
+:where(#solekdlrfn) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -826,7 +810,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 5px;
 }
 
-:where(#pomsbtokpp) .gt_first_grand_summary_row {
+:where(#solekdlrfn) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -836,11 +820,11 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-top-color: #D3D3D3;
 }
 
-:where(#pomsbtokpp) .gt_striped {
+:where(#solekdlrfn) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#pomsbtokpp) .gt_table_body {
+:where(#solekdlrfn) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -849,7 +833,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-bottom-color: #D3D3D3;
 }
 
-:where(#pomsbtokpp) .gt_footnotes {
+:where(#solekdlrfn) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -863,7 +847,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-right-color: #D3D3D3;
 }
 
-:where(#pomsbtokpp) .gt_footnote {
+:where(#solekdlrfn) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -872,7 +856,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 5px;
 }
 
-:where(#pomsbtokpp) .gt_sourcenotes {
+:where(#solekdlrfn) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -886,7 +870,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-right-color: #D3D3D3;
 }
 
-:where(#pomsbtokpp) .gt_sourcenote {
+:where(#solekdlrfn) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -894,36 +878,36 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 5px;
 }
 
-:where(#pomsbtokpp) .gt_left {
+:where(#solekdlrfn) .gt_left {
   text-align: left;
 }
 
-:where(#pomsbtokpp) .gt_center {
+:where(#solekdlrfn) .gt_center {
   text-align: center;
 }
 
-:where(#pomsbtokpp) .gt_right {
+:where(#solekdlrfn) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#pomsbtokpp) .gt_font_normal {
+:where(#solekdlrfn) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#pomsbtokpp) .gt_font_bold {
+:where(#solekdlrfn) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#pomsbtokpp) .gt_font_italic {
+:where(#solekdlrfn) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#pomsbtokpp) .gt_super {
+:where(#solekdlrfn) .gt_super {
   font-size: 65%;
 }
 
-:where(#pomsbtokpp) .gt_two_val_uncert {
+:where(#solekdlrfn) .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -932,37 +916,37 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   margin-left: 0.1em;
 }
 
-:where(#pomsbtokpp) .gt_footnote_marks {
+:where(#solekdlrfn) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#pomsbtokpp) .gt_asterisk {
+:where(#solekdlrfn) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#pomsbtokpp) .gt_slash_mark {
+:where(#solekdlrfn) .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-:where(#pomsbtokpp) .gt_fraction_numerator {
+:where(#solekdlrfn) .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-:where(#pomsbtokpp) .gt_fraction_denominator {
+:where(#solekdlrfn) .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
 }
 </style>
-<table class="gt_table"><caption>Table&nbsp;3:  Linear regression with modelsummary </caption>
+<table class="gt_table"><caption>Table&nbsp;4:  Linear regression with modelsummary </caption>
   
   <thead class="gt_col_headings">
     <tr>
@@ -1038,6 +1022,10 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 <td class="gt_row gt_center">357.1</td>
 <td class="gt_row gt_center">345.0</td>
 <td class="gt_row gt_center">349.7</td></tr>
+    <tr><td class="gt_row gt_left">Log.Lik.</td>
+<td class="gt_row gt_center">-170.846</td>
+<td class="gt_row gt_center">-164.782</td>
+<td class="gt_row gt_center">-165.243</td></tr>
     <tr><td class="gt_row gt_left">RMSE</td>
 <td class="gt_row gt_center">9.17</td>
 <td class="gt_row gt_center">8.06</td>
@@ -1282,37 +1270,36 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] ggplot2_3.3.6       gtsummary_1.6.0     gt_0.6.0           
-[4] dplyr_1.0.9         gdtools_0.2.4       flextable_0.7.2    
-[7] modelsummary_0.11.1 kableExtra_1.3.4    knitr_1.39         
+[1] ggplot2_3.3.6      gtsummary_1.6.0    gt_0.6.0           dplyr_1.0.9       
+[5] gdtools_0.2.4      flextable_0.7.2    modelsummary_1.3.0 kableExtra_1.3.4  
+[9] knitr_1.39        
 
 loaded via a namespace (and not attached):
  [1] httr_1.4.3          sass_0.4.1          tidyr_1.2.0        
  [4] jsonlite_1.8.0      viridisLite_0.4.0   datawizard_0.4.1   
- [7] assertthat_0.2.1    highr_0.9           tables_0.9.6       
+ [7] assertthat_0.2.1    highr_0.9           tables_0.9.10      
 [10] yaml_2.3.5          bayestestR_0.12.1   globals_0.16.1     
 [13] pillar_1.7.0        backports_1.4.1     glue_1.6.2         
 [16] uuid_1.1-0          digest_0.6.29       checkmate_2.1.0    
 [19] rvest_1.0.2         colorspace_2.0-3    htmltools_0.5.2    
-[22] pkgconfig_2.0.3     listenv_0.8.0       purrr_0.3.4        
-[25] xtable_1.8-4        mvtnorm_1.1-3       scales_1.2.0       
-[28] webshot_0.5.3       svglite_2.1.0       officer_0.4.3      
-[31] emmeans_1.7.4-1     tibble_3.1.7        farver_2.1.0       
-[34] generics_0.1.2      ellipsis_0.3.2      withr_2.5.0        
-[37] cli_3.3.0           magrittr_2.0.3      crayon_1.5.1       
-[40] effectsize_0.7.0    estimability_1.3    evaluate_0.15      
-[43] future_1.28.0       fansi_1.0.3         parallelly_1.32.1  
-[46] broom.helpers_1.7.0 xml2_1.3.3          tools_4.2.2        
-[49] data.table_1.14.2   lifecycle_1.0.1     stringr_1.4.0      
-[52] munsell_0.5.0       zip_2.2.0           compiler_4.2.2     
-[55] systemfonts_1.0.4   rlang_1.0.6         grid_4.2.2         
-[58] parameters_0.18.1   rstudioapi_0.13     htmlwidgets_1.5.4  
-[61] labeling_0.4.2      base64enc_0.1-3     rmarkdown_2.20     
-[64] gtable_0.3.0        codetools_0.2-18    DBI_1.1.2          
-[67] R6_2.5.1            performance_0.9.0   fastmap_1.1.0      
-[70] future.apply_1.9.1  utf8_1.2.2          insight_0.17.1     
-[73] stringi_1.7.6       parallel_4.2.2      Rcpp_1.0.8.3       
-[76] vctrs_0.4.1         tidyselect_1.1.2    xfun_0.37          </code></pre>
+[22] pkgconfig_2.0.3     broom_0.8.0         listenv_0.8.0      
+[25] purrr_0.3.4         scales_1.2.0        webshot_0.5.3      
+[28] svglite_2.1.0       officer_0.4.3       tibble_3.1.7       
+[31] farver_2.1.0        generics_0.1.2      ellipsis_0.3.2     
+[34] withr_2.5.0         cli_3.3.0           magrittr_2.0.3     
+[37] crayon_1.5.1        evaluate_0.15       future_1.28.0      
+[40] fansi_1.0.3         parallelly_1.32.1   broom.helpers_1.7.0
+[43] xml2_1.3.3          tools_4.2.2         data.table_1.14.2  
+[46] lifecycle_1.0.1     stringr_1.4.0       munsell_0.5.0      
+[49] zip_2.2.0           compiler_4.2.2      systemfonts_1.0.4  
+[52] rlang_1.0.6         grid_4.2.2          rstudioapi_0.13    
+[55] htmlwidgets_1.5.4   labeling_0.4.2      base64enc_0.1-3    
+[58] rmarkdown_2.20      gtable_0.3.0        codetools_0.2-18   
+[61] DBI_1.1.2           R6_2.5.1            performance_0.10.2 
+[64] fastmap_1.1.0       future.apply_1.9.1  utf8_1.2.2         
+[67] insight_0.19.1      stringi_1.7.6       parallel_4.2.2     
+[70] Rcpp_1.0.8.3        vctrs_0.4.1         tidyselect_1.1.2   
+[73] xfun_0.37          </code></pre>
 </div>
 </div>
 </section>
@@ -1320,7 +1307,7 @@ loaded via a namespace (and not attached):
 <h2 data-number="15.2" class="anchored" data-anchor-id="all-the-code-in-the-paper"><span class="header-section-number">15.2</span> All the code in the paper</h2>
 <p>To simply attach all the code you used in the PDF file in the appendix see the R chunk in the underlying <code>.qmd</code> file:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">cache =</span> <span class="cn">FALSE</span>, <span class="at">fig.pos =</span> <span class="st">"H"</span>)</span>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">cache =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Use cache = TRUE if you want to speed up compilation</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_knit<span class="sc">$</span><span class="fu">set</span>(<span class="at">output.format =</span> <span class="st">"html"</span>)  <span class="co"># Set to "html" for HTML output</span></span>
@@ -1362,68 +1349,74 @@ loaded via a namespace (and not attached):
 <span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
 <span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_skim</span>(swiss, </span>
 <span id="cb22-42"><a href="#cb22-42" aria-hidden="true" tabindex="-1"></a>                 <span class="at">type=</span><span class="st">"numeric"</span>, </span>
-<span id="cb22-43"><a href="#cb22-43" aria-hidden="true" tabindex="-1"></a>                 <span class="at">histogram=</span>T, </span>
-<span id="cb22-44"><a href="#cb22-44" aria-hidden="true" tabindex="-1"></a>                 <span class="at">output=</span> <span class="st">"flextable"</span>,</span>
-<span id="cb22-45"><a href="#cb22-45" aria-hidden="true" tabindex="-1"></a>                 <span class="at">title =</span> <span class="st">"Summary: Numeric variables"</span>)</span>
-<span id="cb22-46"><a href="#cb22-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Create categorical variables</span></span>
-<span id="cb22-47"><a href="#cb22-47" aria-hidden="true" tabindex="-1"></a>swiss<span class="sc">$</span>Education_cat <span class="ot">&lt;-</span> <span class="fu">cut</span>(swiss<span class="sc">$</span>Education, </span>
-<span id="cb22-48"><a href="#cb22-48" aria-hidden="true" tabindex="-1"></a>                   <span class="at">breaks=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="cn">Inf</span>), </span>
-<span id="cb22-49"><a href="#cb22-49" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"low"</span>,<span class="st">"middle"</span>,<span class="st">"high"</span>))</span>
-<span id="cb22-50"><a href="#cb22-50" aria-hidden="true" tabindex="-1"></a>swiss<span class="sc">$</span>Infant.Mortality_cat <span class="ot">&lt;-</span> <span class="fu">cut</span>(swiss<span class="sc">$</span>Infant.Mortality, </span>
-<span id="cb22-51"><a href="#cb22-51" aria-hidden="true" tabindex="-1"></a>                   <span class="at">breaks=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="fl">18.15</span>, <span class="fl">21.70</span>, <span class="cn">Inf</span>), </span>
-<span id="cb22-52"><a href="#cb22-52" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"low"</span>,<span class="st">"middle"</span>,<span class="st">"high"</span>))</span>
-<span id="cb22-53"><a href="#cb22-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-54"><a href="#cb22-54" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span>
-<span id="cb22-55"><a href="#cb22-55" aria-hidden="true" tabindex="-1"></a>tab_cat <span class="ot">&lt;-</span> <span class="fu">datasummary_skim</span>(swiss, </span>
-<span id="cb22-56"><a href="#cb22-56" aria-hidden="true" tabindex="-1"></a>                            <span class="at">type=</span><span class="st">"categorical"</span>, </span>
-<span id="cb22-57"><a href="#cb22-57" aria-hidden="true" tabindex="-1"></a>                            <span class="at">output =</span> <span class="st">'flextable'</span>)</span>
-<span id="cb22-58"><a href="#cb22-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-59"><a href="#cb22-59" aria-hidden="true" tabindex="-1"></a><span class="co">#additionally we want to change the font, fontsize and spacing</span></span>
-<span id="cb22-60"><a href="#cb22-60" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"gdtools"</span>)</span>
-<span id="cb22-61"><a href="#cb22-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-62"><a href="#cb22-62" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb22-63"><a href="#cb22-63" aria-hidden="true" tabindex="-1"></a>tab_cat <span class="ot">&lt;-</span> tab_cat <span class="sc">%&gt;%</span></span>
-<span id="cb22-64"><a href="#cb22-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">font</span>(<span class="at">fontname=</span><span class="st">"Times New Roman"</span>, <span class="at">part=</span><span class="st">"header"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb22-65"><a href="#cb22-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">font</span>(<span class="at">fontname=</span><span class="st">"Times New Roman"</span>, <span class="at">j=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb22-66"><a href="#cb22-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fontsize</span>(<span class="at">size=</span><span class="dv">12</span>, <span class="at">part=</span><span class="st">"header"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb22-67"><a href="#cb22-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fontsize</span>(<span class="at">size=</span><span class="dv">12</span>, <span class="at">j=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb22-68"><a href="#cb22-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">line_spacing</span>(<span class="at">space =</span> <span class="fl">0.3</span>, <span class="at">part =</span> <span class="st">"all"</span>)</span>
-<span id="cb22-69"><a href="#cb22-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-70"><a href="#cb22-70" aria-hidden="true" tabindex="-1"></a>tab_cat</span>
-<span id="cb22-71"><a href="#cb22-71" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
-<span id="cb22-72"><a href="#cb22-72" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> Education <span class="sc">+</span> Agriculture, <span class="at">data =</span> swiss)</span>
-<span id="cb22-73"><a href="#cb22-73" aria-hidden="true" tabindex="-1"></a>M2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> Education <span class="sc">+</span> Catholic, <span class="at">data =</span> swiss)</span>
-<span id="cb22-74"><a href="#cb22-74" aria-hidden="true" tabindex="-1"></a>M3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> Education <span class="sc">+</span> Infant.Mortality <span class="sc">+</span> Agriculture, <span class="at">data =</span> swiss)</span>
-<span id="cb22-75"><a href="#cb22-75" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"M1"</span> <span class="ot">=</span> M1, <span class="st">"M2"</span> <span class="ot">=</span>  M2, <span class="st">"M3"</span> <span class="ot">=</span> M3)</span>
-<span id="cb22-76"><a href="#cb22-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-77"><a href="#cb22-77" aria-hidden="true" tabindex="-1"></a><span class="co"># Hier Weiter</span></span>
+<span id="cb22-43"><a href="#cb22-43" aria-hidden="true" tabindex="-1"></a>                 <span class="at">histogram=</span>F, </span>
+<span id="cb22-44"><a href="#cb22-44" aria-hidden="true" tabindex="-1"></a>                 <span class="at">output=</span> <span class="st">"flextable"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-45"><a href="#cb22-45" aria-hidden="true" tabindex="-1"></a>  <span class="co"># column widths</span></span>
+<span id="cb22-46"><a href="#cb22-46" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">width</span>(<span class="dv">1</span>, <span class="at">width =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-47"><a href="#cb22-47" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">width</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">8</span>, <span class="at">width =</span> <span class="fl">0.5</span>)</span>
+<span id="cb22-48"><a href="#cb22-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-49"><a href="#cb22-49" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-50"><a href="#cb22-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-51"><a href="#cb22-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-52"><a href="#cb22-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Create categorical variables</span></span>
+<span id="cb22-53"><a href="#cb22-53" aria-hidden="true" tabindex="-1"></a>swiss<span class="sc">$</span>Education_cat <span class="ot">&lt;-</span> <span class="fu">cut</span>(swiss<span class="sc">$</span>Education, </span>
+<span id="cb22-54"><a href="#cb22-54" aria-hidden="true" tabindex="-1"></a>                   <span class="at">breaks=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="cn">Inf</span>), </span>
+<span id="cb22-55"><a href="#cb22-55" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"low"</span>,<span class="st">"middle"</span>,<span class="st">"high"</span>))</span>
+<span id="cb22-56"><a href="#cb22-56" aria-hidden="true" tabindex="-1"></a>swiss<span class="sc">$</span>Infant.Mortality_cat <span class="ot">&lt;-</span> <span class="fu">cut</span>(swiss<span class="sc">$</span>Infant.Mortality, </span>
+<span id="cb22-57"><a href="#cb22-57" aria-hidden="true" tabindex="-1"></a>                   <span class="at">breaks=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="fl">18.15</span>, <span class="fl">21.70</span>, <span class="cn">Inf</span>), </span>
+<span id="cb22-58"><a href="#cb22-58" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"low"</span>,<span class="st">"middle"</span>,<span class="st">"high"</span>))</span>
+<span id="cb22-59"><a href="#cb22-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-60"><a href="#cb22-60" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span>
+<span id="cb22-61"><a href="#cb22-61" aria-hidden="true" tabindex="-1"></a>tab_cat <span class="ot">&lt;-</span> <span class="fu">datasummary_skim</span>(swiss, </span>
+<span id="cb22-62"><a href="#cb22-62" aria-hidden="true" tabindex="-1"></a>                            <span class="at">type=</span><span class="st">"categorical"</span>, </span>
+<span id="cb22-63"><a href="#cb22-63" aria-hidden="true" tabindex="-1"></a>                            <span class="at">output =</span> <span class="st">'flextable'</span>)</span>
+<span id="cb22-64"><a href="#cb22-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-65"><a href="#cb22-65" aria-hidden="true" tabindex="-1"></a><span class="co">#additionally we want to change the font, fontsize and spacing</span></span>
+<span id="cb22-66"><a href="#cb22-66" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"gdtools"</span>)</span>
+<span id="cb22-67"><a href="#cb22-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-68"><a href="#cb22-68" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb22-69"><a href="#cb22-69" aria-hidden="true" tabindex="-1"></a>tab_cat <span class="ot">&lt;-</span> tab_cat <span class="sc">%&gt;%</span></span>
+<span id="cb22-70"><a href="#cb22-70" aria-hidden="true" tabindex="-1"></a>  <span class="fu">font</span>(<span class="at">fontname=</span><span class="st">"Times New Roman"</span>, <span class="at">part=</span><span class="st">"header"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb22-71"><a href="#cb22-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">font</span>(<span class="at">fontname=</span><span class="st">"Times New Roman"</span>, <span class="at">j=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb22-72"><a href="#cb22-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fontsize</span>(<span class="at">size=</span><span class="dv">12</span>, <span class="at">part=</span><span class="st">"header"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb22-73"><a href="#cb22-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fontsize</span>(<span class="at">size=</span><span class="dv">12</span>, <span class="at">j=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb22-74"><a href="#cb22-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">line_spacing</span>(<span class="at">space =</span> <span class="fl">0.3</span>, <span class="at">part =</span> <span class="st">"all"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-75"><a href="#cb22-75" aria-hidden="true" tabindex="-1"></a>  <span class="co"># column widths</span></span>
+<span id="cb22-76"><a href="#cb22-76" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">autofit</span>()</span>
+<span id="cb22-77"><a href="#cb22-77" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb22-78"><a href="#cb22-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-79"><a href="#cb22-79" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb22-80"><a href="#cb22-80" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
-<span id="cb22-81"><a href="#cb22-81" aria-hidden="true" tabindex="-1"></a><span class="co"># additionally we want to change the font, font size and spacing</span></span>
-<span id="cb22-82"><a href="#cb22-82" aria-hidden="true" tabindex="-1"></a>table7 <span class="ot">&lt;-</span> <span class="fu">modelsummary</span>(models,</span>
-<span id="cb22-83"><a href="#cb22-83" aria-hidden="true" tabindex="-1"></a>             <span class="at">output =</span> <span class="st">'gt'</span>,</span>
-<span id="cb22-84"><a href="#cb22-84" aria-hidden="true" tabindex="-1"></a>             <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb22-85"><a href="#cb22-85" aria-hidden="true" tabindex="-1"></a>             <span class="at">notes =</span> <span class="st">"Notes: put some notes here..."</span>,</span>
-<span id="cb22-86"><a href="#cb22-86" aria-hidden="true" tabindex="-1"></a>             <span class="at">threeparttable =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb22-87"><a href="#cb22-87" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_spanner</span>(<span class="at">label =</span> <span class="st">'Dependent variable: Fertility'</span>, <span class="at">columns =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>)</span>
-<span id="cb22-88"><a href="#cb22-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-89"><a href="#cb22-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-90"><a href="#cb22-90" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(knitr<span class="sc">::</span><span class="fu">is_html_output</span>()){table7}<span class="cf">else</span>{table7 <span class="sc">%&gt;%</span> gt<span class="sc">::</span><span class="fu">as_latex</span>() <span class="sc">%&gt;%</span> <span class="fu">as.character</span>() <span class="sc">%&gt;%</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">(Intercept</span><span class="sc">\\</span><span class="st">)"</span>, <span class="st">"Intercept"</span>, .) <span class="sc">%&gt;%</span> <span class="fu">cat</span>()}</span>
-<span id="cb22-91"><a href="#cb22-91" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(swiss<span class="sc">$</span>Catholic, swiss<span class="sc">$</span>Fertility)</span>
-<span id="cb22-92"><a href="#cb22-92" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb22-93"><a href="#cb22-93" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(swiss, <span class="fu">aes</span>(<span class="at">x=</span>Catholic, <span class="at">y=</span>Fertility, <span class="at">shape=</span>Education_cat)) <span class="sc">+</span></span>
-<span id="cb22-94"><a href="#cb22-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb22-95"><a href="#cb22-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Agriculture"</span>, <span class="at">y =</span> <span class="st">"Fertility"</span>, <span class="at">shape=</span><span class="st">"Education"</span>) <span class="sc">+</span></span>
-<span id="cb22-96"><a href="#cb22-96" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb22-97"><a href="#cb22-97" aria-hidden="true" tabindex="-1"></a>plot</span>
-<span id="cb22-98"><a href="#cb22-98" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>()</span>
-<span id="cb22-99"><a href="#cb22-99" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"quarto"</span>)</span>
-<span id="cb22-100"><a href="#cb22-100" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(</span>
-<span id="cb22-101"><a href="#cb22-101" aria-hidden="true" tabindex="-1"></a>  <span class="st">"paper.qmd"</span>, </span>
-<span id="cb22-102"><a href="#cb22-102" aria-hidden="true" tabindex="-1"></a>  <span class="at">output_format =</span> <span class="fu">c</span>(<span class="st">"pdf"</span>, <span class="st">"html"</span>)</span>
-<span id="cb22-103"><a href="#cb22-103" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb22-104"><a href="#cb22-104" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">sessionInfo</span>(), <span class="at">local =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-79"><a href="#cb22-79" aria-hidden="true" tabindex="-1"></a>tab_cat</span>
+<span id="cb22-80"><a href="#cb22-80" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb22-81"><a href="#cb22-81" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> Education <span class="sc">+</span> Agriculture, <span class="at">data =</span> swiss)</span>
+<span id="cb22-82"><a href="#cb22-82" aria-hidden="true" tabindex="-1"></a>M2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> Education <span class="sc">+</span> Catholic, <span class="at">data =</span> swiss)</span>
+<span id="cb22-83"><a href="#cb22-83" aria-hidden="true" tabindex="-1"></a>M3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> Education <span class="sc">+</span> Infant.Mortality <span class="sc">+</span> Agriculture, <span class="at">data =</span> swiss)</span>
+<span id="cb22-84"><a href="#cb22-84" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"M1"</span> <span class="ot">=</span> M1, <span class="st">"M2"</span> <span class="ot">=</span>  M2, <span class="st">"M3"</span> <span class="ot">=</span> M3)</span>
+<span id="cb22-85"><a href="#cb22-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-86"><a href="#cb22-86" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb22-87"><a href="#cb22-87" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
+<span id="cb22-88"><a href="#cb22-88" aria-hidden="true" tabindex="-1"></a><span class="co"># additionally we want to change the font, font size and spacing</span></span>
+<span id="cb22-89"><a href="#cb22-89" aria-hidden="true" tabindex="-1"></a>table4 <span class="ot">&lt;-</span> <span class="fu">modelsummary</span>(models,</span>
+<span id="cb22-90"><a href="#cb22-90" aria-hidden="true" tabindex="-1"></a>             <span class="at">output =</span> <span class="st">'gt'</span>,</span>
+<span id="cb22-91"><a href="#cb22-91" aria-hidden="true" tabindex="-1"></a>             <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb22-92"><a href="#cb22-92" aria-hidden="true" tabindex="-1"></a>             <span class="at">notes =</span> <span class="st">"Notes: put some notes here..."</span>,</span>
+<span id="cb22-93"><a href="#cb22-93" aria-hidden="true" tabindex="-1"></a>             <span class="at">threeparttable =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb22-94"><a href="#cb22-94" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_spanner</span>(<span class="at">label =</span> <span class="st">'Dependent variable: Fertility'</span>, <span class="at">columns =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>)</span>
+<span id="cb22-95"><a href="#cb22-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-96"><a href="#cb22-96" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(knitr<span class="sc">::</span><span class="fu">is_html_output</span>()){table4}<span class="cf">else</span>{table4 <span class="sc">%&gt;%</span> gt<span class="sc">::</span><span class="fu">as_latex</span>() <span class="sc">%&gt;%</span> <span class="fu">as.character</span>() <span class="sc">%&gt;%</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">(Intercept</span><span class="sc">\\</span><span class="st">)"</span>, <span class="st">"Intercept"</span>, .) <span class="sc">%&gt;%</span> <span class="fu">cat</span>()}</span>
+<span id="cb22-97"><a href="#cb22-97" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(swiss<span class="sc">$</span>Catholic, swiss<span class="sc">$</span>Fertility)</span>
+<span id="cb22-98"><a href="#cb22-98" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb22-99"><a href="#cb22-99" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(swiss, <span class="fu">aes</span>(<span class="at">x=</span>Catholic, <span class="at">y=</span>Fertility, <span class="at">shape=</span>Education_cat)) <span class="sc">+</span></span>
+<span id="cb22-100"><a href="#cb22-100" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb22-101"><a href="#cb22-101" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Agriculture"</span>, <span class="at">y =</span> <span class="st">"Fertility"</span>, <span class="at">shape=</span><span class="st">"Education"</span>) <span class="sc">+</span></span>
+<span id="cb22-102"><a href="#cb22-102" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb22-103"><a href="#cb22-103" aria-hidden="true" tabindex="-1"></a>plot</span>
+<span id="cb22-104"><a href="#cb22-104" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>()</span>
+<span id="cb22-105"><a href="#cb22-105" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"quarto"</span>)</span>
+<span id="cb22-106"><a href="#cb22-106" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(</span>
+<span id="cb22-107"><a href="#cb22-107" aria-hidden="true" tabindex="-1"></a>  <span class="st">"paper.qmd"</span>, </span>
+<span id="cb22-108"><a href="#cb22-108" aria-hidden="true" tabindex="-1"></a>  <span class="at">output_format =</span> <span class="fu">c</span>(<span class="st">"pdf"</span>, <span class="st">"html"</span>)</span>
+<span id="cb22-109"><a href="#cb22-109" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-110"><a href="#cb22-110" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">sessionInfo</span>(), <span class="at">local =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
