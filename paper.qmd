@@ -29,8 +29,8 @@ format:
             table-align-text-post=false
          ]}
 date: 'last-modified'
-date-format: '[First version: February  16, 2023 <br>This version:] MMMM D, YYYY'
-abstract: 'This paper provides a template to write a reproducible scientific paper with RStudio and Quarto. It falls into a series on other templates, namely on RMarkdown and pagedown that can be downloaded [here](https://osf.io/k8jhx/) [@Bauer2018-dl] and [here](https://osf.io/q395s) [@Bauer2021-dl]. Below we outline some of the "tricks"/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be [downloaded here](https://drive.google.com/drive/u/0/folders/1eT_9WaineZRB-nw-cQhNOy16sWhd_t2s). We are convinced that in the future there will be many improvements and developments with regards to RStudio and Quarto. We intend to update this file when we discover more convenient code. You can follow any updates on the [github repository](https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/).'
+date-format: '[This version:] MMMM D, YYYY [<br>(First version: February  16, 2023)]'
+abstract: 'This paper provides a template to write a reproducible scientific paper with RStudio and Quarto. It falls into a series of other templates, namely using RMarkdown [@Bauer2018-dl] (see [here](https://osf.io/k8jhx/)) and Pagedown [@Bauer2021-dl] (see [here](https://osf.io/q395s)). Below we outline some of the "tricks"/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be [downloaded here](https://drive.google.com/drive/folders/1jDPpXdX6dusXpKkXEhDGujWDGf52TaxD?usp=sharing). We are convinced that in the future there will be many improvements and developments with regards to RStudio and Quarto. We intend to update this file when we discover more convenient code. You can follow any updates on the [github repository](https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/).'
 bibliography: references.bib
 csl: american-sociological-association.csl
 tbl-cap-location: top
@@ -213,19 +213,23 @@ dput(data[1:5,]) # here we only take a subset
 You can then insert the dput output in an rchunk in your `.qmd` as below.
 
 ``` {{r}}
-data <- structure(list(Fertility = c(80.2, 83.1, 92.5, 85.8, 76.9), Agriculture = c(17, 
-45.1, 39.7, 36.5, 43.5), Examination = c(15L, 6L, 5L, 12L, 17L
-), Education = c(12L, 9L, 5L, 7L, 15L), Catholic = c(9.96, 84.84, 
-93.4, 33.77, 5.16), Infant.Mortality = c(22.2, 22.2, 20.2, 20.3, 
-20.6)), class = "data.frame", row.names = c(NA, -5L))
+data <- structure(list(Fertility = c(80.2, 83.1, 92.5, 85.8, 76.9), 
+                       Agriculture = c(17, 45.1, 39.7, 36.5, 43.5), 
+                       Examination = c(15L, 6L, 5L, 12L, 17L), 
+                       Education = c(12L, 9L, 5L, 7L, 15L), 
+                       Catholic = c(9.96, 84.84, 93.4, 33.77, 5.16), 
+                       Infant.Mortality = c(22.2, 22.2, 20.2, 20.3, 20.6)), 
+                       class = "data.frame", row.names = c(NA, -5L))
 ```
 
 ```{r}
-data <- structure(list(Fertility = c(80.2, 83.1, 92.5, 85.8, 76.9), Agriculture = c(17, 
-45.1, 39.7, 36.5, 43.5), Examination = c(15L, 6L, 5L, 12L, 17L
-), Education = c(12L, 9L, 5L, 7L, 15L), Catholic = c(9.96, 84.84, 
-93.4, 33.77, 5.16), Infant.Mortality = c(22.2, 22.2, 20.2, 20.3, 
-20.6)), class = "data.frame", row.names = c(NA, -5L))
+data <- structure(list(Fertility = c(80.2, 83.1, 92.5, 85.8, 76.9),
+                       Agriculture = c(17, 45.1, 39.7, 36.5, 43.5), 
+                       Examination = c(15L, 6L, 5L, 12L, 17L), 
+                       Education = c(12L, 9L, 5L, 7L, 15L), 
+                       Catholic = c(9.96, 84.84, 93.4, 33.77, 5.16), 
+                       Infant.Mortality = c(22.2, 22.2, 20.2, 20.3, 20.6)), 
+                  class = "data.frame", row.names = c(NA, -5L))
 ```
 
 # Tables {#sec-tables}
@@ -414,7 +418,11 @@ modelsummary(models,
   )
 
 # Produce right output depending on format (html vs. latex)
-if(knitr::is_html_output()){table4}else{table4 %>% gt::as_latex() %>% as.character() %>% gsub("\\(Intercept\\)", "Intercept", .) %>% cat()}
+if(knitr::is_html_output()){table4}else
+    {table4 %>% gt::as_latex() %>% 
+    as.character() %>% 
+    gsub("\\(Intercept\\)", "Intercept", .) %>% 
+    cat()}
 ```
 
 ```{r}
@@ -437,7 +445,12 @@ table4 <- modelsummary(models,
              threeparttable = TRUE) %>%
     tab_spanner(label = 'Dependent variable: Fertility', columns = 2:4)
 
-if(knitr::is_html_output()){table4}else{table4 %>% gt::as_latex() %>% as.character() %>% gsub("\\(Intercept\\)", "Intercept", .) %>% cat()}
+if(knitr::is_html_output()){table4}else
+    {table4 %>% 
+    gt::as_latex() %>% 
+    as.character() %>% 
+    gsub("\\(Intercept\\)", "Intercept", .) %>% 
+    cat()}
 ```
 
 # Inline code & results
@@ -473,9 +486,9 @@ Below in @fig-2 we also show a example witrh R's `ggplot2` package.
 #| fig-cap: "Miles per gallon according to the weight"
 library(ggplot2)
 plot <- ggplot(swiss, aes(x=Catholic, y=Fertility, shape=Education_cat)) +
-  geom_point() +
-  labs(x="Agriculture", y = "Fertility", shape="Education") +
-  theme_classic()
+        geom_point() +
+        labs(x="Agriculture", y = "Fertility", shape="Education") +
+        theme_classic()
 plot
 ```
 
