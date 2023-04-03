@@ -120,7 +120,7 @@ install.packages(c("knitr", "kableExtra",
                    "modelsummary", "knitr", "gt", "gtsummary"))
 ```
 
--   ...download the 3 input files we created --- `paper.qmd`, `references.bib` and `data.csv` --- from [this folder](https://drive.google.com/drive/u/0/folders/1eT_9WaineZRB-nw-cQhNOy16sWhd_t2s). Ignore the other files.
+-   ...download the 3 input files we created --- `paper.qmd`, `references.bib` and `data.csv` --- from [this folder](https://drive.google.com/drive/folders/1jDPpXdX6dusXpKkXEhDGujWDGf52TaxD?usp=sharing). Ignore the other files.
 -   ...finally store all files from above together in one folder (and use this folder as your working directory later on).
 
 # Basics: Input files
@@ -132,7 +132,7 @@ All the input files you need to produce the present PDF file are:
     -   We use paperpile to manage references and export the `.bib` file into the folder that contains the `.qmd` file.
 -   `data.csv` (some raw data).
 
-[Download these files](https://drive.google.com/drive/u/0/folders/1eT_9WaineZRB-nw-cQhNOy16sWhd_t2s) and save them into a folder. Close R/Rstudio and directly open `paper.qmd` with RStudio. Doing so assures that the working directory is set to the folder that contains `paper.qmd` and the other files.[^1]
+[Download these files](https://drive.google.com/drive/folders/1jDPpXdX6dusXpKkXEhDGujWDGf52TaxD?usp=sharing) and save them into a folder. Close R/Rstudio and directly open `paper.qmd` with RStudio. Doing so assures that the working directory is set to the folder that contains `paper.qmd` and the other files.[^1]
 
 [^1]: You can always check your working directory in R with `getwd()`.
 
@@ -184,7 +184,7 @@ x <- 1:10
 x
 ```
 
-Below we import an exemplary dataset (you can find `data.csv` in the [folder](https://drive.google.com/drive/u/0/folders/1eT_9WaineZRB-nw-cQhNOy16sWhd_t2s) with the other files).
+Below we import an exemplary dataset (you can find `data.csv` in the [folder](https://drive.google.com/drive/folders/1jDPpXdX6dusXpKkXEhDGujWDGf52TaxD?usp=sharing) with the other files).
 
 ``` {{r}}
 |echo=T
