@@ -30,7 +30,7 @@ format:
          ]}
 date: 'last-modified'
 date-format: '[This version:] MMMM D, YYYY [<br>(First version: February  16, 2023)]'
-abstract: 'This paper provides a template to write a reproducible scientific paper with RStudio and Quarto. It falls into a series of other templates, namely using RMarkdown [@Bauer2018-dl] (see [here](https://osf.io/k8jhx/)) and Pagedown [@Bauer2021-dl] (see [here](https://osf.io/q395s)). Below we outline some of the "tricks"/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be [downloaded here](https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/) (click on Code -> Download ZIP). We are convinced that in the future there will be many improvements and developments with regards to RStudio and Quarto. We intend to update this file when we discover more convenient code. You can follow any updates on the [github repository](https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/).'
+abstract: 'This paper provides a template to write a reproducible scientific paper with RStudio and Quarto. It falls into a series of other templates, namely using RMarkdown [@Bauer2018-dl] (see [here](https://osf.io/k8jhx/)) and Pagedown [@Bauer2021-dl] (see [here](https://osf.io/q395s)). Below we outline some of the "tricks"/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be [downloaded here](https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/) (click on ![](githubcode.png) $\Rightarrow$ **Download ZIP**). We are convinced that in the future there will be many improvements and developments with regards to RStudio and Quarto. We intend to update this file when we discover more convenient code. You can follow any updates on the [github repository](https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/).'
 bibliography: references.bib
 csl: american-sociological-association.csl
 tbl-cap-location: top
@@ -120,7 +120,7 @@ install.packages(c("knitr", "kableExtra",
                    "modelsummary", "knitr", "gt", "gtsummary"))
 ```
 
-- ...download the 4 input files we created (see below) from [github](https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/) (click on Code -> Download ZIP). Ignore/delete the other files.
+- ...download the 4 input files we created (see below) from [github](https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/) (click on ![](githubcode.png) $\Rightarrow$ **Download ZIP**). Ignore/delete the other files.
 
 		- `paper.qmd`
 		- `references.bib`
@@ -139,7 +139,7 @@ All the input files you need to produce the present PDF file are:
 - `american-sociological-association.csl` (the bibliography style)
 -   `data.csv` (some raw data).
 
-[Download these files from github]((https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/) (click on Code -> Download ZIP) and save them into a folder. Close R/Rstudio and directly open `paper.qmd` with RStudio. Doing so assures that the working directory is set to the folder that contains `paper.qmd` and the other files.[^1]
+[Download these files from github](https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/) (click on ![](githubcode.png) $\Rightarrow$ **Download ZIP**) and save them into a folder. Close R/Rstudio and directly open `paper.qmd` with RStudio. Doing so assures that the working directory is set to the folder that contains `paper.qmd` and the other files.[^1]
 
 [^1]: You can always check your working directory in R with `getwd()`.
 

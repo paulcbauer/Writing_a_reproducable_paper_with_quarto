@@ -120,6 +120,7 @@ div.csl-indent {
 <link href="paper_files/libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
 <script src="paper_files/libs/tabwid-1.1.3/tabwid.js"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -173,7 +174,7 @@ div.csl-indent {
 <div>
   <div class="abstract">
     <div class="abstract-title">Abstract</div>
-    This paper provides a template to write a reproducible scientific paper with RStudio and Quarto. It falls into a series of other templates, namely using RMarkdown <span class="citation" data-cites="Bauer2018-dl">(<a href="#ref-Bauer2018-dl" role="doc-biblioref">Bauer and Landesvatter 2018</a>)</span> (see <a href="https://osf.io/k8jhx/">here</a>) and Pagedown <span class="citation" data-cites="Bauer2021-dl">(<a href="#ref-Bauer2021-dl" role="doc-biblioref">Bauer and Landesvatter 2021</a>)</span> (see <a href="https://osf.io/q395s">here</a>). Below we outline some of the “tricks”/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be <a href="https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/">downloaded here</a> (click on Code -&gt; Download ZIP). We are convinced that in the future there will be many improvements and developments with regards to RStudio and Quarto. We intend to update this file when we discover more convenient code. You can follow any updates on the <a href="https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/">github repository</a>.
+    This paper provides a template to write a reproducible scientific paper with RStudio and Quarto. It falls into a series of other templates, namely using RMarkdown <span class="citation" data-cites="Bauer2018-dl">(<a href="#ref-Bauer2018-dl" role="doc-biblioref">Bauer and Landesvatter 2018</a>)</span> (see <a href="https://osf.io/k8jhx/">here</a>) and Pagedown <span class="citation" data-cites="Bauer2021-dl">(<a href="#ref-Bauer2021-dl" role="doc-biblioref">Bauer and Landesvatter 2021</a>)</span> (see <a href="https://osf.io/q395s">here</a>). Below we outline some of the “tricks”/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be <a href="https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/">downloaded here</a> (click on <img src="githubcode.png" class="img-fluid"> <span class="math inline">\(\Rightarrow\)</span> <strong>Download ZIP</strong>). We are convinced that in the future there will be many improvements and developments with regards to RStudio and Quarto. We intend to update this file when we discover more convenient code. You can follow any updates on the <a href="https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/">github repository</a>.
   </div>
 </div>
 
@@ -248,9 +249,10 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 <ul>
 <li>We use paperpile to manage references and export the <code>.bib</code> file into the folder that contains the <code>.qmd</code> file.</li>
 </ul></li>
+<li><code>american-sociological-association.csl</code> (the bibliography style)</li>
 <li><code>data.csv</code> (some raw data).</li>
 </ul>
-<p>[Download these files from github]((https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/) (click on Code -&gt; Download ZIP) and save them into a folder. Close R/Rstudio and directly open <code>paper.qmd</code> with RStudio. Doing so assures that the working directory is set to the folder that contains <code>paper.qmd</code> and the other files.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p><a href="https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/">Download these files from github</a> (click on Code -&gt; Download ZIP) and save them into a folder. Close R/Rstudio and directly open <code>paper.qmd</code> with RStudio. Doing so assures that the working directory is set to the folder that contains <code>paper.qmd</code> and the other files.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 </section>
 <section id="sec-basics-2" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Basics: Output files and the YAML header</h1>
@@ -449,7 +451,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 <div class="cell-output-display">
 <div id="tbl-2" class="anchored">
 
-<div class="tabwid"><style>.cl-55f13a86{}.cl-55e552ca{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-55ea1f94{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-55ea3650{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-55ea365a{width:0.5in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-55ea365b{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-55ea365c{width:0.5in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-55ea3664{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-55ea3665{width:0.5in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-55f13a86"><caption>Table&nbsp;2:  Summary: Numeric variables </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-55ea3650"><p class="cl-55ea1f94"><span class="cl-55e552ca"> </span></p></th><th class="cl-55ea365a"><p class="cl-55ea1f94"><span class="cl-55e552ca">Unique (#)</span></p></th><th class="cl-55ea365a"><p class="cl-55ea1f94"><span class="cl-55e552ca">Missing (%)</span></p></th><th class="cl-55ea365a"><p class="cl-55ea1f94"><span class="cl-55e552ca">Mean</span></p></th><th class="cl-55ea365a"><p class="cl-55ea1f94"><span class="cl-55e552ca">SD</span></p></th><th class="cl-55ea365a"><p class="cl-55ea1f94"><span class="cl-55e552ca">Min</span></p></th><th class="cl-55ea365a"><p class="cl-55ea1f94"><span class="cl-55e552ca">Median</span></p></th><th class="cl-55ea365a"><p class="cl-55ea1f94"><span class="cl-55e552ca">Max</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-55ea365b"><p class="cl-55ea1f94"><span class="cl-55e552ca">Fertility</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">46</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">0</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">70.1</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">12.5</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">35.0</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">70.4</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">92.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-55ea365b"><p class="cl-55ea1f94"><span class="cl-55e552ca">Agriculture</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">47</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">0</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">50.7</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">22.7</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">1.2</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">54.1</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">89.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-55ea365b"><p class="cl-55ea1f94"><span class="cl-55e552ca">Examination</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">22</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">0</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">16.5</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">8.0</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">3.0</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">16.0</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">37.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-55ea365b"><p class="cl-55ea1f94"><span class="cl-55e552ca">Education</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">19</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">0</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">11.0</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">9.6</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">1.0</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">8.0</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">53.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-55ea365b"><p class="cl-55ea1f94"><span class="cl-55e552ca">Catholic</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">46</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">0</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">41.1</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">41.7</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">2.1</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">15.1</span></p></td><td class="cl-55ea365c"><p class="cl-55ea1f94"><span class="cl-55e552ca">100.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-55ea3664"><p class="cl-55ea1f94"><span class="cl-55e552ca">Infant.Mortality</span></p></td><td class="cl-55ea3665"><p class="cl-55ea1f94"><span class="cl-55e552ca">37</span></p></td><td class="cl-55ea3665"><p class="cl-55ea1f94"><span class="cl-55e552ca">0</span></p></td><td class="cl-55ea3665"><p class="cl-55ea1f94"><span class="cl-55e552ca">19.9</span></p></td><td class="cl-55ea3665"><p class="cl-55ea1f94"><span class="cl-55e552ca">2.9</span></p></td><td class="cl-55ea3665"><p class="cl-55ea1f94"><span class="cl-55e552ca">10.8</span></p></td><td class="cl-55ea3665"><p class="cl-55ea1f94"><span class="cl-55e552ca">20.0</span></p></td><td class="cl-55ea3665"><p class="cl-55ea1f94"><span class="cl-55e552ca">26.6</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-faec3388{}.cl-fae055b8{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-fae55da6{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-fae5744e{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fae5744f{width:0.5in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fae57458{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fae57459{width:0.5in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fae5745a{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fae57462{width:0.5in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-faec3388"><caption>Table&nbsp;2:  Summary: Numeric variables </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-fae5744e"><p class="cl-fae55da6"><span class="cl-fae055b8"> </span></p></th><th class="cl-fae5744f"><p class="cl-fae55da6"><span class="cl-fae055b8">Unique (#)</span></p></th><th class="cl-fae5744f"><p class="cl-fae55da6"><span class="cl-fae055b8">Missing (%)</span></p></th><th class="cl-fae5744f"><p class="cl-fae55da6"><span class="cl-fae055b8">Mean</span></p></th><th class="cl-fae5744f"><p class="cl-fae55da6"><span class="cl-fae055b8">SD</span></p></th><th class="cl-fae5744f"><p class="cl-fae55da6"><span class="cl-fae055b8">Min</span></p></th><th class="cl-fae5744f"><p class="cl-fae55da6"><span class="cl-fae055b8">Median</span></p></th><th class="cl-fae5744f"><p class="cl-fae55da6"><span class="cl-fae055b8">Max</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-fae57458"><p class="cl-fae55da6"><span class="cl-fae055b8">Fertility</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">46</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">0</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">70.1</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">12.5</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">35.0</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">70.4</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">92.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fae57458"><p class="cl-fae55da6"><span class="cl-fae055b8">Agriculture</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">47</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">0</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">50.7</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">22.7</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">1.2</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">54.1</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">89.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fae57458"><p class="cl-fae55da6"><span class="cl-fae055b8">Examination</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">22</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">0</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">16.5</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">8.0</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">3.0</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">16.0</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">37.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fae57458"><p class="cl-fae55da6"><span class="cl-fae055b8">Education</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">19</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">0</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">11.0</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">9.6</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">1.0</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">8.0</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">53.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fae57458"><p class="cl-fae55da6"><span class="cl-fae055b8">Catholic</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">46</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">0</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">41.1</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">41.7</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">2.1</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">15.1</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">100.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fae5745a"><p class="cl-fae55da6"><span class="cl-fae055b8">Infant.Mortality</span></p></td><td class="cl-fae57462"><p class="cl-fae55da6"><span class="cl-fae055b8">37</span></p></td><td class="cl-fae57462"><p class="cl-fae55da6"><span class="cl-fae055b8">0</span></p></td><td class="cl-fae57462"><p class="cl-fae55da6"><span class="cl-fae055b8">19.9</span></p></td><td class="cl-fae57462"><p class="cl-fae55da6"><span class="cl-fae055b8">2.9</span></p></td><td class="cl-fae57462"><p class="cl-fae55da6"><span class="cl-fae055b8">10.8</span></p></td><td class="cl-fae57462"><p class="cl-fae55da6"><span class="cl-fae055b8">20.0</span></p></td><td class="cl-fae57462"><p class="cl-fae55da6"><span class="cl-fae055b8">26.6</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </div>
@@ -492,7 +494,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 <div class="cell-output-display">
 <div id="tbl-3" class="anchored">
 
-<div class="tabwid"><style>.cl-564d70a8{}.cl-56437c56{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-564740f2{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 0.3;background-color:transparent;}.cl-5647552e{width:1.632in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5647552f{width:0.748in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-56475538{width:0.452in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-56475539{width:0.577in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5647553a{width:1.632in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-56475542{width:0.748in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-56475543{width:0.452in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-56475544{width:0.577in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5647554c{width:1.632in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5647554d{width:0.748in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5647554e{width:0.452in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-56475556{width:0.577in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-56475557{width:1.632in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-56475558{width:0.748in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-56475560{width:0.452in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-56475561{width:0.577in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-564d70a8"><caption>Table&nbsp;3:  Summary: Categorical variables </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-5647552e"><p class="cl-564740f2"><span class="cl-56437c56"> </span></p></th><th class="cl-5647552f"><p class="cl-564740f2"><span class="cl-56437c56">  </span></p></th><th class="cl-56475538"><p class="cl-564740f2"><span class="cl-56437c56">N</span></p></th><th class="cl-56475539"><p class="cl-564740f2"><span class="cl-56437c56">%</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-5647553a"><p class="cl-564740f2"><span class="cl-56437c56">Education_cat</span></p></td><td class="cl-56475542"><p class="cl-564740f2"><span class="cl-56437c56">low</span></p></td><td class="cl-56475543"><p class="cl-564740f2"><span class="cl-56437c56">14</span></p></td><td class="cl-56475544"><p class="cl-564740f2"><span class="cl-56437c56">29.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5647554c"><p class="cl-564740f2"><span class="cl-56437c56"></span></p></td><td class="cl-5647554d"><p class="cl-564740f2"><span class="cl-56437c56">middle</span></p></td><td class="cl-5647554e"><p class="cl-564740f2"><span class="cl-56437c56">22</span></p></td><td class="cl-56475556"><p class="cl-564740f2"><span class="cl-56437c56">46.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5647553a"><p class="cl-564740f2"><span class="cl-56437c56"></span></p></td><td class="cl-56475542"><p class="cl-564740f2"><span class="cl-56437c56">high</span></p></td><td class="cl-56475543"><p class="cl-564740f2"><span class="cl-56437c56">11</span></p></td><td class="cl-56475544"><p class="cl-564740f2"><span class="cl-56437c56">23.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5647553a"><p class="cl-564740f2"><span class="cl-56437c56">Infant.Mortality_cat</span></p></td><td class="cl-56475542"><p class="cl-564740f2"><span class="cl-56437c56">low</span></p></td><td class="cl-56475543"><p class="cl-564740f2"><span class="cl-56437c56">12</span></p></td><td class="cl-56475544"><p class="cl-564740f2"><span class="cl-56437c56">25.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5647554c"><p class="cl-564740f2"><span class="cl-56437c56"></span></p></td><td class="cl-5647554d"><p class="cl-564740f2"><span class="cl-56437c56">middle</span></p></td><td class="cl-5647554e"><p class="cl-564740f2"><span class="cl-56437c56">23</span></p></td><td class="cl-56475556"><p class="cl-564740f2"><span class="cl-56437c56">48.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-56475557"><p class="cl-564740f2"><span class="cl-56437c56"></span></p></td><td class="cl-56475558"><p class="cl-564740f2"><span class="cl-56437c56">high</span></p></td><td class="cl-56475560"><p class="cl-564740f2"><span class="cl-56437c56">12</span></p></td><td class="cl-56475561"><p class="cl-564740f2"><span class="cl-56437c56">25.5</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-fb4acfe2{}.cl-fb40b228{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-fb446ca6{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 0.3;background-color:transparent;}.cl-fb44806a{width:1.632in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb448074{width:0.748in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb448075{width:0.452in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb448076{width:0.577in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb44807e{width:1.632in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb44807f{width:0.748in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb448080{width:0.452in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb448088{width:0.577in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb448089{width:1.632in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb44808a{width:0.748in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb44808b{width:0.452in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb448092{width:0.577in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb448093{width:1.632in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb448094{width:0.748in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb448095{width:0.452in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb44809c{width:0.577in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-fb4acfe2"><caption>Table&nbsp;3:  Summary: Categorical variables </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-fb44806a"><p class="cl-fb446ca6"><span class="cl-fb40b228"> </span></p></th><th class="cl-fb448074"><p class="cl-fb446ca6"><span class="cl-fb40b228">  </span></p></th><th class="cl-fb448075"><p class="cl-fb446ca6"><span class="cl-fb40b228">N</span></p></th><th class="cl-fb448076"><p class="cl-fb446ca6"><span class="cl-fb40b228">%</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-fb44807e"><p class="cl-fb446ca6"><span class="cl-fb40b228">Education_cat</span></p></td><td class="cl-fb44807f"><p class="cl-fb446ca6"><span class="cl-fb40b228">low</span></p></td><td class="cl-fb448080"><p class="cl-fb446ca6"><span class="cl-fb40b228">14</span></p></td><td class="cl-fb448088"><p class="cl-fb446ca6"><span class="cl-fb40b228">29.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb448089"><p class="cl-fb446ca6"><span class="cl-fb40b228"></span></p></td><td class="cl-fb44808a"><p class="cl-fb446ca6"><span class="cl-fb40b228">middle</span></p></td><td class="cl-fb44808b"><p class="cl-fb446ca6"><span class="cl-fb40b228">22</span></p></td><td class="cl-fb448092"><p class="cl-fb446ca6"><span class="cl-fb40b228">46.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb44807e"><p class="cl-fb446ca6"><span class="cl-fb40b228"></span></p></td><td class="cl-fb44807f"><p class="cl-fb446ca6"><span class="cl-fb40b228">high</span></p></td><td class="cl-fb448080"><p class="cl-fb446ca6"><span class="cl-fb40b228">11</span></p></td><td class="cl-fb448088"><p class="cl-fb446ca6"><span class="cl-fb40b228">23.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb44807e"><p class="cl-fb446ca6"><span class="cl-fb40b228">Infant.Mortality_cat</span></p></td><td class="cl-fb44807f"><p class="cl-fb446ca6"><span class="cl-fb40b228">low</span></p></td><td class="cl-fb448080"><p class="cl-fb446ca6"><span class="cl-fb40b228">12</span></p></td><td class="cl-fb448088"><p class="cl-fb446ca6"><span class="cl-fb40b228">25.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb448089"><p class="cl-fb446ca6"><span class="cl-fb40b228"></span></p></td><td class="cl-fb44808a"><p class="cl-fb446ca6"><span class="cl-fb40b228">middle</span></p></td><td class="cl-fb44808b"><p class="cl-fb446ca6"><span class="cl-fb40b228">23</span></p></td><td class="cl-fb448092"><p class="cl-fb446ca6"><span class="cl-fb40b228">48.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb448093"><p class="cl-fb446ca6"><span class="cl-fb40b228"></span></p></td><td class="cl-fb448094"><p class="cl-fb446ca6"><span class="cl-fb40b228">high</span></p></td><td class="cl-fb448095"><p class="cl-fb446ca6"><span class="cl-fb40b228">12</span></p></td><td class="cl-fb44809c"><p class="cl-fb446ca6"><span class="cl-fb40b228">25.5</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </div>
@@ -542,12 +544,12 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 <div class="cell-output-display">
 <div id="tbl-4" class="anchored">
 
-<div id="uqiinoxdhi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ryqwxysqoh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#uqiinoxdhi) .gt_table {
+:where(#ryqwxysqoh) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -572,7 +574,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-left-color: #D3D3D3;
 }
 
-:where(#uqiinoxdhi) .gt_heading {
+:where(#ryqwxysqoh) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -584,12 +586,12 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-right-color: #D3D3D3;
 }
 
-:where(#uqiinoxdhi) .gt_caption {
+:where(#ryqwxysqoh) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#uqiinoxdhi) .gt_title {
+:where(#ryqwxysqoh) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -601,7 +603,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-bottom-width: 0;
 }
 
-:where(#uqiinoxdhi) .gt_subtitle {
+:where(#ryqwxysqoh) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -613,13 +615,13 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-top-width: 0;
 }
 
-:where(#uqiinoxdhi) .gt_bottom_border {
+:where(#ryqwxysqoh) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#uqiinoxdhi) .gt_col_headings {
+:where(#ryqwxysqoh) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -634,7 +636,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-right-color: #D3D3D3;
 }
 
-:where(#uqiinoxdhi) .gt_col_heading {
+:where(#ryqwxysqoh) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -654,7 +656,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   overflow-x: hidden;
 }
 
-:where(#uqiinoxdhi) .gt_column_spanner_outer {
+:where(#ryqwxysqoh) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -666,15 +668,15 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 4px;
 }
 
-:where(#uqiinoxdhi) .gt_column_spanner_outer:first-child {
+:where(#ryqwxysqoh) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#uqiinoxdhi) .gt_column_spanner_outer:last-child {
+:where(#ryqwxysqoh) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#uqiinoxdhi) .gt_column_spanner {
+:where(#ryqwxysqoh) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -686,7 +688,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   width: 100%;
 }
 
-:where(#uqiinoxdhi) .gt_group_heading {
+:where(#ryqwxysqoh) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -712,7 +714,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   text-align: left;
 }
 
-:where(#uqiinoxdhi) .gt_empty_group_heading {
+:where(#ryqwxysqoh) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -727,15 +729,15 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   vertical-align: middle;
 }
 
-:where(#uqiinoxdhi) .gt_from_md > :first-child {
+:where(#ryqwxysqoh) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#uqiinoxdhi) .gt_from_md > :last-child {
+:where(#ryqwxysqoh) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#uqiinoxdhi) .gt_row {
+:where(#ryqwxysqoh) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -754,7 +756,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   overflow-x: hidden;
 }
 
-:where(#uqiinoxdhi) .gt_stub {
+:where(#ryqwxysqoh) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -767,7 +769,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 5px;
 }
 
-:where(#uqiinoxdhi) .gt_stub_row_group {
+:where(#ryqwxysqoh) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -781,11 +783,11 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   vertical-align: top;
 }
 
-:where(#uqiinoxdhi) .gt_row_group_first td {
+:where(#ryqwxysqoh) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#uqiinoxdhi) .gt_summary_row {
+:where(#ryqwxysqoh) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -795,16 +797,16 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 5px;
 }
 
-:where(#uqiinoxdhi) .gt_first_summary_row {
+:where(#ryqwxysqoh) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#uqiinoxdhi) .gt_first_summary_row.thick {
+:where(#ryqwxysqoh) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#uqiinoxdhi) .gt_last_summary_row {
+:where(#ryqwxysqoh) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -814,7 +816,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-bottom-color: #D3D3D3;
 }
 
-:where(#uqiinoxdhi) .gt_grand_summary_row {
+:where(#ryqwxysqoh) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -824,7 +826,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 5px;
 }
 
-:where(#uqiinoxdhi) .gt_first_grand_summary_row {
+:where(#ryqwxysqoh) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -834,11 +836,11 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-top-color: #D3D3D3;
 }
 
-:where(#uqiinoxdhi) .gt_striped {
+:where(#ryqwxysqoh) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#uqiinoxdhi) .gt_table_body {
+:where(#ryqwxysqoh) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -847,7 +849,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-bottom-color: #D3D3D3;
 }
 
-:where(#uqiinoxdhi) .gt_footnotes {
+:where(#ryqwxysqoh) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -861,7 +863,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-right-color: #D3D3D3;
 }
 
-:where(#uqiinoxdhi) .gt_footnote {
+:where(#ryqwxysqoh) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -870,7 +872,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 5px;
 }
 
-:where(#uqiinoxdhi) .gt_sourcenotes {
+:where(#ryqwxysqoh) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -884,7 +886,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-right-color: #D3D3D3;
 }
 
-:where(#uqiinoxdhi) .gt_sourcenote {
+:where(#ryqwxysqoh) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -892,64 +894,64 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 5px;
 }
 
-:where(#uqiinoxdhi) .gt_left {
+:where(#ryqwxysqoh) .gt_left {
   text-align: left;
 }
 
-:where(#uqiinoxdhi) .gt_center {
+:where(#ryqwxysqoh) .gt_center {
   text-align: center;
 }
 
-:where(#uqiinoxdhi) .gt_right {
+:where(#ryqwxysqoh) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#uqiinoxdhi) .gt_font_normal {
+:where(#ryqwxysqoh) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#uqiinoxdhi) .gt_font_bold {
+:where(#ryqwxysqoh) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#uqiinoxdhi) .gt_font_italic {
+:where(#ryqwxysqoh) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#uqiinoxdhi) .gt_super {
+:where(#ryqwxysqoh) .gt_super {
   font-size: 65%;
 }
 
-:where(#uqiinoxdhi) .gt_footnote_marks {
+:where(#ryqwxysqoh) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#uqiinoxdhi) .gt_asterisk {
+:where(#ryqwxysqoh) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#uqiinoxdhi) .gt_indent_1 {
+:where(#ryqwxysqoh) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#uqiinoxdhi) .gt_indent_2 {
+:where(#ryqwxysqoh) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#uqiinoxdhi) .gt_indent_3 {
+:where(#ryqwxysqoh) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#uqiinoxdhi) .gt_indent_4 {
+:where(#ryqwxysqoh) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#uqiinoxdhi) .gt_indent_5 {
+:where(#ryqwxysqoh) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
