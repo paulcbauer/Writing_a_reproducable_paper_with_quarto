@@ -396,6 +396,8 @@ tab_cat
 ``` {{r}}
 #| label: tbl-4
 #| tbl-cap: "Linear regression with modelsummary"
+#| results: "asis"
+
 library(modelsummary)
 M1 <- lm(Fertility ~ Education + Agriculture, data = swiss)
 M2 <- lm(Fertility ~ Education + Catholic, data = swiss)

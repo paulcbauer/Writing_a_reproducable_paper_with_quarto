@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta charset="utf-8" />
+<meta name="generator" content="quarto-1.2.335" />
 
-<meta name="author" content="Paul C. Bauer">
-<meta name="author" content="Camille Landesvatter">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
 
-<title>Writing a reproducible paper with RStudio and Quarto</title>
+<meta name="author" content="Paul C. Bauer" />
+<meta name="author" content="Camille Landesvatter" />
+
+<title>AI and ML for Social Scientists – Writing a reproducible paper with RStudio and Quarto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -106,28 +108,179 @@ div.csl-indent {
 }
 </style>
 
-
-<script src="paper_files/libs/clipboard/clipboard.min.js"></script>
-<script src="paper_files/libs/quarto-html/quarto.js"></script>
-<script src="paper_files/libs/quarto-html/popper.min.js"></script>
-<script src="paper_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="paper_files/libs/quarto-html/anchor.min.js"></script>
-<link href="paper_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="paper_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="paper_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="paper_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="paper_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<link href="paper_files/libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
-<script src="paper_files/libs/tabwid-1.1.3/tabwid.js"></script>
+<!-- htmldependencies:E3FAD763 -->
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<link href="../../site_libs/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+<script src="../../site_libs/tabwid-1.1.3/tabwid.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<link rel="stylesheet" href="styles.css" />
 </head>
 
-<body class="fullcontent">
+<body>
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" 
+        data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" 
+        aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation"
+        onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"
+  >
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"></h1>
+      <button type="button" 
+        class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="/">
+      AI and ML for Social Scientists
+      </a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">Session 1: Introduction</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/01_introduction.html" class="sidebar-item-text sidebar-link">Introduction</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">Session 2: Basic concepts</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  02_01_intro.qmd
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/02_02_classic_statistics_vs_ml.html" class="sidebar-item-text sidebar-link">Classical statistics vs. machine learning</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  02_03_prediction.qmd
+  </li>
+          <li class="sidebar-item">
+  02_04_lab_extract_predictions.qmd
+  </li>
+          <li class="sidebar-item">
+  02_05_lab_list_column_workflow.qmd
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">Session 3: Binary classification (SL) I</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  03_01_predictive_models.qmd
+  </li>
+          <li class="sidebar-item">
+  03_02_logistic_model.qmd
+  </li>
+          <li class="sidebar-item">
+  03_03_lab_binary_classification.qmd
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">Session 4: Binary classification II</span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">Session 5: Bias and fairness in machine learning</span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">Session 6: Resampling methods</span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">Session 7: LM  for prediction</span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">Session 8: LM selection and regularization</span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">Session 9: Moving beyond linearity</span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">Session 10: Tree-Based Methods I</span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">Session 11: Tree-Based Methods II</span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">Session 12: Deep learning I</span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">Session 13: Deep learning II</span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">Session 14: Deep learning III</span>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <div id="quarto-toc-target"></div>
+    </div>
+<!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -164,7 +317,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">This version: April 3, 2023 <br>(First version: February 16, 2023)</p>
+      <p class="date">This version: April 6, 2023 <br>(First version: February 16, 2023)</p>
     </div>
   </div>
   
@@ -174,12 +327,55 @@ div.csl-indent {
 <div>
   <div class="abstract">
     <div class="abstract-title">Abstract</div>
-    This paper provides a template to write a reproducible scientific paper with RStudio and Quarto. It falls into a series of other templates, namely using RMarkdown <span class="citation" data-cites="Bauer2018-dl">(<a href="#ref-Bauer2018-dl" role="doc-biblioref">Bauer and Landesvatter 2018</a>)</span> (see <a href="https://osf.io/k8jhx/">here</a>) and Pagedown <span class="citation" data-cites="Bauer2021-dl">(<a href="#ref-Bauer2021-dl" role="doc-biblioref">Bauer and Landesvatter 2021</a>)</span> (see <a href="https://osf.io/q395s">here</a>). Below we outline some of the “tricks”/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be <a href="https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/">downloaded here</a> (click on <img src="githubcode.png" class="img-fluid"> <span class="math inline">\(\Rightarrow\)</span> <strong>Download ZIP</strong>). We are convinced that in the future there will be many improvements and developments with regards to RStudio and Quarto. We intend to update this file when we discover more convenient code. You can follow any updates on the <a href="https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/">github repository</a>.
+    This paper provides a template to write a reproducible scientific paper with RStudio and Quarto. It falls into a series of other templates, namely using RMarkdown <span class="citation" data-cites="Bauer2018-dl">(<a href="#ref-Bauer2018-dl" role="doc-biblioref">Bauer and Landesvatter 2018</a>)</span> (see <a href="https://osf.io/k8jhx/">here</a>) and Pagedown <span class="citation" data-cites="Bauer2021-dl">(<a href="#ref-Bauer2021-dl" role="doc-biblioref">Bauer and Landesvatter 2021</a>)</span> (see <a href="https://osf.io/q395s">here</a>). Below we outline some of the “tricks”/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be <a href="https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/">downloaded here</a> (click on <img src="githubcode.png" class="img-fluid" /> <span class="math inline">\(\Rightarrow\)</span> <strong>Download ZIP</strong>). We are convinced that in the future there will be many improvements and developments with regards to RStudio and Quarto. We intend to update this file when we discover more convenient code. You can follow any updates on the <a href="https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/">github repository</a>.
   </div>
 </div>
 
 </header>
-
+<nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#why-reproducible-research-in-r" id="toc-why-reproducible-research-in-r"><span class="toc-section-number">1</span> <span class="header-section-number">1</span> Why reproducible research (in R)?</a></li>
+  <li><a href="#why-quarto" id="toc-why-quarto"><span class="toc-section-number">2</span> <span class="header-section-number">2</span> Why Quarto?</a></li>
+  <li><a href="#sec-prerequisites" id="toc-sec-prerequisites"><span class="toc-section-number">3</span> <span class="header-section-number">3</span> Prerequisites</a></li>
+  <li><a href="#basics-input-files" id="toc-basics-input-files"><span class="toc-section-number">4</span> <span class="header-section-number">4</span> Basics: Input files</a></li>
+  <li><a href="#sec-basics-2" id="toc-sec-basics-2"><span class="toc-section-number">5</span> <span class="header-section-number">5</span> Basics: Output files and the YAML header</a></li>
+  <li><a href="#referencing-within-your-document" id="toc-referencing-within-your-document"><span class="toc-section-number">6</span> <span class="header-section-number">6</span> Referencing within your document</a></li>
+  <li><a href="#software-versioning" id="toc-software-versioning"><span class="toc-section-number">7</span> <span class="header-section-number">7</span> Software versioning</a></li>
+  <li><a href="#data" id="toc-data"><span class="toc-section-number">8</span> <span class="header-section-number">8</span> Data</a>
+  <ul>
+  <li><a href="#import" id="toc-import"><span class="toc-section-number">8.1</span> <span class="header-section-number">8.1</span> Import</a></li>
+  <li><a href="#putting-your-entire-data-into-the-.qmd-file" id="toc-putting-your-entire-data-into-the-.qmd-file"><span class="toc-section-number">8.2</span> <span class="header-section-number">8.2</span> Putting your entire data into the .qmd file</a></li>
+  </ul></li>
+  <li><a href="#sec-tables" id="toc-sec-tables"><span class="toc-section-number">9</span> <span class="header-section-number">9</span> Tables</a>
+  <ul>
+  <li><a href="#tables-with-kable-and-kable_styling" id="toc-tables-with-kable-and-kable_styling"><span class="toc-section-number">9.1</span> <span class="header-section-number">9.1</span> Tables with kable() and kable_styling()</a></li>
+  <li><a href="#tables-with-modelsummary" id="toc-tables-with-modelsummary"><span class="toc-section-number">9.2</span> <span class="header-section-number">9.2</span> Tables with modelsummary</a>
+  <ul>
+  <li><a href="#summarize-numeric-variables-with-modelsummary" id="toc-summarize-numeric-variables-with-modelsummary"><span class="toc-section-number">9.2.1</span> <span class="header-section-number">9.2.1</span> Summarize numeric variables with modelsummary</a></li>
+  <li><a href="#summarize-categorical-variables-with-modelsummary" id="toc-summarize-categorical-variables-with-modelsummary"><span class="toc-section-number">9.2.2</span> <span class="header-section-number">9.2.2</span> Summarize categorical variables with modelsummary</a></li>
+  <li><a href="#regression-table-with-modelsummary" id="toc-regression-table-with-modelsummary"><span class="toc-section-number">9.2.3</span> <span class="header-section-number">9.2.3</span> Regression table with modelsummary</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#inline-code-results" id="toc-inline-code-results"><span class="toc-section-number">10</span> <span class="header-section-number">10</span> Inline code &amp; results</a></li>
+  <li><a href="#graphs" id="toc-graphs"><span class="toc-section-number">11</span> <span class="header-section-number">11</span> Graphs</a>
+  <ul>
+  <li><a href="#r-base-graphs" id="toc-r-base-graphs"><span class="toc-section-number">11.1</span> <span class="header-section-number">11.1</span> R base graphs</a></li>
+  <li><a href="#ggplot2-graphs" id="toc-ggplot2-graphs"><span class="toc-section-number">11.2</span> <span class="header-section-number">11.2</span> ggplot2 graphs</a></li>
+  </ul></li>
+  <li><a href="#sec-compiling" id="toc-sec-compiling"><span class="toc-section-number">12</span> <span class="header-section-number">12</span> Compiling the document</a></li>
+  <li><a href="#good-practices-for-reproducibility" id="toc-good-practices-for-reproducibility"><span class="toc-section-number">13</span> <span class="header-section-number">13</span> Good practices for reproducibility</a></li>
+  <li><a href="#additional-tricks-for-publishing" id="toc-additional-tricks-for-publishing"><span class="toc-section-number">14</span> <span class="header-section-number">14</span> Additional tricks for publishing</a></li>
+  <li><a href="#citation-styles" id="toc-citation-styles"><span class="toc-section-number">15</span> <span class="header-section-number">15</span> Citation styles</a></li>
+  <li><a href="#references" id="toc-references">References</a></li>
+  <li><a href="#online-appendix" id="toc-online-appendix">Online appendix</a>
+  <ul>
+  <li><a href="#sec-rsessioninfo" id="toc-sec-rsessioninfo"><span class="toc-section-number">15.1</span> <span class="header-section-number">15.1</span> Attach R session info in appendix</a></li>
+  <li><a href="#all-the-code-in-the-paper" id="toc-all-the-code-in-the-paper"><span class="toc-section-number">15.2</span> <span class="header-section-number">15.2</span> All the code in the paper</a></li>
+  </ul></li>
+  </ul>
+</nav>
 <section id="why-reproducible-research-in-r" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Why reproducible research (in R)?</h1>
 <p>Some arguments…</p>
@@ -192,47 +388,47 @@ div.csl-indent {
 </section>
 <section id="why-quarto" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Why Quarto?</h1>
-<p><a href="https://quarto.org/">Quarto</a> is an open-source, scientific and technical publishing system build on <code>pandoc</code>. Their creators from RStudio also call it <a href="https://quarto.org/docs/computations/r.html">„the next generation of R Markdown”</a>.<br>
-Like RMarkdown, Quarto uses <code>Knitr</code> to execute <code>R</code> code, and is therefore able to render most existing <code>.rmd</code> files without having to make any adjustments. As in <code>rmd</code> and other more recent developments like R’s <code>pagedown</code>-package, one of the main goals of Quarto is to weave together narrative text and code and produce nicely formatted output documents.<br>
+<p><a href="https://quarto.org/">Quarto</a> is an open-source, scientific and technical publishing system build on <code>pandoc</code>. Their creators from RStudio also call it <a href="https://quarto.org/docs/computations/r.html">„the next generation of R Markdown”</a>.<br />
+Like RMarkdown, Quarto uses <code>Knitr</code> to execute <code>R</code> code, and is therefore able to render most existing <code>.rmd</code> files without having to make any adjustments. As in <code>rmd</code> and other more recent developments like R’s <code>pagedown</code>-package, one of the main goals of Quarto is to weave together narrative text and code and produce nicely formatted output documents.<br />
 Differences to RMarkdown are not only but especially due to two facts: first, Quarto is multi-lingual (R, Python, Julia, Observable JS, etc.) and second in addition to RMarkdown’s workflow where the final conversion layer uses <code>pandoc</code> to create documents, Quarto uses pandoc with Lua filters (which include latex in pandoc metadata). This contributes to cross-language standardization of outputs. Put differently, it allows working regardless of language, since it allows shared syntax and shared format across languages and input formats.</p>
 </section>
 <section id="sec-prerequisites" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Prerequisites</h1>
 <p>Quarto is a multi-language, next-generation version of R Markdown from RStudio. Multi-language means you can use R, Python, Julia and other languages to create quarto documents. In this template we’ll focus on showing you how to use <strong>RStudio with Quarto</strong>.</p>
-<p>To name prerequisites, we assume that you are familiar with using R and R Markdown. If you don’t know what R Markdown is there are many great resources that you can use (e.g.&nbsp;watch this <a href="https://vimeo.com/178485416">short video</a>). An older template of ours [see <span class="citation" data-cites="Bauer2018-dl">Bauer and Landesvatter (<a href="#ref-Bauer2018-dl" role="doc-biblioref">2018</a>)</span>; https://osf.io/q395s] may provide a quick entry point to writing a reproducible manuscript with R Markdown and Latex. To further deepen your understanding of the different components underlying this template, go on and learn about R, <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>, <a href="https://rmarkdown.rstudio.com/lesson-1.html">R Markdown</a> and <a href="https://quarto.org/">Quarto</a>. For more information on Quarto also consider reading their <a href="https://quarto.org/docs/faq/rmarkdown.html">FAQ</a>.</p>
+<p>To name prerequisites, we assume that you are familiar with using R and R Markdown. If you don’t know what R Markdown is there are many great resources that you can use (e.g. watch this <a href="https://vimeo.com/178485416">short video</a>). An older template of ours [see <span class="citation" data-cites="Bauer2018-dl">Bauer and Landesvatter (<a href="#ref-Bauer2018-dl" role="doc-biblioref">2018</a>)</span>; https://osf.io/q395s] may provide a quick entry point to writing a reproducible manuscript with R Markdown and Latex. To further deepen your understanding of the different components underlying this template, go on and learn about R, <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>, <a href="https://rmarkdown.rstudio.com/lesson-1.html">R Markdown</a> and <a href="https://quarto.org/">Quarto</a>. For more information on Quarto also consider reading their <a href="https://quarto.org/docs/faq/rmarkdown.html">FAQ</a>.</p>
 <p>Like R Markdown, Quarto uses <code>Knitr</code> to execute R code (hence you should also be able to render existing Rmd files without modification), and can render documents of a dozens of formats (e.g., PDF, HTML). For a comprehensive overview watch <a href="https://www.youtube.com/watch?v=yvi5uXQMvu4&amp;t=708s&amp;ab_channel=PositPBC">this video</a> which is a record of a talk introducing <code>quarto</code> given by Tom Mock from RStudio.</p>
 <p>Then…</p>
 <ul>
-<li>…install <a href="https://www.r-project.org/">R</a> and <a href="https://posit.co/download/rstudio-desktop/">Rstudio</a> (important: most recent versions, e.g.&nbsp;RStudio v2022.07) <span class="citation" data-cites="R2017 Rstudio2015">(<a href="#ref-R2017" role="doc-biblioref">R Core Team 2017</a>; <a href="#ref-Rstudio2015" role="doc-biblioref">RStudio Team 2015</a>)</span>.</li>
+<li>…install <a href="https://www.r-project.org/">R</a> and <a href="https://posit.co/download/rstudio-desktop/">Rstudio</a> (important: most recent versions, e.g. RStudio v2022.07) <span class="citation" data-cites="R2017 Rstudio2015">(<a href="#ref-R2017" role="doc-biblioref">R Core Team 2017</a>; <a href="#ref-Rstudio2015" role="doc-biblioref">RStudio Team 2015</a>)</span>.</li>
 <li>…install the “rmarkdown”-package from CRAN using the code below <span class="citation" data-cites="markdown2017">(<a href="#ref-markdown2017" role="doc-biblioref">Allaire et al. 2017</a>)</span>.</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rmarkdown"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;rmarkdown&quot;</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <div class="cell">
 
 </div>
 <ul>
 <li>…install <a href="https://yihui.name/tinytex/">tinytex</a>, a lightweight version of Tex Live <span class="citation" data-cites="markdown2017 tinytex">(<a href="#ref-markdown2017" role="doc-biblioref">Allaire et al. 2017</a>; <a href="#ref-tinytex" role="doc-biblioref">Xie 2018b</a>)</span> in order to compile PDFs.</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'tinytex'</span>)</span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;tinytex&#39;</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">install_tinytex</span>()</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <div class="cell">
 
 </div>
 <ul>
 <li>…also install the packages below using the code below <span class="citation" data-cites="knitr1 knitr2 knitr3 kableextra modelsummary gt">(<a href="#ref-modelsummary" role="doc-biblioref">Arel-Bundock 2022</a>; <a href="#ref-gt" role="doc-biblioref">Iannone, Cheng, and Schloerke 2022</a>; <a href="#ref-knitr3" role="doc-biblioref">Xie 2014</a>, <a href="#ref-knitr2" role="doc-biblioref">2015</a>, <a href="#ref-knitr1" role="doc-biblioref">2018a</a>; <a href="#ref-kableextra" role="doc-biblioref">Zhu 2017</a>)</span>.</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"knitr"</span>, <span class="st">"kableExtra"</span>, <span class="st">"modelsummary"</span>, <span class="st">"gt"</span>, <span class="st">"gtsummary"</span>))</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;kableExtra&quot;</span>, <span class="st">&quot;modelsummary&quot;</span>, <span class="st">&quot;gt&quot;</span>, <span class="st">&quot;gtsummary&quot;</span>))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <div class="cell">
 
 </div>
 <ul>
-<li><p>…download the 4 input files we created (see below) from <a href="https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/">github</a> (click on Code -&gt; Download ZIP). Ignore/delete the other files.</p>
+<li><p>…download the 4 input files we created (see below) from <a href="https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/">github</a> (click on <img src="githubcode.png" class="img-fluid" /> <span class="math inline">\(\Rightarrow\)</span> <strong>Download ZIP</strong>). Ignore/delete the other files.</p>
 <pre><code>  - `paper.qmd`
   - `references.bib`
   - `american-sociological-association.csl`
@@ -252,28 +448,28 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 <li><code>american-sociological-association.csl</code> (the bibliography style)</li>
 <li><code>data.csv</code> (some raw data).</li>
 </ul>
-<p><a href="https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/">Download these files from github</a> (click on Code -&gt; Download ZIP) and save them into a folder. Close R/Rstudio and directly open <code>paper.qmd</code> with RStudio. Doing so assures that the working directory is set to the folder that contains <code>paper.qmd</code> and the other files.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p><a href="https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/">Download these files from github</a> (click on <img src="githubcode.png" class="img-fluid" /> <span class="math inline">\(\Rightarrow\)</span> <strong>Download ZIP</strong>) and save them into a folder. Close R/Rstudio and directly open <code>paper.qmd</code> with RStudio. Doing so assures that the working directory is set to the folder that contains <code>paper.qmd</code> and the other files.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 </section>
 <section id="sec-basics-2" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Basics: Output files and the YAML header</h1>
 <p>Quarto allows you to produce documents in various formats (e.g., HTML, PDF, MS Word). By default, once you render the <code>paper.qmd</code> file in Rstudio it creates an output file in HTML called <code>paper.html</code>. However in the YAML you can specify any alternative format (or formats) alongside different options.</p>
-<p>Remember (see <a href="#sec-prerequisites">Section&nbsp;3</a>) that in order to compile PDFs you will need to install a recent distribution of LaTeX (e.g., TinyTex).</p>
+<p>Remember (see <a href="#sec-prerequisites">Section 3</a>) that in order to compile PDFs you will need to install a recent distribution of LaTeX (e.g., TinyTex).</p>
 <p>If you want your document to be rendered in multiple output formats (e.g., HTML and PDF like we did here), you need to specify both outputs in your YAML header. Take <code>paper.qmd</code> (the underlying quarto file of this pdf) and have a look at the YAML (line #14 - #16) to see how to specify different outputs.</p>
-<p>For instructions on how to render your final output document, please read <a href="#sec-compiling">Section&nbsp;12</a>.</p>
+<p>For instructions on how to render your final output document, please read <a href="#sec-compiling">Section 12</a>.</p>
 </section>
 <section id="referencing-within-your-document" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> Referencing within your document</h1>
-<p>To see how referencing works simply see the different examples for figures, tables and sections below. For instance in <a href="#sec-tables">Section&nbsp;9</a> you can find different ways of referencing tables. <code>paper.qmd</code> (the underlying quarto file of this PDF) will show you how we referenced <a href="#sec-tables">Section&nbsp;9</a> right here namely with ‘<code>@sec-tables</code>’ whereas the corresponding section title was assigned the corresponding label ‘<code># Tables {#sec-tables}</code>’. Pay attention that when using section cross-references, you need to enable the number-sections option in your YAML (line #22 of this <code>qmd</code> file).</p>
+<p>To see how referencing works simply see the different examples for figures, tables and sections below. For instance in <a href="#sec-tables">Section 9</a> you can find different ways of referencing tables. <code>paper.qmd</code> (the underlying quarto file of this PDF) will show you how we referenced <a href="#sec-tables">Section 9</a> right here namely with ‘<code>@sec-tables</code>’ whereas the corresponding section title was assigned the corresponding label ‘<code># Tables {#sec-tables}</code>’. Pay attention that when using section cross-references, you need to enable the number-sections option in your YAML (line #22 of this <code>qmd</code> file).</p>
 </section>
 <section id="software-versioning" class="level1" data-number="7">
 <h1 data-number="7"><span class="header-section-number">7</span> Software versioning</h1>
 <p>Software changes and gets updated, especially with an active developer community like that of R. Luckily you can always access <a href="https://cran.r-project.org/bin/windows/base/old/">old versions of R</a> and old version of R packages in <a href="https://cran.r-project.org/src/contrib/Archive/">the archive</a>. In the archive you need to choose a particular package, e.g dplyr and search for the right version, e.g., <code>dplyr_0.2.tar.gz</code>. Then insert the path in the following function: <code>install.packages("https://....../dplyr_0.2.tar.gz", repos=NULL, type="source")</code>. Ideally, however, results will be simply reproducible in the most current R and package versions.</p>
-<p>I would recommend to use the command below and simply add it to the appendix as we did here in Appendix <a href="#sec-rsessioninfo">Section&nbsp;15.1</a>. This will make sure you always inform the reader about the package versions your relied on in your paper. For more advanced tools see <a href="https://rstudio.github.io/packrat/">packrat</a>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<p>I would recommend to use the command below and simply add it to the appendix as we did here in Appendix <a href="#sec-rsessioninfo">Section 15.1</a>. This will make sure you always inform the reader about the package versions your relied on in your paper. For more advanced tools see <a href="https://rstudio.github.io/packrat/">packrat</a>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|label: fig-versioning</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">paste</span>(<span class="st">"#"</span>, <span class="fu">capture.output</span>(<span class="fu">sessionInfo</span>()), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, <span class="at">collapse =</span><span class="st">""</span>)) </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">paste</span>(<span class="st">&quot;#&quot;</span>, <span class="fu">capture.output</span>(<span class="fu">sessionInfo</span>()), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="at">collapse =</span><span class="st">&quot;&quot;</span>)) </span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># or use message() instead of cat()</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <div class="cell">
 
 </div>
@@ -281,24 +477,24 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 <section id="data" class="level1" data-number="8">
 <h1 data-number="8"><span class="header-section-number">8</span> Data</h1>
 <section id="import" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="import"><span class="header-section-number">8.1</span> Import</h2>
+<h2 data-number="8.1"><span class="header-section-number">8.1</span> Import</h2>
 <p>Generally, code is evaluated by inserting regular code chunks.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>x</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 </div>
 </div>
 <p>Below we import an exemplary dataset (you can find <code>data.csv</code> in the <a href="(https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/)%20with%20the%20other%20files">github repository</a>.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<div class="sourceCode" id="cb8"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span>echo<span class="ot">=</span>T</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span>results<span class="ot">=</span><span class="st">"raw"</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data.csv"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span>results<span class="ot">=</span><span class="st">&quot;raw&quot;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data.csv&quot;</span>)</span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>  Fertility Agriculture Examination Education Catholic Infant.Mortality
@@ -312,30 +508,30 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 </div>
 </section>
 <section id="putting-your-entire-data-into-the-.qmd-file" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="putting-your-entire-data-into-the-.qmd-file"><span class="header-section-number">8.2</span> Putting your entire data into the .qmd file</h2>
+<h2 data-number="8.2"><span class="header-section-number">8.2</span> Putting your entire data into the .qmd file</h2>
 <p>Applying the function <code>dput()</code> to an object gives you the code needed to reproduce that object. So you could paste that code into your <code>.qmd</code> file if you don’t want to have extra data files. This makes sense were data files are small.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<div class="sourceCode" id="cb10"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dput</span>(data[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,]) <span class="co"># here we only take a subset</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>structure(list(Fertility = c(80.2, 83.1, 92.5, 85.8, 76.9), Agriculture = c(17, 
 45.1, 39.7, 36.5, 43.5), Examination = c(15L, 6L, 5L, 12L, 17L
 ), Education = c(12L, 9L, 5L, 7L, 15L), Catholic = c(9.96, 84.84, 
 93.4, 33.77, 5.16), Infant.Mortality = c(22.2, 22.2, 20.2, 20.3, 
-20.6)), row.names = c(NA, 5L), class = "data.frame")</code></pre>
+20.6)), row.names = c(NA, 5L), class = &quot;data.frame&quot;)</code></pre>
 </div>
 </div>
 <p>You can then insert the dput output in an rchunk in your <code>.qmd</code> as below.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<div class="sourceCode" id="cb12"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">structure</span>(<span class="fu">list</span>(<span class="at">Fertility =</span> <span class="fu">c</span>(<span class="fl">80.2</span>, <span class="fl">83.1</span>, <span class="fl">92.5</span>, <span class="fl">85.8</span>, <span class="fl">76.9</span>), </span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">Agriculture =</span> <span class="fu">c</span>(<span class="dv">17</span>, <span class="fl">45.1</span>, <span class="fl">39.7</span>, <span class="fl">36.5</span>, <span class="fl">43.5</span>), </span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">Examination =</span> <span class="fu">c</span>(15L, 6L, 5L, 12L, 17L), </span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>                       <span class="at">Education =</span> <span class="fu">c</span>(12L, 9L, 5L, 7L, 15L), </span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>                       <span class="at">Catholic =</span> <span class="fu">c</span>(<span class="fl">9.96</span>, <span class="fl">84.84</span>, <span class="fl">93.4</span>, <span class="fl">33.77</span>, <span class="fl">5.16</span>), </span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>                       <span class="at">Infant.Mortality =</span> <span class="fu">c</span>(<span class="fl">22.2</span>, <span class="fl">22.2</span>, <span class="fl">20.2</span>, <span class="fl">20.3</span>, <span class="fl">20.6</span>)), </span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">class =</span> <span class="st">"data.frame"</span>, <span class="at">row.names =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="sc">-</span>5L))</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">class =</span> <span class="st">&quot;data.frame&quot;</span>, <span class="at">row.names =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="sc">-</span>5L))</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <div class="cell">
 
 </div>
@@ -345,28 +541,28 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 <h1 data-number="9"><span class="header-section-number">9</span> Tables</h1>
 <p>If you are creating a Quarto document for scientific purposes, you probably cannot avoid creating tables and cross-referencing those tables in your document. Below we show examples that use different R libraries. Importantly, we focus on tables that are customized for PDF output. Formatting text as PDF is probably one of the most widespread standards in the scientific community, especially when it comes to submitting papers and similar documents. However, where applicable we also mention libraries and code for HTML output.</p>
 <section id="tables-with-kable-and-kable_styling" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="tables-with-kable-and-kable_styling"><span class="header-section-number">9.1</span> Tables with kable() and kable_styling()</h2>
-<p>A great function is <code>kable()</code> from the <code>knitr</code> package in combination with <code>kableExtra</code>. <a href="#tbl-1">Table&nbsp;1</a> provides such an example. To reference the table produced by the chunk you need to add <code>#| label: tbl-x</code> at the start of the chunk, i.e., <code>#| label: tbl-1</code> so that you can reference it by adding “<code>@tbl-1</code>” in your text. See below for the full chunk code.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<h2 data-number="9.1"><span class="header-section-number">9.1</span> Tables with kable() and kable_styling()</h2>
+<p>A great function is <code>kable()</code> from the <code>knitr</code> package in combination with <code>kableExtra</code>. <a href="#tbl-1">Table 1</a> provides such an example. To reference the table produced by the chunk you need to add <code>#| label: tbl-x</code> at the start of the chunk, i.e., <code>#| label: tbl-1</code> so that you can reference it by adding “<code>@tbl-1</code>” in your text. See below for the full chunk code.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-1</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Summary: Numeric variables"</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: &quot;Summary: Numeric variables&quot;</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(swiss[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,], <span class="at">row.names =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">'Table with kable() and kablestyling()'</span>,</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">booktabs =</span> T, <span class="at">format=</span><span class="st">"simple"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">&#39;Table with kable() and kablestyling()&#39;</span>,</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">booktabs =</span> T, <span class="at">format=</span><span class="st">&quot;simple&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>        kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(<span class="at">full_width =</span> T, </span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>                      <span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, </span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"scale_down"</span>,</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"HOLD_position"</span>),</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>                      <span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">&quot;striped&quot;</span>, </span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&quot;scale_down&quot;</span>,</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&quot;HOLD_position&quot;</span>),</span>
 <span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>                      <span class="at">font_size =</span> <span class="dv">11</span>)</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="tbl-1" class="anchored">
-<table class="table table-sm table-striped">
-<caption>Table&nbsp;1: Summary: Numeric variables</caption>
+<div id="tbl-1">
+<table>
+<caption>Table 1: Summary: Numeric variables</caption>
 <thead>
 <tr class="header">
 <th></th>
@@ -431,125 +627,127 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 </div>
 </section>
 <section id="tables-with-modelsummary" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="tables-with-modelsummary"><span class="header-section-number">9.2</span> Tables with modelsummary</h2>
+<h2 data-number="9.2"><span class="header-section-number">9.2</span> Tables with modelsummary</h2>
 <p>If you want to create well-formatted HTML output, consider learning about the <code>modelsummary</code> R package. <code>modelsummary</code> provides a variety of tables and plots to summarize statistical models and data in R. <code>modelsummary</code> plots and tables are highly customizable and they can be saved to almost all formats, e.g., HTML, PDF and Markdown. This makes it especially easy to embed them in dynamic documents. Please look at the package’s extensive <a href="https://vincentarelbundock.github.io/modelsummary/index.html">documentation</a> where they also show examples for almost any plot or table you might be looking for. In this template we demonstrate an example for modelsummary’s <code>datasummary</code> function. <code>Datasummary</code> creates frequency tables, crosstab tables, correlation tables, balance tables and many <strong>more</strong>.</p>
 <section id="summarize-numeric-variables-with-modelsummary" class="level3" data-number="9.2.1">
-<h3 data-number="9.2.1" class="anchored" data-anchor-id="summarize-numeric-variables-with-modelsummary"><span class="header-section-number">9.2.1</span> Summarize numeric variables with modelsummary</h3>
-<p><a href="#tbl-2">Table&nbsp;2</a> shows a summary table for numeric variables.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<h3 data-number="9.2.1"><span class="header-section-number">9.2.1</span> Summarize numeric variables with modelsummary</h3>
+<p><a href="#tbl-2">Table 2</a> shows a summary table for numeric variables.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-2</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Summary: Numeric variables"</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: &quot;Summary: Numeric variables&quot;</span></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_skim</span>(swiss, </span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">type=</span><span class="st">"numeric"</span>, </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">type=</span><span class="st">&quot;numeric&quot;</span>, </span>
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">histogram=</span>F,</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">output=</span><span class="st">"flextable"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">output=</span><span class="st">&quot;flextable&quot;</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># column widths</span></span>
 <span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">autofit</span>()</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="tbl-2" class="anchored">
+<div id="tbl-2">
 
-<div class="tabwid"><style>.cl-faec3388{}.cl-fae055b8{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-fae55da6{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-fae5744e{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fae5744f{width:0.5in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fae57458{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fae57459{width:0.5in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fae5745a{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fae57462{width:0.5in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-faec3388"><caption>Table&nbsp;2:  Summary: Numeric variables </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-fae5744e"><p class="cl-fae55da6"><span class="cl-fae055b8"> </span></p></th><th class="cl-fae5744f"><p class="cl-fae55da6"><span class="cl-fae055b8">Unique (#)</span></p></th><th class="cl-fae5744f"><p class="cl-fae55da6"><span class="cl-fae055b8">Missing (%)</span></p></th><th class="cl-fae5744f"><p class="cl-fae55da6"><span class="cl-fae055b8">Mean</span></p></th><th class="cl-fae5744f"><p class="cl-fae55da6"><span class="cl-fae055b8">SD</span></p></th><th class="cl-fae5744f"><p class="cl-fae55da6"><span class="cl-fae055b8">Min</span></p></th><th class="cl-fae5744f"><p class="cl-fae55da6"><span class="cl-fae055b8">Median</span></p></th><th class="cl-fae5744f"><p class="cl-fae55da6"><span class="cl-fae055b8">Max</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-fae57458"><p class="cl-fae55da6"><span class="cl-fae055b8">Fertility</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">46</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">0</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">70.1</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">12.5</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">35.0</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">70.4</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">92.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fae57458"><p class="cl-fae55da6"><span class="cl-fae055b8">Agriculture</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">47</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">0</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">50.7</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">22.7</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">1.2</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">54.1</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">89.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fae57458"><p class="cl-fae55da6"><span class="cl-fae055b8">Examination</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">22</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">0</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">16.5</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">8.0</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">3.0</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">16.0</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">37.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fae57458"><p class="cl-fae55da6"><span class="cl-fae055b8">Education</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">19</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">0</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">11.0</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">9.6</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">1.0</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">8.0</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">53.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fae57458"><p class="cl-fae55da6"><span class="cl-fae055b8">Catholic</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">46</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">0</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">41.1</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">41.7</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">2.1</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">15.1</span></p></td><td class="cl-fae57459"><p class="cl-fae55da6"><span class="cl-fae055b8">100.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fae5745a"><p class="cl-fae55da6"><span class="cl-fae055b8">Infant.Mortality</span></p></td><td class="cl-fae57462"><p class="cl-fae55da6"><span class="cl-fae055b8">37</span></p></td><td class="cl-fae57462"><p class="cl-fae55da6"><span class="cl-fae055b8">0</span></p></td><td class="cl-fae57462"><p class="cl-fae55da6"><span class="cl-fae055b8">19.9</span></p></td><td class="cl-fae57462"><p class="cl-fae55da6"><span class="cl-fae055b8">2.9</span></p></td><td class="cl-fae57462"><p class="cl-fae55da6"><span class="cl-fae055b8">10.8</span></p></td><td class="cl-fae57462"><p class="cl-fae55da6"><span class="cl-fae055b8">20.0</span></p></td><td class="cl-fae57462"><p class="cl-fae55da6"><span class="cl-fae055b8">26.6</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-24a47e64{}.cl-2495b794{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-249bb734{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-249bd598{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-249bd5a2{width:0.5in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-249bd5a3{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-249bd5a4{width:0.5in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-249bd5ac{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-249bd5ad{width:0.5in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-24a47e64'><caption>Table 2:  Summary: Numeric variables </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-249bd598"><p class="cl-249bb734"><span class="cl-2495b794"> </span></p></th><th class="cl-249bd5a2"><p class="cl-249bb734"><span class="cl-2495b794">Unique (#)</span></p></th><th class="cl-249bd5a2"><p class="cl-249bb734"><span class="cl-2495b794">Missing (%)</span></p></th><th class="cl-249bd5a2"><p class="cl-249bb734"><span class="cl-2495b794">Mean</span></p></th><th class="cl-249bd5a2"><p class="cl-249bb734"><span class="cl-2495b794">SD</span></p></th><th class="cl-249bd5a2"><p class="cl-249bb734"><span class="cl-2495b794">Min</span></p></th><th class="cl-249bd5a2"><p class="cl-249bb734"><span class="cl-2495b794">Median</span></p></th><th class="cl-249bd5a2"><p class="cl-249bb734"><span class="cl-2495b794">Max</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-249bd5a3"><p class="cl-249bb734"><span class="cl-2495b794">Fertility</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">46</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">0</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">70.1</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">12.5</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">35.0</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">70.4</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">92.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-249bd5a3"><p class="cl-249bb734"><span class="cl-2495b794">Agriculture</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">47</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">0</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">50.7</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">22.7</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">1.2</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">54.1</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">89.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-249bd5a3"><p class="cl-249bb734"><span class="cl-2495b794">Examination</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">22</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">0</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">16.5</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">8.0</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">3.0</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">16.0</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">37.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-249bd5a3"><p class="cl-249bb734"><span class="cl-2495b794">Education</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">19</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">0</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">11.0</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">9.6</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">1.0</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">8.0</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">53.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-249bd5a3"><p class="cl-249bb734"><span class="cl-2495b794">Catholic</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">46</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">0</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">41.1</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">41.7</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">2.1</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">15.1</span></p></td><td class="cl-249bd5a4"><p class="cl-249bb734"><span class="cl-2495b794">100.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-249bd5ac"><p class="cl-249bb734"><span class="cl-2495b794">Infant.Mortality</span></p></td><td class="cl-249bd5ad"><p class="cl-249bb734"><span class="cl-2495b794">37</span></p></td><td class="cl-249bd5ad"><p class="cl-249bb734"><span class="cl-2495b794">0</span></p></td><td class="cl-249bd5ad"><p class="cl-249bb734"><span class="cl-2495b794">19.9</span></p></td><td class="cl-249bd5ad"><p class="cl-249bb734"><span class="cl-2495b794">2.9</span></p></td><td class="cl-249bd5ad"><p class="cl-249bb734"><span class="cl-2495b794">10.8</span></p></td><td class="cl-249bd5ad"><p class="cl-249bb734"><span class="cl-2495b794">20.0</span></p></td><td class="cl-249bd5ad"><p class="cl-249bb734"><span class="cl-2495b794">26.6</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </div>
 </section>
 <section id="summarize-categorical-variables-with-modelsummary" class="level3" data-number="9.2.2">
-<h3 data-number="9.2.2" class="anchored" data-anchor-id="summarize-categorical-variables-with-modelsummary"><span class="header-section-number">9.2.2</span> Summarize categorical variables with modelsummary</h3>
-<p><a href="#tbl-3">Table&nbsp;3</a> shows a summary table for categorical variables. Notice how for this table we also changed the font to be “Times New Roman”.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<h3 data-number="9.2.2"><span class="header-section-number">9.2.2</span> Summarize categorical variables with modelsummary</h3>
+<p><a href="#tbl-3">Table 3</a> shows a summary table for categorical variables. Notice how for this table we also changed the font to be “Times New Roman”.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-3</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Summary: Categorical variables"</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: &quot;Summary: Categorical variables&quot;</span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create categorical variables</span></span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>swiss<span class="sc">$</span>Education_cat <span class="ot">&lt;-</span> <span class="fu">cut</span>(swiss<span class="sc">$</span>Education, </span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">breaks=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="cn">Inf</span>), </span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"low"</span>,<span class="st">"middle"</span>,<span class="st">"high"</span>))</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;low&quot;</span>,<span class="st">&quot;middle&quot;</span>,<span class="st">&quot;high&quot;</span>))</span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>swiss<span class="sc">$</span>Infant.Mortality_cat <span class="ot">&lt;-</span> <span class="fu">cut</span>(swiss<span class="sc">$</span>Infant.Mortality, </span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>                   <span class="at">breaks=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="fl">18.15</span>, <span class="fl">21.70</span>, <span class="cn">Inf</span>), </span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"low"</span>,<span class="st">"middle"</span>,<span class="st">"high"</span>))</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;low&quot;</span>,<span class="st">&quot;middle&quot;</span>,<span class="st">&quot;high&quot;</span>))</span>
 <span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span>
 <span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>tab_cat <span class="ot">&lt;-</span> <span class="fu">datasummary_skim</span>(swiss, </span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>                            <span class="at">type=</span><span class="st">"categorical"</span>, </span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>                            <span class="at">output =</span> <span class="st">'flextable'</span>) </span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>                            <span class="at">type=</span><span class="st">&quot;categorical&quot;</span>, </span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>                            <span class="at">output =</span> <span class="st">&#39;flextable&#39;</span>) </span>
 <span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="co"># additionally we want to change the font, fontsize and spacing</span></span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"gdtools"</span>)</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;gdtools&quot;</span>)</span>
 <span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>tab_cat <span class="ot">&lt;-</span> tab_cat <span class="sc">%&gt;%</span></span>
-<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">font</span>(<span class="at">fontname=</span><span class="st">"Times New Roman"</span>, <span class="at">part=</span><span class="st">"header"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">font</span>(<span class="at">fontname=</span><span class="st">"Times New Roman"</span>, <span class="at">j=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fontsize</span>(<span class="at">size=</span><span class="dv">12</span>, <span class="at">part=</span><span class="st">"header"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">font</span>(<span class="at">fontname=</span><span class="st">&quot;Times New Roman&quot;</span>, <span class="at">part=</span><span class="st">&quot;header&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">font</span>(<span class="at">fontname=</span><span class="st">&quot;Times New Roman&quot;</span>, <span class="at">j=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fontsize</span>(<span class="at">size=</span><span class="dv">12</span>, <span class="at">part=</span><span class="st">&quot;header&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fontsize</span>(<span class="at">size=</span><span class="dv">10</span>, <span class="at">j=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">line_spacing</span>(<span class="at">space =</span> <span class="fl">0.3</span>, <span class="at">part =</span> <span class="st">"all"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">line_spacing</span>(<span class="at">space =</span> <span class="fl">0.3</span>, <span class="at">part =</span> <span class="st">&quot;all&quot;</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># column widths</span></span>
 <span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">autofit</span>()</span>
 <span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>tab_cat</span>
-<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="tbl-3" class="anchored">
+<div id="tbl-3">
 
-<div class="tabwid"><style>.cl-fb4acfe2{}.cl-fb40b228{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-fb446ca6{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 0.3;background-color:transparent;}.cl-fb44806a{width:1.632in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb448074{width:0.748in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb448075{width:0.452in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb448076{width:0.577in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb44807e{width:1.632in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb44807f{width:0.748in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb448080{width:0.452in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb448088{width:0.577in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb448089{width:1.632in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb44808a{width:0.748in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb44808b{width:0.452in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb448092{width:0.577in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb448093{width:1.632in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb448094{width:0.748in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb448095{width:0.452in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb44809c{width:0.577in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-fb4acfe2"><caption>Table&nbsp;3:  Summary: Categorical variables </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-fb44806a"><p class="cl-fb446ca6"><span class="cl-fb40b228"> </span></p></th><th class="cl-fb448074"><p class="cl-fb446ca6"><span class="cl-fb40b228">  </span></p></th><th class="cl-fb448075"><p class="cl-fb446ca6"><span class="cl-fb40b228">N</span></p></th><th class="cl-fb448076"><p class="cl-fb446ca6"><span class="cl-fb40b228">%</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-fb44807e"><p class="cl-fb446ca6"><span class="cl-fb40b228">Education_cat</span></p></td><td class="cl-fb44807f"><p class="cl-fb446ca6"><span class="cl-fb40b228">low</span></p></td><td class="cl-fb448080"><p class="cl-fb446ca6"><span class="cl-fb40b228">14</span></p></td><td class="cl-fb448088"><p class="cl-fb446ca6"><span class="cl-fb40b228">29.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb448089"><p class="cl-fb446ca6"><span class="cl-fb40b228"></span></p></td><td class="cl-fb44808a"><p class="cl-fb446ca6"><span class="cl-fb40b228">middle</span></p></td><td class="cl-fb44808b"><p class="cl-fb446ca6"><span class="cl-fb40b228">22</span></p></td><td class="cl-fb448092"><p class="cl-fb446ca6"><span class="cl-fb40b228">46.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb44807e"><p class="cl-fb446ca6"><span class="cl-fb40b228"></span></p></td><td class="cl-fb44807f"><p class="cl-fb446ca6"><span class="cl-fb40b228">high</span></p></td><td class="cl-fb448080"><p class="cl-fb446ca6"><span class="cl-fb40b228">11</span></p></td><td class="cl-fb448088"><p class="cl-fb446ca6"><span class="cl-fb40b228">23.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb44807e"><p class="cl-fb446ca6"><span class="cl-fb40b228">Infant.Mortality_cat</span></p></td><td class="cl-fb44807f"><p class="cl-fb446ca6"><span class="cl-fb40b228">low</span></p></td><td class="cl-fb448080"><p class="cl-fb446ca6"><span class="cl-fb40b228">12</span></p></td><td class="cl-fb448088"><p class="cl-fb446ca6"><span class="cl-fb40b228">25.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb448089"><p class="cl-fb446ca6"><span class="cl-fb40b228"></span></p></td><td class="cl-fb44808a"><p class="cl-fb446ca6"><span class="cl-fb40b228">middle</span></p></td><td class="cl-fb44808b"><p class="cl-fb446ca6"><span class="cl-fb40b228">23</span></p></td><td class="cl-fb448092"><p class="cl-fb446ca6"><span class="cl-fb40b228">48.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb448093"><p class="cl-fb446ca6"><span class="cl-fb40b228"></span></p></td><td class="cl-fb448094"><p class="cl-fb446ca6"><span class="cl-fb40b228">high</span></p></td><td class="cl-fb448095"><p class="cl-fb446ca6"><span class="cl-fb40b228">12</span></p></td><td class="cl-fb44809c"><p class="cl-fb446ca6"><span class="cl-fb40b228">25.5</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-25153bae{}.cl-25089048{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-250d2fea{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 0.3;background-color:transparent;}.cl-250d49da{width:1.632in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-250d49e4{width:0.748in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-250d49e5{width:0.452in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-250d49ee{width:0.577in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-250d49f8{width:1.632in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-250d49f9{width:0.748in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-250d49fa{width:0.452in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-250d4a02{width:0.577in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-250d4a03{width:1.632in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-250d4a04{width:0.748in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-250d4a0c{width:0.452in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-250d4a0d{width:0.577in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-250d4a0e{width:1.632in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-250d4a16{width:0.748in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-250d4a17{width:0.452in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-250d4a18{width:0.577in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-25153bae'><caption>Table 3:  Summary: Categorical variables </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-250d49da"><p class="cl-250d2fea"><span class="cl-25089048"> </span></p></th><th class="cl-250d49e4"><p class="cl-250d2fea"><span class="cl-25089048">  </span></p></th><th class="cl-250d49e5"><p class="cl-250d2fea"><span class="cl-25089048">N</span></p></th><th class="cl-250d49ee"><p class="cl-250d2fea"><span class="cl-25089048">%</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-250d49f8"><p class="cl-250d2fea"><span class="cl-25089048">Education_cat</span></p></td><td class="cl-250d49f9"><p class="cl-250d2fea"><span class="cl-25089048">low</span></p></td><td class="cl-250d49fa"><p class="cl-250d2fea"><span class="cl-25089048">14</span></p></td><td class="cl-250d4a02"><p class="cl-250d2fea"><span class="cl-25089048">29.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-250d4a03"><p class="cl-250d2fea"><span class="cl-25089048"></span></p></td><td class="cl-250d4a04"><p class="cl-250d2fea"><span class="cl-25089048">middle</span></p></td><td class="cl-250d4a0c"><p class="cl-250d2fea"><span class="cl-25089048">22</span></p></td><td class="cl-250d4a0d"><p class="cl-250d2fea"><span class="cl-25089048">46.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-250d49f8"><p class="cl-250d2fea"><span class="cl-25089048"></span></p></td><td class="cl-250d49f9"><p class="cl-250d2fea"><span class="cl-25089048">high</span></p></td><td class="cl-250d49fa"><p class="cl-250d2fea"><span class="cl-25089048">11</span></p></td><td class="cl-250d4a02"><p class="cl-250d2fea"><span class="cl-25089048">23.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-250d49f8"><p class="cl-250d2fea"><span class="cl-25089048">Infant.Mortality_cat</span></p></td><td class="cl-250d49f9"><p class="cl-250d2fea"><span class="cl-25089048">low</span></p></td><td class="cl-250d49fa"><p class="cl-250d2fea"><span class="cl-25089048">12</span></p></td><td class="cl-250d4a02"><p class="cl-250d2fea"><span class="cl-25089048">25.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-250d4a03"><p class="cl-250d2fea"><span class="cl-25089048"></span></p></td><td class="cl-250d4a04"><p class="cl-250d2fea"><span class="cl-25089048">middle</span></p></td><td class="cl-250d4a0c"><p class="cl-250d2fea"><span class="cl-25089048">23</span></p></td><td class="cl-250d4a0d"><p class="cl-250d2fea"><span class="cl-25089048">48.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-250d4a0e"><p class="cl-250d2fea"><span class="cl-25089048"></span></p></td><td class="cl-250d4a16"><p class="cl-250d2fea"><span class="cl-25089048">high</span></p></td><td class="cl-250d4a17"><p class="cl-250d2fea"><span class="cl-25089048">12</span></p></td><td class="cl-250d4a18"><p class="cl-250d2fea"><span class="cl-25089048">25.5</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </div>
 </section>
 <section id="regression-table-with-modelsummary" class="level3" data-number="9.2.3">
-<h3 data-number="9.2.3" class="anchored" data-anchor-id="regression-table-with-modelsummary"><span class="header-section-number">9.2.3</span> Regression table with modelsummary</h3>
-<p><a href="#tbl-4">Table&nbsp;4</a> shows the output for a regression table. Make sure you name all the models you estimate with unique identifiers (even if its 50 models) and explicitly refer to model names (M1, M2 etc.) in the text.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<h3 data-number="9.2.3"><span class="header-section-number">9.2.3</span> Regression table with modelsummary</h3>
+<p><a href="#tbl-4">Table 4</a> shows the output for a regression table. Make sure you name all the models you estimate with unique identifiers (even if its 50 models) and explicitly refer to model names (M1, M2 etc.) in the text.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-4</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Linear regression with modelsummary"</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> Education <span class="sc">+</span> Agriculture, <span class="at">data =</span> swiss)</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>M2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> Education <span class="sc">+</span> Catholic, <span class="at">data =</span> swiss)</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>M3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> Education <span class="sc">+</span> Infant.Mortality <span class="sc">+</span> Agriculture, <span class="at">data =</span> swiss)</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"M1"</span> <span class="ot">=</span> M1, <span class="st">"M2"</span> <span class="ot">=</span>  M2, <span class="st">"M3"</span> <span class="ot">=</span> M3)</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co"># additionally we want to change the font, font size and spacing</span></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(models,</span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>             <span class="at">output =</span> <span class="st">'gt'</span>,</span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>             <span class="at">notes =</span> <span class="st">"Notes: some notes..."</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_spanner</span>(<span class="at">label =</span> <span class="st">'Dependent variable: Fertility'</span>, <span class="at">columns =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_options</span>(</span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">table.font.size =</span> <span class="dv">10</span>,</span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">data_row.padding =</span> <span class="fu">px</span>(<span class="dv">1</span>),</span>
-<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">table.border.top.color =</span> <span class="st">"white"</span>,</span>
-<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">heading.border.bottom.color =</span> <span class="st">"black"</span>,</span>
-<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">row_group.border.top.color =</span> <span class="st">"black"</span>,</span>
-<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">row_group.border.bottom.color =</span> <span class="st">"white"</span>,</span>
-<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">table.border.bottom.color =</span> <span class="st">"white"</span>,</span>
-<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">column_labels.border.top.color =</span> <span class="st">"black"</span>,</span>
-<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">column_labels.border.bottom.color =</span> <span class="st">"black"</span>,</span>
-<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">table_body.border.bottom.color =</span> <span class="st">"black"</span>,</span>
-<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">table_body.hlines.color =</span> <span class="st">"white"</span></span>
-<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Produce right output depending on format (html vs. latex)</span></span>
-<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(knitr<span class="sc">::</span><span class="fu">is_html_output</span>()){table4}<span class="cf">else</span></span>
-<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a>    {table4 <span class="sc">%&gt;%</span> gt<span class="sc">::</span><span class="fu">as_latex</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.character</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">(Intercept</span><span class="sc">\\</span><span class="st">)"</span>, <span class="st">"Intercept"</span>, .) <span class="sc">%&gt;%</span> </span>
-<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>()}</span>
-<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: &quot;Linear regression with modelsummary&quot;</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: &quot;asis&quot;</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> Education <span class="sc">+</span> Agriculture, <span class="at">data =</span> swiss)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>M2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> Education <span class="sc">+</span> Catholic, <span class="at">data =</span> swiss)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>M3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> Education <span class="sc">+</span> Infant.Mortality <span class="sc">+</span> Agriculture, <span class="at">data =</span> swiss)</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&quot;M1&quot;</span> <span class="ot">=</span> M1, <span class="st">&quot;M2&quot;</span> <span class="ot">=</span>  M2, <span class="st">&quot;M3&quot;</span> <span class="ot">=</span> M3)</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co"># additionally we want to change the font, font size and spacing</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(models,</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>             <span class="at">output =</span> <span class="st">&#39;gt&#39;</span>,</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>             <span class="at">notes =</span> <span class="st">&quot;Notes: some notes...&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_spanner</span>(<span class="at">label =</span> <span class="st">&#39;Dependent variable: Fertility&#39;</span>, <span class="at">columns =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_options</span>(</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">table.font.size =</span> <span class="dv">10</span>,</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">data_row.padding =</span> <span class="fu">px</span>(<span class="dv">1</span>),</span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">table.border.top.color =</span> <span class="st">&quot;white&quot;</span>,</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">heading.border.bottom.color =</span> <span class="st">&quot;black&quot;</span>,</span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">row_group.border.top.color =</span> <span class="st">&quot;black&quot;</span>,</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">row_group.border.bottom.color =</span> <span class="st">&quot;white&quot;</span>,</span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">table.border.bottom.color =</span> <span class="st">&quot;white&quot;</span>,</span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">column_labels.border.top.color =</span> <span class="st">&quot;black&quot;</span>,</span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">column_labels.border.bottom.color =</span> <span class="st">&quot;black&quot;</span>,</span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">table_body.border.bottom.color =</span> <span class="st">&quot;black&quot;</span>,</span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">table_body.hlines.color =</span> <span class="st">&quot;white&quot;</span></span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Produce right output depending on format (html vs. latex)</span></span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(knitr<span class="sc">::</span><span class="fu">is_html_output</span>()){table4}<span class="cf">else</span></span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>    {table4 <span class="sc">%&gt;%</span> gt<span class="sc">::</span><span class="fu">as_latex</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.character</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gsub</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">(Intercept</span><span class="sc">\\</span><span class="st">)&quot;</span>, <span class="st">&quot;Intercept&quot;</span>, .) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>()}</span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="tbl-4" class="anchored">
+<div id="tbl-4">
 
-<div id="ryqwxysqoh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="pofeewznpn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#ryqwxysqoh) .gt_table {
+:where(#pofeewznpn) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -574,7 +772,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-left-color: #D3D3D3;
 }
 
-:where(#ryqwxysqoh) .gt_heading {
+:where(#pofeewznpn) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -586,12 +784,12 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-right-color: #D3D3D3;
 }
 
-:where(#ryqwxysqoh) .gt_caption {
+:where(#pofeewznpn) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#ryqwxysqoh) .gt_title {
+:where(#pofeewznpn) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -603,7 +801,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-bottom-width: 0;
 }
 
-:where(#ryqwxysqoh) .gt_subtitle {
+:where(#pofeewznpn) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -615,13 +813,13 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-top-width: 0;
 }
 
-:where(#ryqwxysqoh) .gt_bottom_border {
+:where(#pofeewznpn) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#ryqwxysqoh) .gt_col_headings {
+:where(#pofeewznpn) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -636,7 +834,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-right-color: #D3D3D3;
 }
 
-:where(#ryqwxysqoh) .gt_col_heading {
+:where(#pofeewznpn) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -656,7 +854,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   overflow-x: hidden;
 }
 
-:where(#ryqwxysqoh) .gt_column_spanner_outer {
+:where(#pofeewznpn) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -668,15 +866,15 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 4px;
 }
 
-:where(#ryqwxysqoh) .gt_column_spanner_outer:first-child {
+:where(#pofeewznpn) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#ryqwxysqoh) .gt_column_spanner_outer:last-child {
+:where(#pofeewznpn) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#ryqwxysqoh) .gt_column_spanner {
+:where(#pofeewznpn) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -688,7 +886,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   width: 100%;
 }
 
-:where(#ryqwxysqoh) .gt_group_heading {
+:where(#pofeewznpn) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -714,7 +912,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   text-align: left;
 }
 
-:where(#ryqwxysqoh) .gt_empty_group_heading {
+:where(#pofeewznpn) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -729,15 +927,15 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   vertical-align: middle;
 }
 
-:where(#ryqwxysqoh) .gt_from_md > :first-child {
+:where(#pofeewznpn) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#ryqwxysqoh) .gt_from_md > :last-child {
+:where(#pofeewznpn) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#ryqwxysqoh) .gt_row {
+:where(#pofeewznpn) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -756,7 +954,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   overflow-x: hidden;
 }
 
-:where(#ryqwxysqoh) .gt_stub {
+:where(#pofeewznpn) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -769,7 +967,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 5px;
 }
 
-:where(#ryqwxysqoh) .gt_stub_row_group {
+:where(#pofeewznpn) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -783,11 +981,11 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   vertical-align: top;
 }
 
-:where(#ryqwxysqoh) .gt_row_group_first td {
+:where(#pofeewznpn) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#ryqwxysqoh) .gt_summary_row {
+:where(#pofeewznpn) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -797,16 +995,16 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 5px;
 }
 
-:where(#ryqwxysqoh) .gt_first_summary_row {
+:where(#pofeewznpn) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#ryqwxysqoh) .gt_first_summary_row.thick {
+:where(#pofeewznpn) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#ryqwxysqoh) .gt_last_summary_row {
+:where(#pofeewznpn) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -816,7 +1014,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-bottom-color: #D3D3D3;
 }
 
-:where(#ryqwxysqoh) .gt_grand_summary_row {
+:where(#pofeewznpn) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -826,7 +1024,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 5px;
 }
 
-:where(#ryqwxysqoh) .gt_first_grand_summary_row {
+:where(#pofeewznpn) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -836,11 +1034,11 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-top-color: #D3D3D3;
 }
 
-:where(#ryqwxysqoh) .gt_striped {
+:where(#pofeewznpn) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#ryqwxysqoh) .gt_table_body {
+:where(#pofeewznpn) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -849,7 +1047,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-bottom-color: #D3D3D3;
 }
 
-:where(#ryqwxysqoh) .gt_footnotes {
+:where(#pofeewznpn) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -863,7 +1061,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-right-color: #D3D3D3;
 }
 
-:where(#ryqwxysqoh) .gt_footnote {
+:where(#pofeewznpn) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -872,7 +1070,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 5px;
 }
 
-:where(#ryqwxysqoh) .gt_sourcenotes {
+:where(#pofeewznpn) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -886,7 +1084,7 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   border-right-color: #D3D3D3;
 }
 
-:where(#ryqwxysqoh) .gt_sourcenote {
+:where(#pofeewznpn) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -894,68 +1092,68 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
   padding-right: 5px;
 }
 
-:where(#ryqwxysqoh) .gt_left {
+:where(#pofeewznpn) .gt_left {
   text-align: left;
 }
 
-:where(#ryqwxysqoh) .gt_center {
+:where(#pofeewznpn) .gt_center {
   text-align: center;
 }
 
-:where(#ryqwxysqoh) .gt_right {
+:where(#pofeewznpn) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#ryqwxysqoh) .gt_font_normal {
+:where(#pofeewznpn) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#ryqwxysqoh) .gt_font_bold {
+:where(#pofeewznpn) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#ryqwxysqoh) .gt_font_italic {
+:where(#pofeewznpn) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#ryqwxysqoh) .gt_super {
+:where(#pofeewznpn) .gt_super {
   font-size: 65%;
 }
 
-:where(#ryqwxysqoh) .gt_footnote_marks {
+:where(#pofeewznpn) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#ryqwxysqoh) .gt_asterisk {
+:where(#pofeewznpn) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#ryqwxysqoh) .gt_indent_1 {
+:where(#pofeewznpn) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#ryqwxysqoh) .gt_indent_2 {
+:where(#pofeewznpn) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#ryqwxysqoh) .gt_indent_3 {
+:where(#pofeewznpn) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#ryqwxysqoh) .gt_indent_4 {
+:where(#pofeewznpn) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#ryqwxysqoh) .gt_indent_5 {
+:where(#pofeewznpn) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table"><caption>Table&nbsp;4:  Linear regression with modelsummary </caption>
+<table class="gt_table"><caption>Table 4:  Linear regression with modelsummary </caption>
   
   <thead class="gt_col_headings">
     <tr>
@@ -1059,50 +1257,50 @@ Differences to RMarkdown are not only but especially due to two facts: first, Qu
 </section>
 <section id="inline-code-results" class="level1" data-number="10">
 <h1 data-number="10"><span class="header-section-number">10</span> Inline code &amp; results</h1>
-<p>Reproduction reaches new heights when you work with inline code. For instance, you can automatize the display of certain coefficients within the text. An example is to include estimates, e.g., the coefficient of <code>dist</code> of the model we ran above. <code class="r"><code>`r round(coef(M1)[2], 2)`</code></code> will insert the coefficient as follows: -0.96. Or <code class="r"><code>`r 3 + 7`</code></code> will insert a 10 in the text.<br>
-Inline code/results that depend on earlier objects in your document will automatically be updated once you change those objects. For instance, imagine a reviewer asks you to omit certain observations from your sample. You can simply do so in the beginning of your code and push play subsequently.. at time you might have to set <code>cache = FALSE</code> at the beginning so that all the code chunks are rerun.<br>
+<p>Reproduction reaches new heights when you work with inline code. For instance, you can automatize the display of certain coefficients within the text. An example is to include estimates, e.g., the coefficient of <code>dist</code> of the model we ran above. <code  class="r"><code>`r round(coef(M1)[2], 2)`</code></code> will insert the coefficient as follows: -0.96. Or <code  class="r"><code>`r 3 + 7`</code></code> will insert a 10 in the text.<br />
+Inline code/results that depend on earlier objects in your document will automatically be updated once you change those objects. For instance, imagine a reviewer asks you to omit certain observations from your sample. You can simply do so in the beginning of your code and push play subsequently.. at time you might have to set <code>cache = FALSE</code> at the beginning so that all the code chunks are rerun.<br />
 Researchers often avoid referring to results in-text etc. because you easily forget to change them when revising a manuscript. At the same it can make an article much more informative and easier to read, e.g., if you discuss a coefficient in the text you can directly show it in the section in which you discuss it. Inline code allows you to do just that. R Markdown allows you to that do so in a reproducible and automatized manner.</p>
 </section>
 <section id="graphs" class="level1" data-number="11">
 <h1 data-number="11"><span class="header-section-number">11</span> Graphs</h1>
 <section id="r-base-graphs" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="r-base-graphs"><span class="header-section-number">11.1</span> R base graphs</h2>
-<p>A fully reproducible manuscript would create diagrams directly in the <code>.qmd</code> file and insert them in the appropriate place. It’s relatively simple to insert R base graphs as you can see in <a href="#fig-1">Figure&nbsp;1</a>.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<h2 data-number="11.1"><span class="header-section-number">11.1</span> R base graphs</h2>
+<p>A fully reproducible manuscript would create diagrams directly in the <code>.qmd</code> file and insert them in the appropriate place. It’s relatively simple to insert R base graphs as you can see in <a href="#fig-1">Figure 1</a>.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-1</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Scatterplot of Speed and Distance"</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: &quot;Scatterplot of Speed and Distance&quot;</span></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(swiss<span class="sc">$</span>Catholic, swiss<span class="sc">$</span>Fertility)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="paper_files/figure-html/fig-1-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1: Scatterplot of Speed and Distance</figcaption><p></p>
+<div id="fig-1" class="quarto-figure quarto-figure-center">
+<figure>
+<p><img src="paper_files/figure-html/fig-1-1.png" class="img-fluid" width="672" /></p>
+<p><figcaption>Figure 1: Scatterplot of Speed and Distance</figcaption></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
 <section id="ggplot2-graphs" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="ggplot2-graphs"><span class="header-section-number">11.2</span> ggplot2 graphs</h2>
-<p>Below in <a href="#fig-2">Figure&nbsp;2</a> we also show a example witrh R’s <code>ggplot2</code> package.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<h2 data-number="11.2"><span class="header-section-number">11.2</span> ggplot2 graphs</h2>
+<p>Below in <a href="#fig-2">Figure 2</a> we also show a example witrh R’s <code>ggplot2</code> package.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-2</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Miles per gallon according to the weight"</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: &quot;Miles per gallon according to the weight&quot;</span></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(swiss, <span class="fu">aes</span>(<span class="at">x=</span>Catholic, <span class="at">y=</span>Fertility, <span class="at">shape=</span>Education_cat)) <span class="sc">+</span></span>
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Agriculture"</span>, <span class="at">y =</span> <span class="st">"Fertility"</span>, <span class="at">shape=</span><span class="st">"Education"</span>) <span class="sc">+</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Agriculture&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Fertility&quot;</span>, <span class="at">shape=</span><span class="st">&quot;Education&quot;</span>) <span class="sc">+</span></span>
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme_classic</span>()</span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>plot</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="paper_files/figure-html/fig-2-1.png" class="img-fluid figure-img" width="576"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2: Fertility and Agriculture by Education</figcaption><p></p>
+<div id="fig-2" class="quarto-figure quarto-figure-center">
+<figure>
+<p><img src="paper_files/figure-html/fig-2-1.png" class="img-fluid" width="576" /></p>
+<p><figcaption>Figure 2: Fertility and Agriculture by Education</figcaption></p>
 </figure>
 </div>
 </div>
@@ -1113,29 +1311,29 @@ Researchers often avoid referring to results in-text etc. because you easily for
 <h1 data-number="12"><span class="header-section-number">12</span> Compiling the document</h1>
 <p>Eventually you have two options on how to render/compile/knit your document:</p>
 <ul>
-<li><p>first, use the Render Button in R Studio. If you click it without using the drop down menu, by default it will create HTML since it is the first format listed in our YAML. Always remember to specify your desired output formats in your YAML (as described in <a href="#sec-basics-2">Section&nbsp;5</a>) If you use the drop down menu of the “Render”-button, you can specify the desired output (e.g., HTML or PDF) but only if you specified it in your YAML.</p></li>
+<li><p>first, use the Render Button in R Studio. If you click it without using the drop down menu, by default it will create HTML since it is the first format listed in our YAML. Always remember to specify your desired output formats in your YAML (as described in <a href="#sec-basics-2">Section 5</a>) If you use the drop down menu of the “Render”-button, you can specify the desired output (e.g., HTML or PDF) but only if you specified it in your YAML.</p></li>
 <li><p>second, if you are not using RStudio and/or you prefer to render from the R console, use the <code>quarto</code> package to render to all formats at the same time with the <code>quarto_render()</code> function:</p></li>
 </ul>
-<div class="sourceCode" id="cb19"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<div class="sourceCode" id="cb19"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>()</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <div class="cell">
 
 </div>
 <p>Beforehand don’t forget to install the <code>quarto</code> package <span class="citation" data-cites="quarto">(<a href="#ref-quarto" role="doc-biblioref">Allaire 2022</a>)</span>:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"quarto"</span>)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;quarto&quot;</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <div class="cell">
 
 </div>
 <p>Here you can also again specify the name of the resulting document as well as the desired output format(s):</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<div class="sourceCode" id="cb21"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"paper.qmd"</span>, </span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">output_format =</span> <span class="fu">c</span>(<span class="st">"pdf"</span>, <span class="st">"html"</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;paper.qmd&quot;</span>, </span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">output_format =</span> <span class="fu">c</span>(<span class="st">&quot;pdf&quot;</span>, <span class="st">&quot;html&quot;</span>)</span>
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <div class="cell">
 
 </div>
@@ -1263,7 +1461,7 @@ Zhu, Hao. 2017. <em><a href="https://CRAN.R-project.org/package=kableExtra">kabl
 <section id="online-appendix" class="level1 unnumbered">
 <h1 class="unnumbered">Online appendix</h1>
 <section id="sec-rsessioninfo" class="level2" data-number="15.1">
-<h2 data-number="15.1" class="anchored" data-anchor-id="sec-rsessioninfo"><span class="header-section-number">15.1</span> Attach R session info in appendix</h2>
+<h2 data-number="15.1"><span class="header-section-number">15.1</span> Attach R session info in appendix</h2>
 <p>Since R and R packages are constantly evolving you might want to add the R session info that contains information on the R version as well as the packages that are loaded.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -1316,30 +1514,30 @@ loaded via a namespace (and not attached):
 </div>
 </section>
 <section id="all-the-code-in-the-paper" class="level2" data-number="15.2">
-<h2 data-number="15.2" class="anchored" data-anchor-id="all-the-code-in-the-paper"><span class="header-section-number">15.2</span> All the code in the paper</h2>
+<h2 data-number="15.2"><span class="header-section-number">15.2</span> All the code in the paper</h2>
 <p>To simply attach all the code you used in the PDF file in the appendix see the R chunk in the underlying <code>.qmd</code> file:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">cache =</span> <span class="cn">FALSE</span>)</span>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">cache =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Use cache = TRUE if you want to speed up compilation</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_knit<span class="sc">$</span><span class="fu">set</span>(<span class="at">output.format =</span> <span class="st">"html"</span>)  <span class="co"># Set to "html" for HTML output</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_knit<span class="sc">$</span><span class="fu">set</span>(<span class="at">output.format =</span> <span class="st">&quot;html&quot;</span>)  <span class="co"># Set to &quot;html&quot; for HTML output</span></span>
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co"># A function to allow for showing some of the inline code</span></span>
 <span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>rinline <span class="ot">&lt;-</span> <span class="cf">function</span>(code){</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  html <span class="ot">&lt;-</span> <span class="st">'&lt;code  class="r"&gt;``` `r CODE` ```&lt;/code&gt;'</span></span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sub</span>(<span class="st">"CODE"</span>, code, html)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  html <span class="ot">&lt;-</span> <span class="st">&#39;&lt;code  class=&quot;r&quot;&gt;``` `r CODE` ```&lt;/code&gt;&#39;</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sub</span>(<span class="st">&quot;CODE&quot;</span>, code, html)</span>
 <span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rmarkdown"</span>)</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'tinytex'</span>)</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;rmarkdown&quot;</span>)</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;tinytex&#39;</span>)</span>
 <span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">install_tinytex</span>()</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"knitr"</span>, <span class="st">"kableExtra"</span>,</span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"modelsummary"</span>, <span class="st">"knitr"</span>, <span class="st">"gt"</span>, <span class="st">"gtsummary"</span>))</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;kableExtra&quot;</span>,</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;modelsummary&quot;</span>, <span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;gt&quot;</span>, <span class="st">&quot;gtsummary&quot;</span>))</span>
 <span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="co">#|label: fig-versioning</span></span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">paste</span>(<span class="st">"#"</span>, <span class="fu">capture.output</span>(<span class="fu">sessionInfo</span>()), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, <span class="at">collapse =</span><span class="st">""</span>)) </span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">paste</span>(<span class="st">&quot;#&quot;</span>, <span class="fu">capture.output</span>(<span class="fu">sessionInfo</span>()), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="at">collapse =</span><span class="st">&quot;&quot;</span>)) </span>
 <span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># or use message() instead of cat()</span></span>
 <span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
 <span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>x</span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data.csv"</span>)</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data.csv&quot;</span>)</span>
 <span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span>
 <span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a><span class="fu">dput</span>(data[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,]) <span class="co"># here we only take a subset</span></span>
 <span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">structure</span>(<span class="fu">list</span>(<span class="at">Fertility =</span> <span class="fu">c</span>(<span class="fl">80.2</span>, <span class="fl">83.1</span>, <span class="fl">92.5</span>, <span class="fl">85.8</span>, <span class="fl">76.9</span>),</span>
@@ -1348,23 +1546,23 @@ loaded via a namespace (and not attached):
 <span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>                       <span class="at">Education =</span> <span class="fu">c</span>(12L, 9L, 5L, 7L, 15L), </span>
 <span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>                       <span class="at">Catholic =</span> <span class="fu">c</span>(<span class="fl">9.96</span>, <span class="fl">84.84</span>, <span class="fl">93.4</span>, <span class="fl">33.77</span>, <span class="fl">5.16</span>), </span>
 <span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>                       <span class="at">Infant.Mortality =</span> <span class="fu">c</span>(<span class="fl">22.2</span>, <span class="fl">22.2</span>, <span class="fl">20.2</span>, <span class="fl">20.3</span>, <span class="fl">20.6</span>)), </span>
-<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>                  <span class="at">class =</span> <span class="st">"data.frame"</span>, <span class="at">row.names =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="sc">-</span>5L))</span>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>                  <span class="at">class =</span> <span class="st">&quot;data.frame&quot;</span>, <span class="at">row.names =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="sc">-</span>5L))</span>
 <span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
 <span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
 <span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(swiss[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,], <span class="at">row.names =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">'Table with kable() and kablestyling()'</span>, </span>
-<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a>      <span class="at">booktabs =</span> T, <span class="at">format=</span><span class="st">"simple"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">&#39;Table with kable() and kablestyling()&#39;</span>, </span>
+<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a>      <span class="at">booktabs =</span> T, <span class="at">format=</span><span class="st">&quot;simple&quot;</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a>        kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(<span class="at">full_width =</span> T, </span>
-<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a>                      <span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, </span>
-<span id="cb23-39"><a href="#cb23-39" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"scale_down"</span>,</span>
-<span id="cb23-40"><a href="#cb23-40" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"HOLD_position"</span>),</span>
+<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a>                      <span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">&quot;striped&quot;</span>, </span>
+<span id="cb23-39"><a href="#cb23-39" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&quot;scale_down&quot;</span>,</span>
+<span id="cb23-40"><a href="#cb23-40" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&quot;HOLD_position&quot;</span>),</span>
 <span id="cb23-41"><a href="#cb23-41" aria-hidden="true" tabindex="-1"></a>                      <span class="at">font_size =</span> <span class="dv">11</span>)</span>
 <span id="cb23-42"><a href="#cb23-42" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
 <span id="cb23-43"><a href="#cb23-43" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_skim</span>(swiss, </span>
-<span id="cb23-44"><a href="#cb23-44" aria-hidden="true" tabindex="-1"></a>                 <span class="at">type=</span><span class="st">"numeric"</span>, </span>
+<span id="cb23-44"><a href="#cb23-44" aria-hidden="true" tabindex="-1"></a>                 <span class="at">type=</span><span class="st">&quot;numeric&quot;</span>, </span>
 <span id="cb23-45"><a href="#cb23-45" aria-hidden="true" tabindex="-1"></a>                 <span class="at">histogram=</span>F, </span>
-<span id="cb23-46"><a href="#cb23-46" aria-hidden="true" tabindex="-1"></a>                 <span class="at">output=</span> <span class="st">"flextable"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-46"><a href="#cb23-46" aria-hidden="true" tabindex="-1"></a>                 <span class="at">output=</span> <span class="st">&quot;flextable&quot;</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb23-47"><a href="#cb23-47" aria-hidden="true" tabindex="-1"></a>  <span class="co"># column widths</span></span>
 <span id="cb23-48"><a href="#cb23-48" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">width</span>(<span class="dv">1</span>, <span class="at">width =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb23-49"><a href="#cb23-49" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">width</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">8</span>, <span class="at">width =</span> <span class="fl">0.5</span>)</span>
@@ -1375,26 +1573,26 @@ loaded via a namespace (and not attached):
 <span id="cb23-54"><a href="#cb23-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Create categorical variables</span></span>
 <span id="cb23-55"><a href="#cb23-55" aria-hidden="true" tabindex="-1"></a>swiss<span class="sc">$</span>Education_cat <span class="ot">&lt;-</span> <span class="fu">cut</span>(swiss<span class="sc">$</span>Education, </span>
 <span id="cb23-56"><a href="#cb23-56" aria-hidden="true" tabindex="-1"></a>                   <span class="at">breaks=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="cn">Inf</span>), </span>
-<span id="cb23-57"><a href="#cb23-57" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"low"</span>,<span class="st">"middle"</span>,<span class="st">"high"</span>))</span>
+<span id="cb23-57"><a href="#cb23-57" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;low&quot;</span>,<span class="st">&quot;middle&quot;</span>,<span class="st">&quot;high&quot;</span>))</span>
 <span id="cb23-58"><a href="#cb23-58" aria-hidden="true" tabindex="-1"></a>swiss<span class="sc">$</span>Infant.Mortality_cat <span class="ot">&lt;-</span> <span class="fu">cut</span>(swiss<span class="sc">$</span>Infant.Mortality, </span>
 <span id="cb23-59"><a href="#cb23-59" aria-hidden="true" tabindex="-1"></a>                   <span class="at">breaks=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="fl">18.15</span>, <span class="fl">21.70</span>, <span class="cn">Inf</span>), </span>
-<span id="cb23-60"><a href="#cb23-60" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"low"</span>,<span class="st">"middle"</span>,<span class="st">"high"</span>))</span>
+<span id="cb23-60"><a href="#cb23-60" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;low&quot;</span>,<span class="st">&quot;middle&quot;</span>,<span class="st">&quot;high&quot;</span>))</span>
 <span id="cb23-61"><a href="#cb23-61" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-62"><a href="#cb23-62" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span>
 <span id="cb23-63"><a href="#cb23-63" aria-hidden="true" tabindex="-1"></a>tab_cat <span class="ot">&lt;-</span> <span class="fu">datasummary_skim</span>(swiss, </span>
-<span id="cb23-64"><a href="#cb23-64" aria-hidden="true" tabindex="-1"></a>                            <span class="at">type=</span><span class="st">"categorical"</span>, </span>
-<span id="cb23-65"><a href="#cb23-65" aria-hidden="true" tabindex="-1"></a>                            <span class="at">output =</span> <span class="st">'flextable'</span>)</span>
+<span id="cb23-64"><a href="#cb23-64" aria-hidden="true" tabindex="-1"></a>                            <span class="at">type=</span><span class="st">&quot;categorical&quot;</span>, </span>
+<span id="cb23-65"><a href="#cb23-65" aria-hidden="true" tabindex="-1"></a>                            <span class="at">output =</span> <span class="st">&#39;flextable&#39;</span>)</span>
 <span id="cb23-66"><a href="#cb23-66" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-67"><a href="#cb23-67" aria-hidden="true" tabindex="-1"></a><span class="co">#additionally we want to change the font, fontsize and spacing</span></span>
-<span id="cb23-68"><a href="#cb23-68" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"gdtools"</span>)</span>
+<span id="cb23-68"><a href="#cb23-68" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;gdtools&quot;</span>)</span>
 <span id="cb23-69"><a href="#cb23-69" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-70"><a href="#cb23-70" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb23-71"><a href="#cb23-71" aria-hidden="true" tabindex="-1"></a>tab_cat <span class="ot">&lt;-</span> tab_cat <span class="sc">%&gt;%</span></span>
-<span id="cb23-72"><a href="#cb23-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">font</span>(<span class="at">fontname=</span><span class="st">"Times New Roman"</span>, <span class="at">part=</span><span class="st">"header"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb23-73"><a href="#cb23-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">font</span>(<span class="at">fontname=</span><span class="st">"Times New Roman"</span>, <span class="at">j=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb23-74"><a href="#cb23-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fontsize</span>(<span class="at">size=</span><span class="dv">12</span>, <span class="at">part=</span><span class="st">"header"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-72"><a href="#cb23-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">font</span>(<span class="at">fontname=</span><span class="st">&quot;Times New Roman&quot;</span>, <span class="at">part=</span><span class="st">&quot;header&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-73"><a href="#cb23-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">font</span>(<span class="at">fontname=</span><span class="st">&quot;Times New Roman&quot;</span>, <span class="at">j=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-74"><a href="#cb23-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fontsize</span>(<span class="at">size=</span><span class="dv">12</span>, <span class="at">part=</span><span class="st">&quot;header&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb23-75"><a href="#cb23-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fontsize</span>(<span class="at">size=</span><span class="dv">12</span>, <span class="at">j=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb23-76"><a href="#cb23-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">line_spacing</span>(<span class="at">space =</span> <span class="fl">0.3</span>, <span class="at">part =</span> <span class="st">"all"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-76"><a href="#cb23-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">line_spacing</span>(<span class="at">space =</span> <span class="fl">0.3</span>, <span class="at">part =</span> <span class="st">&quot;all&quot;</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb23-77"><a href="#cb23-77" aria-hidden="true" tabindex="-1"></a>  <span class="co"># column widths</span></span>
 <span id="cb23-78"><a href="#cb23-78" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">autofit</span>()</span>
 <span id="cb23-79"><a href="#cb23-79" aria-hidden="true" tabindex="-1"></a>  </span>
@@ -1404,52 +1602,57 @@ loaded via a namespace (and not attached):
 <span id="cb23-83"><a href="#cb23-83" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> Education <span class="sc">+</span> Agriculture, <span class="at">data =</span> swiss)</span>
 <span id="cb23-84"><a href="#cb23-84" aria-hidden="true" tabindex="-1"></a>M2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> Education <span class="sc">+</span> Catholic, <span class="at">data =</span> swiss)</span>
 <span id="cb23-85"><a href="#cb23-85" aria-hidden="true" tabindex="-1"></a>M3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> Education <span class="sc">+</span> Infant.Mortality <span class="sc">+</span> Agriculture, <span class="at">data =</span> swiss)</span>
-<span id="cb23-86"><a href="#cb23-86" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"M1"</span> <span class="ot">=</span> M1, <span class="st">"M2"</span> <span class="ot">=</span>  M2, <span class="st">"M3"</span> <span class="ot">=</span> M3)</span>
+<span id="cb23-86"><a href="#cb23-86" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&quot;M1&quot;</span> <span class="ot">=</span> M1, <span class="st">&quot;M2&quot;</span> <span class="ot">=</span>  M2, <span class="st">&quot;M3&quot;</span> <span class="ot">=</span> M3)</span>
 <span id="cb23-87"><a href="#cb23-87" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-88"><a href="#cb23-88" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
 <span id="cb23-89"><a href="#cb23-89" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
 <span id="cb23-90"><a href="#cb23-90" aria-hidden="true" tabindex="-1"></a><span class="co"># additionally we want to change the font, font size and spacing</span></span>
 <span id="cb23-91"><a href="#cb23-91" aria-hidden="true" tabindex="-1"></a>table4 <span class="ot">&lt;-</span> <span class="fu">modelsummary</span>(models,</span>
-<span id="cb23-92"><a href="#cb23-92" aria-hidden="true" tabindex="-1"></a>             <span class="at">output =</span> <span class="st">'gt'</span>,</span>
+<span id="cb23-92"><a href="#cb23-92" aria-hidden="true" tabindex="-1"></a>             <span class="at">output =</span> <span class="st">&#39;gt&#39;</span>,</span>
 <span id="cb23-93"><a href="#cb23-93" aria-hidden="true" tabindex="-1"></a>             <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb23-94"><a href="#cb23-94" aria-hidden="true" tabindex="-1"></a>             <span class="at">notes =</span> <span class="st">"Notes: put some notes here..."</span>,</span>
+<span id="cb23-94"><a href="#cb23-94" aria-hidden="true" tabindex="-1"></a>             <span class="at">notes =</span> <span class="st">&quot;Notes: put some notes here...&quot;</span>,</span>
 <span id="cb23-95"><a href="#cb23-95" aria-hidden="true" tabindex="-1"></a>             <span class="at">threeparttable =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb23-96"><a href="#cb23-96" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_spanner</span>(<span class="at">label =</span> <span class="st">'Dependent variable: Fertility'</span>, <span class="at">columns =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>)</span>
+<span id="cb23-96"><a href="#cb23-96" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tab_spanner</span>(<span class="at">label =</span> <span class="st">&#39;Dependent variable: Fertility&#39;</span>, <span class="at">columns =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>)</span>
 <span id="cb23-97"><a href="#cb23-97" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-98"><a href="#cb23-98" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(knitr<span class="sc">::</span><span class="fu">is_html_output</span>()){table4}<span class="cf">else</span></span>
 <span id="cb23-99"><a href="#cb23-99" aria-hidden="true" tabindex="-1"></a>    {table4 <span class="sc">%&gt;%</span> </span>
 <span id="cb23-100"><a href="#cb23-100" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">as_latex</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb23-101"><a href="#cb23-101" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.character</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb23-102"><a href="#cb23-102" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">(Intercept</span><span class="sc">\\</span><span class="st">)"</span>, <span class="st">"Intercept"</span>, .) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-102"><a href="#cb23-102" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gsub</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">(Intercept</span><span class="sc">\\</span><span class="st">)&quot;</span>, <span class="st">&quot;Intercept&quot;</span>, .) <span class="sc">%&gt;%</span> </span>
 <span id="cb23-103"><a href="#cb23-103" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>()}</span>
 <span id="cb23-104"><a href="#cb23-104" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(swiss<span class="sc">$</span>Catholic, swiss<span class="sc">$</span>Fertility)</span>
 <span id="cb23-105"><a href="#cb23-105" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb23-106"><a href="#cb23-106" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(swiss, <span class="fu">aes</span>(<span class="at">x=</span>Catholic, <span class="at">y=</span>Fertility, <span class="at">shape=</span>Education_cat)) <span class="sc">+</span></span>
 <span id="cb23-107"><a href="#cb23-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb23-108"><a href="#cb23-108" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Agriculture"</span>, <span class="at">y =</span> <span class="st">"Fertility"</span>, <span class="at">shape=</span><span class="st">"Education"</span>) <span class="sc">+</span></span>
+<span id="cb23-108"><a href="#cb23-108" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Agriculture&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Fertility&quot;</span>, <span class="at">shape=</span><span class="st">&quot;Education&quot;</span>) <span class="sc">+</span></span>
 <span id="cb23-109"><a href="#cb23-109" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
 <span id="cb23-110"><a href="#cb23-110" aria-hidden="true" tabindex="-1"></a>plot</span>
 <span id="cb23-111"><a href="#cb23-111" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>()</span>
-<span id="cb23-112"><a href="#cb23-112" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"quarto"</span>)</span>
+<span id="cb23-112"><a href="#cb23-112" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;quarto&quot;</span>)</span>
 <span id="cb23-113"><a href="#cb23-113" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(</span>
-<span id="cb23-114"><a href="#cb23-114" aria-hidden="true" tabindex="-1"></a>  <span class="st">"paper.qmd"</span>, </span>
-<span id="cb23-115"><a href="#cb23-115" aria-hidden="true" tabindex="-1"></a>  <span class="at">output_format =</span> <span class="fu">c</span>(<span class="st">"pdf"</span>, <span class="st">"html"</span>)</span>
+<span id="cb23-114"><a href="#cb23-114" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;paper.qmd&quot;</span>, </span>
+<span id="cb23-115"><a href="#cb23-115" aria-hidden="true" tabindex="-1"></a>  <span class="at">output_format =</span> <span class="fu">c</span>(<span class="st">&quot;pdf&quot;</span>, <span class="st">&quot;html&quot;</span>)</span>
 <span id="cb23-116"><a href="#cb23-116" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb23-117"><a href="#cb23-117" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">sessionInfo</span>(), <span class="at">local =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-117"><a href="#cb23-117" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">sessionInfo</span>(), <span class="at">local =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+</div>
+<div id="quarto-navigation-envelope" class="hidden">
+<p><span class="hidden" data-render-id="quarto-int-sidebar-title">AI and ML for Social Scientists</span> <span class="hidden" data-render-id="quarto-int-navbar-title">AI and ML for Social Scientists</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-1">Session 1: Introduction</span> <span class="hidden" data-render-id="quarto-int-sidebar:/01_introduction.html">Introduction</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-2">Session 2: Basic concepts</span> <span class="hidden" data-render-id="quarto-int-sidebar:undefined">03_03_lab_binary_classification.qmd</span> <span class="hidden" data-render-id="quarto-int-sidebar:/02_02_classic_statistics_vs_ml.html">Classical statistics vs. machine learning</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-3">Session 3: Binary classification (SL) I</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-4">Session 4: Binary classification II</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-5">Session 5: Bias and fairness in machine learning</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-6">Session 6: Resampling methods</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-7">Session 7: LM for prediction</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-8">Session 8: LM selection and regularization</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-9">Session 9: Moving beyond linearity</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-10">Session 10: Tree-Based Methods I</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-11">Session 11: Tree-Based Methods II</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-12">Session 12: Deep learning I</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-13">Session 13: Deep learning II</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-14">Session 14: Deep learning III</span></p>
+</div>
+<div id="quarto-meta-markdown" class="hidden">
+<p><span class="hidden" data-render-id="quarto-metatitle">AI and ML for Social Scientists - Writing a reproducible paper with RStudio and Quarto</span> <span class="hidden" data-render-id="quarto-twittercardtitle">AI and ML for Social Scientists - Writing a reproducible paper with RStudio and Quarto</span> <span class="hidden" data-render-id="quarto-ogcardtitle">AI and ML for Social Scientists - Writing a reproducible paper with RStudio and Quarto</span> <span class="hidden" data-render-id="quarto-metasitename">AI and ML for Social Scientists</span></p>
 </div>
 </section>
 </section>
-
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
 <ol>
 <li id="fn1"><p>You can always check your working directory in R with <code>getwd()</code>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>Another good folder setup would be to store all files needed as input files for the R Markdown manuscript in a subfolder called “input” and all output files that are produced apart from paper.html and paper.pdf in a subfolder called “output”.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</section></div></main>
-<!-- /main column -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section>
+
+</main> <!-- /main -->
+<script id = "quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1584,6 +1787,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 </div> <!-- /content -->
 
+</body>
 
-
-</body></html>
+</html>
