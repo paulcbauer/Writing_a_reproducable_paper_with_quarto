@@ -12,7 +12,6 @@ author:
     affiliations:
       - name: Mannheim Centre for European Social Research
 format:
-  html: default
   pdf:
     number-sections: true
     colorlinks: true
@@ -30,7 +29,7 @@ format:
          ]}
 date: 'last-modified'
 date-format: '[This version:] MMMM D, YYYY [<br>(First version: February  16, 2023)]'
-abstract: 'This paper provides a template to write a reproducible scientific paper with RStudio and Quarto. It falls into a series of other templates, namely using RMarkdown [@Bauer2018-dl] (see [here](https://osf.io/k8jhx/)) and Pagedown [@Bauer2021-dl] (see [here](https://osf.io/q395s)). Below we outline some of the "tricks"/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be [downloaded here](https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/) (click on ![](githubcode.png) $\Rightarrow$ **Download ZIP**). We are convinced that in the future there will be many improvements and developments with regards to RStudio and Quarto. We intend to update this file when we discover more convenient code. You can follow any updates on the [github repository](https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/).'
+abstract: 'This paper provides a template to write a reproducible scientific paper with RStudio and Quarto. It falls into a series of other templates, namely using RMarkdown [@Bauer2018-dl] (see [here](https://osf.io/k8jhx/)) and Pagedown [@Bauer2021-dl] (see [here](https://osf.io/q395s)). Below we outline some of the "tricks"/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be [downloaded here](https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/) (click on ![](githubcode.png) $\Rightarrow$ **Download ZIP**). We are convinced that in the future there will be many improvements and developments with regards to RStudio and Quarto. We intend to update this file when we discover more convenient code. You can follow any updates on the [github repository](https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/). To compile this PDF document please first read @sec-prerequisites.'
 bibliography: references.bib
 csl: american-sociological-association.csl
 tbl-cap-location: top
@@ -76,74 +75,57 @@ Some arguments...
 Like RMarkdown, Quarto uses `Knitr` to execute `R` code, and is therefore able to render most existing `.rmd` files without having to make any adjustments. As in `rmd` and other more recent developments like R's `pagedown`-package, one of the main goals of Quarto is to weave together narrative text and code and produce nicely formatted output documents.\
 Differences to RMarkdown are not only but especially due to two facts: first, Quarto is multi-lingual (R, Python, Julia, Observable JS, etc.) and second in addition to RMarkdown's workflow where the final conversion layer uses `pandoc` to create documents, Quarto uses pandoc with Lua filters (which include latex in pandoc metadata). This contributes to cross-language standardization of outputs. Put differently, it allows working regardless of language, since it allows shared syntax and shared format across languages and input formats.
 
-# Prerequisites {#sec-prerequisites}
+# Prerequisites and installation {#sec-prerequisites}
 
 Quarto is a multi-language, next-generation version of R Markdown from RStudio. Multi-language means you can use R, Python, Julia and other languages to create quarto documents. In this template we'll focus on showing you how to use **RStudio with Quarto**.
 
-To name prerequisites, we assume that you are familiar with using R and R Markdown. If you don't know what R Markdown is there are many great resources that you can use (e.g. watch this [short video](https://vimeo.com/178485416)). An older template of ours [see @Bauer2018-dl; https://osf.io/q395s] may provide a quick entry point to writing a reproducible manuscript with R Markdown and Latex. To further deepen your understanding of the different components underlying this template, go on and learn about R, [Markdown](https://en.wikipedia.org/wiki/Markdown), [R Markdown](https://rmarkdown.rstudio.com/lesson-1.html) and [Quarto](https://quarto.org/). For more information on Quarto also consider reading their [FAQ](https://quarto.org/docs/faq/rmarkdown.html).
+We assume that you are familiar with using R and R Markdown. If you don't know what R Markdown is there are many great resources that you can use (e.g. watch this [short video](https://vimeo.com/178485416)). An older template of ours [see @Bauer2018-dl] ([https://osf.io/q395s](https://osf.io/q395s)) may provide a quick entry point to writing a reproducible manuscript with R Markdown and Latex. To further deepen your understanding of the different components underlying this template, go on and learn about R, [Markdown](https://en.wikipedia.org/wiki/Markdown), [R Markdown](https://rmarkdown.rstudio.com/lesson-1.html) and [Quarto](https://quarto.org/). For more information on Quarto also consider reading their [FAQ](https://quarto.org/docs/faq/rmarkdown.html).
 
 Like R Markdown, Quarto uses `Knitr` to execute R code (hence you should also be able to render existing Rmd files without modification), and can render documents of a dozens of formats (e.g., PDF, HTML). For a comprehensive overview watch [this video](https://www.youtube.com/watch?v=yvi5uXQMvu4&t=708s&ab_channel=PositPBC) which is a record of a talk introducing `quarto` given by Tom Mock from RStudio.
 
-Then...
+To be able to compile the present document you need to follow the steps below:
 
--   ...install [R](https://www.r-project.org/) and [Rstudio](https://posit.co/download/rstudio-desktop/) (important: most recent versions, e.g. RStudio v2022.07) [@R2017; @Rstudio2015].
--   ...install the "rmarkdown"-package from CRAN using the code below [@markdown2017].
+1. Install [R](https://www.r-project.org/) and [Rstudio](https://posit.co/download/rstudio-desktop/) (important: most recent versions, e.g. RStudio v2022.07) [@R2017; @Rstudio2015].
+2. Install [tinytex](https://yihui.name/tinytex/), a lightweight version of Tex Live [@markdown2017; @tinytex] in order to compile PDFs using the code below.
 
-``` {{r}}
-install.packages("rmarkdown")
-```
-
-```{r eval=F}
-install.packages("rmarkdown")
-```
-
--   ...install [tinytex](https://yihui.name/tinytex/), a lightweight version of Tex Live [@markdown2017; @tinytex] in order to compile PDFs.
-
-``` {{r}}
+```{r eval=F, echo=T}
 install.packages('tinytex')
 tinytex::install_tinytex()
 ```
 
-```{r eval=F}
-install.packages('tinytex')
-tinytex::install_tinytex()
+3. Install the "rmarkdown"-package [@markdown2017] and the other packages [@knitr1; @knitr2; @knitr3; @kableextra; @modelsummary; @gt] using the code below. The `p_load` function from the `pacman` package checks tries to load a package, if not installs and loads it.
+
+```{r eval=T, echo=T}
+# Check if pacman is installed if not install
+if (!require("pacman")) install.packages("pacman")
+
+# Install/load packages if not present
+pacman::p_load(
+  rmarkdown,
+  knitr,
+  kableExtra,
+  modelsummary,
+  knitr,
+  gt,
+  gtsummary
+)
 ```
 
--   ...also install the packages below using the code below [@knitr1; @knitr2; @knitr3; @kableextra; @modelsummary; @gt].
 
-``` {{r}}
-install.packages(c("knitr", "kableExtra", "modelsummary", "gt", "gtsummary"))
-```
 
-```{r eval=F}
-install.packages(c("knitr", "kableExtra",
-                   "modelsummary", "knitr", "gt", "gtsummary"))
-```
-
-- ...download the 4 input files we created (see below) from [github](https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/) (click on ![](githubcode.png) $\Rightarrow$ **Download ZIP**). Ignore/delete the other files.
-
-		- `paper.qmd`
-		- `references.bib`
-		- `american-sociological-association.csl`
-		- `data.csv`
+4. Download the 5 input files we created (see below) from [github](https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/) (click on ![](githubcode.png) $\Rightarrow$ **Download ZIP**). Ignore/delete the other files.
+-   `paper.qmd`: The underlying quarto markdown file.
+-   `references.bib`: The bibliography file (*We use paperpile to manage references and export the `.bib` file into the folder that contains the `.qmd` file*)
+-   `american-sociological-association.csl`: The file storing the bibliography style.
+-   `data.csv`: Some raw data.
+-   `githubcode.png`: The image file used in the abstract.
 		
-- ...finally store all files from above together in one folder (and use this folder as your working directory later on).
-
-# Basics: Input files
-
-All the input files you need to produce the present PDF file are:
-
--   `paper.qmd` (the underlying R Markdown file).
--   `references.bib` (the bibliography).
-    -   We use paperpile to manage references and export the `.bib` file into the folder that contains the `.qmd` file.
-- `american-sociological-association.csl` (the bibliography style)
--   `data.csv` (some raw data).
-
-[Download these files from github](https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/) (click on ![](githubcode.png) $\Rightarrow$ **Download ZIP**) and save them into a folder. Close R/Rstudio and directly open `paper.qmd` with RStudio. Doing so assures that the working directory is set to the folder that contains `paper.qmd` and the other files.[^1]
+5. Finally store these four files together in one folder (and use this folder as your working directory later on), close any open Rstudio instances and directly open `paper.qmd` with a new Rstudio instance. Doing so assures that the working directory is set to the folder that contains `paper.qmd` and the other files. Then click on "Render".[^1]
 
 [^1]: You can always check your working directory in R with `getwd()`.
 
-# Basics: Output files and the YAML header {#sec-basics-2}
+
+# Output files and the YAML header {#sec-basics-2}
 
 Quarto allows you to produce documents in various formats (e.g., HTML, PDF, MS Word). By default, once you render the `paper.qmd` file in Rstudio it creates an output file in HTML called `paper.html`. However in the YAML you can specify any alternative format (or formats) alongside different options.
 
@@ -512,7 +494,7 @@ plot <- ggplot(swiss, aes(x=Catholic, y=Fertility, shape=Education_cat)) +
 plot
 ```
 
-# Compiling the document {#sec-compiling}
+# Compiling/rendering the document {#sec-compiling}
 
 Eventually you have two options on how to render/compile/knit your document:
 
