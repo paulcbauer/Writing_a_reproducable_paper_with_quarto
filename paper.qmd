@@ -120,7 +120,7 @@ pacman::p_load(
 -   `data.csv`: Some raw data.
 -   `githubcode.png`: The image file used in the abstract.
 		
-5. Finally store these four files together in one folder (and use this folder as your working directory later on), close any open Rstudio instances and directly open `paper.qmd` with a new Rstudio instance. Doing so assures that the working directory is set to the folder that contains `paper.qmd` and the other files. Then click on "Render".[^1]
+5. Finally store these files together in one folder (and use this folder as your working directory later on), close any open Rstudio instances and directly open `paper.qmd` with a new Rstudio instance. Doing so assures that the working directory is set to the folder that contains `paper.qmd` and the other files. Then click on "Render".[^1]
 
 [^1]: You can always check your working directory in R with `getwd()`.
 
