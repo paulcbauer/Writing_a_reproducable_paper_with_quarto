@@ -62,7 +62,7 @@ Some arguments...
 
 -   **Access**: Research is normally funded by taxpayers (researchers are also taxpayers). Hence, it should be freely accessible to everyone without any barriers, e.g., without requiring commercial software. Importantly, researchers from developing countries are even more dependent on free access to knowledge [@Kirsop2005-ro].
 
--   **Reproducability**: Even if you have written a study and analyzed the data yourself you will forget what you did after a few months. A fully reproducible setup will help you to trace back your own steps. Obviously, the same is true for other researchers who may want to understand your work and built on it. It may sound like a joke but why not aim for a document that can be used to reproduce your findings in 500 years.
+-   **Reproducibility**: Even if you have written a study and analyzed the data yourself you will forget what you did after a few months. A fully reproducible setup will help you to trace back your own steps. Obviously, the same is true for other researchers who may want to understand your work and built on it. It may sound like a joke but why not aim for a document that can be used to reproduce your findings in 500 years.
 
 -   **Errors**: Manual steps in data analysis (e.g., manually copy/pasting values into a table etc.) may introduce errors. Quarto allows you to **automatize** such steps and/or avoid them.
 
@@ -93,7 +93,7 @@ install.packages('tinytex')
 tinytex::install_tinytex()
 ```
 
-3. Install the "rmarkdown"-package [@markdown2017] and the other packages [@knitr1; @knitr2; @knitr3; @kableextra; @modelsummary; @gt] using the code below. The `p_load` function from the `pacman` package checks tries to load a package, if not installs and loads it.
+3. Install the "rmarkdown"-package [@markdown2017] and the other packages [@knitr1; @knitr2; @knitr3; @kableextra; @modelsummary; @gt] using the code below. The `p_load` function from the `pacman` package tries to load a package, if not installs and loads it.
 
 ```{r eval=T, echo=T}
 # Check if pacman is installed if not install
@@ -102,7 +102,6 @@ if (!require("pacman")) install.packages("pacman")
 # Install/load packages if not present
 pacman::p_load(
   rmarkdown,
-  knitr,
   kableExtra,
   modelsummary,
   knitr,
@@ -131,19 +130,19 @@ Quarto allows you to produce documents in various formats (e.g., HTML, PDF, MS W
 
 Remember (see @sec-prerequisites) that in order to compile PDFs you will need to install a recent distribution of LaTeX (e.g., TinyTex).
 
-If you want your document to be rendered in multiple output formats (e.g., HTML and PDF like we did here), you need to specify both outputs in your YAML header. Take `paper.qmd` (the underlying quarto file of this pdf) and have a look at the YAML (line #14 - #16) to see how to specify different outputs.
+If you want your document to be rendered in multiple output formats (e.g., HTML and PDF, like we did here), you need to specify both outputs in your YAML header. **Take `paper.qmd` (the underlying quarto file of this pdf) and have a look at the YAML (line #14 - #16) to see how to specify different outputs.** (There is just pdf output specified no html)
 
 For instructions on how to render your final output document, please read @sec-compiling.
 
 # Referencing within your document
 
-To see how referencing works simply see the different examples for figures, tables and sections below. For instance in @sec-tables you can find different ways of referencing tables. `paper.qmd` (the underlying quarto file of this PDF) will show you how we referenced @sec-tables right here namely with '`@sec-tables`' whereas the corresponding section title was assigned the corresponding label '`# Tables {#sec-tables}`'. Pay attention that when using section cross-references, you need to enable the number-sections option in your YAML (line #22 of this `qmd` file).
+To see how referencing works, simply see the different examples for figures, tables and sections below. For instance, in @sec-tables you can find different ways of referencing tables. `paper.qmd` (the underlying quarto file of this PDF) will show you how we referenced @sec-tables right here namely with '`@sec-tables`' whereas the corresponding section title was assigned the corresponding label '`# Tables {#sec-tables}`'. Pay attention that when using section cross-references, you need to enable the number-sections option in your YAML (line #22 of this `qmd` file).
 
 # Software versioning
 
 Software changes and gets updated, especially with an active developer community like that of R. Luckily you can always access [old versions of R](https://cran.r-project.org/bin/windows/base/old/) and old version of R packages in [the archive](https://cran.r-project.org/src/contrib/Archive/). In the archive you need to choose a particular package, e.g dplyr and search for the right version, e.g., `dplyr_0.2.tar.gz`. Then insert the path in the following function: `install.packages("https://....../dplyr_0.2.tar.gz", repos=NULL, type="source")`. Ideally, however, results will be simply reproducible in the most current R and package versions.
 
-I would recommend to use the command below and simply add it to the appendix as we did here in Appendix @sec-rsessioninfo. This will make sure you always inform the reader about the package versions your relied on in your paper. For more advanced tools see [packrat](https://rstudio.github.io/packrat/).
+We would recommend to use the command below and simply add it to the appendix as we did here in Appendix @sec-rsessioninfo. This will make sure you always inform the reader about the package versions your relied on in your paper. For more advanced tools see [packrat](https://rstudio.github.io/packrat/).
 
 ``` {{r}}
 #|label: fig-versioning
@@ -176,8 +175,8 @@ x
 Below we import an exemplary dataset (you can find `data.csv` in the [github repository]((https://github.com/paulcbauer/Writing_a_reproducable_paper_with_quarto/) with the other files).
 
 ``` {{r}}
-|echo=T
-|results="raw"
+#| echo=T
+#| results="raw"
 data <- read.csv("data.csv")
 head(data)
 ```
@@ -189,7 +188,7 @@ head(data)
 
 ## Putting your entire data into the .qmd file
 
-Applying the function `dput()` to an object gives you the code needed to reproduce that object. So you could paste that code into your `.qmd` file if you don't want to have extra data files. This makes sense were data files are small.
+Applying the function `dput()` to an object gives you the code needed to reproduce that object. So you could paste that code into your `.qmd` file if you don't want to have extra data files. This makes sense where data files are small.
 
 ``` {{r}}
 dput(data[1:5,]) # here we only take a subset
@@ -447,7 +446,7 @@ if(knitr::is_html_output()){table4}else
 # Inline code & results
 
 Reproduction reaches new heights when you work with inline code. For instance, you can automatize the display of certain coefficients within the text. An example is to include estimates, e.g., the coefficient of `dist` of the model we ran above. `r rinline("round(coef(M1)[2], 2)")` will insert the coefficient as follows: `r round(coef(M1)[2], 2)`. Or `r rinline("3 + 7")` will insert a `r 3 + 7` in the text.\
-Inline code/results that depend on earlier objects in your document will automatically be updated once you change those objects. For instance, imagine a reviewer asks you to omit certain observations from your sample. You can simply do so in the beginning of your code and push play subsequently.. at time you might have to set `cache = FALSE` at the beginning so that all the code chunks are rerun.\
+Inline code/results that depend on earlier objects in your document will automatically be updated once you change those objects. For instance, imagine a reviewer asks you to omit certain observations from your sample. You can simply do so in the beginning of your code and push play subsequently. At time you might have to set `cache = FALSE` at the beginning so that all the code chunks are rerun.\
 Researchers often avoid referring to results in-text etc. because you easily forget to change them when revising a manuscript. At the same it can make an article much more informative and easier to read, e.g., if you discuss a coefficient in the text you can directly show it in the section in which you discuss it. Inline code allows you to do just that. R Markdown allows you to that do so in a reproducible and automatized manner.
 
 # Graphs
@@ -470,7 +469,7 @@ plot(swiss$Catholic, swiss$Fertility)
 
 ## ggplot2 graphs
 
-Below in @fig-2 we also show a example witrh R's `ggplot2` package.
+Below in @fig-2 we also show a example with R's `ggplot2` package.
 
 ``` {{r}}
 #| label: fig-2
@@ -498,7 +497,7 @@ plot
 
 Eventually you have two options on how to render/compile/knit your document:
 
--   first, use the Render Button in R Studio. If you click it without using the drop down menu, by default it will create HTML since it is the first format listed in our YAML. Always remember to specify your desired output formats in your YAML (as described in @sec-basics-2) If you use the drop down menu of the "Render"-button, you can specify the desired output (e.g., HTML or PDF) but only if you specified it in your YAML.
+-   first, use the Render Button in R Studio. If you click it without using the drop down menu, by default it will create HTML since it is the first format listed in our YAML. Always remember to specify your desired output formats in your YAML (as described in @sec-basics-2) **If you use the drop down menu of the "Render"-button, you can specify the desired output (e.g., HTML or PDF) but only if you specified it in your YAML.** (again: not possible here because just one output defined)
 
 -   second, if you are not using RStudio and/or you prefer to render from the R console, use the `quarto` package to render to all formats at the same time with the `quarto_render()` function:
 
@@ -520,7 +519,7 @@ install.packages("quarto")
 install.packages("quarto")
 ```
 
-Here you can also again specify the name of the resulting document as well as the desired output format(s):
+Here you can again specify the name of the resulting document as well as the desired output format(s):
 
 ``` {{r}}
 quarto::quarto_render(
@@ -576,7 +575,7 @@ Every researcher has his own optimized setup. Currently we would recommend the f
 -   Counting words
     -   Use adobe acrobat (commerical software) to convert your file to a word file. Then open in word and delete all the parts that shouldn't go into the word count. The word count is displayed in the lower right.
     -   Use an one of the online services to count your words (search for "pdf word count")
--   Appendix: You can change the numbering format for the appendix in the rmd file
+-   Appendix: You can change the numbering format for the appendix in the `.qmd` file
     -   What is still not possible in this document is to automatically have separate reference sections for paper and appendix.
 -   Journals may require you to use their tex style: Sometimes you can simply use their template in your rmarkdown file. See [here](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/LDUMNY) for a PLOS one example.
 
