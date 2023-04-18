@@ -12,6 +12,13 @@ author:
     affiliations:
       - name: Mannheim Centre for European Social Research
 format:
+  html:
+    toc: true
+    toc_float: true
+    toc_depth: 2
+    number_sections: true
+    code_folding: hide
+    theme: readable
   pdf:
     number-sections: true
     colorlinks: true
@@ -130,7 +137,7 @@ Quarto allows you to produce documents in various formats (e.g., HTML, PDF, MS W
 
 Remember (see @sec-prerequisites) that in order to compile PDFs you will need to install a recent distribution of LaTeX (e.g., TinyTex).
 
-If you want your document to be rendered in multiple output formats (e.g., HTML and PDF, like we did here), you need to specify both outputs in your YAML header. **Take `paper.qmd` (the underlying quarto file of this pdf) and have a look at the YAML (line #14 - #16) to see how to specify different outputs.** (There is just pdf output specified no html)
+If you want your document to be rendered in multiple output formats (e.g., HTML and PDF, like we did here), you need to specify both outputs in your YAML header. Take `paper.qmd` (the underlying quarto file of this pdf) and have a look at the YAML (line #15 - #22) to see how to specify different outputs.
 
 For instructions on how to render your final output document, please read @sec-compiling.
 
@@ -497,7 +504,7 @@ plot
 
 Eventually you have two options on how to render/compile/knit your document:
 
--   first, use the Render Button in R Studio. If you click it without using the drop down menu, by default it will create HTML since it is the first format listed in our YAML. Always remember to specify your desired output formats in your YAML (as described in @sec-basics-2) **If you use the drop down menu of the "Render"-button, you can specify the desired output (e.g., HTML or PDF) but only if you specified it in your YAML.** (again: not possible here because just one output defined)
+-   first, use the Render Button in R Studio. If you click it without using the drop down menu, by default it will create HTML since it is the first format listed in our YAML. Always remember to specify your desired output formats in your YAML (as described in @sec-basics-2) If you use the drop down menu of the "Render"-button, you can specify the desired output (e.g., HTML or PDF) but only if you specified it in your YAML.
 
 -   second, if you are not using RStudio and/or you prefer to render from the R console, use the `quarto` package to render to all formats at the same time with the `quarto_render()` function:
 
